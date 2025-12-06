@@ -1,0 +1,53 @@
+{
+    "name": "@mr/server",
+    "version": "1.0.0",
+    "description": "",
+    "type": "module",
+    "scripts": {
+        "dev": "tsx --env-file=.env.dev src/index.ts",
+        "pm2:stop": "pm2 stop",
+        "pm2:dev": "pm2 start ./ecosystem.config.cjs",
+        "pm2:logs": "pm2 logs",
+        "pm2:describe": "pm2 describe",
+        "pm2:restart": "pm2 restart",
+        "scripts:keys": "tsx scripts/createPasetoKeys.ts",
+        "migrate": "dotenvx run -f .env.dev -- node-pg-migrate",
+        "migrate:up": "pnpm run migrate up",
+        "migrate:down": "pnpm run migrate down",
+        "migrate:create": "pnpm run migrate create"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+        "@cap.js/server": "catalog:security",
+        "@core/auth": "workspace:",
+        "@core/cooking": "workspace:",
+        "@core/shared": "workspace:",
+        "@core/time": "workspace:",
+        "@dotenvx/dotenvx": "catalog:security",
+        "@fastify/cookie": "catalog:fastify",
+        "@fastify/cors": "catalog:fastify",
+        "@fastify/rate-limit": "catalog:fastify",
+        "@fastify/sensible": "catalog:fastify",
+        "@fastify/swagger": "catalog:fastify",
+        "bcrypt": "catalog:security",
+        "fastify": "catalog:fastify",
+        "fastify-plugin": "catalog:fastify",
+        "iovalkey": "catalog:valkey",
+        "libsql": "catalog:sqlite",
+        "paseto-ts": "catalog:security",
+        "pg": "catalog:postgres",
+        "pm2": "catalog:",
+
+        "zod": "catalog:core"
+    },
+    "devDependencies": {
+        "@config/typescript": "workspace:",
+        "@scalar/fastify-api-reference": "catalog:fastify",
+        "@standard-schema/fastify-type-provider": "workspace:",
+        "@types/bcrypt": "catalog:security",
+        "@types/pg": "catalog:postgres",
+        "node-pg-migrate": "catalog:postgres"
+    }
+}

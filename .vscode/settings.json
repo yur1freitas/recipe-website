@@ -1,0 +1,13 @@
+{
+    "dprint.path": "node_modules/dprint/bin.js",
+    "editor.defaultFormatter": "dprint.dprint",
+    "editor.formatOnSave": true,
+
+    "terminal.integrated.defaultProfile.linux": "fish",
+    "terminal.integrated.profiles.linux": {
+        "fish": {
+            "path": "/usr/bin/fish",
+            "args": ["-l"]
+        }
+    }
+}

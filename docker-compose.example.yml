@@ -1,0 +1,20 @@
+services:
+    postgres:
+        container_name: postgres
+        image: postgres:18.1-alpine3.22
+        environment:
+            - POSTGRES_DB=<database-name>
+            - POSTGRES_USER=<user-name>
+            - POSTGRES_PASSWORD=<database-password>
+            - LANG=pt_BR.utf8
+        ports:
+            - "5432:5432"
+    valkey:
+        container_name: valkey
+        image: valkey/valkey-bundle:9.0.0-alpine
+        entrypoint:
+            - valkey-server
+            - --loadmodule
+            - /usr/lib/valkey/libjson.so
+        ports:
+            - "6379:6379"

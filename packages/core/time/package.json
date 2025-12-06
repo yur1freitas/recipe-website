@@ -1,0 +1,23 @@
+{
+    "name": "@core/time",
+    "version": "1.0.0",
+    "description": "",
+    "license": "MIT",
+    "type": "module",
+    "scripts": {
+        "build": "tsdown"
+    },
+    "devDependencies": {
+        "@config/tsdown": "workspace:",
+        "@config/typescript": "workspace:",
+        "tsdown": "catalog:",
+        "typescript": "catalog:"
+    },
+    "main": "./dist/index.mjs",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.mts",
+    "exports": {
+        ".": "./dist/index.mjs",
+        "./package.json": "./package.json"
+    }
+}

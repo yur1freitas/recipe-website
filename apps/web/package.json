@@ -1,0 +1,25 @@
+{
+    "name": "@mr/web",
+    "version": "1.0.0",
+    "description": "",
+    "license": "MIT",
+    "type": "module",
+    "scripts": {
+        "dev": "next dev",
+        "typecheck": "tsc --noEmit"
+    },
+    "devDependencies": {
+        "@tailwindcss/postcss": "catalog:tailwind",
+        "@types/react": "catalog:react",
+        "@types/react-dom": "catalog:react",
+        "babel-plugin-react-compiler": "catalog:react",
+        "daisyui": "catalog:tailwind",
+        "next": "catalog:react",
+        "tailwindcss": "catalog:tailwind",
+        "typescript": "catalog:"
+    },
+    "dependencies": {
+        "react": "catalog:react",
+        "react-dom": "catalog:react"
+    }
+}
