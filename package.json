@@ -1,0 +1,31 @@
+{
+    "name": "@mr/workspace",
+    "version": "1.0.0",
+    "description": "",
+    "license": "MIT",
+    "packageManager": "pnpm@10.22.0",
+    "scripts": {
+        "fmt": "dprint fmt",
+        "dev": "turbo run dev",
+        "build": "turbo run build",
+        "build:core": "turbo run build --filter '@core/*'",
+        "typecheck": "turbo run typecheck"
+    },
+    "devDependencies": {
+        "@config/typescript": "workspace:",
+        "@types/node": "catalog:",
+        "dprint": "catalog:",
+        "tsx": "catalog:",
+        "turbo": "catalog:",
+        "typescript": "catalog:"
+    },
+    "engines": {
+        "node": "24.11.1"
+    },
+    "devEngines": {
+        "packageManager": {
+            "name": "pnpm",
+            "version": "^10.22.0"
+        }
+    }
+}
