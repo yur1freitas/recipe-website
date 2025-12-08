@@ -39,7 +39,6 @@
         "paseto-ts": "catalog:security",
         "pg": "catalog:postgres",
         "pm2": "catalog:",
-
         "zod": "catalog:core"
     },
     "devDependencies": {

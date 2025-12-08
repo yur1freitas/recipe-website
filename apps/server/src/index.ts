@@ -16,6 +16,8 @@ import { logoutUserController } from './api/controllers/auth/LogoutUserControlle
 import { registerUserController } from './api/controllers/auth/RegisterUserController'
 import { verifyUserSessionController } from './api/controllers/auth/VerifyUserSessionController'
 
+import { fastifyAuth } from './plugins/fastifyAuth'
+
 import { cap } from './api/captcha'
 
 import { pool } from './db/postgres'
@@ -55,6 +57,9 @@ try {
         userRepositoryProvider,
         accessTokenProvider
     )
+
+    app
+        .register(fastifyAuth, { verifyUserSession })
 
     app
         .register(registerUserController, { registerUser })

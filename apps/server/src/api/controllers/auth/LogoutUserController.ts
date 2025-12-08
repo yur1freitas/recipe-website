@@ -19,6 +19,7 @@ export const logoutUserController = createController<Options>(
             '/auth/logout',
             {
                 config: {
+                    auth: 'paseto',
                     rateLimit: {
                         max: 5,
                         timeWindow: '1 hour'
@@ -39,14 +40,8 @@ export const logoutUserController = createController<Options>(
             async (request, reply) => {
                 const { accessToken } = request.cookies
 
-                if (!accessToken) {
-                    return reply.badRequest(
-                        'Você não está em uma sessão válida'
-                    )
-                }
-
                 const [err] = await app.to(
-                    logoutUser.execute({ token: accessToken })
+                    logoutUser.execute({ token: accessToken! })
                 )
 
                 if (!err) {
