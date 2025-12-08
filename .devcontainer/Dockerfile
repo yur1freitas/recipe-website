@@ -1,12 +1,16 @@
 FROM debian:13.2-slim
 
+ENV LANG=pt_BR.UTF-8
+ENV LANGUAGE=pt_BR.UTF-8
+ENV LC_ALL=pt_BR.UTF-8
+
 ENV NVM_DIR=/root/.nvm
 ENV NODE_VERSION=24.11.1
 
 SHELL ["/bin/bash", "-c"]
 
 RUN apt update -y && \  
-    apt install git sudo curl fish vim ca-certificates -y && \
+    apt install git sudo curl fish vim locales locales-all ca-certificates -y && \
     git config --global core.editor vim
 
 RUN install -m 0755 -d /etc/apt/keyrings && \
