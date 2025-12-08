@@ -6,7 +6,8 @@ ENV NODE_VERSION=24.11.1
 SHELL ["/bin/bash", "-c"]
 
 RUN apt update -y && \  
-    apt install git sudo curl fish ca-certificates -y
+    apt install git sudo curl fish vim ca-certificates -y && \
+    git config --global core.editor vim
 
 RUN install -m 0755 -d /etc/apt/keyrings && \
     curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc && \
