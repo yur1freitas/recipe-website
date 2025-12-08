@@ -18,9 +18,9 @@ import { ZodType } from 'zod'
 import z from 'zod'
 
 import { fastifyResponse } from './plugins/fastifyResponse'
+import { fastifyServerError } from './plugins/fastifyServerError'
 
 import { env } from './env'
-import { fastifyServerError } from './plugins/fastifyServerError'
 
 const app = fastify()
 
