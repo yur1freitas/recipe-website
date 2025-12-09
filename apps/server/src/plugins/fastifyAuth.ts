@@ -40,6 +40,8 @@ export const fastifyAuth = fp<Options>(
                 verifyUserSession.execute({ token: accessToken })
             )
 
+            if (!err) return
+
             if (AuthError.isError(err) || ValidatorError.isError(err)) {
                 const { code, message } = err
 
