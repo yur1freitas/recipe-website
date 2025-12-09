@@ -52,7 +52,7 @@ export const logoutUserController = createController<Options>(
                         httpOnly: true
                     }
 
-                    return reply.noContent().cookie('accessToken', '', options)
+                    return reply.cookie('accessToken', '', options).noContent()
                 }
 
                 if (AuthError.isError(err) || ValidatorError.isError(err)) {
