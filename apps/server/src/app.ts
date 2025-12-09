@@ -22,7 +22,7 @@ import { fastifyServerError } from './plugins/fastifyServerError'
 
 import { env } from './env'
 
-const app = fastify()
+const app = fastify({ logger: env.API_LOGGER })
 
 // - - Standard Schema to Schema Json - -
 app
