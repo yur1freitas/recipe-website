@@ -5,6 +5,7 @@ import { loadEnv } from './utils/env'
 export const env = loadEnv({
     // - - API - -
     API_PORT: z.coerce.number().min(0).max(65535),
+    API_LOGGER: z.enum(['true', 'false']).transform((v) => v === 'true'),
 
     // - - Web (NextJS) - -
     WEB_URL: z.url({ protocol: /^http(s)?$/ }),
