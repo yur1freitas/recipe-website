@@ -263,6 +263,9 @@ importers:
         specifier: catalog:openapi
         version: 5.5.0(openapi-fetch@0.15.0)(openapi-typescript@7.10.1(typescript@5.9.3))(react@19.2.1)(swr@2.3.7(react@19.2.1))(typescript@5.9.3)
     devDependencies:
+      '@config/typescript':
+        specifier: 'workspace:'
+        version: link:../../packages/config/typescript
       '@tailwindcss/postcss':
         specifier: catalog:tailwind
         version: 4.1.17

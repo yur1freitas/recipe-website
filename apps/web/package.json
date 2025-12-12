@@ -16,6 +16,7 @@
         "babel-plugin-react-compiler": "catalog:react",
         "daisyui": "catalog:tailwind",
         "next": "catalog:react",
+        "@config/typescript": "workspace:",
         "openapi-typescript": "catalog:openapi",
         "tailwindcss": "catalog:tailwind",
         "typescript": "catalog:"
