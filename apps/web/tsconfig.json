@@ -1,7 +1,13 @@
 {
     "extends": "@config/typescript/base.json",
     "compilerOptions": {
-        "plugins": [{ "name": "next" }]
+        "baseUrl": ".",
+        "paths": {
+            "~/*": ["./src/*"]
+        },
+        "plugins": [
+            { "name": "next" }
+        ]
     },
     "include": [
         ".next/dev/types/**/*.ts",
