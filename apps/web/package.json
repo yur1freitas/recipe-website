@@ -6,7 +6,8 @@
     "type": "module",
     "scripts": {
         "dev": "next dev",
-        "typecheck": "tsc --noEmit"
+        "typecheck": "tsc --noEmit",
+        "openapi:schema": "openapi-typescript http://localhost:7300/reference/openapi.json -o src/client/schema.d.ts"
     },
     "devDependencies": {
         "@tailwindcss/postcss": "catalog:tailwind",
@@ -15,11 +16,15 @@
         "babel-plugin-react-compiler": "catalog:react",
         "daisyui": "catalog:tailwind",
         "next": "catalog:react",
+        "openapi-typescript": "catalog:openapi",
         "tailwindcss": "catalog:tailwind",
         "typescript": "catalog:"
     },
     "dependencies": {
+        "@dotenvx/dotenvx": "catalog:security",
+        "openapi-fetch": "catalog:openapi",
         "react": "catalog:react",
-        "react-dom": "catalog:react"
+        "react-dom": "catalog:react",
+        "swr-openapi": "catalog:openapi"
     }
 }
