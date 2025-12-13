@@ -21,7 +21,6 @@
     "author": "",
     "license": "MIT",
     "dependencies": {
-        "@cap.js/server": "catalog:security",
         "@core/auth": "workspace:",
         "@core/cooking": "workspace:",
         "@core/shared": "workspace:",
@@ -36,7 +35,6 @@
         "fastify": "catalog:fastify",
         "fastify-plugin": "catalog:fastify",
         "iovalkey": "catalog:valkey",
-        "libsql": "catalog:sqlite",
         "paseto-ts": "catalog:security",
         "pg": "catalog:postgres",
         "pm2": "catalog:",

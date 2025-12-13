@@ -28,6 +28,9 @@ export const registerUserController = createController<Options>(
         app.post(
             '/auth/register',
             {
+                config: {
+                    captcha: true
+                },
                 schema: {
                     tags: ['auth'],
                     description: 'Rota para registrar um usuário',
