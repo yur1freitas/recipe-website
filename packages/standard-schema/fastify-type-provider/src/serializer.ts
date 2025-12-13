@@ -33,6 +33,6 @@ export const StandardSchemaSerializerCompiler: FastifySerializerCompiler<
             })
         }
 
-        return JSON.stringify(out)
+        return JSON.stringify(out.value)
     }
 }
