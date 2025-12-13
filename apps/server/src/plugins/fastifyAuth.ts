@@ -12,7 +12,7 @@ import { ValidatorError } from '@core/shared'
 
 declare module 'fastify' {
     interface FastifyContextConfig {
-        auth: 'paseto'
+        auth?: 'paseto'
     }
 }
 
