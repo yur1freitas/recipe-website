@@ -18,3 +18,12 @@ services:
             - /usr/lib/valkey/libjson.so
         ports:
             - "6379:6379"
+
+    cap:
+        container_name: cap
+        image: tiago2/cap:2.0.18
+        environment:
+            - SERVER_PORT=7930
+            - ADMIN_KEY=V3c3Lh/q;,,jg5;@M^u}gsIzNST*iM
+        ports:
+            - "7930:7930"

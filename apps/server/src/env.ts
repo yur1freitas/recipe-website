@@ -26,5 +26,10 @@ export const env = loadEnv({
     TOKEN_AUDIENCE: z.string().trim().nonempty(),
     TOKEN_EXPIRATION: z.string().trim().nonempty(),
     TOKEN_PRIVATE_KEY: z.string().trim().nonempty(),
-    TOKEN_PUBLIC_KEY: z.string().trim().nonempty()
+    TOKEN_PUBLIC_KEY: z.string().trim().nonempty(),
+
+    // - - Captcha (Cap.js) - -
+    CAPTCHA_URL: z.url({ protocol: /^http(s)?$/ }),
+    CAPTCHA_SECRET_KEY: z.string().nonempty(),
+    CAPTCHA_API_KEY: z.string().nonempty()
 })

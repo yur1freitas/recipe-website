@@ -39,7 +39,6 @@ catalogs:
     '@standard-schema/spec': 1.0.0
     '@standard-schema/utils': 0.3.0
   security:
-    '@cap.js/server': 4.0.4
     '@dotenvx/dotenvx': 1.51.1
     '@types/bcrypt': 6.0.0
     bcrypt: 6.0.0

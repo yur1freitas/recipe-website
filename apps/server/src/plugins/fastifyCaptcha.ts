@@ -1,0 +1,84 @@
+import type { FastifyReply, FastifyRequest } from 'fastify'
+
+import fp from 'fastify-plugin'
+import { env } from '~/env'
+
+declare module 'fastify' {
+    interface FastifyContextConfig {
+        captcha?: boolean
+    }
+}
+
+interface Options {
+    keyName: string
+}
+
+export const fastifyCaptcha = fp<Options>(
+    (app, options) => {
+        const { keyName } = options
+
+        const captchaHandler = async (
+            request: FastifyRequest,
+            reply: FastifyReply
+        ) => {
+            const body = request.body as Record<string, string>
+
+            const token = body?.[keyName]
+
+            if (!token) {
+                return reply.badRequest('É necessário resolver o captcha')
+            }
+
+            const [err, response] = await app.to(
+                fetch(`${env.CAPTCHA_URL}/siteverify`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bot ${env.CAPTCHA_API_KEY}`
+                    },
+                    body: JSON.stringify(
+                        {
+                            secret: env.CAPTCHA_SECRET_KEY,
+                            response: token
+                        },
+                        null,
+                        0
+                    )
+                })
+            )
+
+            if (response.ok) {
+                const payload = await response.json()
+                const { success } = payload as { success: boolean }
+
+                if (success) return
+            }
+
+            return reply.serverError(err)
+        }
+
+        app.addHook('onRoute', (routeOptions) => {
+            if (!routeOptions?.config?.captcha) return
+
+            if (routeOptions.preHandler) {
+                if (Array.isArray(routeOptions.preHandler)) {
+                    routeOptions.preHandler = [
+                        ...routeOptions.preHandler,
+                        captchaHandler
+                    ]
+                } else {
+                    routeOptions.preHandler = [
+                        routeOptions.preHandler,
+                        captchaHandler
+                    ]
+                }
+            }
+
+            routeOptions.preHandler = captchaHandler
+        })
+    },
+    {
+        name: '@fastify/captcha',
+        dependencies: ['@fastify/sensible']
+    }
+)
