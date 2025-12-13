@@ -9,6 +9,7 @@ services:
             - LANG=pt_BR.utf8
         ports:
             - "5432:5432"
+
     valkey:
         container_name: valkey
         image: valkey/valkey-bundle:9.0.0-alpine

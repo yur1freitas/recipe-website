@@ -10,22 +10,28 @@
         "openapi:schema": "openapi-typescript http://localhost:7300/reference/openapi.json -o src/client/schema.d.ts"
     },
     "devDependencies": {
+        "@config/typescript": "workspace:",
         "@tailwindcss/postcss": "catalog:tailwind",
         "@types/react": "catalog:react",
         "@types/react-dom": "catalog:react",
         "babel-plugin-react-compiler": "catalog:react",
         "daisyui": "catalog:tailwind",
         "next": "catalog:react",
-        "@config/typescript": "workspace:",
         "openapi-typescript": "catalog:openapi",
         "tailwindcss": "catalog:tailwind",
         "typescript": "catalog:"
     },
     "dependencies": {
+        "@core/auth": "workspace:",
+        "@core/shared": "workspace:",
+        "@cap.js/widget": "catalog:security",
         "@dotenvx/dotenvx": "catalog:security",
+        "@tanstack/react-form": "catalog:react",
+        "lucide-react": "catalog:react",
         "openapi-fetch": "catalog:openapi",
         "react": "catalog:react",
         "react-dom": "catalog:react",
-        "swr-openapi": "catalog:openapi"
+        "swr-openapi": "catalog:openapi",
+        "zod": "catalog:core"
     }
 }
