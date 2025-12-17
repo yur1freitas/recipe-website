@@ -1,0 +1,136 @@
+.text-success {
+    color: var(--success);
+}
+
+.text-error {
+    color: var(--destructive);
+}
+
+.content {
+    width: 100%;
+    max-width: 50ch;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 1rem 0.5rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.field {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.label {
+    user-select: none;
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.input,
+.password-input input {
+    width: 100%;
+    height: 2.25rem;
+    display: inline-flex;
+
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+
+    padding: 0.25rem 0.75rem;
+    box-shadow: 0 0.1rem 0.1rem 0 rgba(0, 0, 0, 0.05);
+}
+
+:is(.input, .password-input > input):focus {
+    outline: 2px solid var(--muted);
+    outline-offset: 2px;
+}
+
+.password-input {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+}
+
+.password-input > input {
+    padding-right: 1.75rem;
+}
+
+.password-input > button {
+    position: absolute;
+    right: 0.5rem;
+    top: 0;
+
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+
+    height: 100%;
+}
+
+.password-input > button svg {
+    width: 1rem;
+    height: 1rem;
+    pointer-events: none;
+}
+
+.password-input:has(input[type="password"]) .show-icon {
+    display: none;
+}
+
+.password-input:has(input[type="text"]) .hidden-icon {
+    display: none;
+}
+
+.btn {
+    cursor: pointer;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+
+    color: var(--foreground);
+    background-color: color-mix(in oklab, var(--accent) 20%, transparent);
+
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    font-weight: 500;
+    text-wrap: nowrap;
+}
+
+.btn svg {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+    pointer-events: none;
+}
+
+.btn:hover {
+    background-color: var(--accent);
+}
+
+.dark .btn:hover {
+    background-color: color-mix(in oklab, var(--accent) 30%, transparent);
+}
+
+.btn-icon {
+    width: 2.25rem;
+    height: 2.25rem;
+}
+
+.btn-full {
+    width: 100%;
+}
+
+:is(.btn, .input):disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    opacity: 50%;
+}

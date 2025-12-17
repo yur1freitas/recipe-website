@@ -1,0 +1,11 @@
+'use strict'
+
+import htm from 'htm'
+
+import { h, render } from 'preact'
+
+import { Login } from './components/Login.js'
+
+const html = htm.bind(h)
+
+render(html`<${Login}/>`, document.getElementById('root'))
