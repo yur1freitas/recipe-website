@@ -1,6 +1,5 @@
+import { loadEnv } from '@standard-schema/load-env'
 import { z } from 'zod'
-
-import { loadEnv } from './utils/env'
 
 export const env = loadEnv({
     // - - API - -
