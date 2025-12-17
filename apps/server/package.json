@@ -38,7 +38,8 @@
         "paseto-ts": "catalog:security",
         "pg": "catalog:postgres",
         "pm2": "catalog:",
-        "zod": "catalog:core"
+        "zod": "catalog:core",
+        "@standard-schema/load-env": "workspace:"
     },
     "devDependencies": {
         "@config/typescript": "workspace:",
