@@ -1,0 +1,44 @@
+#dropdown {
+    display: flex;
+    min-width: max-content;
+    width: 8rem;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    color: var(--foreground);
+    background-color: var(--card);
+    z-index: 9999;
+}
+
+.dropdown-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 0.25rem;
+}
+
+.dropdown-label {
+    width: 100%;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0 0.5rem 0.5rem 0.5rem;
+    margin-bottom: 0.25rem;
+    border-bottom: 1px solid var(--muted);
+}
+
+.dropdown-item {
+    width: 100%;
+    font-size: 0.75rem;
+    border-radius: var(--radius);
+    padding: 0.25rem 0.5rem;
+    cursor: default;
+}
+
+.dropdown-item:hover {
+    background-color: var(--accent);
+}
+
+.dark .dropdown-item:hover {
+    background-color: color-mix(in oklab, var(--accent) 30%, transparent);
+}
