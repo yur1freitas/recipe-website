@@ -13,12 +13,13 @@ export async function loginUserAction(
     _: ActionState,
     input: LoginUserActionInput
 ): Promise<ActionState> {
-    const { email, password } = input
+    const { email, password, captcha } = input
 
     const { data, error } = await httpClient.POST('/auth/login', {
         body: {
             email,
-            password
+            password,
+            captcha
         }
     })
 
