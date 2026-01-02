@@ -12,13 +12,14 @@ export async function registerUserAction(
     _: ActionState,
     data: RegisterUserActionInput
 ): Promise<ActionState> {
-    const { name, email, password } = data
+    const { name, email, password, captcha } = data
 
     const { error } = await httpClient.POST('/auth/register', {
         body: {
             name,
             email,
-            password
+            password,
+            captcha
         }
     })
 
