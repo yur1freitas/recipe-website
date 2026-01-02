@@ -30,6 +30,8 @@ export const fastifyCaptcha = fp<Options>(
                 return reply.badRequest('É necessário resolver o captcha')
             }
 
+            delete body[keyName]
+
             const [err, response] = await app.to(
                 fetch(`${env.CAPTCHA_URL}/siteverify`, {
                     method: 'POST',
