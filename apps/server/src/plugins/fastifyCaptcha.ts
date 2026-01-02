@@ -70,21 +70,21 @@ export const fastifyCaptcha = fp<Options>(
         app.addHook('onRoute', (routeOptions) => {
             if (!routeOptions?.config?.captcha) return
 
-            if (routeOptions.preHandler) {
-                if (Array.isArray(routeOptions.preHandler)) {
-                    routeOptions.preHandler = [
-                        ...routeOptions.preHandler,
+            if (routeOptions.preValidation) {
+                if (Array.isArray(routeOptions.preValidation)) {
+                    routeOptions.preValidation = [
+                        ...routeOptions.preValidation,
                         captchaHandler
                     ]
                 } else {
-                    routeOptions.preHandler = [
-                        routeOptions.preHandler,
+                    routeOptions.preValidation = [
+                        routeOptions.preValidation,
                         captchaHandler
                     ]
                 }
             }
 
-            routeOptions.preHandler = captchaHandler
+            routeOptions.preValidation = captchaHandler
         })
     },
     {
