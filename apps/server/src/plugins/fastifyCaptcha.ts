@@ -1,3 +1,4 @@
+import type { HttpError } from '@fastify/sensible'
 import type { FastifyReply, FastifyRequest } from 'fastify'
 
 import fp from 'fastify-plugin'
@@ -47,14 +48,23 @@ export const fastifyCaptcha = fp<Options>(
                 })
             )
 
-            if (response.ok) {
-                const payload = await response.json()
-                const { success } = payload as { success: boolean }
+            if (!response.ok) {
+                const httpError = (await response.json()) as HttpError
 
-                if (success) return
+                switch (httpError.statusCode) {
+                    case 401:
+                    case 404:
+                        return reply.badRequest(
+                            'Captcha mal resolvido ou já resolvido anteriormente. Reinicie e tente novamente'
+                        )
+                    case 403:
+                        return reply.serverError(httpError)
+                }
             }
 
-            return reply.serverError(err)
+            if (err) {
+                return reply.serverError(err)
+            }
         }
 
         app.addHook('onRoute', (routeOptions) => {
