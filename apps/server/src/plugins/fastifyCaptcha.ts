@@ -37,7 +37,7 @@ export const fastifyCaptcha = fp<Options>(
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': `Bot ${env.CAPTCHA_API_KEY}`
+                        'Authorization': `Bearer ${env.CAPTCHA_API_KEY}`
                     },
                     body: JSON.stringify(
                         {
