@@ -41,8 +41,8 @@ export const fastifyCaptcha = fp<Options>(
                     },
                     body: JSON.stringify(
                         {
-                            secret: env.CAPTCHA_SECRET_KEY,
-                            response: token
+                            secretKey: env.CAPTCHA_SECRET_KEY,
+                            token
                         },
                         null,
                         0
