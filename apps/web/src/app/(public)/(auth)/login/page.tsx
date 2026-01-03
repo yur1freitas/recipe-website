@@ -113,6 +113,7 @@ export default function Page(): React.JSX.Element {
                             children={(field) => (
                                 <field.Root>
                                     <field.Captcha
+                                        ref={widgetRef}
                                         i18nVerifying='Verificando...'
                                         i18nInitial='Sou humano'
                                         i18nSolved='Confirmado'
