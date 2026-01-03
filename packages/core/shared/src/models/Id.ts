@@ -7,7 +7,7 @@ import { ValueObject } from './ValueObject'
 
 export const $idSchema = z
     .uuidv7('O id deve ser válido')
-    .default(v7())
+    .default(() => v7())
     .meta({ examples: [v7()] })
 
 export const IdValidator = new ZodValidator($idSchema)
