@@ -54,12 +54,12 @@ export const loginUserController = createController<Options>((app, options) => {
                 password
             } = request.body as LoginUserInput
 
-            const [err, { token }] = await app.to(
+            const [err, data] = await app.to(
                 loginUser.execute({ email, password })
             )
 
             if (!err) {
-                return reply.ok({ token })
+                return reply.ok({ token: data.token })
             }
 
             if (AuthError.isError(err) || ValidatorError.isError(err)) {
