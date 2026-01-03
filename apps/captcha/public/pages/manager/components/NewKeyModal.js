@@ -1,7 +1,7 @@
 'use strict'
 
-import { html } from '../../../lib/ui/html.js'
 import { Modal } from '../../../lib/ui/Modal/index.js'
+import { html } from '../../../lib/ui/html.js'
 
 export const NewKeyModal = ({ siteKey, secretKey, ...props }) => {
     return html`

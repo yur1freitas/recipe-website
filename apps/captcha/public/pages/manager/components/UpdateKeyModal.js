@@ -2,9 +2,9 @@
 
 import { useSignal, useSignalEffect } from '@preact/signals'
 
-import { GET, PUT } from '../../../lib/http.js'
-import { html } from '../../../lib/ui/html.js'
 import { Modal, useModal } from '../../../lib/ui/Modal/index.js'
+import { html } from '../../../lib/ui/html.js'
+import { GET, PUT } from '../../../lib/http.js'
 
 import { useTargetKey } from '../hooks/useTargetKey.js'
 

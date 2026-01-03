@@ -2,8 +2,8 @@ import { hash } from 'bcrypt'
 
 import { z } from 'zod'
 
-import { DEFAULT_CAPTCHA_CONFIG } from '~/consts'
 import { db } from '~/db/sqlite'
+import { DEFAULT_CAPTCHA_CONFIG } from '~/consts'
 
 import type { CaptchaKeysRepository } from '~/models/CaptchaKeysRepository'
 

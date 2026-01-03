@@ -1,7 +1,7 @@
-import Cap from '@cap.js/server'
-import { z } from 'zod'
-import type { CaptchaChallengeRepository } from '~/models/CaptchaChallengeRepository'
 import type { CaptchaKeysRepository } from '~/models/CaptchaKeysRepository'
+import type { CaptchaChallengeRepository } from '~/models/CaptchaChallengeRepository'
+import { z } from 'zod'
+import Cap from '@cap.js/server'
 
 import { createController } from '~/utils/controller'
 

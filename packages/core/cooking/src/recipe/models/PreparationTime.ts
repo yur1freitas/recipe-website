@@ -1,7 +1,7 @@
 import z from 'zod'
 
-import { ValueObject, ZodValidator } from '@core/shared'
 import { Time } from '@core/time'
+import { ValueObject, ZodValidator } from '@core/shared'
 
 export const $preparationTimeSchema = z
     .instanceof(Time)

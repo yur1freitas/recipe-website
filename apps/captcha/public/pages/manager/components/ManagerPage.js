@@ -2,15 +2,15 @@
 
 import { html } from '../../../lib/ui/html.js'
 
-import { KeyStoreProvider } from '../contexts/KeyStoreContext.js'
 import { TargetKeyProvider } from '../contexts/TargetKeyContext.js'
+import { KeyStoreProvider } from '../contexts/KeyStoreContext.js'
 
 import { ThemeProvider } from '../../../lib/ui/ThemeProvider.js'
 
-import { CreateKeyModal } from './CreateKeyModal.js'
-import { KeyList } from './KeyList.js'
-import { Search } from './Search.js'
 import { Settings } from './Settings.js'
+import { Search } from './Search.js'
+import { KeyList } from './KeyList.js'
+import { CreateKeyModal } from './CreateKeyModal.js'
 
 export function ManagerPage() {
     return html`

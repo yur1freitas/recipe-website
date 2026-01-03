@@ -2,8 +2,8 @@ import type { preHandlerHookHandler } from 'fastify'
 
 import fp from 'fastify-plugin'
 
-import type { SessionToken } from '~/models/SessionToken'
 import type { UserSessionRepository } from '~/models/UserSessionRepository'
+import type { SessionToken } from '~/models/SessionToken'
 
 import { createUserSessionValidator } from './utils'
 

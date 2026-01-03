@@ -16,8 +16,8 @@ import { $emailSchema } from '@core/shared'
 
 import { loginUserAction } from '~/actions/loginUserAction'
 
-import { Action } from '~/components/Action'
 import { Loading } from '~/components/Loading'
+import { Action } from '~/components/Action'
 
 import { useAppForm } from '~/hooks/form'
 

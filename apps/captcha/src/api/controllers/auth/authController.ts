@@ -1,12 +1,12 @@
 import { randomUUID, timingSafeEqual } from 'node:crypto'
 
-import { hash } from 'bcrypt'
 import { z } from 'zod'
+import { hash } from 'bcrypt'
 
 import { createController } from '~/utils/controller'
 
-import type { SessionToken } from '~/models/SessionToken'
 import type { UserSessionRepository } from '~/models/UserSessionRepository'
+import type { SessionToken } from '~/models/SessionToken'
 
 import { env } from '~/env'
 

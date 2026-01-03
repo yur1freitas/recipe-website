@@ -2,8 +2,8 @@
 
 import htm from 'htm'
 
-import { useSignal } from '@preact/signals'
 import { h } from 'preact'
+import { useSignal } from '@preact/signals'
 
 import { POST } from '../../../lib/http.js'
 

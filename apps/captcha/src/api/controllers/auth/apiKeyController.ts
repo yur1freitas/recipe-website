@@ -4,8 +4,8 @@ import { z } from 'zod'
 
 import { createController } from '~/utils/controller'
 
-import type { APIKeyGenerator } from '~/models/APIKeyGenerator'
 import type { APIKeyRepository } from '~/models/APIKeyRepository'
+import type { APIKeyGenerator } from '~/models/APIKeyGenerator'
 
 interface Options {
     apiKeyGenerator: APIKeyGenerator

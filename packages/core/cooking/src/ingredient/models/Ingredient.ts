@@ -1,11 +1,11 @@
 import type { EntityInput, EntityProps } from '@core/shared'
 import { Entity } from '@core/shared'
 
-import { Name } from '~/shared/models/Name'
 import type { UnitEnum } from '../constants/UnitEnum'
+import { Name } from '~/shared/models/Name'
 
-import { Measure } from './Measure'
 import { Unit } from './Unit'
+import { Measure } from './Measure'
 
 export interface IngredientInput extends EntityInput {
     name: string

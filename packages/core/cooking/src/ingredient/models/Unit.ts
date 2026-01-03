@@ -2,8 +2,8 @@ import z from 'zod'
 
 import { ValueObject, ZodValidator } from '@core/shared'
 
-import { UnitEnum } from '../constants/UnitEnum'
 import { UNIT_NAMES } from '../constants/unitNames'
+import { UnitEnum } from '../constants/UnitEnum'
 
 export const $unitSchema = z.enum(
     UnitEnum,

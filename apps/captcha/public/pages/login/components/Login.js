@@ -1,7 +1,7 @@
 'use strict'
 
-import { html } from '../../../lib/ui/html.js'
 import { ThemeProvider } from '../../../lib/ui/ThemeProvider.js'
+import { html } from '../../../lib/ui/html.js'
 
 import { Form } from './Form.js'
 

@@ -5,26 +5,26 @@ import {
     VerifyUserSession
 } from '@core/auth'
 
-import { PasetoAdapter } from './adapters/auth/PasetoAdapter'
-import { PgUserRepository } from './adapters/db/PgUserRepository'
-import { ValkeyInvalidTokenRepository } from './adapters/db/ValkeyInvalidTokenRepository'
 import { BcryptAdapter } from './adapters/security/BcryptAdapter'
+import { ValkeyInvalidTokenRepository } from './adapters/db/ValkeyInvalidTokenRepository'
+import { PgUserRepository } from './adapters/db/PgUserRepository'
+import { PasetoAdapter } from './adapters/auth/PasetoAdapter'
 
-import { loginUserController } from './api/controllers/auth/LoginUserController'
-import { logoutUserController } from './api/controllers/auth/LogoutUserController'
-import { registerUserController } from './api/controllers/auth/RegisterUserController'
 import { verifyUserSessionController } from './api/controllers/auth/VerifyUserSessionController'
+import { registerUserController } from './api/controllers/auth/RegisterUserController'
+import { logoutUserController } from './api/controllers/auth/LogoutUserController'
+import { loginUserController } from './api/controllers/auth/LoginUserController'
 
 import { fastifyAuth } from './plugins/fastifyAuth'
 
-import { pool } from './db/postgres'
 import { valkey } from './db/valkey'
+import { pool } from './db/postgres'
 
 import { listeningInfo } from './utils/info'
 
-import { app } from './app'
-import { env } from './env'
 import { fastifyCaptcha } from './plugins/fastifyCaptcha'
+import { env } from './env'
+import { app } from './app'
 
 try {
     const userRepositoryProvider = new PgUserRepository(pool)

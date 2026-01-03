@@ -3,18 +3,18 @@ import { Entity, Id, List } from '@core/shared'
 
 import type { Time } from '@core/time'
 
-import type { IngredientInput } from '~/ingredient/models/Ingredient'
-import { Ingredient } from '~/ingredient/models/Ingredient'
-import { Description } from '~/shared/models/Description'
-import { Name } from '~/shared/models/Name'
-import type { StepInput } from '~/step/models/Step'
-import { Step } from '~/step/models/Step'
 import type { ToolInput } from '~/tool/models/Tool'
+import type { StepInput } from '~/step/models/Step'
+import type { IngredientInput } from '~/ingredient/models/Ingredient'
 import { Tool } from '~/tool/models/Tool'
+import { Step } from '~/step/models/Step'
+import { Name } from '~/shared/models/Name'
+import { Description } from '~/shared/models/Description'
+import { Ingredient } from '~/ingredient/models/Ingredient'
 
 import type { DifficultyEnum } from '../constants/DifficultyEnum'
-import { Difficulty } from './Difficulty'
 import { PreparationTime } from './PreparationTime'
+import { Difficulty } from './Difficulty'
 
 export interface RecipeInput extends EntityInput {
     authorId: string
