@@ -2,6 +2,7 @@
 
 import type { CapWidget } from '@cap.js/widget'
 
+import { useRouter } from 'next/navigation'
 import {
     Suspense,
     useActionState,
@@ -33,6 +34,8 @@ const schema = z
     })
 
 export default function Page(): React.JSX.Element {
+    const { replace } = useRouter()
+
     const widgetRef = useRef<CapWidget | null>(null)
 
     const [actionState, formAction] = useActionState(registerUserAction, {
@@ -63,6 +66,11 @@ export default function Page(): React.JSX.Element {
     })
 
     useEffect(() => {
+        if (actionState.status === 'success') {
+            replace('/login')
+            return
+        }
+
         const widget = widgetRef.current
 
         if (widget && actionState.status === 'failed') {
