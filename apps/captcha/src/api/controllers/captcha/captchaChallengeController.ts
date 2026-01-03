@@ -1,7 +1,7 @@
 import Cap from '@cap.js/server'
 import { z } from 'zod'
-import { CaptchaChallengeRepository } from '~/models/CaptchaChallengeRepository'
-import { CaptchaKeysRepository } from '~/models/CaptchaKeysRepository'
+import type { CaptchaChallengeRepository } from '~/models/CaptchaChallengeRepository'
+import type { CaptchaKeysRepository } from '~/models/CaptchaKeysRepository'
 
 import { createController } from '~/utils/controller'
 
@@ -49,15 +49,13 @@ export const captchaChallengeController = createController<Options>(
 
                 const { config } = captchaKeys
 
-                const {
-                    token,
-                    expires,
-                    challenge
-                } = await cap.createChallenge({
-                    challengeCount: config.count,
-                    challengeSize: config.saltSize,
-                    challengeDifficulty: config.difficulty
-                })
+                const { token, expires, challenge } = await cap.createChallenge(
+                    {
+                        challengeCount: config.count,
+                        challengeSize: config.saltSize,
+                        challengeDifficulty: config.difficulty
+                    }
+                )
 
                 const createdAt = Date.now()
 

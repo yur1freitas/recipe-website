@@ -24,14 +24,13 @@ import { useAppForm } from '~/hooks/form'
 
 import { CAPTCHA_ENDPOINT } from '~/env'
 
-const schema = z
-    .object({
-        name: $usernameSchema,
-        email: $emailSchema,
-        password: $passwordSchema,
-        confirmPassword: z.string(),
-        captcha: z.string().nonempty('É necessário resolver o captcha')
-    })
+const schema = z.object({
+    name: $usernameSchema,
+    email: $emailSchema,
+    password: $passwordSchema,
+    confirmPassword: z.string(),
+    captcha: z.string().nonempty('É necessário resolver o captcha')
+})
 
 export default function Page(): React.JSX.Element {
     const { replace } = useRouter()
@@ -82,9 +81,7 @@ export default function Page(): React.JSX.Element {
         <div className='card w-full md:w-lg bg-base-100 dark:bg-base-300 border border-base-200 shadow-sm'>
             <div className='card-body gap-y-4'>
                 <div className='flex flex-col gap-y-2 py-4'>
-                    <h2 className='text-3xl font-semibold'>
-                        Criar Conta
-                    </h2>
+                    <h2 className='text-3xl font-semibold'>Criar Conta</h2>
                     <small className='text-sm text-base-content/50'>
                         Cadastra-se e estará pronto para poder enviar suas
                         receitas!
@@ -142,13 +139,12 @@ export default function Page(): React.JSX.Element {
                                 validators={{
                                     onChangeListenTo: ['password'],
                                     onChange: ({ value, fieldApi }) => {
-                                        const password = fieldApi
-                                            .form
-                                            .getFieldValue('password')
+                                        const password =
+                                            fieldApi.form.getFieldValue(
+                                                'password'
+                                            )
 
-                                        if (
-                                            value !== password
-                                        ) {
+                                        if (value !== password) {
                                             return {
                                                 message:
                                                     'As senhas não correspondem'
@@ -193,10 +189,7 @@ export default function Page(): React.JSX.Element {
                                 Continuar
                             </form.Submit>
                         </form.AppForm>
-                        <Action
-                            state={actionState}
-                            isPending={isPending}
-                        />
+                        <Action state={actionState} isPending={isPending} />
                     </form>
                 </Suspense>
                 <small className='text-sm text-base-content/75 flex gap-1'>

@@ -1,4 +1,4 @@
-import { Step } from '../models/Step'
+import type { Step } from '../models/Step'
 
 export interface StepRepositoryProvider {
     create(step: Step): Promise<boolean>

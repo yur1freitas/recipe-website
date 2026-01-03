@@ -21,9 +21,7 @@ const updatePosition = (target, dropdown) => {
     dropdown.style.position = 'absolute'
 
     if (isOverflowX) {
-        const absoluteRight = window.scrollX
-            + targetRect.x
-            - dropdownRect.width
+        const absoluteRight = window.scrollX + targetRect.x - dropdownRect.width
 
         dropdown.style.left = `${absoluteRight}px`
     } else {
@@ -31,9 +29,8 @@ const updatePosition = (target, dropdown) => {
     }
 
     if (isOverflowY) {
-        const absoluteBottom = window.scrollY
-            + targetRect.y
-            - dropdownRect.height
+        const absoluteBottom =
+            window.scrollY + targetRect.y - dropdownRect.height
 
         dropdown.style.top = `${absoluteBottom}px`
     } else {

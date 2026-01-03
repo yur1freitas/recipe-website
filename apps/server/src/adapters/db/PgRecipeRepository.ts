@@ -1,6 +1,7 @@
-import { Recipe, RecipeRepositoryProvider } from '@core/cooking'
+import type { RecipeRepositoryProvider } from '@core/cooking'
+import { Recipe } from '@core/cooking'
 
-import { Pool } from 'pg'
+import type { Pool } from 'pg'
 
 import { app } from '~/app'
 
@@ -25,17 +26,14 @@ export class PgRecipeRepository implements RecipeRepositoryProvider {
                 ($1, $2, $3, $4, $5, $6)
         `
 
-            await this.$pool.query(
-                query,
-                [
-                    recipe.id.value,
-                    recipe.authorId.value,
-                    recipe.name.value,
-                    recipe.description.value,
-                    recipe.difficulty.value,
-                    recipe.preparationTime.value
-                ]
-            )
+            await this.$pool.query(query, [
+                recipe.id.value,
+                recipe.authorId.value,
+                recipe.name.value,
+                recipe.description.value,
+                recipe.difficulty.value,
+                recipe.preparationTime.value
+            ])
 
             return true
         } catch (err) {
@@ -57,16 +55,13 @@ export class PgRecipeRepository implements RecipeRepositoryProvider {
                 id = $5
         `
 
-        await this.$pool.query(
-            query,
-            [
-                recipe.name.value,
-                recipe.description.value,
-                recipe.difficulty.value,
-                recipe.preparationTime.value,
-                recipe.id.value
-            ]
-        )
+        await this.$pool.query(query, [
+            recipe.name.value,
+            recipe.description.value,
+            recipe.difficulty.value,
+            recipe.preparationTime.value,
+            recipe.id.value
+        ])
     }
 
     async delete(id: string): Promise<void> {
@@ -84,7 +79,7 @@ export class PgRecipeRepository implements RecipeRepositoryProvider {
 
         const { rows } = await this.$pool.query(query)
 
-        const users = rows.map(row => new Recipe(row))
+        const users = rows.map((row) => new Recipe(row))
 
         return users
     }
@@ -128,7 +123,7 @@ export class PgRecipeRepository implements RecipeRepositoryProvider {
 
         const { rows } = await this.$pool.query(query, [id])
 
-        const recipes = rows.map(row => new Recipe(row))
+        const recipes = rows.map((row) => new Recipe(row))
         return recipes
     }
 

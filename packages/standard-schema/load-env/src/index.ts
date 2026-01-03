@@ -33,5 +33,5 @@ export function loadEnv<T extends Config>(config: T): Readonly<Infer<T>> {
         env[name] = out.value
     }
 
-    return Object.freeze(env as Infer<T>)  
+    return Object.freeze(env as Infer<T>)
 }

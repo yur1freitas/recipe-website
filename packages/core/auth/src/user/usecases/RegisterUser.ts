@@ -21,9 +21,10 @@ export enum RegisterUserErrors {
     FailedRegisterUser = 'FAILED_REGISTER_USER'
 }
 
-export class RegisterUser
-    implements UseCase<RegisterUserInput, RegisterUserOutput>
-{
+export class RegisterUser implements UseCase<
+    RegisterUserInput,
+    RegisterUserOutput
+> {
     constructor(
         private readonly userRepositoryProvider: UserRepositoryProvider,
         private readonly encryptionProvider: EncryptProvider

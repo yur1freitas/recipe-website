@@ -2,7 +2,7 @@ import type { EntityInput, EntityProps } from '@core/shared'
 import { Entity } from '@core/shared'
 
 import { Name } from '~/shared/models/Name'
-import { UnitEnum } from '../constants/UnitEnum'
+import type { UnitEnum } from '../constants/UnitEnum'
 
 import { Measure } from './Measure'
 import { Unit } from './Unit'
@@ -42,8 +42,8 @@ export class Ingredient extends Entity<IngredientInput> {
     format(): string {
         const isPlural = false
 
-        return `${this.measure.value} ${
-            this.unit.format(isPlural)
-        } de ${this.name.value}`
+        return `${this.measure.value} ${this.unit.format(
+            isPlural
+        )} de ${this.name.value}`
     }
 }

@@ -8,9 +8,11 @@ export class StandardSchemaTypeProviderError extends Error {
     readonly code: string
     override readonly message: string
 
-    constructor(
-        { code, message, cause }: StandardSchemaTypeProviderErrorInput
-    ) {
+    constructor({
+        code,
+        message,
+        cause
+    }: StandardSchemaTypeProviderErrorInput) {
         super()
 
         this.code = code

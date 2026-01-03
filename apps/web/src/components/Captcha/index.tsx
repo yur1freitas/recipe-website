@@ -7,7 +7,7 @@ import { useEffect, useImperativeHandle, useRef } from 'react'
 
 import type { CapWidget } from '@cap.js/widget'
 
-import {
+import type {
     CapErrorHandler,
     CapProgressHandler,
     CapResetHandler,

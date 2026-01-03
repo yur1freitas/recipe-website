@@ -16,10 +16,10 @@ export class CaptchaSolutionRepository {
         const query = this.$db
             .insertInto('captchaSolutions')
             .values({ siteKey, bucket, count })
-            .onConflict(oc => {
+            .onConflict((oc) => {
                 return oc
                     .columns(['siteKey', 'bucket'])
-                    .doUpdateSet(eb => ({ count: eb('count', '+', 1) }))
+                    .doUpdateSet((eb) => ({ count: eb('count', '+', 1) }))
             })
 
         await query.execute()

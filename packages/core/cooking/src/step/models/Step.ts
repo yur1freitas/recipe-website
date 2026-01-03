@@ -1,4 +1,5 @@
-import { Entity, EntityInput, EntityProps } from '@core/shared'
+import type { EntityInput, EntityProps } from '@core/shared'
+import { Entity } from '@core/shared'
 
 import { Description } from '~/shared/models/Description'
 import { Order } from '~/shared/models/Order'

@@ -8,9 +8,7 @@
         "paths": {
             "~/*": ["./src/*"]
         },
-        "plugins": [
-            { "name": "next" }
-        ]
+        "plugins": [{ "name": "next" }]
     },
     "include": [
         ".next/dev/types/**/*.ts",

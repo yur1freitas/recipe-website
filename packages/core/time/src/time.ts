@@ -9,7 +9,7 @@ import {
     ONE_SECOND_IN_MS
 } from './constants'
 
-import { TimeInput, TimeUnit } from './types'
+import type { TimeInput, TimeUnit } from './types'
 import { clamp } from './utils'
 
 export class Time {

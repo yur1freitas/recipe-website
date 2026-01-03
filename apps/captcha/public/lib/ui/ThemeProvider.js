@@ -28,18 +28,16 @@ export const ThemeProvider = ({
     storageKey = 'theme',
     children
 }) => {
-    const theme = useWatcher(
-        localStorage.getItem(storageKey) ?? defaultTheme
-    )
+    const theme = useWatcher(localStorage.getItem(storageKey) ?? defaultTheme)
 
     useSignalEffect(() => {
         const root = window.document.documentElement
         root.classList.remove('light', 'dark')
 
         if (theme.value === 'system') {
-            const {
-                matches: isDark
-            } = window.matchMedia('(prefers-color-scheme: dark)')
+            const { matches: isDark } = window.matchMedia(
+                '(prefers-color-scheme: dark)'
+            )
 
             const systemTheme = isDark ? 'dark' : 'light'
             root.classList.add(systemTheme)

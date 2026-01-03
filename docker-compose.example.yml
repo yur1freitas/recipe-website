@@ -8,7 +8,7 @@ services:
             - POSTGRES_PASSWORD=<database-password>
             - LANG=pt_BR.utf8
         ports:
-            - "5432:5432"
+            - '5432:5432'
     valkey:
         container_name: valkey
         image: valkey/valkey-bundle:9.0.0-alpine
@@ -17,4 +17,4 @@ services:
             - --loadmodule
             - /usr/lib/valkey/libjson.so
         ports:
-            - "6379:6379"
+            - '6379:6379'

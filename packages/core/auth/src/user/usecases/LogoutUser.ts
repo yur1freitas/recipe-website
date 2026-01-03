@@ -1,8 +1,8 @@
 import type { UseCase } from '@core/shared'
 
 import { AuthError } from '~/shared/errors/AuthError'
-import { AccessTokenProvider } from '../providers/AccessTokenProvider'
-import { InvalidTokenRepositoryProvider } from '../providers/InvalidTokenRepositoryProvider'
+import type { AccessTokenProvider } from '../providers/AccessTokenProvider'
+import type { InvalidTokenRepositoryProvider } from '../providers/InvalidTokenRepositoryProvider'
 
 export interface LogoutUserInput {
     token: string
@@ -18,13 +18,10 @@ export enum LogoutUserErrors {
 export class LogoutUser implements UseCase<LogoutUserInput, LogoutUserOutput> {
     constructor(
         private readonly accessTokenProvider: AccessTokenProvider,
-        private readonly invalidTokenRepositoryProvider:
-            InvalidTokenRepositoryProvider
+        private readonly invalidTokenRepositoryProvider: InvalidTokenRepositoryProvider
     ) {}
 
-    async execute(
-        input: LogoutUserInput
-    ): Promise<LogoutUserOutput> {
+    async execute(input: LogoutUserInput): Promise<LogoutUserOutput> {
         const { token } = input
 
         const isValid = await this.accessTokenProvider.verify(token)

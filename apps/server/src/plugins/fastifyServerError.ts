@@ -14,7 +14,7 @@ export const fastifyServerError = fp(
     (fastify, _, next) => {
         fastify.decorateReply(
             'serverError',
-            function(
+            function (
                 this: FastifyReply,
                 error,
                 message: string = DEFAULT_SERVER_ERROR_MESSAGE

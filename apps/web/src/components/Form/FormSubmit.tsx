@@ -8,11 +8,7 @@ export interface FormSubmitProps extends ComponentProps<'button'> {
     isPending?: boolean
 }
 
-export function FormSubmit({
-    children,
-    isPending,
-    ...props
-}: FormSubmitProps) {
+export function FormSubmit({ children, isPending, ...props }: FormSubmitProps) {
     const form = useFormContext()
 
     const selector = (state: AnyFormState) => ({
@@ -29,9 +25,7 @@ export function FormSubmit({
                     className='btn btn-md btn-accent data-[submit=true]:animate-pulse'
                     {...props}
                 >
-                    {isSubmitting
-                        ? <Loading />
-                        : children}
+                    {isSubmitting ? <Loading /> : children}
                 </button>
             )}
         </form.Subscribe>

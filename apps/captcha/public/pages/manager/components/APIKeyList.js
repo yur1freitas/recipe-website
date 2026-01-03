@@ -24,14 +24,13 @@ export const APIKeyList = () => {
         selectedOption.value = ''
     }
 
-    const items = apiKeys.value
-        .map(({ id, name, createdAt }) => {
-            const selectHandler = (value) => {
-                selectedOption.value = value
-                setTargetAPIKey(id)
-            }
+    const items = apiKeys.value.map(({ id, name, createdAt }) => {
+        const selectHandler = (value) => {
+            selectedOption.value = value
+            setTargetAPIKey(id)
+        }
 
-            return html`
+        return html`
             <li>
                 <${APIKey.Root}>
                     <${APIKey.Info} name=${name} createdAt=${createdAt} />
@@ -40,7 +39,7 @@ export const APIKeyList = () => {
                     <//>
                 <//>
             </li>`
-        })
+    })
 
     return html`
         <ul className="api-key-list">${items}</ul>

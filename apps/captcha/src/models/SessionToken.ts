@@ -26,18 +26,14 @@ export class SessionToken {
 
     decode<T extends Record<string, unknown>>(accessToken: string): T | null {
         try {
-            const { payload } = verify<T>(
-                env.TOKEN_PUBLIC_KEY,
-                accessToken,
-                {
-                    validatePayload: true,
-                    assertion: {
-                        iss: env.TOKEN_ISSUER,
-                        aud: env.TOKEN_AUDIENCE,
-                        exp: env.TOKEN_EXPIRATION
-                    }
+            const { payload } = verify<T>(env.TOKEN_PUBLIC_KEY, accessToken, {
+                validatePayload: true,
+                assertion: {
+                    iss: env.TOKEN_ISSUER,
+                    aud: env.TOKEN_AUDIENCE,
+                    exp: env.TOKEN_EXPIRATION
                 }
-            )
+            })
 
             return payload
         } catch (err) {
@@ -48,18 +44,14 @@ export class SessionToken {
 
     verify(accessToken: string): boolean {
         try {
-            verify(
-                env.TOKEN_PUBLIC_KEY,
-                accessToken,
-                {
-                    validatePayload: true,
-                    assertion: {
-                        iss: env.TOKEN_ISSUER,
-                        aud: env.TOKEN_AUDIENCE,
-                        exp: env.TOKEN_EXPIRATION
-                    }
+            verify(env.TOKEN_PUBLIC_KEY, accessToken, {
+                validatePayload: true,
+                assertion: {
+                    iss: env.TOKEN_ISSUER,
+                    aud: env.TOKEN_AUDIENCE,
+                    exp: env.TOKEN_EXPIRATION
                 }
-            )
+            })
 
             return true
         } catch {

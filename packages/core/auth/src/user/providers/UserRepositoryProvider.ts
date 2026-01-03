@@ -1,6 +1,6 @@
 import type { Awaitable } from '@core/shared'
 
-import { User } from '../models/User'
+import type { User } from '../models/User'
 
 export interface UserRepositoryProvider {
     create(user: User): Awaitable<boolean>

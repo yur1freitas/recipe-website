@@ -7,9 +7,8 @@ export interface PasswordInputContextValue {
     toggleVisibility: () => void
 }
 
-export const PasswordInputContext = createContext<
-    PasswordInputContextValue | null
->(null)
+export const PasswordInputContext =
+    createContext<PasswordInputContextValue | null>(null)
 
 export function usePasswordInput(): PasswordInputContextValue {
     const ctx = use(PasswordInputContext)
@@ -35,7 +34,7 @@ export function PasswordInputRoot({
     const [inputId, setInputId] = useState<string>(id)
 
     const [isVisible, setIsVisible] = useState(false)
-    const toggleVisibility = () => setIsVisible(state => !state)
+    const toggleVisibility = () => setIsVisible((state) => !state)
 
     const value = {
         inputId,
@@ -46,9 +45,7 @@ export function PasswordInputRoot({
 
     return (
         <PasswordInputContext value={value}>
-            <div className='input w-full relative'>
-                {children}
-            </div>
+            <div className='input w-full relative'>{children}</div>
         </PasswordInputContext>
     )
 }

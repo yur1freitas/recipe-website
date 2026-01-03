@@ -18,3 +18,4 @@ services:
             - /usr/lib/valkey/libjson.so
         ports:
             - "6379:6379"
+   

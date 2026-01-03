@@ -1,11 +1,5 @@
-import type { EntityProps } from '@core/shared'
-import {
-    Email,
-    EncryptedPassword,
-    Entity,
-    EntityInput,
-    Username
-} from '@core/shared'
+import type { EntityProps, EntityInput } from '@core/shared'
+import { Email, EncryptedPassword, Entity, Username } from '@core/shared'
 
 export interface UserInput extends EntityInput {
     name: string

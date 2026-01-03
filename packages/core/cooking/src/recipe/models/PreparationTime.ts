@@ -6,7 +6,7 @@ import { Time } from '@core/time'
 export const $preparationTimeSchema = z
     .instanceof(Time)
     .refine(
-        time => time.toMilliseconds() > 0,
+        (time) => time.toMilliseconds() > 0,
         'O tempo de preparo não pode ser nulo'
     )
 
@@ -35,8 +35,8 @@ export class PreparationTime extends ValueObject<Time> {
 
     override equals(target: PreparationTime): boolean {
         return (
-            target instanceof PreparationTime
-            && target.value.toMilliseconds() === this.value.toMilliseconds()
+            target instanceof PreparationTime &&
+            target.value.toMilliseconds() === this.value.toMilliseconds()
         )
     }
 }

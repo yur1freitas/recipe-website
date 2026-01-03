@@ -2,9 +2,7 @@ import type Valkey from 'iovalkey'
 
 import type { InvalidTokenRepositoryProvider } from '@core/auth'
 
-export class ValkeyInvalidTokenRepository
-    implements InvalidTokenRepositoryProvider
-{
+export class ValkeyInvalidTokenRepository implements InvalidTokenRepositoryProvider {
     constructor(private $valkey: Valkey) {}
 
     async create(token: string): Promise<void> {

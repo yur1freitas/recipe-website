@@ -1,11 +1,7 @@
 import z from 'zod'
 
-import {
-    AuthError,
-    LoginUser,
-    LoginUserErrors,
-    LoginUserInput
-} from '@core/auth'
+import type { LoginUser, LoginUserInput } from '@core/auth'
+import { AuthError, LoginUserErrors } from '@core/auth'
 
 import { $emailSchema, $passwordSchema, ValidatorError } from '@core/shared'
 
@@ -49,10 +45,7 @@ export const loginUserController = createController<Options>((app, options) => {
             }
         },
         async (request, reply) => {
-            const {
-                email,
-                password
-            } = request.body as LoginUserInput
+            const { email, password } = request.body as LoginUserInput
 
             const [err, data] = await app.to(
                 loginUser.execute({ email, password })

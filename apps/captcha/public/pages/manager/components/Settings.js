@@ -46,8 +46,8 @@ export const Settings = () => {
     <${APIKeyModal} 
         isOpen=${isOpenedAPIKeyModal.value} 
         onClose=${() => {
-        isOpenedAPIKeyModal.value = false
-    }}
+            isOpenedAPIKeyModal.value = false
+        }}
     />
     `
 }

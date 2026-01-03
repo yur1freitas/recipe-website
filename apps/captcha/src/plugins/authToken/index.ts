@@ -25,10 +25,8 @@ export const fastifyTokenAuth = fp<Options>(
             autoReply: boolean = true
         ): preHandlerHookHandler => {
             return async (request, reply) => {
-                const {
-                    isValid,
-                    accessToken
-                } = await validateUserSession(request)
+                const { isValid, accessToken } =
+                    await validateUserSession(request)
 
                 if (!isValid && autoReply) {
                     return reply.unauthorized('O token de acesso é inválido')

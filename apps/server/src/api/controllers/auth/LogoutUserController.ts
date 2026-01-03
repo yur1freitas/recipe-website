@@ -1,6 +1,7 @@
 import z from 'zod'
 
-import { AuthError, LoginUserErrors, LogoutUser } from '@core/auth'
+import type { LogoutUser } from '@core/auth'
+import { AuthError, LoginUserErrors } from '@core/auth'
 
 import { ValidatorError } from '@core/shared'
 
@@ -29,9 +30,9 @@ export const logoutUserController = createController<Options>(
                     tags: ['auth'],
                     description: 'Desconectar o usuário da sessão',
                     response: {
-                        204: z.null().describe(
-                            'Usuário deconectado com sucesso'
-                        ),
+                        204: z
+                            .null()
+                            .describe('Usuário deconectado com sucesso'),
                         400: httpErrorSchema.describe('Erro de validação'),
                         500: serverErrorSchema
                     }

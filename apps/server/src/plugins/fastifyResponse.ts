@@ -17,7 +17,7 @@ export const fastifyResponse = fp(
     (fastify, _, next) => {
         fastify.decorateReply(
             'ok',
-            function(this: FastifyReply, payload?: unknown): FastifyReply {
+            function (this: FastifyReply, payload?: unknown): FastifyReply {
                 this.status(200)
                 this.send(payload)
                 return this
@@ -26,7 +26,7 @@ export const fastifyResponse = fp(
 
         fastify.decorateReply(
             'created',
-            function(this: FastifyReply, payload?: unknown): FastifyReply {
+            function (this: FastifyReply, payload?: unknown): FastifyReply {
                 this.status(201)
                 this.send(payload)
                 return this
@@ -35,7 +35,7 @@ export const fastifyResponse = fp(
 
         fastify.decorateReply(
             'noContent',
-            function(this: FastifyReply): FastifyReply {
+            function (this: FastifyReply): FastifyReply {
                 this.status(204)
                 this.send()
                 return this

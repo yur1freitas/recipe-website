@@ -5,9 +5,7 @@ import { Captcha } from '../Captcha'
 
 export type FieldCaptchaProps = CaptchaProps
 
-export function FieldCaptcha(
-    props: FieldCaptchaProps
-): React.JSX.Element {
+export function FieldCaptcha(props: FieldCaptchaProps): React.JSX.Element {
     const { name, handleBlur, handleChange } = useFieldContext<string>()
 
     return (

@@ -1,10 +1,7 @@
 import z from 'zod'
 
-import {
-    AuthError,
-    VerifyUserSession,
-    VerifyUserSessionErrors
-} from '@core/auth'
+import type { VerifyUserSession } from '@core/auth'
+import { AuthError, VerifyUserSessionErrors } from '@core/auth'
 
 import { ValidatorError } from '@core/shared'
 

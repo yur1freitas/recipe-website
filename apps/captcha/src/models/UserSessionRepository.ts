@@ -24,14 +24,12 @@ export class UserSessionRepository {
         createdAt,
         expiresAt
     }: CreateUserSessionInput): Promise<CreateUserSessionOutput> {
-        const query = this.$db
-            .insertInto('userSessions')
-            .values({
-                id,
-                accessToken,
-                createdAt,
-                expiresAt
-            })
+        const query = this.$db.insertInto('userSessions').values({
+            id,
+            accessToken,
+            createdAt,
+            expiresAt
+        })
 
         await query.execute()
     }
@@ -50,9 +48,7 @@ export class UserSessionRepository {
     async delete({
         id
     }: DeleteUserSessionInput): Promise<DeleteUserSessionOutput> {
-        const query = this.$db
-            .deleteFrom('userSessions')
-            .where('id', '=', id)
+        const query = this.$db.deleteFrom('userSessions').where('id', '=', id)
 
         await query.execute()
     }

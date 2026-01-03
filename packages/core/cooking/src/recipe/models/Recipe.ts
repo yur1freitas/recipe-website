@@ -1,15 +1,18 @@
 import type { EntityInput, EntityProps } from '@core/shared'
 import { Entity, Id, List } from '@core/shared'
 
-import { Time } from '@core/time'
+import type { Time } from '@core/time'
 
-import { Ingredient, IngredientInput } from '~/ingredient/models/Ingredient'
+import type { IngredientInput } from '~/ingredient/models/Ingredient'
+import { Ingredient } from '~/ingredient/models/Ingredient'
 import { Description } from '~/shared/models/Description'
 import { Name } from '~/shared/models/Name'
-import { Step, StepInput } from '~/step/models/Step'
-import { Tool, ToolInput } from '~/tool/models/Tool'
+import type { StepInput } from '~/step/models/Step'
+import { Step } from '~/step/models/Step'
+import type { ToolInput } from '~/tool/models/Tool'
+import { Tool } from '~/tool/models/Tool'
 
-import { DifficultyEnum } from '../constants/DifficultyEnum'
+import type { DifficultyEnum } from '../constants/DifficultyEnum'
 import { Difficulty } from './Difficulty'
 import { PreparationTime } from './PreparationTime'
 
@@ -61,11 +64,11 @@ export class Recipe extends Entity<RecipeInput> {
 
         this.preparationTime = new PreparationTime(preparationTime)
 
-        this.tools = new List(tools.map(input => new Tool(input)))
-        this.steps = new List(steps.map(input => new Step(input)))
+        this.tools = new List(tools.map((input) => new Tool(input)))
+        this.steps = new List(steps.map((input) => new Step(input)))
 
         this.ingredients = new List(
-            ingredients.map(input => new Ingredient(input))
+            ingredients.map((input) => new Ingredient(input))
         )
     }
 
@@ -77,9 +80,9 @@ export class Recipe extends Entity<RecipeInput> {
             description: this.description.value,
             difficulty: this.difficulty.value,
             preparationTime: this.preparationTime.value,
-            tools: this.tools.map(t => t.props).toArray(),
-            steps: this.steps.map(s => s.props).toArray(),
-            ingredients: this.ingredients.map(i => i.props).toArray()
+            tools: this.tools.map((t) => t.props).toArray(),
+            steps: this.steps.map((s) => s.props).toArray(),
+            ingredients: this.ingredients.map((i) => i.props).toArray()
         }
     }
 }

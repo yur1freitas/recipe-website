@@ -6,17 +6,18 @@ import type {
     Database
 } from '~/db/types'
 
-type CreateCaptchaKeysInput =
-    & Insertable<CaptchaKeysTable>
-    & { config: Omit<Insertable<CaptchaConfigsTable>, 'siteKey'> }
+type CreateCaptchaKeysInput = Insertable<CaptchaKeysTable> & {
+    config: Omit<Insertable<CaptchaConfigsTable>, 'siteKey'>
+}
 type CreateCaptchaKeysOutput = void
 
 interface FindCaptchaKeysInput {
     siteKey: string
 }
 type FindCaptchaKeysOutput =
-    | Selectable<CaptchaKeysTable>
-        & { config: Omit<Selectable<CaptchaConfigsTable>, 'id' | 'siteKey'> }
+    | (Selectable<CaptchaKeysTable> & {
+          config: Omit<Selectable<CaptchaConfigsTable>, 'id' | 'siteKey'>
+      })
     | null
 
 type FindAllCaptchaKeysOutput = Selectable<CaptchaKeysTable>[]
@@ -26,12 +27,13 @@ interface DeleteCaptchaKeysInput {
 }
 type DeleteCaptchaKeysOutput = void
 
-type UpdateCatpchaKeysInput =
-    & Omit<Updateable<CaptchaKeysTable>, 'id' | 'createdAt'>
-    & {
-        siteKey: string
-        config?: Omit<Updateable<CaptchaConfigsTable>, 'id' | 'siteKey'>
-    }
+type UpdateCatpchaKeysInput = Omit<
+    Updateable<CaptchaKeysTable>,
+    'id' | 'createdAt'
+> & {
+    siteKey: string
+    config?: Omit<Updateable<CaptchaConfigsTable>, 'id' | 'siteKey'>
+}
 
 type UpdateCatpchaKeysOutput = void
 
@@ -81,7 +83,8 @@ export class CaptchaKeysRepository {
             }
 
             if (
-                config && (config.count || config.difficulty || config.saltSize)
+                config &&
+                (config.count || config.difficulty || config.saltSize)
             ) {
                 queries.push(
                     trx
@@ -138,7 +141,7 @@ export class CaptchaKeysRepository {
     }: DeleteCaptchaKeysInput): Promise<DeleteCaptchaKeysOutput> {
         const transaction = this.$db.transaction()
 
-        await transaction.execute(async trx => [
+        await transaction.execute(async (trx) => [
             trx
                 .deleteFrom('captchaConfigs')
                 .where('siteKey', '=', siteKey)
