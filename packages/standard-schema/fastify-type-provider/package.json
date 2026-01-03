@@ -4,8 +4,19 @@
     "description": "",
     "license": "MIT",
     "type": "module",
+    "main": "./dist/index.mjs",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.mts",
+    "exports": {
+        ".": "./dist/index.mjs",
+        "./package.json": "./package.json"
+    },
     "scripts": {
         "build": "tsdown"
+    },
+    "dependencies": {
+        "@standard-schema/spec": "catalog:schema",
+        "@standard-schema/utils": "catalog:schema"
     },
     "devDependencies": {
         "@config/tsdown": "workspace:",
@@ -14,16 +25,5 @@
         "fastify": "catalog:fastify",
         "tsdown": "catalog:",
         "typescript": "catalog:"
-    },
-    "main": "./dist/index.mjs",
-    "module": "./dist/index.mjs",
-    "types": "./dist/index.d.mts",
-    "exports": {
-        ".": "./dist/index.mjs",
-        "./package.json": "./package.json"
-    },
-    "dependencies": {
-        "@standard-schema/spec": "catalog:schema",
-        "@standard-schema/utils": "catalog:schema"
     }
 }

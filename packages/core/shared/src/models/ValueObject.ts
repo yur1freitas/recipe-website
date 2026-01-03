@@ -1,4 +1,4 @@
-import { Validator } from '../validators/Validator'
+import type { Validator } from '../validators/Validator'
 
 export abstract class ValueObject<TValue> {
     readonly value: TValue

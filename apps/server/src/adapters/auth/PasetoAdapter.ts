@@ -27,18 +27,14 @@ export class PasetoAdapter implements AccessTokenProvider {
     }
 
     decode(token: string): UserPayload {
-        const { payload } = verify<UserPayload>(
-            env.TOKEN_PUBLIC_KEY,
-            token,
-            {
-                validatePayload: true,
-                assertion: {
-                    iss: env.TOKEN_ISSUER,
-                    aud: env.TOKEN_AUDIENCE,
-                    exp: env.TOKEN_EXPIRATION
-                }
+        const { payload } = verify<UserPayload>(env.TOKEN_PUBLIC_KEY, token, {
+            validatePayload: true,
+            assertion: {
+                iss: env.TOKEN_ISSUER,
+                aud: env.TOKEN_AUDIENCE,
+                exp: env.TOKEN_EXPIRATION
             }
-        )
+        })
 
         return {
             id: payload.id,

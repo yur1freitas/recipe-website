@@ -26,14 +26,12 @@ export class CaptchaTokenRepository {
         createdAt,
         expiresAt
     }: CreateCaptchaTokenInput): Promise<CreateCaptchaTokenOutput> {
-        const query = this.$db
-            .insertInto('captchaTokens')
-            .values({
-                token,
-                siteKey,
-                createdAt,
-                expiresAt
-            })
+        const query = this.$db.insertInto('captchaTokens').values({
+            token,
+            siteKey,
+            createdAt,
+            expiresAt
+        })
 
         await query.execute()
     }

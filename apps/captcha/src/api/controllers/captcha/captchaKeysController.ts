@@ -5,11 +5,11 @@ import { z } from 'zod'
 import { DEFAULT_CAPTCHA_CONFIG } from '~/consts'
 import { db } from '~/db/sqlite'
 
-import { CaptchaKeysRepository } from '~/models/CaptchaKeysRepository'
+import type { CaptchaKeysRepository } from '~/models/CaptchaKeysRepository'
 
 import { createController } from '~/utils/controller'
 
-import { CaptchaKeysGenerator } from '~/models/CaptchaKeysGenerator'
+import type { CaptchaKeysGenerator } from '~/models/CaptchaKeysGenerator'
 
 interface Options {
     captchaKeysGenerator: CaptchaKeysGenerator
@@ -76,11 +76,12 @@ export const captchaKeysController = createController<Options>(
                     if (previous > 0) {
                         change = ((current - previous) / previous) * 100
 
-                        direction = current > previous
-                            ? 'up'
-                            : current < previous
-                            ? 'down'
-                            : ''
+                        direction =
+                            current > previous
+                                ? 'up'
+                                : current < previous
+                                  ? 'down'
+                                  : ''
                     } else if (current > 0) {
                         change = 100
                         direction = 'up'
@@ -238,7 +239,10 @@ export const captchaKeysController = createController<Options>(
             {
                 schema: {
                     params: z.object({
-                        siteKey: z.string().regex(/[\dA-F]+/gi).nonempty()
+                        siteKey: z
+                            .string()
+                            .regex(/[\dA-F]+/gi)
+                            .nonempty()
                     })
                 }
             },

@@ -32,17 +32,16 @@ export const KeyList = () => {
     }
 
     const filteredItems = search
-        ? keys.value.filter(item => compareNames(item.name, search.value))
+        ? keys.value.filter((item) => compareNames(item.name, search.value))
         : keys.value
 
-    const items = filteredItems
-        .map(({ name, siteKey, createdAt }) => {
-            const selectHandler = (value) => {
-                selectedOption.value = value
-                setTargetKey(siteKey)
-            }
+    const items = filteredItems.map(({ name, siteKey, createdAt }) => {
+        const selectHandler = (value) => {
+            selectedOption.value = value
+            setTargetKey(siteKey)
+        }
 
-            return html`
+        return html`
             <li>
                 <${Key.Root}>
                     <${Key.Info} name=${name} createdAt=${createdAt} />
@@ -52,7 +51,7 @@ export const KeyList = () => {
                     <//>
                 <//>
             </li>`
-        })
+    })
 
     return html`
         <ul className="key-list">${items}</ul> 

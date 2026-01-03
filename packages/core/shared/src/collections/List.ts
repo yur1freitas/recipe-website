@@ -84,35 +84,25 @@ export class List<T> implements Iterable<T> {
         return new List(input)
     }
 
-    map<V>(
-        fn: (value: T, i: number) => V
-    ): List<V> {
+    map<V>(fn: (value: T, i: number) => V): List<V> {
         const input = this.$store.map(fn)
         return new List(input)
     }
 
-    filter(
-        fn: (value: Readonly<T>, i: number) => T
-    ): List<T> {
+    filter(fn: (value: Readonly<T>, i: number) => T): List<T> {
         const input = this.$store.filter(fn)
         return new List(input)
     }
 
-    find(
-        fn: (value: Readonly<T>, i: number) => T
-    ): Readonly<T> | null {
+    find(fn: (value: Readonly<T>, i: number) => T): Readonly<T> | null {
         return this.$store.find(fn) ?? null
     }
 
-    findIndex(
-        fn: (value: Readonly<T>, i: number) => T
-    ): number {
+    findIndex(fn: (value: Readonly<T>, i: number) => T): number {
         return this.$store.findIndex(fn)
     }
 
-    sort(
-        fn: (a: Readonly<T>, b: Readonly<T>) => number
-    ): List<T> {
+    sort(fn: (a: Readonly<T>, b: Readonly<T>) => number): List<T> {
         const input = this.$store.sort(fn)
         return new List(input)
     }

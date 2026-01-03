@@ -1,4 +1,4 @@
-import { TimeUnit } from './types'
+import type { TimeUnit } from './types'
 
 export const ONE_HOUR_IN_MS = 3.6e6
 export const ONE_MINUTE_IN_MS = 6e4

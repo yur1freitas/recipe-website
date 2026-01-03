@@ -5,13 +5,15 @@ export interface ParseError {
     message: string
 }
 
-export type ParseOutput<T> = {
-    data?: undefined
-    error: ParseError
-} | {
-    data: T
-    error?: undefined
-}
+export type ParseOutput<T> =
+    | {
+          data?: undefined
+          error: ParseError
+      }
+    | {
+          data: T
+          error?: undefined
+      }
 
 export abstract class Validator<T> {
     protected abstract parse(value?: T): ParseOutput<T>

@@ -5,8 +5,8 @@ import { z } from 'zod'
 
 import { createController } from '~/utils/controller'
 
-import { SessionToken } from '~/models/SessionToken'
-import { UserSessionRepository } from '~/models/UserSessionRepository'
+import type { SessionToken } from '~/models/SessionToken'
+import type { UserSessionRepository } from '~/models/UserSessionRepository'
 
 import { env } from '~/env'
 
@@ -42,8 +42,7 @@ export const authController = createController<Options>((app, options) => {
             const a = Buffer.from(adminKey, 'utf-8')
             const b = Buffer.from(env.ADMIN_KEY, 'utf-8')
 
-            const isInvalid = a.length !== b.length
-                || !timingSafeEqual(a, b)
+            const isInvalid = a.length !== b.length || !timingSafeEqual(a, b)
 
             if (isInvalid) {
                 return reply.unauthorized('Acesso não autorizado')
@@ -96,9 +95,7 @@ export const authController = createController<Options>((app, options) => {
         async (request, reply) => {
             const { accessToken } = request
 
-            const payload = sessionToken.decode<{ id: string }>(
-                accessToken!
-            )!
+            const payload = sessionToken.decode<{ id: string }>(accessToken!)!
 
             await userSessionRepository.delete({ id: payload.id })
 

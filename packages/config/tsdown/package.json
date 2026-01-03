@@ -1,9 +1,9 @@
 {
     "name": "@config/tsdown",
-    "type": "module",
     "version": "0.0.1",
     "description": "",
     "license": "MIT",
+    "type": "module",
     "main": "./index.js",
     "module": "./index.js",
     "types": "./index.d.ts",

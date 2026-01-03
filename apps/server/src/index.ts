@@ -56,12 +56,11 @@ try {
         accessTokenProvider
     )
 
-    app
-        .register(fastifyAuth, { verifyUserSession })
-        .register(fastifyCaptcha, { keyName: 'captcha' })
+    app.register(fastifyAuth, { verifyUserSession }).register(fastifyCaptcha, {
+        keyName: 'captcha'
+    })
 
-    app
-        .register(registerUserController, { registerUser })
+    app.register(registerUserController, { registerUser })
         .register(loginUserController, { loginUser })
         .register(logoutUserController, { logoutUser })
         .register(verifyUserSessionController, { verifyUserSession })

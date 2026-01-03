@@ -5,9 +5,9 @@ import type { CaptchaConfigsTable, Database } from '~/db/types'
 type CreateCaptchaConfigInput = Omit<Insertable<CaptchaConfigsTable>, 'id'>
 type CreateCaptchaConfigOutput = void
 
-type UpdateCaptchaConfigInput =
-    & Omit<Updateable<CaptchaConfigsTable>, 'id'>
-    & { siteKey: string }
+type UpdateCaptchaConfigInput = Omit<Updateable<CaptchaConfigsTable>, 'id'> & {
+    siteKey: string
+}
 type UpdateCaptchaConfigOutput = void
 
 interface FindCaptchaConfigInput {
@@ -29,14 +29,12 @@ export class CaptchaConfigRepository {
         saltSize,
         difficulty
     }: CreateCaptchaConfigInput): Promise<CreateCaptchaConfigOutput> {
-        const query = this.$db
-            .insertInto('captchaConfigs')
-            .values({
-                siteKey,
-                count,
-                saltSize,
-                difficulty
-            })
+        const query = this.$db.insertInto('captchaConfigs').values({
+            siteKey,
+            count,
+            saltSize,
+            difficulty
+        })
 
         await query.execute()
     }

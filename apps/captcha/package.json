@@ -2,6 +2,9 @@
     "name": "@mr/captcha",
     "version": "0.0.1",
     "description": "",
+    "keywords": [],
+    "license": "MIT",
+    "author": "",
     "type": "module",
     "scripts": {
         "typecheck": "tsc --noEmit",
@@ -18,9 +21,6 @@
         "migrate:down": "pnpm run migrate down",
         "migrate:create": "pnpm run migrate make --extension=ts"
     },
-    "keywords": [],
-    "author": "",
-    "license": "MIT",
     "dependencies": {
         "@cap.js/server": "catalog:security",
         "@dotenvx/dotenvx": "catalog:security",

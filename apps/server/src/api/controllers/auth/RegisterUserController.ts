@@ -1,11 +1,7 @@
 import z from 'zod'
 
-import {
-    AuthError,
-    RegisterUser,
-    RegisterUserErrors,
-    RegisterUserInput
-} from '@core/auth'
+import type { RegisterUser, RegisterUserInput } from '@core/auth'
+import { AuthError, RegisterUserErrors } from '@core/auth'
 
 import {
     $emailSchema,
@@ -40,7 +36,8 @@ export const registerUserController = createController<Options>(
                         password: $passwordSchema
                     }),
                     response: {
-                        201: z.null()
+                        201: z
+                            .null()
                             .describe('Usuário cadastrado com sucesso'),
                         400: httpErrorSchema.describe('Erro de validação'),
                         409: httpErrorSchema.describe(
@@ -51,11 +48,8 @@ export const registerUserController = createController<Options>(
                 }
             },
             async (request, reply) => {
-                const {
-                    name,
-                    email,
-                    password
-                } = request.body as RegisterUserInput
+                const { name, email, password } =
+                    request.body as RegisterUserInput
 
                 const [err] = await app.to(
                     registerUser.execute({ name, email, password })

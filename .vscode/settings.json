@@ -3,7 +3,9 @@
 
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "dprint.dprint",
-    "editor.codeActionsOnSave": { "source.fixAll.oxc": true },
+    "editor.codeActionsOnSave": {
+        "source.fixAll.oxc": "explicit"
+    },
 
     "[dockerfile]": {
         "editor.defaultFormatter": "dprint.dprint"

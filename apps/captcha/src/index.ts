@@ -43,18 +43,18 @@ try {
     const apiKeyGenerator = new APIKeyGenerator()
     const captchaKeysGenerator = new CaptchaKeysGenerator()
 
-    app
-        .register(fastifyAPIKey, { apiKeyRepository })
-        .register(fastifyTokenAuth, {
+    app.register(fastifyAPIKey, { apiKeyRepository }).register(
+        fastifyTokenAuth,
+        {
             sessionToken,
             userSessionRepository
-        })
+        }
+    )
 
-    app
-        .register(authController, {
-            sessionToken,
-            userSessionRepository
-        })
+    app.register(authController, {
+        sessionToken,
+        userSessionRepository
+    })
         .register(apiKeysController, {
             apiKeyGenerator,
             apiKeyRepository

@@ -1,6 +1,6 @@
 import type { ColumnDefinitions } from 'node-pg-migrate'
 
-import { MigrationBuilder } from 'node-pg-migrate'
+import type { MigrationBuilder } from 'node-pg-migrate'
 
 export const shorthands: ColumnDefinitions | undefined = undefined
 
@@ -14,38 +14,42 @@ export async function up(pgm: MigrationBuilder): Promise<void> {
         pgm.createType('difficulty', ['ENUM("easy", "medium", "hard")'])
     }
 
-    pgm.createTable('recipes', {
-        pk: {
-            type: 'SERIAL',
-            primaryKey: true,
-            notNull: true,
-            check: 'pk >= 0'
+    pgm.createTable(
+        'recipes',
+        {
+            pk: {
+                type: 'SERIAL',
+                primaryKey: true,
+                notNull: true,
+                check: 'pk >= 0'
+            },
+            id: {
+                type: 'UUID',
+                unique: true,
+                notNull: true
+            },
+            author_id: {
+                type: 'UUID',
+                unique: true,
+                notNull: true,
+                references: 'users(id)'
+            },
+            name: {
+                type: 'VARCHAR(64)',
+                notNull: true,
+                check: 'LENGTH(name) >= 3'
+            },
+            description: {
+                type: 'VARCHAR(256)',
+                notNull: true
+            },
+            difficulty: {
+                type: 'difficulty',
+                notNull: true
+            }
         },
-        id: {
-            type: 'UUID',
-            unique: true,
-            notNull: true
-        },
-        author_id: {
-            type: 'UUID',
-            unique: true,
-            notNull: true,
-            references: 'users(id)'
-        },
-        name: {
-            type: 'VARCHAR(64)',
-            notNull: true,
-            check: 'LENGTH(name) >= 3'
-        },
-        description: {
-            type: 'VARCHAR(256)',
-            notNull: true
-        },
-        difficulty: {
-            type: 'difficulty',
-            notNull: true
-        }
-    }, { ifNotExists: true })
+        { ifNotExists: true }
+    )
 }
 
 export async function down(pgm: MigrationBuilder): Promise<void> {

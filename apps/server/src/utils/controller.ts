@@ -1,4 +1,4 @@
-import { FastifyInstance } from 'fastify'
+import type { FastifyInstance } from 'fastify'
 
 export type ControllerRegister<T> = (app: FastifyInstance, options: T) => void
 

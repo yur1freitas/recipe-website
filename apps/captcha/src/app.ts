@@ -13,9 +13,9 @@ import fastifySensible from '@fastify/sensible'
 import fastifySwagger from '@fastify/swagger'
 import fastifyScalar from '@scalar/fastify-api-reference'
 
+import type { StandardSchemaTypeProvider } from '@standard-schema/fastify-type-provider'
 import {
     StandardSchemaSerializerCompiler,
-    StandardSchemaTypeProvider,
     StandardSchemaValidatorCompiler,
     swaggerTransform
 } from '@standard-schema/fastify-type-provider'
@@ -30,8 +30,7 @@ const app = fastify({ logger: env.SERVER_LOGGER })
     .setValidatorCompiler(StandardSchemaValidatorCompiler)
     .setSerializerCompiler(StandardSchemaSerializerCompiler)
 
-app
-    .register(fastifyAuth)
+app.register(fastifyAuth)
     .register(fastifySensible)
     .register(fastifyCookie, {
         secret: env.COOKIE_KEY
@@ -48,31 +47,29 @@ app
     })
     .register(fastifySchedule)
 
-app
-    .register(fastifySwagger, {
-        openapi: {
-            openapi: '3.0.0',
-            info: {
-                title: 'Cap API',
-                description: 'Implementação de API do Cap',
-                version: '0.1.0'
-            }
-        },
-        transform: swaggerTransform(schema => {
-            if (schema instanceof ZodType) {
-                return z.toJSONSchema(schema, { target: 'openapi-3.0' })
-            }
-
-            return schema
-        })
-    })
-    .register(fastifyScalar, {
-        routePrefix: '/reference',
-        configuration: {
-            telemetry: false,
-            theme: 'deepSpace'
+app.register(fastifySwagger, {
+    openapi: {
+        openapi: '3.0.0',
+        info: {
+            title: 'Cap API',
+            description: 'Implementação de API do Cap',
+            version: '0.1.0'
         }
+    },
+    transform: swaggerTransform((schema) => {
+        if (schema instanceof ZodType) {
+            return z.toJSONSchema(schema, { target: 'openapi-3.0' })
+        }
+
+        return schema
     })
+}).register(fastifyScalar, {
+    routePrefix: '/reference',
+    configuration: {
+        telemetry: false,
+        theme: 'deepSpace'
+    }
+})
 
 app.register(fastifyStatic, {
     root: STATIC_FILES_PATH,

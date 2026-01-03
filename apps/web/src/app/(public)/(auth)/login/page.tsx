@@ -67,9 +67,7 @@ export default function Page(): React.JSX.Element {
         <div className='card w-full md:w-lg bg-base-100 dark:bg-base-300 border border-base-200 shadow-sm'>
             <div className='card-body gap-y-4'>
                 <div className='flex flex-col gap-y-2 py-4'>
-                    <h2 className='text-3xl font-semibold'>
-                        Acessar Conta
-                    </h2>
+                    <h2 className='text-3xl font-semibold'>Acessar Conta</h2>
                     <small className='text-sm text-base-content/50'>
                         Acesse sua conta para poder enviar suas receitas!
                     </small>
@@ -133,10 +131,7 @@ export default function Page(): React.JSX.Element {
                                 Continuar
                             </form.Submit>
                         </form.AppForm>
-                        <Action
-                            state={actionState}
-                            isPending={isPending}
-                        />
+                        <Action state={actionState} isPending={isPending} />
                     </form>
                 </Suspense>
                 <small className='text-sm text-base-content/75 flex gap-1'>

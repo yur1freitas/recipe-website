@@ -20,9 +20,10 @@ export enum VerifyUserSessionErrors {
     UserNotFound = 'USER_NOT_FOUND'
 }
 
-export class VerifyUserSession
-    implements UseCase<VerifyUserSessionInput, VerifyUserSessionOutput>
-{
+export class VerifyUserSession implements UseCase<
+    VerifyUserSessionInput,
+    VerifyUserSessionOutput
+> {
     constructor(
         private readonly userRepositoryProvider: UserRepositoryProvider,
         private readonly accessTokenProvider: AccessTokenProvider

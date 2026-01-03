@@ -1,8 +1,8 @@
 import Cap from '@cap.js/server'
 import { z } from 'zod'
-import { CaptchaChallengeRepository } from '~/models/CaptchaChallengeRepository'
-import { CaptchaSolutionRepository } from '~/models/CaptchaSolutionRepository'
-import { CaptchaTokenRepository } from '~/models/CaptchaTokenRepository'
+import type { CaptchaChallengeRepository } from '~/models/CaptchaChallengeRepository'
+import type { CaptchaSolutionRepository } from '~/models/CaptchaSolutionRepository'
+import type { CaptchaTokenRepository } from '~/models/CaptchaTokenRepository'
 
 import { createController } from '~/utils/controller'
 
@@ -25,7 +25,10 @@ export const captchaRedeemController = createController<Options>(
             {
                 schema: {
                     params: z.object({
-                        siteKey: z.string().regex(/[\dA-F]+/gi).nonempty()
+                        siteKey: z
+                            .string()
+                            .regex(/[\dA-F]+/gi)
+                            .nonempty()
                     }),
                     body: z.object({
                         token: z.string().nonempty(),

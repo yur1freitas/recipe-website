@@ -29,17 +29,15 @@ export class CaptchaChallengeRepository {
         createdAt,
         expiresAt
     }: CreateCaptchaChallengeInput): Promise<CreateCaptchaChallengeOutput> {
-        const query = this.$db
-            .insertInto('captchaChallenges')
-            .values({
-                siteKey,
-                token,
-                count,
-                saltSize,
-                difficulty,
-                createdAt,
-                expiresAt
-            })
+        const query = this.$db.insertInto('captchaChallenges').values({
+            siteKey,
+            token,
+            count,
+            saltSize,
+            difficulty,
+            createdAt,
+            expiresAt
+        })
 
         await query.execute()
     }

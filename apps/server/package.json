@@ -2,6 +2,9 @@
     "name": "@mr/server",
     "version": "1.0.0",
     "description": "",
+    "keywords": [],
+    "license": "MIT",
+    "author": "",
     "type": "module",
     "scripts": {
         "dev": "tsx --env-file=.env.dev src/index.ts",
@@ -17,9 +20,6 @@
         "migrate:down": "pnpm run migrate down",
         "migrate:create": "pnpm run migrate create"
     },
-    "keywords": [],
-    "author": "",
-    "license": "MIT",
     "dependencies": {
         "@core/auth": "workspace:",
         "@core/cooking": "workspace:",
@@ -31,6 +31,7 @@
         "@fastify/rate-limit": "catalog:fastify",
         "@fastify/sensible": "catalog:fastify",
         "@fastify/swagger": "catalog:fastify",
+        "@standard-schema/load-env": "workspace:",
         "bcrypt": "catalog:security",
         "fastify": "catalog:fastify",
         "fastify-plugin": "catalog:fastify",
@@ -38,8 +39,7 @@
         "paseto-ts": "catalog:security",
         "pg": "catalog:postgres",
         "pm2": "catalog:",
-        "zod": "catalog:core",
-        "@standard-schema/load-env": "workspace:"
+        "zod": "catalog:core"
     },
     "devDependencies": {
         "@config/typescript": "workspace:",

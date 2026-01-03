@@ -1,7 +1,7 @@
 import type { UserRepositoryProvider } from '@core/auth'
 import { User } from '@core/auth'
 
-import { Pool } from 'pg'
+import type { Pool } from 'pg'
 
 import { app } from '~/app'
 
@@ -17,15 +17,12 @@ export class PgUserRepository implements UserRepositoryProvider {
                     ($1, $2, $3, $4)
                 `
 
-            await this.$pool.query(
-                query,
-                [
-                    user.id.value,
-                    user.name.value,
-                    user.email.value,
-                    user.password?.value
-                ]
-            )
+            await this.$pool.query(query, [
+                user.id.value,
+                user.name.value,
+                user.email.value,
+                user.password?.value
+            ])
 
             return true
         } catch (err) {
@@ -50,15 +47,12 @@ export class PgUserRepository implements UserRepositoryProvider {
                 id = $4
         `
 
-        await this.$pool.query(
-            query,
-            [
-                user.name.value,
-                user.email.value,
-                user.password?.value,
-                user.id.value
-            ]
-        )
+        await this.$pool.query(query, [
+            user.name.value,
+            user.email.value,
+            user.password?.value,
+            user.id.value
+        ])
     }
 
     async findAll(): Promise<User[]> {
@@ -66,7 +60,7 @@ export class PgUserRepository implements UserRepositoryProvider {
 
         const { rows } = await this.$pool.query(query)
 
-        const users = rows.map(row => new User(row))
+        const users = rows.map((row) => new User(row))
 
         return users
     }

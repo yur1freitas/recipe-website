@@ -2,11 +2,8 @@ import type { FastifyReply, FastifyRequest } from 'fastify'
 
 import fp from 'fastify-plugin'
 
-import {
-    AuthError,
-    VerifyUserSession,
-    VerifyUserSessionErrors
-} from '@core/auth'
+import type { VerifyUserSession } from '@core/auth'
+import { AuthError, VerifyUserSessionErrors } from '@core/auth'
 
 import { ValidatorError } from '@core/shared'
 
@@ -31,9 +28,7 @@ export const fastifyAuth = fp<Options>(
             const { accessToken } = request.cookies
 
             if (!accessToken) {
-                return reply.badRequest(
-                    'Você não está em uma sessão válida'
-                )
+                return reply.badRequest('Você não está em uma sessão válida')
             }
 
             const [err] = await app.to(

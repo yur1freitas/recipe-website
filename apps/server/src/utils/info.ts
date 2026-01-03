@@ -1,4 +1,4 @@
-import { FastifyInstance } from 'fastify'
+import type { FastifyInstance } from 'fastify'
 
 export function listeningInfo(app: FastifyInstance): void {
     const fastifyVersion = `🗲 Fastify ${app.version}`
@@ -9,11 +9,7 @@ export function listeningInfo(app: FastifyInstance): void {
         const addressFamily = `- ${address.family}:`
         const completeAddress = `http://${address.address}:${address.port}`
 
-        console.info(
-            '\x1b[31m%s\x1b[0m',
-            addressFamily,
-            completeAddress
-        )
+        console.info('\x1b[31m%s\x1b[0m', addressFamily, completeAddress)
 
         console.info(
             '\x1b[31m%s\x1b[0m',

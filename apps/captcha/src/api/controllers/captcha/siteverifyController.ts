@@ -3,8 +3,8 @@ import { z } from 'zod'
 
 import { createController } from '~/utils/controller'
 
-import { CaptchaKeysRepository } from '~/models/CaptchaKeysRepository'
-import { CaptchaTokenRepository } from '~/models/CaptchaTokenRepository'
+import type { CaptchaKeysRepository } from '~/models/CaptchaKeysRepository'
+import type { CaptchaTokenRepository } from '~/models/CaptchaTokenRepository'
 
 interface Options {
     captchaKeysRepository: CaptchaKeysRepository

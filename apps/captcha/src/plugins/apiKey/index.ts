@@ -3,7 +3,7 @@ import fp from 'fastify-plugin'
 
 import { compare } from 'bcrypt'
 
-import { APIKeyRepository } from '~/models/APIKeyRepository'
+import type { APIKeyRepository } from '~/models/APIKeyRepository'
 
 interface Options {
     apiKeyRepository: APIKeyRepository

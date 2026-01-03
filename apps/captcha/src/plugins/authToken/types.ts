@@ -1,5 +1,5 @@
 import type { preHandlerHookHandler } from 'fastify'
-import { ValidateUserSessionFn } from './utils'
+import type { ValidateUserSessionFn } from './utils'
 
 declare module 'fastify' {
     interface FastifyInstance {

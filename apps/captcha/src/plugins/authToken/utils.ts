@@ -23,9 +23,7 @@ export function createUserSessionValidator({
     sessionToken,
     userSessionRepository
 }: CreateUserSessionValidatorInput): CreateUserSessionValidatorOutput {
-    return async (
-        request: FastifyRequest
-    ) => {
+    return async (request: FastifyRequest) => {
         try {
             const { accessToken } = request.cookies as { accessToken?: string }
 

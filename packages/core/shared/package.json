@@ -4,24 +4,24 @@
     "description": "",
     "license": "MIT",
     "type": "module",
-    "scripts": {
-        "build": "tsdown"
-    },
-    "devDependencies": {
-        "@config/tsdown": "workspace:",
-        "@config/typescript": "workspace:",
-        "tsdown": "catalog:",
-        "typescript": "catalog:"
-    },
-    "dependencies": {
-        "uuid": "catalog:core",
-        "zod": "catalog:core"
-    },
     "main": "./dist/index.mjs",
     "module": "./dist/index.mjs",
     "types": "./dist/index.d.mts",
     "exports": {
         ".": "./dist/index.mjs",
         "./package.json": "./package.json"
+    },
+    "scripts": {
+        "build": "tsdown"
+    },
+    "dependencies": {
+        "uuid": "catalog:core",
+        "zod": "catalog:core"
+    },
+    "devDependencies": {
+        "@config/tsdown": "workspace:",
+        "@config/typescript": "workspace:",
+        "tsdown": "catalog:",
+        "typescript": "catalog:"
     }
 }

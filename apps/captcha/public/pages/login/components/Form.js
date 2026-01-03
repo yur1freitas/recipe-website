@@ -15,7 +15,7 @@ const PasswordField = ({ disabled = false }) => {
     const isVisible = useSignal(false)
     const inputType = isVisible.value ? 'text' : 'password'
 
-    const toggleVisibility = () => isVisible.value = !isVisible.value
+    const toggleVisibility = () => (isVisible.value = !isVisible.value)
 
     return html`
         <div className="field">
@@ -37,10 +37,10 @@ const PasswordField = ({ disabled = false }) => {
                     disabled=${disabled}
                 >
                     ${
-        isVisible.value
-            ? html`<${Icons.EyeIcon}/>`
-            : html`<${Icons.EyeClosedIcon}/>`
-    }
+                        isVisible.value
+                            ? html`<${Icons.EyeIcon}/>`
+                            : html`<${Icons.EyeClosedIcon}/>`
+                    }
                 </button>
             </div>
         </div>`

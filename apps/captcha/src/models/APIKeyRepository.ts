@@ -26,21 +26,17 @@ export class APIKeyRepository {
         token,
         createdAt
     }: CreateAPIKeyInput): Promise<CreateAPIKeyOutput> {
-        const query = this.$db
-            .insertInto('apiKeys')
-            .values({
-                id,
-                name,
-                token,
-                createdAt
-            })
+        const query = this.$db.insertInto('apiKeys').values({
+            id,
+            name,
+            token,
+            createdAt
+        })
 
         await query.execute()
     }
 
-    async find({
-        id
-    }: FindAPIKeyInput): Promise<FindAPIKeyOutput> {
+    async find({ id }: FindAPIKeyInput): Promise<FindAPIKeyOutput> {
         const query = this.$db
             .selectFrom('apiKeys')
             .selectAll()
@@ -52,21 +48,15 @@ export class APIKeyRepository {
     }
 
     async findAll(): Promise<FindAllAPIKeyOutput> {
-        const query = this.$db
-            .selectFrom('apiKeys')
-            .selectAll()
+        const query = this.$db.selectFrom('apiKeys').selectAll()
 
         const rows = await query.execute()
 
         return rows
     }
 
-    async delete({
-        id
-    }: DeleteAPIKeyInput): Promise<DeleteAPIKeyOutput> {
-        const query = this.$db
-            .deleteFrom('apiKeys')
-            .where('id', '=', id)
+    async delete({ id }: DeleteAPIKeyInput): Promise<DeleteAPIKeyOutput> {
+        const query = this.$db.deleteFrom('apiKeys').where('id', '=', id)
 
         await query.execute()
     }

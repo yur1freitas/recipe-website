@@ -9,6 +9,19 @@
         "typecheck": "tsc --noEmit",
         "openapi:schema": "openapi-typescript http://localhost:7300/reference/openapi.json -o src/client/schema.d.ts"
     },
+    "dependencies": {
+        "@cap.js/widget": "catalog:security",
+        "@core/auth": "workspace:",
+        "@core/shared": "workspace:",
+        "@dotenvx/dotenvx": "catalog:security",
+        "@tanstack/react-form": "catalog:react",
+        "lucide-react": "catalog:react",
+        "openapi-fetch": "catalog:openapi",
+        "react": "catalog:react",
+        "react-dom": "catalog:react",
+        "swr-openapi": "catalog:openapi",
+        "zod": "catalog:core"
+    },
     "devDependencies": {
         "@config/typescript": "workspace:",
         "@tailwindcss/postcss": "catalog:tailwind",
@@ -20,18 +33,5 @@
         "openapi-typescript": "catalog:openapi",
         "tailwindcss": "catalog:tailwind",
         "typescript": "catalog:"
-    },
-    "dependencies": {
-        "@core/auth": "workspace:",
-        "@core/shared": "workspace:",
-        "@cap.js/widget": "catalog:security",
-        "@dotenvx/dotenvx": "catalog:security",
-        "@tanstack/react-form": "catalog:react",
-        "lucide-react": "catalog:react",
-        "openapi-fetch": "catalog:openapi",
-        "react": "catalog:react",
-        "react-dom": "catalog:react",
-        "swr-openapi": "catalog:openapi",
-        "zod": "catalog:core"
     }
 }

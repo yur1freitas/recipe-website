@@ -8,9 +8,7 @@ export class StandardSchemaLoadEnvError extends Error {
     readonly code: string
     override readonly message: string
 
-    constructor(
-        { code, message, cause }: StandardSchemaLoadEnvErrorInput
-    ) {
+    constructor({ code, message, cause }: StandardSchemaLoadEnvErrorInput) {
         super()
 
         this.code = code

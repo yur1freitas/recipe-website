@@ -1,4 +1,5 @@
-import { CustomError, CustomErrorInput } from './CustomError'
+import type { CustomErrorInput } from './CustomError'
+import { CustomError } from './CustomError'
 
 export type ValidatorErrorInput = CustomErrorInput
 

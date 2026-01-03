@@ -1,4 +1,4 @@
-export type Constructor<TInput, TOutput> = new(input: TInput) => TOutput
+export type Constructor<TInput, TOutput> = new (input: TInput) => TOutput
 
 export type Awaitable<T> = Promise<T> | T
 

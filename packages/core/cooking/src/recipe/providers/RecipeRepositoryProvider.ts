@@ -1,4 +1,4 @@
-import { Recipe } from '../models/Recipe'
+import type { Recipe } from '../models/Recipe'
 
 export interface RecipeRepositoryProvider {
     create(recipe: Recipe): Promise<boolean>
