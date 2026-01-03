@@ -138,6 +138,12 @@ export default function Page(): React.JSX.Element {
                         />
                     </form>
                 </Suspense>
+                <small className='text-sm text-base-content/75 flex gap-1'>
+                    Não possui uma conta?
+                    <a href='/register' className='link'>
+                        Clique aqui
+                    </a>
+                </small>
             </div>
         </div>
     )
