@@ -5,8 +5,8 @@ import { AuthError, LoginUserErrors } from '@core/auth'
 
 import { $emailSchema, $passwordSchema, ValidatorError } from '@core/shared'
 
-import { httpErrorSchema, serverErrorSchema } from '~/schemas/httpErrorSchema'
 import { createController } from '~/utils/controller'
+import { httpErrorSchema, serverErrorSchema } from '~/schemas/httpErrorSchema'
 
 interface Options {
     loginUser: LoginUser

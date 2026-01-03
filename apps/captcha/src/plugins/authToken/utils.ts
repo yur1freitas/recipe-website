@@ -2,8 +2,8 @@ import type { FastifyRequest } from 'fastify'
 
 import { compare } from 'bcrypt'
 
-import type { SessionToken } from '~/models/SessionToken'
 import type { UserSessionRepository } from '~/models/UserSessionRepository'
+import type { SessionToken } from '~/models/SessionToken'
 
 export interface CreateUserSessionValidatorInput {
     sessionToken: SessionToken

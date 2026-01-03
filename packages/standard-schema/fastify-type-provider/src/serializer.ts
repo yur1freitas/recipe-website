@@ -2,8 +2,8 @@ import type { StandardSchemaV1 } from '@standard-schema/spec'
 
 import type { FastifySerializerCompiler } from 'fastify'
 
-import { StandardSchemaTypeProviderError } from './errors'
 import { hasProperty, isPromise } from './utils'
+import { StandardSchemaTypeProviderError } from './errors'
 
 export const StandardSchemaSerializerCompiler: FastifySerializerCompiler<
     StandardSchemaV1

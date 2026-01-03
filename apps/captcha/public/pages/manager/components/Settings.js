@@ -2,9 +2,9 @@
 
 import { useSignal } from '@preact/signals'
 
-import { POST } from '../../../lib/http.js'
-import { Dropdown } from '../../../lib/ui/Dropdown/index.js'
 import { html } from '../../../lib/ui/html.js'
+import { Dropdown } from '../../../lib/ui/Dropdown/index.js'
+import { POST } from '../../../lib/http.js'
 
 import { Icons } from '../components/Icons.js'
 import { APIKeyModal } from './APIKeyModal.js'

@@ -2,7 +2,7 @@
 
 import type { CapWidget } from '@cap.js/widget'
 
-import { useRouter } from 'next/navigation'
+import z from 'zod'
 import {
     Suspense,
     useActionState,
@@ -10,15 +10,13 @@ import {
     useRef,
     useTransition
 } from 'react'
-
-import z from 'zod'
-
+import { useRouter } from 'next/navigation'
 import { $emailSchema, $passwordSchema, $usernameSchema } from '@core/shared'
 
 import { registerUserAction } from '~/actions/registerUserAction'
 
-import { Action } from '~/components/Action'
 import { Loading } from '~/components/Loading'
+import { Action } from '~/components/Action'
 
 import { useAppForm } from '~/hooks/form'
 

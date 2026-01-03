@@ -1,7 +1,7 @@
 'use strict'
 
-import { useSignalEffect } from '@preact/signals'
 import { useSignalRef } from '@preact/signals/utils'
+import { useSignalEffect } from '@preact/signals'
 
 import { createPortal } from 'preact/compat'
 

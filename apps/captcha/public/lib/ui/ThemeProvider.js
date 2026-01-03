@@ -2,11 +2,11 @@
 
 import { useSignalEffect } from '@preact/signals'
 
-import { createContext } from 'preact'
 import { useContext } from 'preact/hooks'
+import { createContext } from 'preact'
 
-import { html } from './html.js'
 import { useWatcher } from './useWatcher.js'
+import { html } from './html.js'
 
 const ThemeContext = createContext({
     theme: 'system',

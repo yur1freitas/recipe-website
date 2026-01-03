@@ -1,7 +1,7 @@
 'use strict'
 
-import { Dropdown } from '../../../lib/ui/Dropdown/index.js'
 import { html } from '../../../lib/ui/html.js'
+import { Dropdown } from '../../../lib/ui/Dropdown/index.js'
 
 import { Icons } from './Icons.js'
 

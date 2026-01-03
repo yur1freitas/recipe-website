@@ -2,8 +2,8 @@ import type { UseCase } from '@core/shared'
 
 import { Email, Password, Username } from '@core/shared'
 
-import type { EncryptProvider } from '../providers/EncryptProvider'
 import type { UserRepositoryProvider } from '../providers/UserRepositoryProvider'
+import type { EncryptProvider } from '../providers/EncryptProvider'
 
 import { AuthError } from '~/shared/errors/AuthError'
 import { User } from '../models/User'

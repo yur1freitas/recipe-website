@@ -2,13 +2,13 @@
 
 import { useSignal } from '@preact/signals'
 
-import { POST } from '../../../lib/http.js'
-import { html } from '../../../lib/ui/html.js'
-import { Modal, useModal } from '../../../lib/ui/Modal/index.js'
-import { APIKeyStoreProvider } from '../contexts/APIKeyStoreContext.js'
 import { TargetAPIKeyProvider } from '../contexts/TargetAPIKeyContext.js'
-import { APIKeyList } from './APIKeyList.js'
+import { APIKeyStoreProvider } from '../contexts/APIKeyStoreContext.js'
+import { Modal, useModal } from '../../../lib/ui/Modal/index.js'
+import { html } from '../../../lib/ui/html.js'
+import { POST } from '../../../lib/http.js'
 import { CreateAPIKeyModal } from './CreateAPIKeyModal.js'
+import { APIKeyList } from './APIKeyList.js'
 
 const APIKeyForm = () => {
     const { close } = useModal()

@@ -1,8 +1,8 @@
 import type { UseCase } from '@core/shared'
 
-import type { UserPayload } from '../models/UserPayload'
-import type { AccessTokenProvider } from '../providers/AccessTokenProvider'
 import type { UserRepositoryProvider } from '../providers/UserRepositoryProvider'
+import type { AccessTokenProvider } from '../providers/AccessTokenProvider'
+import type { UserPayload } from '../models/UserPayload'
 
 import { AuthError } from '~/shared/errors/AuthError'
 

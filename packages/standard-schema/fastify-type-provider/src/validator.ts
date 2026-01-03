@@ -3,8 +3,8 @@ import { SchemaError } from '@standard-schema/utils'
 
 import type { FastifySchemaCompiler } from 'fastify'
 
-import { StandardSchemaTypeProviderError } from './errors'
 import { hasProperty, isPromise } from './utils'
+import { StandardSchemaTypeProviderError } from './errors'
 
 export const StandardSchemaValidatorCompiler: FastifySchemaCompiler<
     StandardSchemaV1

@@ -4,8 +4,8 @@ import { html } from '../../../lib/ui/html.js'
 
 import { Icons } from '../components/Icons.js'
 
-import { SearchProvider } from '../contexts/SearchContext.js'
 import { useSearch } from '../hooks/useSearch.js'
+import { SearchProvider } from '../contexts/SearchContext.js'
 
 const SearchRoot = SearchProvider
 

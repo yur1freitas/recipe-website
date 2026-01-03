@@ -1,8 +1,8 @@
 import type { EntityInput, EntityProps } from '@core/shared'
 import { Entity } from '@core/shared'
 
-import { Amount } from '~/shared/models/Amount'
 import { Name } from '~/shared/models/Name'
+import { Amount } from '~/shared/models/Amount'
 
 export interface ToolInput extends EntityInput {
     name: string

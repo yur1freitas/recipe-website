@@ -1,5 +1,5 @@
-import { ValueObject, ZodValidator } from '@core/shared'
 import z from 'zod'
+import { ValueObject, ZodValidator } from '@core/shared'
 
 export const $nameSchema = z
     .string('O nome deve ser um texto')

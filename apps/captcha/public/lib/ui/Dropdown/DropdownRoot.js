@@ -1,10 +1,10 @@
 'use strict'
 
-import { useSignal } from '@preact/signals'
 import { useSignalRef } from '@preact/signals/utils'
+import { useSignal } from '@preact/signals'
 
-import { createContext } from 'preact'
 import { useContext } from 'preact/hooks'
+import { createContext } from 'preact'
 
 import { html } from '../html.js'
 

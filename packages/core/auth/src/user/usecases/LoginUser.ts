@@ -2,10 +2,10 @@ import type { UseCase } from '@core/shared'
 
 import { Email } from '@core/shared'
 
-import type { UserPayload } from '../models/UserPayload'
-import type { AccessTokenProvider } from '../providers/AccessTokenProvider'
-import type { EncryptProvider } from '../providers/EncryptProvider'
 import type { UserRepositoryProvider } from '../providers/UserRepositoryProvider'
+import type { EncryptProvider } from '../providers/EncryptProvider'
+import type { AccessTokenProvider } from '../providers/AccessTokenProvider'
+import type { UserPayload } from '../models/UserPayload'
 
 import { AuthError } from '~/shared/errors/AuthError'
 

@@ -1,11 +1,11 @@
 'use strict'
 
-import { useSignal, useSignalEffect } from '@preact/signals'
 import { createContext } from 'preact'
+import { useSignal, useSignalEffect } from '@preact/signals'
 
-import { findAndDelete } from '../../../lib/array.js'
-import { GET } from '../../../lib/http.js'
 import { html } from '../../../lib/ui/html.js'
+import { GET } from '../../../lib/http.js'
+import { findAndDelete } from '../../../lib/array.js'
 
 export const KeyStoreContext = createContext(null)
 

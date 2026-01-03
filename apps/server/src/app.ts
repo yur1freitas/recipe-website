@@ -1,11 +1,11 @@
 import fastifyScalar from '@scalar/fastify-api-reference'
 
-import fastifyCookie from '@fastify/cookie'
-import fastifyCors from '@fastify/cors'
-import fastifyRateLimit from '@fastify/rate-limit'
-import fastifySensible from '@fastify/sensible'
-import fastifySwagger from '@fastify/swagger'
 import fastify from 'fastify'
+import fastifySwagger from '@fastify/swagger'
+import fastifySensible from '@fastify/sensible'
+import fastifyRateLimit from '@fastify/rate-limit'
+import fastifyCors from '@fastify/cors'
+import fastifyCookie from '@fastify/cookie'
 
 import type { StandardSchemaTypeProvider } from '@standard-schema/fastify-type-provider'
 import {
@@ -14,11 +14,11 @@ import {
     swaggerTransform
 } from '@standard-schema/fastify-type-provider'
 
-import { ZodType } from 'zod'
 import z from 'zod'
+import { ZodType } from 'zod'
 
-import { fastifyResponse } from './plugins/fastifyResponse'
 import { fastifyServerError } from './plugins/fastifyServerError'
+import { fastifyResponse } from './plugins/fastifyResponse'
 
 import { env } from './env'
 

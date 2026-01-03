@@ -10,8 +10,8 @@ import {
     ValidatorError
 } from '@core/shared'
 
-import { httpErrorSchema, serverErrorSchema } from '~/schemas/httpErrorSchema'
 import { createController } from '~/utils/controller'
+import { httpErrorSchema, serverErrorSchema } from '~/schemas/httpErrorSchema'
 
 interface Options {
     registerUser: RegisterUser
