@@ -8,5 +8,23 @@
     "printWidth": 80,
     "tabWidth": 4,
     "trailingComma": "none",
+    "experimentalSortImports": {
+        "order": "desc",
+        "partitionByNewline": true,
+        "newlinesBetween": false,
+        "groups": [
+            "style",
+            "builtin-type",
+            "external-type",
+            "internal-type",
+            "parent-type",
+            "sibling-type",
+            "builtin",
+            "external",
+            "internal",
+            "parent",
+            "sibling"
+        ]
+    },
     "ignorePatterns": ["*-lock.{yaml,json}"]
 }
