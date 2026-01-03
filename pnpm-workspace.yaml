@@ -5,6 +5,8 @@ packages:
 catalog:
   '@types/node': 24.10.1
   dprint: 0.50.2
+  oxfmt: 0.21.0
+  oxlint: 1.36.0
   pm2: 6.0.14
   tsdown: 0.17.1
   tsx: 4.21.0
