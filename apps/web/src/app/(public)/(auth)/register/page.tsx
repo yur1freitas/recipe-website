@@ -1,6 +1,14 @@
 'use client'
 
-import { Suspense, useActionState, useTransition } from 'react'
+import type { CapWidget } from '@cap.js/widget'
+
+import {
+    Suspense,
+    useActionState,
+    useEffect,
+    useRef,
+    useTransition
+} from 'react'
 
 import z from 'zod'
 
@@ -25,6 +33,8 @@ const schema = z
     })
 
 export default function Page(): React.JSX.Element {
+    const widgetRef = useRef<CapWidget | null>(null)
+
     const [actionState, formAction] = useActionState(registerUserAction, {
         status: 'none'
     })
@@ -51,6 +61,14 @@ export default function Page(): React.JSX.Element {
             )
         }
     })
+
+    useEffect(() => {
+        const widget = widgetRef.current
+
+        if (widget && actionState.status === 'failed') {
+            widget.reset()
+        }
+    }, [widgetRef, actionState])
 
     return (
         <div className='card w-full md:w-lg bg-base-100 dark:bg-base-300 border border-base-200 shadow-sm'>
@@ -147,6 +165,7 @@ export default function Page(): React.JSX.Element {
                             children={(field) => (
                                 <field.Root>
                                     <field.Captcha
+                                        ref={widgetRef}
                                         i18nVerifying='Verificando...'
                                         i18nInitial='Sou humano'
                                         i18nSolved='Confirmado'

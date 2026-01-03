@@ -1,6 +1,14 @@
 'use client'
 
-import { Suspense, useActionState, useTransition } from 'react'
+import {
+    Suspense,
+    useActionState,
+    useEffect,
+    useRef,
+    useTransition
+} from 'react'
+
+import type { CapWidget } from '@cap.js/widget'
 
 import z from 'zod'
 
@@ -22,6 +30,8 @@ const schema = z.object({
 })
 
 export default function Page(): React.JSX.Element {
+    const widgetRef = useRef<CapWidget | null>(null)
+
     const [actionState, formAction] = useActionState(loginUserAction, {
         status: 'none'
     })
@@ -44,6 +54,14 @@ export default function Page(): React.JSX.Element {
             startTransition(() => formAction({ email, password, captcha }))
         }
     })
+
+    useEffect(() => {
+        const widget = widgetRef.current
+
+        if (widget && actionState.status === 'failed') {
+            widget.reset()
+        }
+    }, [widgetRef, actionState])
 
     return (
         <div className='card w-full md:w-lg bg-base-100 dark:bg-base-300 border border-base-200 shadow-sm'>
