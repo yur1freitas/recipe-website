@@ -6,7 +6,6 @@
     },
     "markdown": {
         "lineWidth": 80,
-        "indentWidth": 4,
         "newLineKind": "lf"
     },
     "dockerfile": {
@@ -16,17 +15,12 @@
         "indentWidth": 4
     },
     "markup": {
-        "lineWidth": 80,
-        "indentWidth": 4,
-        "newLineKind": "lf"
+        "indentWidth": 4
     },
     "yaml": {
         "indentWidth": 4
     },
-    "excludes": [
-        "**/node_modules",
-        "**/*-lock.json"
-    ],
+    "excludes": ["**/node_modules", "**/*-lock.json"],
     "plugins": [
         "https://plugins.dprint.dev/json-0.21.0.wasm",
         "https://plugins.dprint.dev/markdown-0.20.0.wasm",
