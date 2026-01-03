@@ -1,13 +1,4 @@
 {
-    "typescript": {
-        "lineWidth": 80,
-        "indentWidth": 4,
-        "newLineKind": "lf",
-        "semiColons": "asi",
-        "trailingCommas": "never",
-        "quoteProps": "consistent",
-        "quoteStyle": "preferSingle"
-    },
     "json": {
         "lineWidth": 80,
         "indentWidth": 4,
@@ -37,7 +28,6 @@
         "**/*-lock.json"
     ],
     "plugins": [
-        "https://plugins.dprint.dev/typescript-0.95.12.wasm",
         "https://plugins.dprint.dev/json-0.21.0.wasm",
         "https://plugins.dprint.dev/markdown-0.20.0.wasm",
         "https://plugins.dprint.dev/dockerfile-0.3.3.wasm",

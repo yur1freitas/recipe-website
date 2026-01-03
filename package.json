@@ -5,7 +5,9 @@
     "license": "MIT",
     "packageManager": "pnpm@10.22.0",
     "scripts": {
-        "fmt": "dprint fmt",
+        "fmt": "dprint fmt && oxfmt",
+        "lint": "oxlint",
+        "lint:fix": "oxlint --fix",
         "dev": "turbo run dev",
         "build": "turbo run build",
         "build:core": "turbo run build --filter '@core/*'",
@@ -15,6 +17,8 @@
         "@config/typescript": "workspace:",
         "@types/node": "catalog:",
         "dprint": "catalog:",
+        "oxfmt": "catalog:",
+        "oxlint": "catalog:",
         "tsx": "catalog:",
         "turbo": "catalog:",
         "typescript": "catalog:"
