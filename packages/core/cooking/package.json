@@ -15,6 +15,7 @@
         "build": "tsdown"
     },
     "dependencies": {
+        "@core/auth": "workspace:",
         "@core/shared": "workspace:",
         "@core/time": "workspace:",
         "zod": "catalog:core"

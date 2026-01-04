@@ -74,6 +74,15 @@ export {
     UpdateRecipeErrors
 } from './recipe/usecases/UpdateRecipe'
 
+export type {
+    FindUserRecipesInput,
+    FindUserRecipesOutput
+} from './recipe/usecases/FindUserRecipes'
+export {
+    FindUserRecipes,
+    FindUserRecipesErrors
+} from './recipe/usecases/FindUserRecipes'
+
 export {
     $difficultySchema,
     Difficulty,
