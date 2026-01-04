@@ -26,7 +26,7 @@ export async function up(db: Kysely<any>): Promise<void> {
         )
         .addColumn('id', 'uuid', (col) => col.unique().notNull())
         .addColumn('author_id', 'uuid', (col) =>
-            col.unique().notNull().references('users.id')
+            col.notNull().references('users.id')
         )
         .addColumn('name', 'varchar(64)', (col) =>
             col.notNull().check(sql`LENGTH(name) >= 3`)
