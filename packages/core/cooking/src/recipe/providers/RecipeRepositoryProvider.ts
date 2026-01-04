@@ -4,7 +4,7 @@ import type { Recipe } from '../models/Recipe'
 
 export interface RecipeRepositoryProvider {
     create(recipe: Recipe): Awaitable<boolean>
-    update(recipe: Recipe): Awaitable<void>
+    update(recipe: Recipe): Awaitable<boolean>
     delete(id: string): Awaitable<boolean>
     findAll(): Awaitable<Recipe[]>
     findById(id: string): Awaitable<Recipe | null>
