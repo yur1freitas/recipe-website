@@ -30,7 +30,29 @@ export class PgUserRepository implements UserRepositoryProvider {
     }
 
     async delete(id: string): Promise<void> {
-        await this.$db.deleteFrom('users').where('id', '=', id).execute()
+        await this.$db.transaction().execute(async (trx) => {
+            const rows = await trx
+                .selectFrom('recipes')
+                .select(['id'])
+                .where('authorId', '=', id)
+                .execute()
+
+            const ids = rows.map((row) => row.id)
+
+            await trx.deleteFrom('steps').where('recipeId', 'in', ids).execute()
+            await trx.deleteFrom('tools').where('recipeId', 'in', ids).execute()
+            await trx
+                .deleteFrom('ingredients')
+                .where('recipeId', 'in', ids)
+                .execute()
+
+            await trx.deleteFrom('recipes').where('authorId', '=', id).execute()
+
+            await this.$db
+                .deleteFrom('users')
+                .where('id', '=', id)
+                .executeTakeFirst()
+        })
     }
 
     async update(user: User): Promise<void> {
@@ -42,7 +64,7 @@ export class PgUserRepository implements UserRepositoryProvider {
                 password: user.password?.value
             })
             .where('id', '=', user.id.value)
-            .execute()
+            .executeTakeFirst()
     }
 
     async findAll(): Promise<User[]> {
