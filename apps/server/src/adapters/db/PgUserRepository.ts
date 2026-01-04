@@ -1,28 +1,26 @@
+import type { Kysely } from 'kysely'
 import type { UserRepositoryProvider } from '@core/auth'
-import { User } from '@core/auth'
 
-import type { Pool } from 'pg'
+import type { DB } from '~/db/schema'
+
+import { User } from '@core/auth'
 
 import { app } from '~/app'
 
 export class PgUserRepository implements UserRepositoryProvider {
-    constructor(private $pool: Pool) {}
+    constructor(private $db: Kysely<DB>) {}
 
     async create(user: User): Promise<boolean> {
         try {
-            const query = `
-                INSERT INTO 
-                    users (id, name, email, password) 
-                VALUES 
-                    ($1, $2, $3, $4)
-                `
-
-            await this.$pool.query(query, [
-                user.id.value,
-                user.name.value,
-                user.email.value,
-                user.password?.value
-            ])
+            await this.$db
+                .insertInto('users')
+                .values({
+                    id: user.id.value,
+                    name: user.name.value,
+                    email: user.email.value,
+                    password: user.password!.value
+                })
+                .execute()
 
             return true
         } catch (err) {
@@ -32,33 +30,26 @@ export class PgUserRepository implements UserRepositoryProvider {
     }
 
     async delete(id: string): Promise<void> {
-        const query = 'DELETE FROM user WHERE id = $1'
-
-        await this.$pool.query(query, [id])
+        await this.$db.deleteFrom('users').where('id', '=', id).execute()
     }
 
     async update(user: User): Promise<void> {
-        const query = `
-            UPDATE users SET 
-                name = $1, 
-                email = $2, 
-                password = $3 
-            WHERE 
-                id = $4
-        `
-
-        await this.$pool.query(query, [
-            user.name.value,
-            user.email.value,
-            user.password?.value,
-            user.id.value
-        ])
+        await this.$db
+            .updateTable('users')
+            .set({
+                name: user.name.value,
+                email: user.email.value,
+                password: user.password?.value
+            })
+            .where('id', '=', user.id.value)
+            .execute()
     }
 
     async findAll(): Promise<User[]> {
-        const query = 'SELECT * FROM users'
-
-        const { rows } = await this.$pool.query(query)
+        const rows = await this.$db
+            .selectFrom('users')
+            .select(['id', 'name', 'email', 'password'])
+            .execute()
 
         const users = rows.map((row) => new User(row))
 
@@ -66,76 +57,52 @@ export class PgUserRepository implements UserRepositoryProvider {
     }
 
     async findById(id: string): Promise<User | null> {
-        const query = `
-            SELECT
-                id, name, email, password 
-            FROM 
-                users 
-            WHERE 
-                id = $1
-        `
+        const row = await this.$db
+            .selectFrom('users')
+            .select(['id', 'name', 'email', 'password'])
+            .where('id', '=', id)
+            .executeTakeFirst()
 
-        const { rowCount, rows } = await this.$pool.query(query, [id])
-
-        if (rowCount === 1) {
-            return new User(rows[0])
+        if (row) {
+            const user = new User(row)
+            return user
         }
 
         return null
     }
 
     async findByEmail(email: string): Promise<User | null> {
-        const query = `
-            SELECT 
-                id, name, email, password 
-            FROM 
-                users 
-            WHERE 
-                email = $1
-        `
+        const row = await this.$db
+            .selectFrom('users')
+            .select(['id', 'name', 'email', 'password'])
+            .where('email', '=', email)
+            .executeTakeFirst()
 
-        const { rowCount, rows } = await this.$pool.query(query, [email])
-
-        if (rowCount === 1) {
-            return new User(rows[0])
+        if (row) {
+            const user = new User(row)
+            return user
         }
 
         return null
     }
 
     async existsById(id: string): Promise<boolean> {
-        const query = `
-            SELECT EXISTS (
-                SELECT 1 FROM users 
-                WHERE 
-                    id = $1
-            )
-        `
+        const row = await this.$db
+            .selectFrom('users')
+            .select([])
+            .where('id', '=', id)
+            .executeTakeFirst()
 
-        const { rowCount, rows } = await this.$pool.query(query, [id])
-
-        if (rowCount === 1) {
-            return rows[0].exists
-        }
-
-        return false
+        return Boolean(row)
     }
 
     async existsByEmail(email: string): Promise<boolean> {
-        const query = `
-            SELECT EXISTS (
-                SELECT 1 FROM users 
-                WHERE 
-                    email = $1
-            )
-        `
+        const row = await this.$db
+            .selectFrom('users')
+            .select([])
+            .where('email', '=', email)
+            .executeTakeFirst()
 
-        const { rowCount, rows } = await this.$pool.query(query, [email])
-
-        if (rowCount === 1) {
-            return rows[0].exists
-        }
-
-        return false
+        return Boolean(row)
     }
 }

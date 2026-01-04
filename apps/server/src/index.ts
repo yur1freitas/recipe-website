@@ -18,7 +18,7 @@ import { loginUserController } from './api/controllers/auth/LoginUserController'
 import { fastifyAuth } from './plugins/fastifyAuth'
 
 import { valkey } from './db/valkey'
-import { pool } from './db/postgres'
+import { postgres } from './db/postgres'
 
 import { listeningInfo } from './utils/info'
 
@@ -27,7 +27,7 @@ import { env } from './env'
 import { app } from './app'
 
 try {
-    const userRepositoryProvider = new PgUserRepository(pool)
+    const userRepositoryProvider = new PgUserRepository(postgres)
     const encryptionProvider = new BcryptAdapter()
     const accessTokenProvider = new PasetoAdapter()
 
