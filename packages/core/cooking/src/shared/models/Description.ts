@@ -7,7 +7,7 @@ export const $descriptionSchema = z
     .trim()
     .nonempty('A descrição não pode ser vazia')
     .max(256, 'A descrição deve ter no máximo 256 caracteres')
-    .regex(/^[\p{L}\p{M}\d\s,;.'"()]$/iu)
+    .regex(/^[\p{L}\p{M}\d\s,;.'"()]+$/iu)
 
 export const DescriptionValidator = new ZodValidator($descriptionSchema)
 
