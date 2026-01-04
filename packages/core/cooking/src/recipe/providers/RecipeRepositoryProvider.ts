@@ -1,11 +1,13 @@
+import type { Awaitable } from '@core/shared'
+
 import type { Recipe } from '../models/Recipe'
 
 export interface RecipeRepositoryProvider {
-    create(recipe: Recipe): Promise<boolean>
-    update(recipe: Recipe): Promise<void>
-    delete(id: string): Promise<boolean>
-    findAll(): Promise<Recipe[]>
-    findById(id: string): Promise<Recipe | null>
-    findByAuthor(id: string): Promise<Recipe[]>
-    existsById(id: string): Promise<boolean>
+    create(recipe: Recipe): Awaitable<boolean>
+    update(recipe: Recipe): Awaitable<void>
+    delete(id: string): Awaitable<boolean>
+    findAll(): Awaitable<Recipe[]>
+    findById(id: string): Awaitable<Recipe | null>
+    findByAuthor(id: string): Awaitable<Recipe[]>
+    existsById(id: string): Awaitable<boolean>
 }
