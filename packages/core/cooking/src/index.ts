@@ -89,6 +89,12 @@ export {
     FindUserRecipesErrors
 } from './recipe/usecases/FindUserRecipes'
 
+export type {
+    FindRecipeInput,
+    FindRecipeOutput
+} from './recipe/usecases/FindRecipe'
+export { FindRecipe } from './recipe/usecases/FindRecipe'
+
 export {
     $difficultySchema,
     Difficulty,
