@@ -147,21 +147,34 @@ export class PgRecipeRepository implements RecipeRepositoryProvider {
         })
     }
 
-    async delete(id: string): Promise<void> {
-        await this.$db.transaction().execute(async (trx) => {
-            await trx.deleteFrom('steps').where('recipeId', '=', id).execute()
-            await trx.deleteFrom('tools').where('recipeId', '=', id).execute()
+    async delete(id: string): Promise<boolean> {
+        try {
+            await this.$db.transaction().execute(async (trx) => {
+                await trx
+                    .deleteFrom('steps')
+                    .where('recipeId', '=', id)
+                    .execute()
+                await trx
+                    .deleteFrom('tools')
+                    .where('recipeId', '=', id)
+                    .execute()
 
-            await trx
-                .deleteFrom('ingredients')
-                .where('recipeId', '=', id)
-                .execute()
+                await trx
+                    .deleteFrom('ingredients')
+                    .where('recipeId', '=', id)
+                    .execute()
 
-            await trx
-                .deleteFrom('recipes')
-                .where('id', '=', id)
-                .executeTakeFirst()
-        })
+                await trx
+                    .deleteFrom('recipes')
+                    .where('id', '=', id)
+                    .executeTakeFirst()
+            })
+
+            return true
+        } catch (err) {
+            app.log.error(err)
+            return false
+        }
     }
 
     async findAll(): Promise<Recipe[]> {
