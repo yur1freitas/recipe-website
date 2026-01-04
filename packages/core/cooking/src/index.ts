@@ -65,6 +65,15 @@ export {
     DeleteRecipeErrors
 } from './recipe/usecases/DeleteRecipe'
 
+export type {
+    UpdateRecipeInput,
+    UpdateRecipeOutput
+} from './recipe/usecases/UpdateRecipe'
+export {
+    UpdateRecipe,
+    UpdateRecipeErrors
+} from './recipe/usecases/UpdateRecipe'
+
 export {
     $difficultySchema,
     Difficulty,
