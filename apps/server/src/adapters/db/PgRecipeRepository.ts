@@ -79,72 +79,78 @@ export class PgRecipeRepository implements RecipeRepositoryProvider {
         }
     }
 
-    async update(recipe: Recipe): Promise<void> {
-        await this.$db.transaction().execute(async (trx) => {
-            await trx
-                .updateTable('recipes')
-                .set({
-                    name: recipe.name.value,
-                    authorId: recipe.authorId.value,
-                    difficulty: recipe.difficulty.value,
-                    description: recipe.description.value,
-                    preparationTime: recipe.preparationTime.ms
-                })
-                .where('id', '=', recipe.id.value)
-                .executeTakeFirst()
+    async update(recipe: Recipe): Promise<boolean> {
+        try {
+            await this.$db.transaction().execute(async (trx) => {
+                await trx
+                    .updateTable('recipes')
+                    .set({
+                        name: recipe.name.value,
+                        authorId: recipe.authorId.value,
+                        difficulty: recipe.difficulty.value,
+                        description: recipe.description.value,
+                        preparationTime: recipe.preparationTime.ms
+                    })
+                    .where('id', '=', recipe.id.value)
+                    .executeTakeFirst()
 
-            await Promise.all([
-                trx
-                    .deleteFrom('tools')
-                    .where('recipeId', '=', recipe.id.value)
-                    .execute(),
-                trx
-                    .deleteFrom('steps')
-                    .where('recipeId', '=', recipe.id.value)
-                    .execute(),
-                trx
-                    .deleteFrom('ingredients')
-                    .where('recipeId', '=', recipe.id.value)
-                    .execute()
-            ])
+                await Promise.all([
+                    trx
+                        .deleteFrom('tools')
+                        .where('recipeId', '=', recipe.id.value)
+                        .execute(),
+                    trx
+                        .deleteFrom('steps')
+                        .where('recipeId', '=', recipe.id.value)
+                        .execute(),
+                    trx
+                        .deleteFrom('ingredients')
+                        .where('recipeId', '=', recipe.id.value)
+                        .execute()
+                ])
 
-            await Promise.all([
-                trx
-                    .insertInto('ingredients')
-                    .values(
-                        recipe.ingredients.toArray().map((i) => ({
-                            id: i.id.value,
-                            recipeId: recipe.id.value,
-                            name: i.name.value,
-                            unit: i.unit.value,
-                            measure: i.measure.value
-                        }))
-                    )
-                    .execute(),
-                trx
-                    .insertInto('steps')
-                    .values(
-                        recipe.steps.toArray().map((s) => ({
-                            id: s.id.value,
-                            recipeId: recipe.id.value,
-                            order: s.order.value,
-                            description: s.description.value
-                        }))
-                    )
-                    .execute(),
-                trx
-                    .insertInto('tools')
-                    .values(
-                        recipe.tools.toArray().map((t) => ({
-                            id: t.id.value,
-                            recipeId: recipe.id.value,
-                            name: t.name.value,
-                            amount: t.amount.value
-                        }))
-                    )
-                    .execute()
-            ])
-        })
+                await Promise.all([
+                    trx
+                        .insertInto('ingredients')
+                        .values(
+                            recipe.ingredients.toArray().map((i) => ({
+                                id: i.id.value,
+                                recipeId: recipe.id.value,
+                                name: i.name.value,
+                                unit: i.unit.value,
+                                measure: i.measure.value
+                            }))
+                        )
+                        .execute(),
+                    trx
+                        .insertInto('steps')
+                        .values(
+                            recipe.steps.toArray().map((s) => ({
+                                id: s.id.value,
+                                recipeId: recipe.id.value,
+                                order: s.order.value,
+                                description: s.description.value
+                            }))
+                        )
+                        .execute(),
+                    trx
+                        .insertInto('tools')
+                        .values(
+                            recipe.tools.toArray().map((t) => ({
+                                id: t.id.value,
+                                recipeId: recipe.id.value,
+                                name: t.name.value,
+                                amount: t.amount.value
+                            }))
+                        )
+                        .execute()
+                ])
+            })
+            return true
+        } catch (err) {
+            app.log.error(err)
+            return false
+        }
     }
 
     async delete(id: string): Promise<boolean> {
