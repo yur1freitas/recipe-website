@@ -135,4 +135,8 @@ export class Time {
     toHours(): number {
         return this.toMilliseconds() / ONE_HOUR_IN_MS
     }
+
+    toJSON(): number {
+        return this.toMilliseconds()
+    }
 }
