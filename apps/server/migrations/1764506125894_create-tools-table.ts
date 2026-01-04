@@ -1,45 +1,30 @@
-import type { ColumnDefinitions } from 'node-pg-migrate'
+import type { Kysely } from 'kysely'
 
-import type { MigrationBuilder } from 'node-pg-migrate'
+import { sql } from 'kysely'
 
-export const shorthands: ColumnDefinitions | undefined = undefined
-
-export async function up(pgm: MigrationBuilder): Promise<void> {
-    pgm.createTable(
-        'tools',
-        {
-            pk: {
-                type: 'SERIAL',
-                primaryKey: true,
-                notNull: true,
-                check: 'pk >= 0'
-            },
-            id: {
-                type: 'UUID',
-                unique: true,
-                notNull: true
-            },
-            recipe_id: {
-                type: 'UUID',
-                unique: true,
-                notNull: true,
-                references: 'recipes(id)'
-            },
-            name: {
-                type: 'VARCHAR(64)',
-                notNull: true,
-                check: 'LENGTH(name) >= 3'
-            },
-            amount: {
-                type: 'INT',
-                notNull: true,
-                check: 'amount > 0'
-            }
-        },
-        { ifNotExists: true }
-    )
+export async function up(db: Kysely<any>): Promise<void> {
+    await db.schema
+        .createTable('tools')
+        .ifNotExists()
+        .addColumn('pk', 'serial', (col) =>
+            col
+                .primaryKey()
+                .notNull()
+                .check(sql`pk >= 0`)
+        )
+        .addColumn('id', 'uuid', (col) => col.unique().notNull())
+        .addColumn('recipe_id', 'uuid', (col) =>
+            col.unique().notNull().references('recipes.id')
+        )
+        .addColumn('name', 'varchar(64)', (col) =>
+            col.notNull().check(sql`LENGTH(name) >= 3`)
+        )
+        .addColumn('amount', 'integer', (col) =>
+            col.notNull().check(sql`amount > 0`)
+        )
+        .execute()
 }
 
-export async function down(pgm: MigrationBuilder): Promise<void> {
-    pgm.dropTable('tools', { ifExists: true })
+export async function down(db: Kysely<any>): Promise<void> {
+    await db.schema.dropTable('tools').ifExists().execute()
 }

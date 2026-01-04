@@ -15,10 +15,11 @@
         "pm2:describe": "pm2 describe",
         "pm2:restart": "pm2 restart",
         "scripts:keys": "tsx scripts/createPasetoKeys.ts",
-        "migrate": "dotenvx run -f .env.dev -- node-pg-migrate",
+        "kysely:codegen": "kysely-codegen --dialect postgres --camel-case --out-file ./src/db/schema.d.ts",
+        "migrate": "dotenvx run -f .env.dev -- kysely migrate",
         "migrate:up": "pnpm run migrate up",
         "migrate:down": "pnpm run migrate down",
-        "migrate:create": "pnpm run migrate create"
+        "migrate:create": "pnpm run migrate make --extension=ts"
     },
     "dependencies": {
         "@core/auth": "workspace:",
@@ -36,6 +37,8 @@
         "fastify": "catalog:fastify",
         "fastify-plugin": "catalog:fastify",
         "iovalkey": "catalog:valkey",
+        "kysely": "0.28.9",
+        "kysely-ctl": "0.19.0",
         "paseto-ts": "catalog:security",
         "pg": "catalog:postgres",
         "pm2": "catalog:",
@@ -47,6 +50,6 @@
         "@standard-schema/fastify-type-provider": "workspace:",
         "@types/bcrypt": "catalog:security",
         "@types/pg": "catalog:postgres",
-        "node-pg-migrate": "catalog:postgres"
+        "kysely-codegen": "0.19.0"
     }
 }
