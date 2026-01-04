@@ -75,6 +75,12 @@ export {
 } from './recipe/usecases/UpdateRecipe'
 
 export type {
+    FindAllRecipesInput,
+    FindAllRecipesOutput
+} from './recipe/usecases/FindAllRecipes'
+export { FindAllRecipes } from './recipe/usecases/FindAllRecipes'
+
+export type {
     FindUserRecipesInput,
     FindUserRecipesOutput
 } from './recipe/usecases/FindUserRecipes'
