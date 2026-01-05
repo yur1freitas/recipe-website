@@ -9,7 +9,7 @@ export type {
     UserPropsWithoutPassword
 } from './user/models/User'
 
-export { User } from './user/models/User'
+export { User, userSchema } from './user/models/User'
 
 export type { AccessTokenProvider } from './user/providers/AccessTokenProvider'
 export type { EncryptProvider } from './user/providers/EncryptProvider'

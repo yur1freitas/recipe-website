@@ -15,6 +15,7 @@
         "build": "tsdown"
     },
     "dependencies": {
+        "zod": "catalog:core",
         "@core/shared": "workspace:"
     },
     "devDependencies": {
