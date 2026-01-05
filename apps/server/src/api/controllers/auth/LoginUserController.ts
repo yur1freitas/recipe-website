@@ -3,7 +3,7 @@ import z from 'zod'
 import type { LoginUser, LoginUserInput } from '@core/auth'
 import { AuthError, LoginUserErrors } from '@core/auth'
 
-import { $emailSchema, $passwordSchema, ValidatorError } from '@core/shared'
+import { emailSchema, passwordSchema, ValidatorError } from '@core/shared'
 
 import { createController } from '~/utils/controller'
 import { httpErrorSchema, serverErrorSchema } from '~/schemas/httpErrorSchema'
@@ -22,8 +22,8 @@ export const loginUserController = createController<Options>((app, options) => {
                 tags: ['auth'],
                 description: 'Rota de login de conta',
                 body: z.object({
-                    email: $emailSchema,
-                    password: $passwordSchema
+                    email: emailSchema,
+                    password: passwordSchema
                 }),
                 response: {
                     200: z
