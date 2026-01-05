@@ -108,8 +108,8 @@ export class PgRecipeRepository implements RecipeRepositoryProvider {
                         .execute()
                 ])
 
-                await Promise.all([
-                    trx
+                if (recipe.ingredients.length > 0) {
+                    await trx
                         .insertInto('ingredients')
                         .values(
                             recipe.ingredients.toArray().map((i) => ({
@@ -120,8 +120,11 @@ export class PgRecipeRepository implements RecipeRepositoryProvider {
                                 measure: i.measure.value
                             }))
                         )
-                        .execute(),
-                    trx
+                        .execute()
+                }
+
+                if (recipe.steps.length > 0) {
+                    await trx
                         .insertInto('steps')
                         .values(
                             recipe.steps.toArray().map((s) => ({
@@ -131,9 +134,11 @@ export class PgRecipeRepository implements RecipeRepositoryProvider {
                                 description: s.description.value
                             }))
                         )
-                        .execute(),
-                    trx
-                        .insertInto('tools')
+                        .execute()
+                }
+
+                if (recipe.tools.length > 0) {
+                    trx.insertInto('tools')
                         .values(
                             recipe.tools.toArray().map((t) => ({
                                 id: t.id.value,
@@ -143,7 +148,7 @@ export class PgRecipeRepository implements RecipeRepositoryProvider {
                             }))
                         )
                         .execute()
-                ])
+                }
             })
             return true
         } catch (err) {
