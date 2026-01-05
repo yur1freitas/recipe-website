@@ -3,7 +3,7 @@ import z from 'zod'
 import { ZodValidator } from '../validators/ZodValidator'
 import { ValueObject } from './ValueObject'
 
-export const $emailSchema = z
+export const emailSchema = z
     .email('O email fornecido não é inválido')
     .trim()
     .nonempty('O email não pode ser vazio')
@@ -12,7 +12,7 @@ export const $emailSchema = z
         examples: ['user@example.com']
     })
 
-export const EmailValidator = new ZodValidator($emailSchema)
+export const EmailValidator = new ZodValidator(emailSchema)
 
 export class Email extends ValueObject<string> {
     constructor(value: string) {

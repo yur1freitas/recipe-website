@@ -3,7 +3,7 @@ import z from 'zod'
 import { ZodValidator } from '../validators/ZodValidator'
 import { ValueObject } from './ValueObject'
 
-export const $usernameSchema = z
+export const usernameSchema = z
     .string()
     .trim()
     .nonempty('O nome não pode ser vazio')
@@ -15,7 +15,7 @@ export const $usernameSchema = z
         examples: ['John Doe']
     })
 
-export const UsernameValidator = new ZodValidator($usernameSchema)
+export const UsernameValidator = new ZodValidator(usernameSchema)
 
 export class Username extends ValueObject<string> {
     constructor(value: string) {

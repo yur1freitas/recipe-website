@@ -5,15 +5,15 @@ export { Entity, entitySchema } from './models/Entity'
 export { ValueObject } from './models/ValueObject'
 
 export {
-    $encryptedPasswordSchema,
+    encryptedPasswordSchema,
     EncryptedPassword,
     EncryptedPasswordValidator
 } from './models/EncryptedPassword'
 
-export { $emailSchema, Email, EmailValidator } from './models/Email'
-export { $idSchema, Id, IdValidator } from './models/Id'
-export { $passwordSchema, Password, PasswordValidator } from './models/Password'
-export { $usernameSchema, Username, UsernameValidator } from './models/Username'
+export { emailSchema, Email, EmailValidator } from './models/Email'
+export { idSchema, Id, IdValidator } from './models/Id'
+export { passwordSchema, Password, PasswordValidator } from './models/Password'
+export { usernameSchema, Username, UsernameValidator } from './models/Username'
 
 export type { CustomErrorInput } from './errors/CustomError'
 export { CustomError } from './errors/CustomError'
