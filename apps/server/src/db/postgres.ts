@@ -4,6 +4,7 @@ import { CamelCasePlugin, Kysely, PostgresDialect } from 'kysely'
 import type { DB } from './schema'
 
 import { env } from '../env'
+import { TimePlugin } from './plugins'
 
 const pool = new Pool({
     host: env.DB_HOST,
@@ -17,5 +18,8 @@ const dialect = new PostgresDialect({ pool })
 
 export const postgres = new Kysely<DB>({
     dialect,
-    plugins: [new CamelCasePlugin()]
+    plugins: [
+        new CamelCasePlugin(),
+        new TimePlugin({ columns: ['preparationTime'] })
+    ]
 })
