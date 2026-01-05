@@ -8,12 +8,15 @@ import {
 import { BcryptAdapter } from './adapters/security/BcryptAdapter'
 import { ValkeyInvalidTokenRepository } from './adapters/db/ValkeyInvalidTokenRepository'
 import { PgUserRepository } from './adapters/db/PgUserRepository'
+import { PgRecipeRepository } from './adapters/db/PgRecipeRepository'
 import { PasetoAdapter } from './adapters/auth/PasetoAdapter'
 
 import { verifyUserSessionController } from './api/controllers/auth/VerifyUserSessionController'
 import { registerUserController } from './api/controllers/auth/RegisterUserController'
 import { logoutUserController } from './api/controllers/auth/LogoutUserController'
 import { loginUserController } from './api/controllers/auth/LoginUserController'
+
+import { registerRecipeController } from './api/controllers/cooking/registerRecipeController'
 
 import { fastifyAuth } from './plugins/fastifyAuth'
 
@@ -22,12 +25,14 @@ import { postgres } from './db/postgres'
 
 import { listeningInfo } from './utils/info'
 
+import { RegisterRecipe } from '@core/cooking'
 import { fastifyCaptcha } from './plugins/fastifyCaptcha'
 import { env } from './env'
 import { app } from './app'
 
 try {
     const userRepositoryProvider = new PgUserRepository(postgres)
+    const recipeRepositoryProvider = new PgRecipeRepository(postgres)
     const encryptionProvider = new BcryptAdapter()
     const accessTokenProvider = new PasetoAdapter()
 
@@ -56,6 +61,8 @@ try {
         accessTokenProvider
     )
 
+    const registerRecipe = new RegisterRecipe(recipeRepositoryProvider)
+
     app.register(fastifyAuth, { verifyUserSession }).register(fastifyCaptcha, {
         keyName: 'captcha'
     })
@@ -64,6 +71,8 @@ try {
         .register(loginUserController, { loginUser })
         .register(logoutUserController, { logoutUser })
         .register(verifyUserSessionController, { verifyUserSession })
+
+    app.register(registerRecipeController, { registerRecipe })
 
     await app.listen({ port: env.API_PORT })
 
