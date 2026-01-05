@@ -1,13 +1,13 @@
 export { CookingError } from './shared/errors/CookingError'
 
-export { $amountSchema, Amount, AmountValidator } from './shared/models/Amount'
+export { amountSchema, Amount, AmountValidator } from './shared/models/Amount'
 export {
-    $descriptionSchema,
+    descriptionSchema,
     Description,
     DescriptionValidator
 } from './shared/models/Description'
-export { $nameSchema, Name, NameValidator } from './shared/models/Name'
-export { $orderSchema, Order, OrderValidator } from './shared/models/Order'
+export { nameSchema, Name, NameValidator } from './shared/models/Name'
+export { orderSchema, Order, OrderValidator } from './shared/models/Order'
 
 export type { ToolInput, ToolProps } from './tool/models/Tool'
 export { Tool, toolSchema } from './tool/models/Tool'
@@ -18,12 +18,12 @@ export { Step, stepSchema } from './step/models/Step'
 export type { StepRepositoryProvider } from './step/providers/StepRepositoryProvider'
 
 export {
-    $measureSchema,
+    measureSchema,
     Measure,
     MeasureValidator
 } from './ingredient/models/Measure'
 
-export { $unitSchema, Unit, UnitValidator } from './ingredient/models/Unit'
+export { unitSchema, Unit, UnitValidator } from './ingredient/models/Unit'
 
 export type {
     IngredientInput,
@@ -96,13 +96,13 @@ export type {
 export { FindRecipe } from './recipe/usecases/FindRecipe'
 
 export {
-    $difficultySchema,
+    difficultySchema,
     Difficulty,
     DifficultyValidator
 } from './recipe/models/Difficulty'
 
 export {
-    $preparationTimeSchema,
+    preparationTimeSchema,
     PreparationTime,
     PreparationTimeValidator
 } from './recipe/models/PreparationTime'

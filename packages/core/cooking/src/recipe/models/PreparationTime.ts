@@ -3,14 +3,14 @@ import z from 'zod'
 import { Time } from '@core/time'
 import { ValueObject, ZodValidator } from '@core/shared'
 
-export const $preparationTimeSchema = z
+export const preparationTimeSchema = z
     .instanceof(Time)
     .refine(
         (time) => time.toMilliseconds() > 0,
         'O tempo de preparo não pode ser nulo'
     )
 
-export const PreparationTimeValidator = new ZodValidator($preparationTimeSchema)
+export const PreparationTimeValidator = new ZodValidator(preparationTimeSchema)
 
 export class PreparationTime extends ValueObject<Time> {
     constructor(value: Time) {
