@@ -1,9 +1,9 @@
 import type { EntityProps, EntityInput } from '@core/shared'
 import z from 'zod'
 import {
-    $emailSchema,
-    $passwordSchema,
-    $usernameSchema,
+    emailSchema,
+    usernameSchema,
+    passwordSchema,
     Email,
     EncryptedPassword,
     Entity,
@@ -22,9 +22,9 @@ export type UserPropsWithoutPassword = Omit<UserProps, 'password'>
 
 export const userSchema = z.object({
     ...entitySchema.shape,
-    name: $usernameSchema,
-    email: $emailSchema,
-    password: $passwordSchema
+    name: usernameSchema,
+    email: emailSchema,
+    password: passwordSchema
 })
 
 export class User extends Entity<UserInput> {
