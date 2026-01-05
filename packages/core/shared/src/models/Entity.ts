@@ -2,7 +2,7 @@ import type { Constructor, Ensure } from '../types'
 
 import z from 'zod'
 
-import { $idSchema, Id } from './Id'
+import { idSchema, Id } from './Id'
 
 export interface EntityInput {
     id?: string
@@ -11,7 +11,7 @@ export interface EntityInput {
 export type EntityProps<T extends EntityInput> = Ensure<T, 'id'>
 
 export const entitySchema = z.looseObject({
-    id: $idSchema.optional()
+    id: idSchema.optional()
 })
 
 export abstract class Entity<TInput extends EntityInput> {

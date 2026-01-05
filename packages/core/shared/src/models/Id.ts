@@ -5,12 +5,12 @@ import { v7 } from 'uuid'
 import { ZodValidator } from '../validators/ZodValidator'
 import { ValueObject } from './ValueObject'
 
-export const $idSchema = z
+export const idSchema = z
     .uuidv7('O id deve ser válido')
     .default(() => v7())
     .meta({ examples: [v7()] })
 
-export const IdValidator = new ZodValidator($idSchema)
+export const IdValidator = new ZodValidator(idSchema)
 
 export class Id extends ValueObject<string> {
     readonly isCreated: boolean
