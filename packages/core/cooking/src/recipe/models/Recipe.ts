@@ -1,20 +1,24 @@
-import type { EntityInput, EntityProps } from '@core/shared'
-import { Entity, Id, List } from '@core/shared'
-
 import type { Time } from '@core/time'
+import type { EntityInput, EntityProps } from '@core/shared'
 
 import type { ToolInput } from '~/tool/models/Tool'
 import type { StepInput } from '~/step/models/Step'
 import type { IngredientInput } from '~/ingredient/models/Ingredient'
-import { Tool } from '~/tool/models/Tool'
-import { Step } from '~/step/models/Step'
-import { Name } from '~/shared/models/Name'
-import { Description } from '~/shared/models/Description'
-import { Ingredient } from '~/ingredient/models/Ingredient'
 
 import type { DifficultyEnum } from '../constants/DifficultyEnum'
-import { PreparationTime } from './PreparationTime'
-import { Difficulty } from './Difficulty'
+
+import z from 'zod'
+
+import { $idSchema, Entity, entitySchema, Id, List } from '@core/shared'
+
+import { Tool, toolSchema } from '~/tool/models/Tool'
+import { Step, stepSchema } from '~/step/models/Step'
+import { $nameSchema, Name } from '~/shared/models/Name'
+import { $descriptionSchema, Description } from '~/shared/models/Description'
+import { Ingredient, ingredientSchema } from '~/ingredient/models/Ingredient'
+
+import { $preparationTimeSchema, PreparationTime } from './PreparationTime'
+import { $difficultySchema, Difficulty } from './Difficulty'
 
 export interface RecipeInput extends EntityInput {
     authorId: string
@@ -28,6 +32,18 @@ export interface RecipeInput extends EntityInput {
 }
 
 export type RecipeProps = EntityProps<RecipeInput>
+
+export const recipeSchema = z.object({
+    ...entitySchema.shape,
+    authorId: $idSchema,
+    name: $nameSchema,
+    description: $descriptionSchema,
+    difficulty: $difficultySchema,
+    preparationTime: $preparationTimeSchema,
+    steps: z.array(stepSchema),
+    tools: z.array(toolSchema),
+    ingredients: z.array(ingredientSchema)
+})
 
 export class Recipe extends Entity<RecipeInput> {
     readonly authorId: Id

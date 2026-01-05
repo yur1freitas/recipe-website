@@ -1,11 +1,12 @@
 import type { EntityInput, EntityProps } from '@core/shared'
-import { Entity } from '@core/shared'
+import { Entity, entitySchema } from '@core/shared'
 
 import type { UnitEnum } from '../constants/UnitEnum'
-import { Name } from '~/shared/models/Name'
+import { $nameSchema, Name } from '~/shared/models/Name'
 
-import { Unit } from './Unit'
-import { Measure } from './Measure'
+import z from 'zod'
+import { $unitSchema, Unit } from './Unit'
+import { $measureSchema, Measure } from './Measure'
 
 export interface IngredientInput extends EntityInput {
     name: string
@@ -14,6 +15,13 @@ export interface IngredientInput extends EntityInput {
 }
 
 export type IngredientProps = EntityProps<IngredientInput>
+
+export const ingredientSchema = z.object({
+    ...entitySchema.shape,
+    name: $nameSchema,
+    unit: $unitSchema,
+    measure: $measureSchema
+})
 
 export class Ingredient extends Entity<IngredientInput> {
     readonly name: Name
