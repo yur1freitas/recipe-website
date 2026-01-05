@@ -16,8 +16,8 @@ import {
     swaggerTransform
 } from '@standard-schema/fastify-type-provider'
 
-import { ZodType } from 'zod'
 import z from 'zod'
+import { ZodType } from 'zod'
 
 import { fastifyServerError } from './plugins/fastifyServerError'
 import { fastifyResponse } from './plugins/fastifyResponse'
@@ -66,7 +66,8 @@ app.register(fastifySwagger, {
         if (schema instanceof ZodType) {
             return z.toJSONSchema(schema as z.ZodType, {
                 target: 'openapi-3.0',
-                metadata: z.globalRegistry
+                metadata: z.globalRegistry,
+                unrepresentable: 'any'
             })
         }
 
