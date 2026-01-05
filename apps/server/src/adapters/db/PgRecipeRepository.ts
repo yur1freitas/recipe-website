@@ -23,7 +23,7 @@ export class PgRecipeRepository implements RecipeRepositoryProvider {
                         authorId: recipe.authorId.value,
                         difficulty: recipe.difficulty.value,
                         description: recipe.description.value,
-                        preparationTime: recipe.preparationTime.ms
+                        preparationTime: recipe.preparationTime.value
                     })
                     .execute()
 
@@ -88,7 +88,7 @@ export class PgRecipeRepository implements RecipeRepositoryProvider {
                         authorId: recipe.authorId.value,
                         difficulty: recipe.difficulty.value,
                         description: recipe.description.value,
-                        preparationTime: recipe.preparationTime.ms
+                        preparationTime: recipe.preparationTime.value
                     })
                     .where('id', '=', recipe.id.value)
                     .executeTakeFirst()
