@@ -2,8 +2,8 @@ import type { EntityInput, EntityProps } from '@core/shared'
 import { Entity, entitySchema } from '@core/shared'
 
 import z from 'zod'
-import { $orderSchema, Order } from '~/shared/models/Order'
-import { $descriptionSchema, Description } from '~/shared/models/Description'
+import { orderSchema, Order } from '~/shared/models/Order'
+import { descriptionSchema, Description } from '~/shared/models/Description'
 
 export interface StepInput extends EntityInput {
     order: number
@@ -14,8 +14,8 @@ export type StepProps = EntityProps<StepInput>
 
 export const stepSchema = z.object({
     ...entitySchema.shape,
-    order: $orderSchema,
-    description: $descriptionSchema
+    order: orderSchema,
+    description: descriptionSchema
 })
 
 export class Step extends Entity<StepInput> {

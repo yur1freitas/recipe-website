@@ -4,8 +4,8 @@ import z from 'zod'
 
 import { Entity, entitySchema } from '@core/shared'
 
-import { $nameSchema, Name } from '~/shared/models/Name'
-import { $amountSchema, Amount } from '~/shared/models/Amount'
+import { nameSchema, Name } from '~/shared/models/Name'
+import { amountSchema, Amount } from '~/shared/models/Amount'
 
 export interface ToolInput extends EntityInput {
     name: string
@@ -16,8 +16,8 @@ export type ToolProps = EntityProps<ToolInput>
 
 export const toolSchema = z.object({
     ...entitySchema.shape,
-    name: $nameSchema,
-    amount: $amountSchema
+    name: nameSchema,
+    amount: amountSchema
 })
 
 export class Tool extends Entity<ToolInput> {

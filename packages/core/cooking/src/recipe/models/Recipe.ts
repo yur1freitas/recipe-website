@@ -9,16 +9,16 @@ import type { DifficultyEnum } from '../constants/DifficultyEnum'
 
 import z from 'zod'
 
-import { $idSchema, Entity, entitySchema, Id, List } from '@core/shared'
+import { idSchema, Entity, entitySchema, Id, List } from '@core/shared'
 
 import { Tool, toolSchema } from '~/tool/models/Tool'
 import { Step, stepSchema } from '~/step/models/Step'
-import { $nameSchema, Name } from '~/shared/models/Name'
-import { $descriptionSchema, Description } from '~/shared/models/Description'
+import { nameSchema, Name } from '~/shared/models/Name'
+import { descriptionSchema, Description } from '~/shared/models/Description'
 import { Ingredient, ingredientSchema } from '~/ingredient/models/Ingredient'
 
-import { $preparationTimeSchema, PreparationTime } from './PreparationTime'
-import { $difficultySchema, Difficulty } from './Difficulty'
+import { preparationTimeSchema, PreparationTime } from './PreparationTime'
+import { difficultySchema, Difficulty } from './Difficulty'
 
 export interface RecipeInput extends EntityInput {
     authorId: string
@@ -35,11 +35,11 @@ export type RecipeProps = EntityProps<RecipeInput>
 
 export const recipeSchema = z.object({
     ...entitySchema.shape,
-    authorId: $idSchema,
-    name: $nameSchema,
-    description: $descriptionSchema,
-    difficulty: $difficultySchema,
-    preparationTime: $preparationTimeSchema,
+    authorId: idSchema,
+    name: nameSchema,
+    description: descriptionSchema,
+    difficulty: difficultySchema,
+    preparationTime: preparationTimeSchema,
     steps: z.array(stepSchema),
     tools: z.array(toolSchema),
     ingredients: z.array(ingredientSchema)
