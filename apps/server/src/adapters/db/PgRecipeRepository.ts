@@ -1,11 +1,10 @@
 import type { Kysely } from 'kysely'
-import type { RecipeInput, RecipeRepositoryProvider } from '@core/cooking'
+import type { RecipeRepositoryProvider } from '@core/cooking'
 
 import type { DB } from '~/db/schema'
 
 import { jsonArrayFrom } from 'kysely/helpers/postgres'
 
-import { Time } from '@core/time'
 import { Recipe } from '@core/cooking'
 
 import { app } from '~/app'
@@ -217,13 +216,7 @@ export class PgRecipeRepository implements RecipeRepositoryProvider {
             ])
             .execute()
 
-        const recipes = rows.map(
-            (row) =>
-                new Recipe({
-                    ...row,
-                    preparationTime: new Time({ ms: row.preparationTime })
-                } as RecipeInput)
-        )
+        const recipes = rows.map((row) => new Recipe(row))
 
         return recipes
     }
@@ -264,10 +257,7 @@ export class PgRecipeRepository implements RecipeRepositoryProvider {
             .executeTakeFirst()
 
         if (row) {
-            const recipe = new Recipe({
-                ...row,
-                preparationTime: new Time({ ms: row.preparationTime })
-            } as RecipeInput)
+            const recipe = new Recipe(row)
 
             return recipe
         }
@@ -310,13 +300,7 @@ export class PgRecipeRepository implements RecipeRepositoryProvider {
             ])
             .execute()
 
-        const recipes = rows.map(
-            (row) =>
-                new Recipe({
-                    ...row,
-                    preparationTime: new Time({ ms: row.preparationTime })
-                } as RecipeInput)
-        )
+        const recipes = rows.map((row) => new Recipe(row))
 
         return recipes
     }
