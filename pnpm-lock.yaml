@@ -452,6 +452,9 @@ importers:
       '@core/shared':
         specifier: 'workspace:'
         version: link:../shared
+      zod:
+        specifier: catalog:core
+        version: 4.1.12
     devDependencies:
       '@config/tsdown':
         specifier: 'workspace:'
@@ -468,6 +471,9 @@ importers:
 
   packages/core/cooking:
     dependencies:
+      '@core/auth':
+        specifier: 'workspace:'
+        version: link:../auth
       '@core/shared':
         specifier: 'workspace:'
         version: link:../shared
