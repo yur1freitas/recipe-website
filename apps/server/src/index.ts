@@ -18,6 +18,7 @@ import { loginUserController } from './api/controllers/auth/LoginUserController'
 
 import { updateRecipeController } from './api/controllers/cooking/updateRecipeController'
 import { registerRecipeController } from './api/controllers/cooking/registerRecipeController'
+import { findRecipesController } from './api/controllers/cooking/findRecipesController'
 import { deleteRecipeController } from './api/controllers/cooking/deleteRecipeController'
 
 import { fastifyAuth } from './plugins/fastifyAuth'
@@ -27,7 +28,14 @@ import { postgres } from './db/postgres'
 
 import { listeningInfo } from './utils/info'
 
-import { DeleteRecipe, RegisterRecipe, UpdateRecipe } from '@core/cooking'
+import {
+    DeleteRecipe,
+    FindAllRecipes,
+    FindRecipe,
+    FindUserRecipes,
+    RegisterRecipe,
+    UpdateRecipe
+} from '@core/cooking'
 import { fastifyCaptcha } from './plugins/fastifyCaptcha'
 import { env } from './env'
 import { app } from './app'
@@ -67,6 +75,13 @@ try {
     const updateRecipe = new UpdateRecipe(recipeRepositoryProvider)
     const deleteRecipe = new DeleteRecipe(recipeRepositoryProvider)
 
+    const findRecipe = new FindRecipe(recipeRepositoryProvider)
+    const findAllRecipes = new FindAllRecipes(recipeRepositoryProvider)
+    const findUserRecipes = new FindUserRecipes(
+        userRepositoryProvider,
+        recipeRepositoryProvider
+    )
+
     app.register(fastifyAuth, { verifyUserSession }).register(fastifyCaptcha, {
         keyName: 'captcha'
     })
@@ -79,6 +94,11 @@ try {
     app.register(registerRecipeController, { registerRecipe })
         .register(updateRecipeController, { updateRecipe })
         .register(deleteRecipeController, { deleteRecipe })
+        .register(findRecipesController, {
+            findRecipe,
+            findAllRecipes,
+            findUserRecipes
+        })
 
     await app.listen({ port: env.API_PORT })
 
