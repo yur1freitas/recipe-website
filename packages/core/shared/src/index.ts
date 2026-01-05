@@ -1,7 +1,7 @@
 export type { EntityInput, EntityProps } from './models/Entity'
 export type { UseCase } from './models/UseCase'
 
-export { Entity } from './models/Entity'
+export { Entity, entitySchema } from './models/Entity'
 export { ValueObject } from './models/ValueObject'
 
 export {
