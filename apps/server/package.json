@@ -50,6 +50,7 @@
         "@standard-schema/fastify-type-provider": "workspace:",
         "@types/bcrypt": "catalog:security",
         "@types/pg": "catalog:postgres",
-        "kysely-codegen": "0.19.0"
+        "kysely-codegen": "0.19.0",
+        "pino-pretty": "13.1.3"
     }
 }
