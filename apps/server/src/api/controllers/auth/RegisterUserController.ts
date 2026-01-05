@@ -1,14 +1,9 @@
+import type { RegisterUser, RegisterUserInput } from '@core/auth'
+
 import z from 'zod'
 
-import type { RegisterUser, RegisterUserInput } from '@core/auth'
-import { AuthError, RegisterUserErrors } from '@core/auth'
-
-import {
-    $emailSchema,
-    $passwordSchema,
-    $usernameSchema,
-    ValidatorError
-} from '@core/shared'
+import { ValidatorError } from '@core/shared'
+import { AuthError, RegisterUserErrors, userSchema } from '@core/auth'
 
 import { createController } from '~/utils/controller'
 import { httpErrorSchema, serverErrorSchema } from '~/schemas/httpErrorSchema'
@@ -30,11 +25,7 @@ export const registerUserController = createController<Options>(
                 schema: {
                     tags: ['auth'],
                     description: 'Rota para registrar um usuário',
-                    body: z.object({
-                        name: $usernameSchema,
-                        email: $emailSchema,
-                        password: $passwordSchema
-                    }),
+                    body: userSchema.omit({ id: true }),
                     response: {
                         201: z
                             .null()
