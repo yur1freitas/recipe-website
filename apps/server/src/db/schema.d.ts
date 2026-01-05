@@ -4,8 +4,8 @@
  */
 
 import type { ColumnType } from 'kysely'
-
-export type Difficulty = 'easy' | 'hard' | 'medium'
+import type { Time } from '@core/time'
+import type { DifficultyEnum, UnitEnum } from '@core/cooking'
 
 export type Generated<T> =
     T extends ColumnType<infer S, infer I, infer U>
@@ -18,17 +18,17 @@ export interface Ingredients {
     name: string
     pk: Generated<number>
     recipeId: string
-    unit: string
+    unit: UnitEnum
 }
 
 export interface Recipes {
     authorId: string
     description: string
-    difficulty: Difficulty
+    difficulty: DifficultyEnum
     id: string
     name: string
     pk: Generated<number>
-    preparationTime: number
+    preparationTime: Time
 }
 
 export interface Steps {

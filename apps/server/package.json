@@ -15,7 +15,7 @@
         "pm2:describe": "pm2 describe",
         "pm2:restart": "pm2 restart",
         "scripts:keys": "tsx scripts/createPasetoKeys.ts",
-        "kysely:codegen": "kysely-codegen --dialect postgres --camel-case --out-file ./src/db/schema.d.ts",
+        "kysely:codegen": "kysely-codegen",
         "migrate": "dotenvx run -f .env.dev -- kysely migrate",
         "migrate:up": "pnpm run migrate up",
         "migrate:down": "pnpm run migrate down",
