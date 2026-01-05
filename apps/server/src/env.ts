@@ -2,6 +2,9 @@ import { z } from 'zod'
 import { loadEnv } from '@standard-schema/load-env'
 
 export const env = loadEnv({
+    // - - Node Enviroment - -
+    NODE_ENV: z.enum(['development', 'production']),
+
     // - - API - -
     API_PORT: z.coerce.number().min(0).max(65535),
     API_LOGGER: z.enum(['true', 'false']).transform((v) => v === 'true'),

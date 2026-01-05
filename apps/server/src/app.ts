@@ -1,3 +1,6 @@
+import type { PinoLoggerOptions } from 'fastify/types/logger'
+import type { StandardSchemaTypeProvider } from '@standard-schema/fastify-type-provider'
+
 import fastifyScalar from '@scalar/fastify-api-reference'
 
 import fastify from 'fastify'
@@ -7,22 +10,33 @@ import fastifyRateLimit from '@fastify/rate-limit'
 import fastifyCors from '@fastify/cors'
 import fastifyCookie from '@fastify/cookie'
 
-import type { StandardSchemaTypeProvider } from '@standard-schema/fastify-type-provider'
 import {
     StandardSchemaSerializerCompiler,
     StandardSchemaValidatorCompiler,
     swaggerTransform
 } from '@standard-schema/fastify-type-provider'
 
-import z from 'zod'
 import { ZodType } from 'zod'
+import z from 'zod'
 
 import { fastifyServerError } from './plugins/fastifyServerError'
 import { fastifyResponse } from './plugins/fastifyResponse'
 
 import { env } from './env'
 
-const app = fastify({ logger: env.API_LOGGER })
+const logger: Record<string, boolean | PinoLoggerOptions> = {
+    development: {
+        enabled: env.API_LOGGER,
+        transport: {
+            target: 'pino-pretty'
+        }
+    },
+    production: env.API_LOGGER
+}
+
+const app = fastify({
+    logger: logger[env.NODE_ENV]
+})
 
 // - - Standard Schema to Schema Json - -
 app.withTypeProvider<StandardSchemaTypeProvider>()
