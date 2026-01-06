@@ -89,7 +89,7 @@ export class List<T> implements Iterable<T> {
         return new List(input)
     }
 
-    filter(fn: (value: Readonly<T>, i: number) => T): List<T> {
+    filter(fn: (value: Readonly<T>, i: number) => boolean): List<T> {
         const input = this.$store.filter(fn)
         return new List(input)
     }
