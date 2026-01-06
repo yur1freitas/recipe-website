@@ -4,7 +4,7 @@ import { ZodValidator } from '../validators/ZodValidator'
 import { ValueObject } from './ValueObject'
 
 export const emailSchema = z
-    .email('O email fornecido não é inválido')
+    .email('O email fornecido não é válido')
     .trim()
     .nonempty('O email não pode ser vazio')
     .meta({
