@@ -1,0 +1,21 @@
+{
+    "name": "@config/vitest",
+    "version": "0.0.1",
+    "description": "",
+    "license": "MIT",
+    "type": "module",
+    "main": "./index.js",
+    "module": "./index.js",
+    "types": "./index.d.ts",
+    "exports": {
+        ".": "./index.js",
+        "./package.json": "./package.json"
+    },
+    "devDependencies": {
+        "vitest": "catalog:test"
+    },
+    "peerDependencies": {
+        "vitest": "catalog:test",
+        "@vitest/coverage-v8": "catalog:test"
+    }
+}
