@@ -36,12 +36,12 @@ const logger: Record<string, boolean | PinoLoggerOptions> = {
 
 const app = fastify({
     logger: logger[env.NODE_ENV]
-})
+}).withTypeProvider<StandardSchemaTypeProvider>()
 
 // - - Standard Schema to Schema Json - -
-app.withTypeProvider<StandardSchemaTypeProvider>()
-    .setSerializerCompiler(StandardSchemaSerializerCompiler)
-    .setValidatorCompiler(StandardSchemaValidatorCompiler)
+app.setSerializerCompiler(
+    StandardSchemaSerializerCompiler
+).setValidatorCompiler(StandardSchemaValidatorCompiler)
 
 // - - Fastify Plugins - -
 app.register(fastifyCors, { origin: [env.WEB_URL] })
