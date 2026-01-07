@@ -103,7 +103,7 @@ export class List<T> implements Iterable<T> {
     }
 
     sort(fn: (a: Readonly<T>, b: Readonly<T>) => number): List<T> {
-        const input = this.$store.sort(fn)
+        const input = this.$store.toSorted(fn)
         return new List(input)
     }
 
