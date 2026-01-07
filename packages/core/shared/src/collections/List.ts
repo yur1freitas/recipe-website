@@ -108,11 +108,11 @@ export class List<T> implements Iterable<T> {
     }
 
     isInBounds(index: number): boolean {
-        return index >= 0 && index < this.length
+        return index >= 0 && index < this.length && Number.isSafeInteger(index)
     }
 
     isNotInBounds(index: number): boolean {
-        return index < 0 || index >= this.length
+        return index < 0 || index >= this.length || !Number.isSafeInteger(index)
     }
 
     *[Symbol.iterator](): Iterator<T, any, any> {
