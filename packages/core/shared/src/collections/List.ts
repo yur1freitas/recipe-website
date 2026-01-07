@@ -98,7 +98,7 @@ export class List<T> implements Iterable<T> {
         return this.$store.find(fn) ?? null
     }
 
-    findIndex(fn: (value: Readonly<T>, i: number) => T): number {
+    findIndex(fn: (value: Readonly<T>, i: number) => unknown): number {
         return this.$store.findIndex(fn)
     }
 
