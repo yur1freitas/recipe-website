@@ -94,7 +94,7 @@ export class List<T> implements Iterable<T> {
         return new List(input)
     }
 
-    find(fn: (value: Readonly<T>, i: number) => T): Readonly<T> | null {
+    find(fn: (value: Readonly<T>, i: number) => unknown): Readonly<T> | null {
         return this.$store.find(fn) ?? null
     }
 
