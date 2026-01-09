@@ -45,8 +45,13 @@ describe('Entity', () => {
     })
 
     it('deve clonar uma entidade passando novos parâmetros', () => {
-        const entity = new TestEntity({ name: faker.person.firstName() })
-        const clonedEntity = entity.clone({ name: faker.person.firstName() })
+        const [nameA, nameB] = faker.helpers.uniqueArray(
+            () => faker.person.firstName(),
+            2
+        )
+
+        const entity = new TestEntity({ name: nameA })
+        const clonedEntity = entity.clone({ name: nameB })
 
         expect(entity).not.toBe(clonedEntity)
 
