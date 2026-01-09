@@ -7,6 +7,6 @@
             "~mocks/*": ["./mocks/*"]
         }
     },
-    "include": ["src", "mocks"],
+    "include": ["src", "test", "mocks"],
     "exclude": ["node_modules/**", "dist/**"]
 }

@@ -69,6 +69,7 @@ catalogs:
   test:
     '@faker-js/faker': 10.2.0
     '@vitest/coverage-v8': 4.0.16
+    '@vitest/ui': 4.0.16
     vitest: 4.0.16
   valkey:
     iovalkey: 0.3.3
