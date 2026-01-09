@@ -1,4 +1,4 @@
-name: Executar todos os Testes Unitários
+name: Test
 
 on:
   push:
