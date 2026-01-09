@@ -14,15 +14,13 @@ export interface RandUserOptions {
     password?: string
 }
 
-const DEFAULT_OPTIONS: Required<RandUserOptions> = {
-    id: randId(),
-    name: randUsername(),
-    email: randEmail(),
-    password: randPassword()
-}
-
 export function randUser(options?: RandUserOptions): Required<UserProps> {
-    const user = { ...DEFAULT_OPTIONS, ...options }
+    const user = {
+        id: options?.id ?? randId(),
+        name: options?.name ?? randUsername(),
+        email: options?.email ?? randEmail(),
+        password: options?.password ?? randPassword()
+    }
 
     return user
 }
