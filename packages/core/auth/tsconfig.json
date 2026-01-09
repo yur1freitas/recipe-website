@@ -4,9 +4,10 @@
         "baseUrl": ".",
         "paths": {
             "~/*": ["./src/*"],
+            "~/test/*": ["./test/*"],
             "~mocks/*": ["./mocks/*"]
         }
     },
-    "include": ["src", "__test__", "mocks"],
+    "include": ["src", "test", "mocks"],
     "exclude": ["node_modules/**", "dist/**"]
 }
