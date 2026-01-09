@@ -16,6 +16,7 @@ export const config = {
     resolve: {
         alias: {
             '~': join(cwd, 'src/'),
+            '~test': join(cwd, 'test/'),
             '~mocks': join(cwd, 'mocks/')
         }
     }
