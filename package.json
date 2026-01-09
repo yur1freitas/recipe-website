@@ -12,6 +12,7 @@
         "test:coverage": "turbo run test:coverage",
         "test:core": "turbo run test --filter '@core/*'",
         "build": "turbo run build",
+        "build:packages": "turbo run build --filter=./packages/**/*",
         "build:core": "turbo run build --filter '@core/*'",
         "typecheck": "turbo run typecheck"
     },
