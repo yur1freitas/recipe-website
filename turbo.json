@@ -6,6 +6,14 @@
             "persistent": true,
             "cache": false
         },
+        "test": {
+            "dependsOn": ["^test"],
+            "cache": false
+        },
+        "test:coverage": {
+            "dependsOn": ["^test:coverage"],
+            "cache": false
+        },
         "typecheck": {
             "dependsOn": ["^typecheck"]
         },

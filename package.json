@@ -8,6 +8,9 @@
         "lint": "oxlint",
         "lint:fix": "oxlint --fix",
         "dev": "turbo run dev",
+        "test": "turbo run test",
+        "test:coverage": "turbo run test:coverage",
+        "test:core": "turbo run test --filter '@core/*'",
         "build": "turbo run build",
         "build:core": "turbo run build --filter '@core/*'",
         "typecheck": "turbo run typecheck"
