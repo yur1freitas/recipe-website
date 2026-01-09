@@ -3,9 +3,10 @@
     "compilerOptions": {
         "baseUrl": ".",
         "paths": {
-            "~/*": ["./src/*"]
+            "~/*": ["./src/*"],
+            "~mocks/*": ["./mocks/*"]
         }
     },
-    "include": ["src", "__test__"],
+    "include": ["src", "mocks"],
     "exclude": ["node_modules/**", "dist/**"]
 }
