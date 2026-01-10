@@ -74,8 +74,8 @@ catalogs:
   valkey:
     iovalkey: 0.3.3
 
-onlyBuiltDependencies:
-  - bcrypt
-  - better-sqlite3
-  - esbuild
-  - sharp
+allowBuilds:
+  sharp: true
+  bcrypt: true
+  esbuild: true
+  better-sqlite3: true
