@@ -33,3 +33,5 @@ export { randTool } from './randTool'
 
 export type { RandUnitOptions } from './randUnit'
 export { randUnit } from './randUnit'
+
+export { RecipeRepositoryProviderMock } from './providers/RecipeRepositoryProviderMock'
