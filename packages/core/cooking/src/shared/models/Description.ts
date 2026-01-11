@@ -8,7 +8,7 @@ export const descriptionSchema = z
     .nonempty('A descrição não pode ser vazia')
     .max(256, 'A descrição deve ter no máximo 256 caracteres')
     .regex(
-        /^[\p{L}\p{M}\d\s,;.'"()]+$/iu,
+        /^[\p{L}\p{M}\d\s,;.'"()-]+$/iu,
         'A descrição deve conter apenas caracteres permitidos'
     )
 
