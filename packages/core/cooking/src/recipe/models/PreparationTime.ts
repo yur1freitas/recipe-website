@@ -22,15 +22,15 @@ export class PreparationTime extends ValueObject<Time> {
     }
 
     get seconds(): number {
-        return this.seconds
+        return this.value.seconds
     }
 
     get minutes(): number {
-        return this.minutes
+        return this.value.minutes
     }
 
     get hours(): number {
-        return this.hours
+        return this.value.hours
     }
 
     override equals(target: PreparationTime): boolean {
