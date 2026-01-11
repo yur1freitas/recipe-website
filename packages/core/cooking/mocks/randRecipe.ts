@@ -12,7 +12,7 @@ import { randIngredient } from './randIngredient'
 import { randDifficulty } from './randDifficulty'
 import { randDescription } from './randDescription'
 
-export type RandRecipeOptions = Required<RecipeInput>
+export type RandRecipeOptions = Partial<RecipeInput>
 
 export function randRecipe(options?: RandRecipeOptions): RecipeProps {
     return {
