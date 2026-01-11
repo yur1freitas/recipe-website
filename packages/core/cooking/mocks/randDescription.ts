@@ -23,7 +23,7 @@ export function randDescription(options?: RandDescriptionOptions): string {
             const name = faker.food.description()
 
             const extra = faker.helpers.arrayElement([
-                faker.helpers.arrayElement(['*', '_', '+', '(', ')']),
+                faker.helpers.arrayElement(['*', '_', '+']),
                 faker.internet.emoji()
             ])
 
