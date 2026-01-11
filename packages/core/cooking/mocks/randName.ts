@@ -52,7 +52,7 @@ export function randName(options?: RandNameOptions): string {
             return `${name}${extra}`
         }
         default: {
-            return pickName()
+            return pickName().replace(/[^\p{L}\p{M}\d\s-]+/giu, '')
         }
     }
 }
