@@ -4,7 +4,7 @@ import { ValueObject, ZodValidator } from '@core/shared'
 
 export const orderSchema = z
     .number('O índice da ordem deve ser um número')
-    .min(1, 'A menor índice possível é 1')
+    .min(1, 'O menor índice possível é 1')
     .int('O índice da ordem deve ser um valor inteiro')
 
 export const OrderValidator = new ZodValidator(orderSchema)
