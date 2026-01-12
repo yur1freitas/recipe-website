@@ -528,12 +528,27 @@ importers:
       '@config/typescript':
         specifier: 'workspace:'
         version: link:../../config/typescript
+      '@config/vitest':
+        specifier: 'workspace:'
+        version: link:../../config/vitest
+      '@faker-js/faker':
+        specifier: catalog:test
+        version: 10.2.0
+      '@vitest/coverage-v8':
+        specifier: catalog:test
+        version: 4.0.16(vitest@4.0.16)
+      '@vitest/ui':
+        specifier: catalog:test
+        version: 4.0.16(vitest@4.0.16)
       tsdown:
         specifier: 'catalog:'
         version: 0.17.1(typescript@5.9.3)
       typescript:
         specifier: 'catalog:'
         version: 5.9.3
+      vitest:
+        specifier: catalog:test
+        version: 4.0.16(@types/node@24.10.1)(@vitest/ui@4.0.16)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)(yaml@2.8.0)
 
   packages/core/shared:
     dependencies:

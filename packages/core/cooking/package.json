@@ -13,7 +13,10 @@
         "./package.json": "./package.json"
     },
     "scripts": {
-        "build": "tsdown"
+        "build": "tsdown",
+        "test": "vitest run",
+        "test:ui": "vitest --ui",
+        "test:coverage": "vitest run --coverage"
     },
     "dependencies": {
         "@core/auth": "workspace:",
@@ -26,7 +29,11 @@
         "@config/typescript": "workspace:",
         "@faker-js/faker": "catalog:test",
         "tsdown": "catalog:",
-        "typescript": "catalog:"
+        "typescript": "catalog:",
+        "@config/vitest": "workspace:",
+        "@vitest/coverage-v8": "catalog:test",
+        "@vitest/ui": "catalog:test",
+        "vitest": "catalog:test"
     },
     "peerDependencies": {
         "@faker-js/faker": "catalog:test"
