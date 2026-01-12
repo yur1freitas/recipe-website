@@ -1,6 +1,6 @@
+import type { RecipeRepositoryProvider } from '~/recipe/providers/RecipeRepositoryProvider'
 import type { RecipeProps } from '~/recipe/models/Recipe'
 
-import { RecipeRepositoryProvider } from '~/recipe/providers/RecipeRepositoryProvider'
 import { Recipe } from '~/recipe/models/Recipe'
 
 export class RecipeRepositoryProviderMock implements RecipeRepositoryProvider {
