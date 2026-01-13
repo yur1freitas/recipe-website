@@ -123,7 +123,7 @@ export class Time {
     addHours(amount: number): this {
         if (amount === 0) return this
 
-        const hours = amount % MAX_AMOUNT_IN_SECONDS
+        const hours = amount % MAX_AMOUNT_IN_HOURS
 
         this.$store.set('hour', hours)
 
