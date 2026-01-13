@@ -1,12 +1,16 @@
 import {
     DEFAULT_TIME,
+    MAX_AMOUNT_IN_DAYS,
     MAX_AMOUNT_IN_HOURS,
     MAX_AMOUNT_IN_MINUTES,
     MAX_AMOUNT_IN_MS,
     MAX_AMOUNT_IN_SECONDS,
+    MAX_AMOUNT_IN_WEEKS,
+    ONE_DAY_IN_MS,
     ONE_HOUR_IN_MS,
     ONE_MINUTE_IN_MS,
-    ONE_SECOND_IN_MS
+    ONE_SECOND_IN_MS,
+    ONE_WEEK_IN_MS
 } from './constants'
 
 import type { TimeInput, TimeUnit } from './types'
@@ -33,6 +37,14 @@ export class Time {
         if (input?.hour) {
             this.addHours(input.hour)
         }
+
+        if (input?.day) {
+            this.addDays(input.day)
+        }
+
+        if (input?.week) {
+            this.addWeeks(input.week)
+        }
     }
 
     get ms(): number {
@@ -51,6 +63,14 @@ export class Time {
         return this.$store.get('hour')!
     }
 
+    get days(): number {
+        return this.$store.get('day')!
+    }
+
+    get weeks(): number {
+        return this.$store.get('week')!
+    }
+
     static fromMilliseconds(ms: number): Time {
         return new Time({ ms })
     }
@@ -65,6 +85,14 @@ export class Time {
 
     static fromHours(hours: number): Time {
         return new Time({ hour: hours })
+    }
+
+    static fromDays(days: number): Time {
+        return new Time({ day: days })
+    }
+
+    static fromWeeks(weeks: number): Time {
+        return new Time({ week: weeks })
     }
 
     setMilliseconds(amount: number) {
@@ -85,6 +113,16 @@ export class Time {
     setHours(amount: number) {
         const value = clamp(0, MAX_AMOUNT_IN_HOURS - 1, amount)
         this.$store.set('hour', value)
+    }
+
+    setDays(amount: number) {
+        const value = clamp(0, MAX_AMOUNT_IN_DAYS - 1, amount)
+        this.$store.set('day', value)
+    }
+
+    setWeeks(amount: number) {
+        const value = clamp(0, MAX_AMOUNT_IN_WEEKS - 1, amount)
+        this.$store.set('week', value)
     }
 
     addMilliseconds(amount: number): this {
@@ -131,8 +169,32 @@ export class Time {
 
         const total = this.hours + amount
         const hours = total % MAX_AMOUNT_IN_HOURS
+        const days = Math.floor(total / MAX_AMOUNT_IN_HOURS)
 
         this.$store.set('hour', hours)
+
+        return this.addDays(days)
+    }
+
+    addDays(amount: number): this {
+        if (amount === 0) return this
+
+        const total = this.days + amount
+        const days = total % MAX_AMOUNT_IN_DAYS
+        const weeks = Math.floor(total / MAX_AMOUNT_IN_DAYS)
+
+        this.$store.set('day', days)
+
+        return this.addWeeks(weeks)
+    }
+
+    addWeeks(amount: number): this {
+        if (amount === 0) return this
+
+        const total = this.weeks + amount
+        const weeks = total % MAX_AMOUNT_IN_WEEKS
+
+        this.$store.set('week', weeks)
 
         return this
     }
@@ -143,6 +205,8 @@ export class Time {
         amount += this.seconds * ONE_SECOND_IN_MS
         amount += this.minutes * ONE_MINUTE_IN_MS
         amount += this.hours * ONE_HOUR_IN_MS
+        amount += this.days * ONE_DAY_IN_MS
+        amount += this.weeks * ONE_WEEK_IN_MS
 
         return amount
     }
@@ -157,6 +221,14 @@ export class Time {
 
     toHours(): number {
         return this.toMilliseconds() / ONE_HOUR_IN_MS
+    }
+
+    toDays(): number {
+        return this.toMilliseconds() / ONE_DAY_IN_MS
+    }
+
+    toWeeks(): number {
+        return this.toMilliseconds() / ONE_WEEK_IN_MS
     }
 
     toJSON(): number {
