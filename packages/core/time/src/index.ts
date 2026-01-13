@@ -8,4 +8,4 @@ export {
     MAX_AMOUNT_IN_WEEKS
 } from './constants'
 export { Time } from './time'
-export type { TimeInput, TimeUnit } from './types'
+export type { TimeInput, TimeUnit, TimeProps } from './types'
