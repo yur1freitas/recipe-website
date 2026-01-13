@@ -51,6 +51,22 @@ export class Time {
         return this.$store.get('hour')!
     }
 
+    static fromMilliseconds(ms: number): Time {
+        return new Time({ ms })
+    }
+
+    static fromSeconds(seconds: number): Time {
+        return new Time({ second: seconds })
+    }
+
+    static fromMinutes(minutes: number): Time {
+        return new Time({ minute: minutes })
+    }
+
+    static fromHours(hours: number): Time {
+        return new Time({ hour: hours })
+    }
+
     setMilliseconds(amount: number) {
         const value = clamp(0, MAX_AMOUNT_IN_MS - 1, amount)
         this.$store.set('ms', value)
