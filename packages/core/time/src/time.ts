@@ -95,7 +95,7 @@ export class Time {
         const ms = total % MAX_AMOUNT_IN_MS
         const seconds = Math.floor(total / MAX_AMOUNT_IN_MS)
 
-        this.setMilliseconds(ms)
+        this.$store.set('ms', ms)
 
         return this.addSeconds(seconds)
     }
