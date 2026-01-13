@@ -13,7 +13,7 @@ import {
     ONE_WEEK_IN_MS
 } from './constants'
 
-import type { TimeInput, TimeUnit } from './types'
+import type { TimeInput, TimeUnit, TimeProps } from './types'
 import { clamp } from './utils'
 
 export class Time {
@@ -69,6 +69,10 @@ export class Time {
 
     get weeks(): number {
         return this.$store.get('week')!
+    }
+
+    get props(): TimeProps {
+        return Object.fromEntries(this.$store.entries()) as TimeProps
     }
 
     static fromMilliseconds(ms: number): Time {
