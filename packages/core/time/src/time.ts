@@ -90,8 +90,10 @@ export class Time {
     addMilliseconds(amount: number): this {
         if (amount === 0) return this
 
-        const ms = amount % MAX_AMOUNT_IN_MS
-        const seconds = Math.floor(amount / MAX_AMOUNT_IN_MS)
+        const total = this.ms + amount
+
+        const ms = total % MAX_AMOUNT_IN_MS
+        const seconds = Math.floor(total / MAX_AMOUNT_IN_MS)
 
         this.setMilliseconds(ms)
 
@@ -101,8 +103,10 @@ export class Time {
     addSeconds(amount: number): this {
         if (amount === 0) return this
 
-        const seconds = amount % MAX_AMOUNT_IN_SECONDS
-        const minutes = Math.floor(amount / MAX_AMOUNT_IN_SECONDS)
+        const total = this.seconds + amount
+
+        const seconds = total % MAX_AMOUNT_IN_SECONDS
+        const minutes = Math.floor(total / MAX_AMOUNT_IN_SECONDS)
 
         this.$store.set('second', seconds)
 
@@ -112,8 +116,10 @@ export class Time {
     addMinutes(amount: number): this {
         if (amount === 0) return this
 
-        const minutes = amount % MAX_AMOUNT_IN_MINUTES
-        const hours = Math.floor(amount / MAX_AMOUNT_IN_MINUTES)
+        const total = this.minutes + amount
+
+        const minutes = total % MAX_AMOUNT_IN_MINUTES
+        const hours = Math.floor(total / MAX_AMOUNT_IN_MINUTES)
 
         this.$store.set('minute', minutes)
 
@@ -123,7 +129,8 @@ export class Time {
     addHours(amount: number): this {
         if (amount === 0) return this
 
-        const hours = amount % MAX_AMOUNT_IN_HOURS
+        const total = this.hours + amount
+        const hours = total % MAX_AMOUNT_IN_HOURS
 
         this.$store.set('hour', hours)
 
