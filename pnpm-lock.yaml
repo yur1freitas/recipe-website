@@ -595,6 +595,9 @@ importers:
       '@config/typescript':
         specifier: 'workspace:'
         version: link:../../config/typescript
+      '@faker-js/faker':
+        specifier: catalog:test
+        version: 10.2.0
       tsdown:
         specifier: 'catalog:'
         version: 0.17.1(typescript@5.9.3)

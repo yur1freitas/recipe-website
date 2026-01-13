@@ -9,15 +9,25 @@
     "types": "./dist/index.d.mts",
     "exports": {
         ".": "./dist/index.mjs",
+        "./mocks": "./dist/mocks.mjs",
         "./package.json": "./package.json"
     },
     "scripts": {
         "build": "tsdown"
     },
     "devDependencies": {
+        "@faker-js/faker": "catalog:test",
         "@config/tsdown": "workspace:",
         "@config/typescript": "workspace:",
         "tsdown": "catalog:",
         "typescript": "catalog:"
+    },
+    "peerDependencies": {
+        "@faker-js/faker": "catalog:test"
+    },
+    "peerDependenciesMeta": {
+        "@faker-js/faker": {
+            "optional": true
+        }
     }
 }
