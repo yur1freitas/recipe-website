@@ -238,4 +238,8 @@ export class Time {
     toJSON(): number {
         return this.toMilliseconds()
     }
+
+    clone(input?: TimeInput): Time {
+        return new Time({ ...this.props, ...input })
+    }
 }
