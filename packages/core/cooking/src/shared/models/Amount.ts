@@ -14,4 +14,3 @@ export class Amount extends ValueObject<number> {
         super(AmountValidator, value)
     }
 }
-     

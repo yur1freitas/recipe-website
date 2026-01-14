@@ -15,7 +15,7 @@
         "vitest": "catalog:test"
     },
     "peerDependencies": {
-        "vitest": "catalog:test",
-        "@vitest/coverage-v8": "catalog:test"
+        "@vitest/coverage-v8": "catalog:test",
+        "vitest": "catalog:test"
     }
 }
