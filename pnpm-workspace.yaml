@@ -58,7 +58,7 @@ catalogs:
     tailwindcss: 4.1.17
   lint:
     dprint: 0.50.2
-    oxfmt: 0.21.0
+    oxfmt: 0.24.0
     oxlint: 1.39.0
   schema:
     '@standard-schema/spec': 1.0.0
