@@ -21,7 +21,7 @@
     "devDependencies": {
         "@config/tsdown": "workspace:",
         "@config/typescript": "workspace:",
-        "tsdown": "catalog:",
+        "tsdown": "catalog:build",
         "typescript": "catalog:"
     }
 }

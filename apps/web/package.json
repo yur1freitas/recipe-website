@@ -10,28 +10,28 @@
         "openapi:schema": "openapi-typescript http://localhost:7300/reference/openapi.json -o src/client/schema.d.ts"
     },
     "dependencies": {
-        "@cap.js/widget": "catalog:security",
+        "@cap.js/widget": "catalog:frontend",
         "@core/auth": "workspace:",
         "@core/shared": "workspace:",
-        "@dotenvx/dotenvx": "catalog:security",
-        "@tanstack/react-form": "catalog:react",
-        "lucide-react": "catalog:react",
-        "openapi-fetch": "catalog:openapi",
-        "react": "catalog:react",
-        "react-dom": "catalog:react",
-        "swr-openapi": "catalog:openapi",
-        "zod": "catalog:core"
+        "@dotenvx/dotenvx": "catalog:backend",
+        "@tanstack/react-form": "catalog:frontend",
+        "lucide-react": "catalog:frontend",
+        "openapi-fetch": "catalog:frontend",
+        "react": "catalog:frontend",
+        "react-dom": "catalog:frontend",
+        "swr-openapi": "catalog:frontend",
+        "zod": "catalog:schema"
     },
     "devDependencies": {
         "@config/typescript": "workspace:",
-        "@tailwindcss/postcss": "catalog:tailwind",
-        "@types/react": "catalog:react",
-        "@types/react-dom": "catalog:react",
-        "babel-plugin-react-compiler": "catalog:react",
-        "daisyui": "catalog:tailwind",
-        "next": "catalog:react",
-        "openapi-typescript": "catalog:openapi",
-        "tailwindcss": "catalog:tailwind",
+        "@tailwindcss/postcss": "catalog:build",
+        "@types/react": "catalog:types",
+        "@types/react-dom": "catalog:types",
+        "babel-plugin-react-compiler": "catalog:build",
+        "daisyui": "catalog:frontend",
+        "next": "catalog:frontend",
+        "openapi-typescript": "catalog:frontend",
+        "tailwindcss": "catalog:frontend",
         "typescript": "catalog:"
     }
 }

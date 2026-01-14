@@ -21,9 +21,9 @@
     "devDependencies": {
         "@config/tsdown": "workspace:",
         "@config/typescript": "workspace:",
-        "@fastify/swagger": "catalog:fastify",
-        "fastify": "catalog:fastify",
-        "tsdown": "catalog:",
+        "@fastify/swagger": "catalog:docs",
+        "fastify": "catalog:backend",
+        "tsdown": "catalog:build",
         "typescript": "catalog:"
     }
 }
