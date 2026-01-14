@@ -8,7 +8,8 @@ import { randRecipe } from '~mocks/randRecipe'
 import { RecipeRepositoryProviderMock } from '~mocks/providers/RecipeRepositoryProviderMock'
 
 import { FindRecipe } from '~/recipe/usecases/FindRecipe'
-import { Recipe, RecipeProps } from '~/recipe/models/Recipe'
+import type { RecipeProps } from '~/recipe/models/Recipe';
+import { Recipe } from '~/recipe/models/Recipe'
 
 describe('FindRecipe', () => {
     let recipe: RecipeProps

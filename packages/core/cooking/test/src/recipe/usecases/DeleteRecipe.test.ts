@@ -6,7 +6,7 @@ import { randRecipe } from '~mocks/randRecipe'
 import { RecipeRepositoryProviderMock } from '~mocks/providers/RecipeRepositoryProviderMock'
 
 import { DeleteRecipe } from '~/recipe/usecases/DeleteRecipe'
-import { RecipeProps } from '~/recipe/models/Recipe'
+import type { RecipeProps } from '~/recipe/models/Recipe'
 
 describe('DeleteRecipe', () => {
     let recipe: RecipeProps

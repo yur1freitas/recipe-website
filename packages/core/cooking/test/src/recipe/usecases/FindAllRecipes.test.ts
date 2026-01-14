@@ -6,7 +6,8 @@ import { randRecipe } from '~mocks/randRecipe'
 import { RecipeRepositoryProviderMock } from '~mocks/providers/RecipeRepositoryProviderMock'
 
 import { FindAllRecipes } from '~/recipe/usecases/FindAllRecipes'
-import { Recipe, RecipeProps } from '~/recipe/models/Recipe'
+import type { RecipeProps } from '~/recipe/models/Recipe';
+import { Recipe } from '~/recipe/models/Recipe'
 
 describe('FindAllRecipes', () => {
     let recipe: RecipeProps
