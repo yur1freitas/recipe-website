@@ -12,9 +12,9 @@
         "./package.json": "./package.json"
     },
     "devDependencies": {
-        "tsdown": "catalog:"
+        "tsdown": "catalog:build"
     },
     "peerDependencies": {
-        "tsdown": "catalog:"
+        "tsdown": "catalog:build"
     }
 }

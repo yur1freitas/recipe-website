@@ -18,11 +18,11 @@
     },
     "devDependencies": {
         "@config/typescript": "workspace:",
-        "@types/node": "catalog:",
-        "dprint": "catalog:",
-        "oxfmt": "catalog:",
-        "oxlint": "catalog:",
-        "tsx": "catalog:",
+        "@types/node": "catalog:types",
+        "dprint": "catalog:lint",
+        "oxfmt": "catalog:lint",
+        "oxlint": "catalog:lint",
+        "tsx": "catalog:script",
         "turbo": "catalog:",
         "typescript": "catalog:"
     },

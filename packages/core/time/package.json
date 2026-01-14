@@ -25,7 +25,7 @@
         "@faker-js/faker": "catalog:test",
         "@vitest/coverage-v8": "catalog:test",
         "@vitest/ui": "catalog:test",
-        "tsdown": "catalog:",
+        "tsdown": "catalog:build",
         "typescript": "catalog:",
         "vitest": "catalog:test"
     },

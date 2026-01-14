@@ -22,7 +22,7 @@
         "@core/auth": "workspace:",
         "@core/shared": "workspace:",
         "@core/time": "workspace:",
-        "zod": "catalog:core"
+        "zod": "catalog:schema"
     },
     "devDependencies": {
         "@config/tsdown": "workspace:",
@@ -31,7 +31,7 @@
         "@faker-js/faker": "catalog:test",
         "@vitest/coverage-v8": "catalog:test",
         "@vitest/ui": "catalog:test",
-        "tsdown": "catalog:",
+        "tsdown": "catalog:build",
         "typescript": "catalog:",
         "vitest": "catalog:test"
     },
