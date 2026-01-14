@@ -16,8 +16,8 @@ import {
     swaggerTransform
 } from '@standard-schema/fastify-type-provider'
 
-import z from 'zod'
 import { ZodType } from 'zod'
+import z from 'zod'
 
 import { fastifyServerError } from './plugins/fastifyServerError'
 import { fastifyResponse } from './plugins/fastifyResponse'

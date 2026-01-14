@@ -27,12 +27,12 @@
     "devDependencies": {
         "@config/tsdown": "workspace:",
         "@config/typescript": "workspace:",
-        "@faker-js/faker": "catalog:test",
-        "tsdown": "catalog:",
-        "typescript": "catalog:",
         "@config/vitest": "workspace:",
+        "@faker-js/faker": "catalog:test",
         "@vitest/coverage-v8": "catalog:test",
         "@vitest/ui": "catalog:test",
+        "tsdown": "catalog:",
+        "typescript": "catalog:",
         "vitest": "catalog:test"
     },
     "peerDependencies": {
