@@ -20,6 +20,7 @@
         "@config/typescript": "workspace:",
         "@types/node": "catalog:types",
         "dprint": "catalog:lint",
+        "eslint-plugin-perfectionist": "catalog:lint",
         "oxfmt": "catalog:lint",
         "oxlint": "catalog:lint",
         "tsx": "catalog:script",
