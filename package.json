@@ -24,6 +24,7 @@
         "eslint-plugin-perfectionist": "catalog:lint",
         "oxfmt": "catalog:lint",
         "oxlint": "catalog:lint",
+        "taze": "catalog:script",
         "tsx": "catalog:script",
         "turbo": "catalog:",
         "typescript": "catalog:"
