@@ -2,14 +2,11 @@
     "lineWidth": 80,
     "indentWidth": 4,
     "newLineKind": "lf",
-    "malva": {
-        "indentWidth": 4
-    },
     "markup": {
-        "indentWidth": 4
+        "quotes": "single"
     },
     "yaml": {
-        "indentWidth": 4
+        "quotes": "preferSingle"
     },
     "excludes": ["**/node_modules", "**/*-lock.json"],
     "plugins": [
