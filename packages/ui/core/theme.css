@@ -150,8 +150,42 @@
         &[aria-invalid="true"] {
             @apply ring-3 ring-destructive/10 border-destructive;
         }
-    },
+    }
 
+    .typography-h1 {
+        @apply text-4xl font-extrabold text-center;
+        @apply scroll-m-20 tracking-tight;
+    }
+
+    .typography-h2 {
+        @apply text-3xl font-semibold tracking-tight;
+        @apply scroll-m-20 first:mt-0 pb-2;
+    }
+
+    .typography-h3 {
+        @apply text-2xl font-semibold;
+        @apply scroll-m-20 tracking-tight;
+    }
+
+    .typography-p {
+        @apply leading-7 not-first:mt-2;
+    }
+
+    .typography-small {
+        @apply text-xs font-medium leading-none;
+    }
+
+    .typography-list {
+        @apply my-6 ml-6 [&>li]:mt-2;
+
+        &-decimal {
+            @apply list-decimal;
+        }
+
+        &-disc {
+            @apply list-disc;
+        }
+    }
 
     .box {
         @apply @container/box w-full bg-background;
