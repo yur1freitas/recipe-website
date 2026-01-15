@@ -756,9 +756,6 @@ importers:
       lucide-react:
         specifier: catalog:frontend
         version: 0.562.0(react@19.2.3)
-      react:
-        specifier: catalog:frontend
-        version: 19.2.3
       tailwind-variants:
         specifier: catalog:frontend
         version: 3.2.2(tailwindcss@4.1.18)
@@ -787,6 +784,9 @@ importers:
       postcss-nested:
         specifier: catalog:build
         version: 7.0.2(postcss@8.5.6)
+      react:
+        specifier: catalog:frontend
+        version: 19.2.3
       tailwindcss:
         specifier: catalog:frontend
         version: 4.1.18
