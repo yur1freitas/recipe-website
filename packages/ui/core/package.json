@@ -15,6 +15,7 @@
         "./Loading": "./dist/Loading.js",
         "./Menu": "./dist/Menu/index.js",
         "./NumberField": "./dist/NumberField/index.js",
+        "./Password": "./dist/Password/index.js",
         "./Section": "./dist/Section.js",
         "./Select": "./dist/Select/index.js",
         "./Textarea": "./dist/Textarea.js",
