@@ -839,9 +839,6 @@ importers:
 
   packages/ui/form:
     dependencies:
-      '@tanstack/react-form':
-        specifier: catalog:frontend
-        version: 1.27.7(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@ui/core':
         specifier: 'workspace:'
         version: link:../core
@@ -855,6 +852,9 @@ importers:
       '@rollup/plugin-babel':
         specifier: catalog:build
         version: 6.1.0(@babel/core@7.28.6)(rollup@4.55.1)
+      '@tanstack/react-form':
+        specifier: catalog:frontend
+        version: 1.27.7(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@types/react':
         specifier: catalog:types
         version: 19.2.8
