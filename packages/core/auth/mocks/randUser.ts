@@ -1,11 +1,11 @@
-import type { UserProps } from '~/user/models/User'
-
 import {
     randEmail,
     randId,
     randPassword,
     randUsername
 } from '@core/shared/mocks'
+
+import type { UserProps } from '~/user/models/User'
 
 export interface RandUserOptions {
     id?: string

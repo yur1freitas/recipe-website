@@ -1,4 +1,5 @@
 import type { LucideProps } from 'lucide-react'
+
 import { LoaderCircle } from 'lucide-react'
 
 export interface LoadingProps extends LucideProps {

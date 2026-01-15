@@ -1,6 +1,5 @@
-import { isPromise } from 'node:util/types'
-
 import { SchemaError } from '@standard-schema/utils'
+import { isPromise } from 'node:util/types'
 
 import type { Config, Infer } from './types'
 

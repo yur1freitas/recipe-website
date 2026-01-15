@@ -1,6 +1,7 @@
 'use strict'
 
 import { useContext } from 'preact/hooks'
+
 import { TargetKeyContext } from '../contexts/TargetKeyContext.js'
 
 export function useTargetKey() {

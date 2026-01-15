@@ -1,10 +1,9 @@
 import { expect, describe, it, afterEach } from 'vitest'
-
 import { faker } from '@faker-js/faker/locale/pt_BR'
 
-import { randList } from '~mocks/randList'
 import { randLength } from '~mocks/randLength'
 import { randIndex } from '~mocks/randIndex'
+import { randList } from '~mocks/randList'
 
 import { List } from '~/collections/List'
 

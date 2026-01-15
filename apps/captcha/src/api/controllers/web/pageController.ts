@@ -1,7 +1,6 @@
-import { createController } from '~/utils/controller'
-
 import z from 'zod'
 
+import { createController } from '~/utils/controller'
 import { PageFilePaths } from '~/consts'
 
 export const pageController = createController((app) => {

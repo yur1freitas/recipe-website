@@ -1,4 +1,5 @@
 import type { preHandlerHookHandler } from 'fastify'
+
 import type { ValidateUserSessionFn } from './utils'
 
 declare module 'fastify' {

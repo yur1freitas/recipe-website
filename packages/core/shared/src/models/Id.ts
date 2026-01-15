@@ -1,6 +1,5 @@
-import z from 'zod'
-
 import { v7 } from 'uuid'
+import z from 'zod'
 
 import { ZodValidator } from '../validators/ZodValidator'
 import { ValueObject } from './ValueObject'

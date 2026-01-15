@@ -1,5 +1,7 @@
 'use client'
 
+import type { CapWidget } from '@cap.js/widget'
+
 import {
     Suspense,
     useActionState,
@@ -7,20 +9,14 @@ import {
     useRef,
     useTransition
 } from 'react'
-
-import type { CapWidget } from '@cap.js/widget'
-
 import z from 'zod'
 
 import { $emailSchema } from '@core/shared'
 
 import { loginUserAction } from '~/actions/loginUserAction'
-
 import { Loading } from '~/components/Loading'
 import { Action } from '~/components/Action'
-
 import { useAppForm } from '~/hooks/form'
-
 import { CAPTCHA_ENDPOINT } from '~/env'
 
 const schema = z.object({

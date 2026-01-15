@@ -1,6 +1,6 @@
-import type { AccessTokenProvider, UserPayload } from '@core/auth'
-
 import { sign, verify } from 'paseto-ts/v4'
+
+import type { AccessTokenProvider, UserPayload } from '@core/auth'
 
 import { env } from '~/env'
 

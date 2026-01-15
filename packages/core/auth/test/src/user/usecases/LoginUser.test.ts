@@ -1,19 +1,17 @@
-import type { LoginUserInput } from '~/user/usecases/LoginUser'
-import type { UserPayload } from '~/user/models/UserPayload'
-import type { UserProps } from '~/user/models/User'
-
 import { describe, it, expect, afterEach, beforeEach } from 'vitest'
-
 import { faker } from '@faker-js/faker/locale/pt_BR'
+
+import { UserRepositoryProviderMock } from '~mocks/UserRepositoryProviderMock'
+import { AccessTokenProviderMock } from '~mocks/AccessTokenProviderMock'
+import { EncryptProviderMock } from '~mocks/EncryptProviderMock'
+import { randUser } from '~mocks/randUser'
 
 import { randEmail, randPassword } from '@core/shared/mocks'
 
-import { UserRepositoryProviderMock } from '~mocks/UserRepositoryProviderMock'
-import { randUser } from '~mocks/randUser'
-import { EncryptProviderMock } from '~mocks/EncryptProviderMock'
-import { AccessTokenProviderMock } from '~mocks/AccessTokenProviderMock'
-
 import type { UserRepositoryProvider } from '~/user/providers/UserRepositoryProvider'
+import type { LoginUserInput } from '~/user/usecases/LoginUser'
+import type { UserPayload } from '~/user/models/UserPayload'
+import type { UserProps } from '~/user/models/User'
 
 import { LoginUser } from '~/user/usecases/LoginUser'
 

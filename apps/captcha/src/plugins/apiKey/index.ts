@@ -1,7 +1,8 @@
-import type { preHandlerHookHandler } from 'fastify'
-import fp from 'fastify-plugin'
-
 import { compare } from 'bcrypt'
+
+import type { preHandlerHookHandler } from 'fastify'
+
+import fp from 'fastify-plugin'
 
 import type { APIKeyRepository } from '~/models/APIKeyRepository'
 

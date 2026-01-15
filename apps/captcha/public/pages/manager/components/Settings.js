@@ -2,12 +2,11 @@
 
 import { useSignal } from '@preact/signals'
 
-import { html } from '../../../lib/ui/html.js'
 import { Dropdown } from '../../../lib/ui/Dropdown/index.js'
-import { POST } from '../../../lib/http.js'
-
+import { html } from '../../../lib/ui/html.js'
 import { Icons } from '../components/Icons.js'
 import { APIKeyModal } from './APIKeyModal.js'
+import { POST } from '../../../lib/http.js'
 
 export const Settings = () => {
     const isOpenedAPIKeyModal = useSignal(false)

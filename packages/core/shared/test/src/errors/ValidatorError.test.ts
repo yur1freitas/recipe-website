@@ -1,5 +1,4 @@
 import { describe, afterEach, expect, it } from 'vitest'
-
 import { fakerPT_BR as faker } from '@faker-js/faker'
 
 import { ValidatorError } from '~/errors/ValidatorError'

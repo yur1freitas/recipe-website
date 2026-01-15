@@ -1,6 +1,7 @@
 import type { ComponentProps } from 'react'
 
 import { useFieldContext } from '~/contexts/form'
+
 import { PasswordInput } from '../PasswordInput'
 
 export type FieldPasswordProps = ComponentProps<'input'>

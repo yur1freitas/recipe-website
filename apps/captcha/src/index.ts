@@ -1,34 +1,26 @@
-import { pageController } from './api/controllers/web'
 import {
     captchaChallengeController,
     captchaKeysController,
     captchaRedeemController,
     siteverifyController
 } from './api/controllers/captcha'
-import { apiKeysController, authController } from './api/controllers/auth'
-
-import { UserSessionRepository } from './models/UserSessionRepository'
-import { SessionToken } from './models/SessionToken'
-
-import { APIKeyRepository } from './models/APIKeyRepository'
-import { APIKeyGenerator } from './models/APIKeyGenerator'
-
-import { CaptchaTokenRepository } from './models/CaptchaTokenRepository'
+import { CaptchaChallengeRepository } from './models/CaptchaChallengeRepository'
 import { CaptchaSolutionRepository } from './models/CaptchaSolutionRepository'
+import { apiKeysController, authController } from './api/controllers/auth'
+import { CaptchaTokenRepository } from './models/CaptchaTokenRepository'
+import { UserSessionRepository } from './models/UserSessionRepository'
 import { CaptchaKeysRepository } from './models/CaptchaKeysRepository'
 import { CaptchaKeysGenerator } from './models/CaptchaKeysGenerator'
-import { CaptchaChallengeRepository } from './models/CaptchaChallengeRepository'
-
+import { APIKeyRepository } from './models/APIKeyRepository'
+import { APIKeyGenerator } from './models/APIKeyGenerator'
+import { pageController } from './api/controllers/web'
 import { fastifyTokenAuth } from './plugins/authToken'
+import { SessionToken } from './models/SessionToken'
 import { fastifyAPIKey } from './plugins/apiKey'
-
 import { listeningInfo } from './utils/info'
-
-import { db } from './db/sqlite'
 import { databaseJob } from './db/schedule'
-
+import { db } from './db/sqlite'
 import { env } from './env'
-
 import { app } from './app'
 
 try {

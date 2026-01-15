@@ -1,5 +1,4 @@
 import { describe, afterEach, expect, it } from 'vitest'
-
 import { faker } from '@faker-js/faker/locale/pt_BR'
 
 import { CustomError } from '@core/shared'

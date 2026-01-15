@@ -1,34 +1,4 @@
 import {
-    LoginUser,
-    LogoutUser,
-    RegisterUser,
-    VerifyUserSession
-} from '@core/auth'
-
-import { BcryptAdapter } from './adapters/security/BcryptAdapter'
-import { ValkeyInvalidTokenRepository } from './adapters/db/ValkeyInvalidTokenRepository'
-import { PgUserRepository } from './adapters/db/PgUserRepository'
-import { PgRecipeRepository } from './adapters/db/PgRecipeRepository'
-import { PasetoAdapter } from './adapters/auth/PasetoAdapter'
-
-import { verifyUserSessionController } from './api/controllers/auth/VerifyUserSessionController'
-import { registerUserController } from './api/controllers/auth/RegisterUserController'
-import { logoutUserController } from './api/controllers/auth/LogoutUserController'
-import { loginUserController } from './api/controllers/auth/LoginUserController'
-
-import { updateRecipeController } from './api/controllers/cooking/updateRecipeController'
-import { registerRecipeController } from './api/controllers/cooking/registerRecipeController'
-import { findRecipesController } from './api/controllers/cooking/findRecipesController'
-import { deleteRecipeController } from './api/controllers/cooking/deleteRecipeController'
-
-import { fastifyAuth } from './plugins/fastifyAuth'
-
-import { valkey } from './db/valkey'
-import { postgres } from './db/postgres'
-
-import { listeningInfo } from './utils/info'
-
-import {
     DeleteRecipe,
     FindAllRecipes,
     FindRecipe,
@@ -36,7 +6,31 @@ import {
     RegisterRecipe,
     UpdateRecipe
 } from '@core/cooking'
+import {
+    LoginUser,
+    LogoutUser,
+    RegisterUser,
+    VerifyUserSession
+} from '@core/auth'
+
+import { verifyUserSessionController } from './api/controllers/auth/VerifyUserSessionController'
+import { registerRecipeController } from './api/controllers/cooking/registerRecipeController'
+import { ValkeyInvalidTokenRepository } from './adapters/db/ValkeyInvalidTokenRepository'
+import { updateRecipeController } from './api/controllers/cooking/updateRecipeController'
+import { deleteRecipeController } from './api/controllers/cooking/deleteRecipeController'
+import { findRecipesController } from './api/controllers/cooking/findRecipesController'
+import { registerUserController } from './api/controllers/auth/RegisterUserController'
+import { logoutUserController } from './api/controllers/auth/LogoutUserController'
+import { loginUserController } from './api/controllers/auth/LoginUserController'
+import { PgRecipeRepository } from './adapters/db/PgRecipeRepository'
+import { BcryptAdapter } from './adapters/security/BcryptAdapter'
+import { PgUserRepository } from './adapters/db/PgUserRepository'
+import { PasetoAdapter } from './adapters/auth/PasetoAdapter'
 import { fastifyCaptcha } from './plugins/fastifyCaptcha'
+import { fastifyAuth } from './plugins/fastifyAuth'
+import { listeningInfo } from './utils/info'
+import { postgres } from './db/postgres'
+import { valkey } from './db/valkey'
 import { env } from './env'
 import { app } from './app'
 

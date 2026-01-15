@@ -1,7 +1,6 @@
 import { expect, describe, it, afterEach } from 'vitest'
-
-import { v7 as uuid } from 'uuid'
 import { faker } from '@faker-js/faker/locale/pt_BR'
+import { v7 as uuid } from 'uuid'
 
 import { randId } from '~mocks/randId'
 

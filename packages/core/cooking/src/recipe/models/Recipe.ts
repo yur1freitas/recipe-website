@@ -1,21 +1,21 @@
-import type { Time } from '@core/time'
-import type { EntityInput, EntityProps } from '@core/shared'
-
-import type { ToolInput } from '~/tool/models/Tool'
-import type { StepInput } from '~/step/models/Step'
-import type { IngredientInput } from '~/ingredient/models/Ingredient'
-
-import type { DifficultyEnum } from '../constants/DifficultyEnum'
-
 import z from 'zod'
+
+import type { EntityInput, EntityProps } from '@core/shared'
+import type { Time } from '@core/time'
 
 import { idSchema, Entity, entitySchema, Id, List } from '@core/shared'
 
+import type { IngredientInput } from '~/ingredient/models/Ingredient'
+import type { ToolInput } from '~/tool/models/Tool'
+import type { StepInput } from '~/step/models/Step'
+
+import { Ingredient, ingredientSchema } from '~/ingredient/models/Ingredient'
+import { descriptionSchema, Description } from '~/shared/models/Description'
+import { nameSchema, Name } from '~/shared/models/Name'
 import { Tool, toolSchema } from '~/tool/models/Tool'
 import { Step, stepSchema } from '~/step/models/Step'
-import { nameSchema, Name } from '~/shared/models/Name'
-import { descriptionSchema, Description } from '~/shared/models/Description'
-import { Ingredient, ingredientSchema } from '~/ingredient/models/Ingredient'
+
+import type { DifficultyEnum } from '../constants/DifficultyEnum'
 
 import { preparationTimeSchema, PreparationTime } from './PreparationTime'
 import { difficultySchema, Difficulty } from './Difficulty'

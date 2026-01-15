@@ -1,16 +1,16 @@
-import type { RecipeInput, RecipeProps } from '~/recipe/models/Recipe'
-
 import { faker } from '@faker-js/faker/locale/pt_BR'
 
 import { randId } from '@core/shared/mocks'
 
-import { randTool } from './randTool'
-import { randStep } from './randStep'
+import type { RecipeInput, RecipeProps } from '~/recipe/models/Recipe'
+
 import { randPreparationTime } from './randPreparationTime'
-import { randName } from './randName'
+import { randDescription } from './randDescription'
 import { randIngredient } from './randIngredient'
 import { randDifficulty } from './randDifficulty'
-import { randDescription } from './randDescription'
+import { randTool } from './randTool'
+import { randStep } from './randStep'
+import { randName } from './randName'
 
 export type RandRecipeOptions = Partial<RecipeInput>
 

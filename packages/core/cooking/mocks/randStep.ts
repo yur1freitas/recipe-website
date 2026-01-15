@@ -2,8 +2,8 @@ import { randId } from '@core/shared/mocks'
 
 import type { StepProps } from '~/step/models/Step'
 
-import { randOrder } from './randOrder'
 import { randDescription } from './randDescription'
+import { randOrder } from './randOrder'
 
 export interface RandStepOptions {
     id?: string

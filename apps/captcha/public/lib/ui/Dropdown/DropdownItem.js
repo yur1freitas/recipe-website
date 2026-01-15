@@ -1,7 +1,7 @@
 'use strict'
 
-import { html } from '../html.js'
 import { useDropdown } from './DropdownRoot.js'
+import { html } from '../html.js'
 
 export const DropdownItem = ({ label, value, onClick }) => {
     const { close, onSelect } = useDropdown()

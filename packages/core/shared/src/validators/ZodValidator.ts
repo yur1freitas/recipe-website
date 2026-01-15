@@ -1,6 +1,7 @@
 import type { z } from 'zod'
 
 import type { ParseOutput } from './Validator'
+
 import { Validator } from './Validator'
 
 export class ZodValidator<T> extends Validator<T> {

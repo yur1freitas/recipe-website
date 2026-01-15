@@ -3,8 +3,8 @@ import type { FastifyReply, FastifyRequest } from 'fastify'
 import fp from 'fastify-plugin'
 
 import type { VerifyUserSession } from '@core/auth'
-import { AuthError, VerifyUserSessionErrors } from '@core/auth'
 
+import { AuthError, VerifyUserSessionErrors } from '@core/auth'
 import { ValidatorError } from '@core/shared'
 
 declare module 'fastify' {

@@ -1,3 +1,5 @@
+import type { TimeInput, TimeUnit, TimeProps } from './types'
+
 import {
     DEFAULT_TIME,
     MAX_AMOUNT_IN_DAYS,
@@ -12,8 +14,6 @@ import {
     ONE_SECOND_IN_MS,
     ONE_WEEK_IN_MS
 } from './constants'
-
-import type { TimeInput, TimeUnit, TimeProps } from './types'
 import { clamp } from './utils'
 
 export class Time {

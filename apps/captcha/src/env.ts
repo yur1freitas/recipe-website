@@ -1,5 +1,5 @@
-import { z } from 'zod'
 import { loadEnv } from '@standard-schema/load-env'
+import { z } from 'zod'
 
 import { DEFAULT_STORE_PATH } from './consts'
 

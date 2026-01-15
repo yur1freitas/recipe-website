@@ -1,8 +1,7 @@
 'use strict'
 
-import htm from 'htm'
-
 import { h } from 'preact'
+import htm from 'htm'
 
 const html = htm.bind(h)
 

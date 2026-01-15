@@ -1,8 +1,7 @@
 'use strict'
 
-import htm from 'htm'
-
 import { h, render } from 'preact'
+import htm from 'htm'
 
 import { ManagerPage } from './components/ManagerPage.js'
 

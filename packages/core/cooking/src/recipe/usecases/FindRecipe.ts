@@ -1,9 +1,9 @@
 import type { UseCase } from '@core/shared'
 
+import { Id } from '@core/shared'
+
 import type { RecipeRepositoryProvider } from '../providers/RecipeRepositoryProvider'
 import type { Recipe } from '../models/Recipe'
-
-import { Id } from '@core/shared'
 
 export interface FindRecipeInput {
     id: string

@@ -1,6 +1,7 @@
 import { useFieldContext } from '~/contexts/form'
 
 import type { CaptchaProps } from '../Captcha'
+
 import { Captcha } from '../Captcha'
 
 export type FieldCaptchaProps = CaptchaProps

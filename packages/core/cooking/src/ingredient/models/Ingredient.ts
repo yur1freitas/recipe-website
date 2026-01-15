@@ -1,12 +1,15 @@
+import z from 'zod'
+
 import type { EntityInput, EntityProps } from '@core/shared'
+
 import { Entity, entitySchema } from '@core/shared'
 
-import type { UnitEnum } from '../constants/UnitEnum'
 import { nameSchema, Name } from '~/shared/models/Name'
 
-import z from 'zod'
-import { unitSchema, Unit } from './Unit'
+import type { UnitEnum } from '../constants/UnitEnum'
+
 import { measureSchema, Measure } from './Measure'
+import { unitSchema, Unit } from './Unit'
 
 export interface IngredientInput extends EntityInput {
     name: string

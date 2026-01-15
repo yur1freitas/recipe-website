@@ -1,12 +1,11 @@
-import type { LogoutUserInput } from '~/user/usecases/LogoutUser'
-
 import { describe, it, expect, afterEach, beforeEach } from 'vitest'
-
 import { faker } from '@faker-js/faker/locale/pt_BR'
 
-import { randUser } from '~mocks/randUser'
 import { InvalidTokenRepositoryProviderMock } from '~mocks/InvalidTokenRepositoryProviderMock'
 import { AccessTokenProviderMock } from '~mocks/AccessTokenProviderMock'
+import { randUser } from '~mocks/randUser'
+
+import type { LogoutUserInput } from '~/user/usecases/LogoutUser'
 
 import { LogoutUser } from '~/user/usecases/LogoutUser'
 

@@ -1,9 +1,8 @@
 import { expect, describe, it, afterEach, beforeEach, vi } from 'vitest'
-
 import { faker } from '@faker-js/faker/locale/pt_BR'
 
-import { randRecipe } from '~mocks/randRecipe'
 import { RecipeRepositoryProviderMock } from '~mocks/providers/RecipeRepositoryProviderMock'
+import { randRecipe } from '~mocks/randRecipe'
 
 import { RegisterRecipe } from '~/recipe/usecases/RegisterRecipe'
 

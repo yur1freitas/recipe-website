@@ -1,11 +1,10 @@
 'use strict'
 
 import { Modal, useModal } from '../../../lib/ui/Modal/index.js'
-import { html } from '../../../lib/ui/html.js'
-import { DELETE } from '../../../lib/http.js'
-
 import { useTargetAPIKey } from '../hooks/useTargetAPIKey.js'
 import { useAPIKeyStore } from '../hooks/useAPIKeyStore.js'
+import { html } from '../../../lib/ui/html.js'
+import { DELETE } from '../../../lib/http.js'
 
 const DeleteButton = () => {
     const { close } = useModal()

@@ -2,11 +2,10 @@
 
 import { useSignalRef } from '@preact/signals/utils'
 import { useSignalEffect } from '@preact/signals'
-
 import { createPortal } from 'preact/compat'
 
-import { html } from '../html.js'
 import { useDropdown } from './DropdownRoot.js'
+import { html } from '../html.js'
 
 const updatePosition = (target, dropdown) => {
     const targetRect = target.getBoundingClientRect()

@@ -3,10 +3,9 @@
 import { useSignal } from '@preact/signals'
 
 import { Modal, useModal } from '../../../lib/ui/Modal/index.js'
+import { NewAPIKeyModal } from './NewAPIKeyModal.js'
 import { html } from '../../../lib/ui/html.js'
 import { POST } from '../../../lib/http.js'
-
-import { NewAPIKeyModal } from './NewAPIKeyModal.js'
 import { Icons } from './Icons.js'
 
 const CreateAPIKeyForm = ({ onSuccess }) => {
