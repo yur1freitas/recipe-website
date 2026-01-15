@@ -79,3 +79,57 @@
     --color-input: var(--input);
     --color-ring: var(--ring);
 }
+
+@layer components {
+    .btn {
+        @apply inline-flex items-center justify-center gap-2 shrink-0;
+        @apply outline-none rounded shadow-xs;
+        @apply text-sm font-medium whitespace-nowrap;
+
+        &:focus-visible {
+            @apply ring-3 ring-ring/50 border-ring;
+        }
+
+        & > svg {
+            @apply size-4 pointer-events-none shrink-0;
+        }
+
+        &-primary {
+            @apply bg-primary text-primary-foreground hover:bg-primary/80;
+        }
+
+        &-secondary {
+            @apply bg-secondary text-secondary-foreground hover:bg-secondary/80;
+        }
+
+        &-outline {
+            @apply border border-input text-foreground bg-background
+                hover:bg-muted;
+        }
+
+        &-success {
+            @apply bg-success text-success-foregroud hover:bg-success/80;
+        }
+
+        &-destructive {
+            @apply bg-destructive text-destructive-foreground
+                hover:bg-destructive/80;
+        }
+
+        &-sm {
+            @apply h-8 px-3 has-[>svg]:px-2.5 gap-1.5;
+        }
+
+        &-md {
+            @apply h-9 px-4 py-2 has-[>svg]:px-3;
+        }
+
+        &-lg {
+            @apply h-10 rounded-md px-6 has-[>svg]:px-4;
+        }
+
+        &-icon {
+            @apply size-9 [&>svg]:size-2/3;
+        }
+    }
+}
