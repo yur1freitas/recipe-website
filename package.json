@@ -10,6 +10,7 @@
         "dev": "turbo run dev",
         "test": "turbo run test",
         "test:core": "turbo run test --filter=@core/*",
+        "test:packages": "turbo run test --filter=./packages/**/*",
         "test:coverage": "turbo run test:coverage",
         "build": "turbo run build",
         "build:core": "turbo run build --filter=@core/*",
