@@ -41,6 +41,7 @@
         "tailwind-variants": "catalog:frontend"
     },
     "devDependencies": {
+        "react": "catalog:frontend",
         "@config/tsdown": "workspace:",
         "@config/typescript": "workspace:",
         "@rollup/plugin-babel": "catalog:build",
