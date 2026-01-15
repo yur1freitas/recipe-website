@@ -1,6 +1,7 @@
 'use strict'
 
 import { useContext } from 'preact/hooks'
+
 import { TargetAPIKeyContext } from '../contexts/TargetAPIKeyContext.js'
 
 export function useTargetAPIKey() {

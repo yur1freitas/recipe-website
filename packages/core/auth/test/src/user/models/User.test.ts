@@ -1,6 +1,7 @@
 import { describe, it, expect, afterEach } from 'vitest'
-
 import { faker } from '@faker-js/faker/locale/pt_BR'
+
+import { randUser } from '~mocks/randUser'
 
 import {
     randEmail,
@@ -8,8 +9,6 @@ import {
     randUsername
 } from '@core/shared/mocks'
 import { ValidatorError } from '@core/shared'
-
-import { randUser } from '~mocks/randUser'
 
 import { User } from '~/user/models/User'
 

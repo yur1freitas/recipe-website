@@ -1,15 +1,14 @@
-import type { VerifyUserSessionInput } from '~/user/usecases/VerifyUserSession'
-import type { UserPayload } from '~/user/models/UserPayload'
-
 import { describe, it, expect, afterEach, beforeEach } from 'vitest'
-
 import { faker } from '@faker-js/faker/locale/pt_BR'
-import { randEncryptedPassword } from '@core/shared/mocks'
-
-import { randUser } from '~mocks/randUser'
 
 import { UserRepositoryProviderMock } from '~mocks/UserRepositoryProviderMock'
 import { AccessTokenProviderMock } from '~mocks/AccessTokenProviderMock'
+import { randUser } from '~mocks/randUser'
+
+import { randEncryptedPassword } from '@core/shared/mocks'
+
+import type { VerifyUserSessionInput } from '~/user/usecases/VerifyUserSession'
+import type { UserPayload } from '~/user/models/UserPayload'
 
 import { VerifyUserSession } from '~/user/usecases/VerifyUserSession'
 

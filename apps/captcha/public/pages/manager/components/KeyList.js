@@ -2,15 +2,12 @@
 
 import { useSignal } from '@preact/signals'
 
-import { html } from '../../../lib/ui/html.js'
-
-import { useSearch } from '../hooks/useSearch.js'
+import { useTargetKey } from '../hooks/useTargetKey.js'
 import { useKeyStore } from '../hooks/useKeyStore.js'
-
 import { UpdateKeyModal } from './UpdateKeyModal.js'
 import { DeleteKeyModal } from './DeleteKeyModal.js'
-
-import { useTargetKey } from '../hooks/useTargetKey.js'
+import { useSearch } from '../hooks/useSearch.js'
+import { html } from '../../../lib/ui/html.js'
 import { Key } from './Key.js'
 
 const compareNames = (a, b) => a.toLowerCase().includes(b.toLowerCase())

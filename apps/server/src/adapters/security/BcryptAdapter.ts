@@ -1,6 +1,6 @@
-import type { EncryptProvider } from '@core/auth'
-
 import bcrypt from 'bcrypt'
+
+import type { EncryptProvider } from '@core/auth'
 
 export const BCRYPT_ROUNDS = 10
 

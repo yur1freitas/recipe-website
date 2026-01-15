@@ -1,8 +1,8 @@
 import { expect, describe, it, afterEach } from 'vitest'
-
 import { faker } from '@faker-js/faker/locale/pt_BR'
 
 import { randEmail } from '~mocks/randEmail'
+
 import { Email } from '~/models/Email'
 
 describe('Email', () => {

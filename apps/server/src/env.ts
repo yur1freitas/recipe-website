@@ -1,5 +1,5 @@
-import { z } from 'zod'
 import { loadEnv } from '@standard-schema/load-env'
+import { z } from 'zod'
 
 export const env = loadEnv({
     // - - Node Enviroment - -

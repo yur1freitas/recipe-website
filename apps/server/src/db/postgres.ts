@@ -1,10 +1,10 @@
-import { Pool } from 'pg'
 import { CamelCasePlugin, Kysely, PostgresDialect } from 'kysely'
+import { Pool } from 'pg'
 
 import type { DB } from './schema'
 
-import { env } from '../env'
 import { TimePlugin } from './plugins'
+import { env } from '../env'
 
 const pool = new Pool({
     host: env.DB_HOST,

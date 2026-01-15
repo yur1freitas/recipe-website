@@ -2,7 +2,6 @@
 
 import type { CapWidget } from '@cap.js/widget'
 
-import z from 'zod'
 import {
     Suspense,
     useActionState,
@@ -11,15 +10,14 @@ import {
     useTransition
 } from 'react'
 import { useRouter } from 'next/navigation'
+import z from 'zod'
+
 import { $emailSchema, $passwordSchema, $usernameSchema } from '@core/shared'
 
 import { registerUserAction } from '~/actions/registerUserAction'
-
 import { Loading } from '~/components/Loading'
 import { Action } from '~/components/Action'
-
 import { useAppForm } from '~/hooks/form'
-
 import { CAPTCHA_ENDPOINT } from '~/env'
 
 const schema = z.object({

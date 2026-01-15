@@ -1,12 +1,12 @@
-import type { UseCase } from '@core/shared'
 import type { UserRepositoryProvider } from '@core/auth'
-
-import type { RecipeRepositoryProvider } from '../providers/RecipeRepositoryProvider'
-import type { Recipe } from '../models/Recipe'
+import type { UseCase } from '@core/shared'
 
 import { Email, Id } from '@core/shared'
 
 import { CookingError } from '~/shared/errors/CookingError'
+
+import type { RecipeRepositoryProvider } from '../providers/RecipeRepositoryProvider'
+import type { Recipe } from '../models/Recipe'
 
 export type FindUserRecipesInput =
     | { id: string; email?: never }

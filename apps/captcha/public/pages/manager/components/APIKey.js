@@ -1,8 +1,7 @@
 'use strict'
 
-import { html } from '../../../lib/ui/html.js'
 import { Dropdown } from '../../../lib/ui/Dropdown/index.js'
-
+import { html } from '../../../lib/ui/html.js'
 import { Icons } from './Icons.js'
 
 const APIKeyRoot = ({ children }) => {

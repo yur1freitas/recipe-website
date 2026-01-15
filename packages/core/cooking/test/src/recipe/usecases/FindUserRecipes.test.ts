@@ -1,20 +1,20 @@
-import type { RecipeProps } from '~/recipe/models/Recipe'
-
 import { expect, describe, it, afterEach, beforeEach } from 'vitest'
-
 import { faker } from '@faker-js/faker/locale/pt_BR'
+
+import { RecipeRepositoryProviderMock } from '~mocks/providers/RecipeRepositoryProviderMock'
+import { randRecipe } from '~mocks/randRecipe'
+
+import type { UserProps } from '@core/auth'
 
 import { randEmail, randEncryptedPassword, randId } from '@core/shared/mocks'
 import { randUser, UserRepositoryProviderMock } from '@core/auth/mocks'
-import type { UserProps } from '@core/auth'
-
-import { randRecipe } from '~mocks/randRecipe'
-import { RecipeRepositoryProviderMock } from '~mocks/providers/RecipeRepositoryProviderMock'
-
 import { ValidatorError } from '@core/shared'
+
 import type {
     FindUserRecipesInput
 } from '~/recipe/usecases/FindUserRecipes';
+import type { RecipeProps } from '~/recipe/models/Recipe'
+
 import {
     FindUserRecipes
 } from '~/recipe/usecases/FindUserRecipes'

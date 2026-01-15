@@ -1,8 +1,8 @@
 import type { UseCase } from '@core/shared'
 
-import type { RecipeRepositoryProvider } from '../providers/RecipeRepositoryProvider'
-
 import { CookingError } from '~/shared/errors/CookingError'
+
+import type { RecipeRepositoryProvider } from '../providers/RecipeRepositoryProvider'
 
 export interface DeleteRecipeInput {
     id: string

@@ -1,6 +1,6 @@
-import type { Constructor, Ensure } from '../types'
-
 import z from 'zod'
+
+import type { Constructor, Ensure } from '../types'
 
 import { idSchema, Id } from './Id'
 

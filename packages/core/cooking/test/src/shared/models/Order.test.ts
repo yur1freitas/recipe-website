@@ -1,10 +1,9 @@
 import { expect, it, describe, afterEach } from 'vitest'
-
 import { faker } from '@faker-js/faker/locale/pt_BR'
 
-import { Order } from '~/shared/models/Order'
-
 import { randOrder } from '~mocks/randOrder'
+
+import { Order } from '~/shared/models/Order'
 
 describe('Order', () => {
     afterEach(() => {

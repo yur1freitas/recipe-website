@@ -1,6 +1,6 @@
-import type { FastifyRequest } from 'fastify'
-
 import { compare } from 'bcrypt'
+
+import type { FastifyRequest } from 'fastify'
 
 import type { UserSessionRepository } from '~/models/UserSessionRepository'
 import type { SessionToken } from '~/models/SessionToken'

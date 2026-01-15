@@ -1,4 +1,5 @@
 import type { ComponentType, LazyExoticComponent } from 'react'
+
 import { lazy } from 'react'
 
 export type LoadModule<T extends ComponentType<unknown>> = () => Promise<

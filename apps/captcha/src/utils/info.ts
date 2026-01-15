@@ -1,6 +1,6 @@
-import type { FastifyInstance } from 'fastify'
-
 import { findPackageJSON } from 'node:module'
+
+import type { FastifyInstance } from 'fastify'
 
 async function findCaptchaPkgVersion(): Promise<string> {
     const UNKNOWN_VERSION = 'x.x.x'

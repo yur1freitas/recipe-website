@@ -1,11 +1,11 @@
 import { expect, it, describe, afterEach } from 'vitest'
-
 import { faker } from '@faker-js/faker/locale/pt_BR'
-import { ValidatorError } from '@core/shared'
 
-import { randStep } from '~mocks/randStep'
-import { randOrder } from '~mocks/randOrder'
 import { randDescription } from '~mocks/randDescription'
+import { randOrder } from '~mocks/randOrder'
+import { randStep } from '~mocks/randStep'
+
+import { ValidatorError } from '@core/shared'
 
 import { Step } from '~/step/models/Step'
 

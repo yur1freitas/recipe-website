@@ -1,15 +1,12 @@
 import { hash } from 'bcrypt'
-
 import { z } from 'zod'
 
-import { db } from '~/db/sqlite'
-import { DEFAULT_CAPTCHA_CONFIG } from '~/consts'
-
 import type { CaptchaKeysRepository } from '~/models/CaptchaKeysRepository'
+import type { CaptchaKeysGenerator } from '~/models/CaptchaKeysGenerator'
 
 import { createController } from '~/utils/controller'
-
-import type { CaptchaKeysGenerator } from '~/models/CaptchaKeysGenerator'
+import { DEFAULT_CAPTCHA_CONFIG } from '~/consts'
+import { db } from '~/db/sqlite'
 
 interface Options {
     captchaKeysGenerator: CaptchaKeysGenerator

@@ -1,8 +1,9 @@
 import type { UseCase } from '@core/shared'
 
+import { AuthError } from '~/shared/errors/AuthError'
+
 import type { InvalidTokenRepositoryProvider } from '../providers/InvalidTokenRepositoryProvider'
 import type { AccessTokenProvider } from '../providers/AccessTokenProvider'
-import { AuthError } from '~/shared/errors/AuthError'
 
 export interface LogoutUserInput {
     token: string

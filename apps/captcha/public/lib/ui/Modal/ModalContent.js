@@ -2,8 +2,8 @@
 
 import { createPortal } from 'preact/compat'
 
-import { html } from '../html.js'
 import { useModal } from './ModalRoot.js'
+import { html } from '../html.js'
 
 export const ModalContent = ({ children }) => {
     const { isOpened } = useModal()

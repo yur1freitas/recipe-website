@@ -1,11 +1,10 @@
 import { hash } from 'bcrypt'
-
 import { z } from 'zod'
-
-import { createController } from '~/utils/controller'
 
 import type { APIKeyRepository } from '~/models/APIKeyRepository'
 import type { APIKeyGenerator } from '~/models/APIKeyGenerator'
+
+import { createController } from '~/utils/controller'
 
 interface Options {
     apiKeyGenerator: APIKeyGenerator

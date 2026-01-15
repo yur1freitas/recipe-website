@@ -1,10 +1,10 @@
-import { z } from 'zod'
 import { compare } from 'bcrypt'
-
-import { createController } from '~/utils/controller'
+import { z } from 'zod'
 
 import type { CaptchaTokenRepository } from '~/models/CaptchaTokenRepository'
 import type { CaptchaKeysRepository } from '~/models/CaptchaKeysRepository'
+
+import { createController } from '~/utils/controller'
 
 interface Options {
     captchaKeysRepository: CaptchaKeysRepository

@@ -1,4 +1,4 @@
 export { captchaChallengeController } from './captchaChallengeController'
-export { captchaKeysController } from './captchaKeysController'
 export { captchaRedeemController } from './captchaRedeemController'
+export { captchaKeysController } from './captchaKeysController'
 export { siteverifyController } from './siteverifyController'

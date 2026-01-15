@@ -1,11 +1,10 @@
 import { expect, it, describe, afterEach } from 'vitest'
-
 import { faker } from '@faker-js/faker/locale/pt_BR'
 
 import { randDifficulty } from '~mocks/randDifficulty'
 
-import { Difficulty } from '~/recipe/models/Difficulty'
 import { DIFFICULTY_NAMES } from '~/recipe/constants/difficultyNames'
+import { Difficulty } from '~/recipe/models/Difficulty'
 
 describe('Difficulty', () => {
     afterEach(() => {

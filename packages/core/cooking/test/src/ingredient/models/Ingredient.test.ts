@@ -1,11 +1,11 @@
 import { expect, it, describe, afterEach } from 'vitest'
-
 import { faker } from '@faker-js/faker/locale/pt_BR'
-import { ValidatorError } from '@core/shared'
 
-import { randUnit } from '~mocks/randUnit'
-import { randMeasure } from '~mocks/randMeasure'
 import { randIngredient } from '~mocks/randIngredient'
+import { randMeasure } from '~mocks/randMeasure'
+import { randUnit } from '~mocks/randUnit'
+
+import { ValidatorError } from '@core/shared'
 
 import { Ingredient } from '~/ingredient/models/Ingredient'
 import { UNIT_NAMES } from '~/index'

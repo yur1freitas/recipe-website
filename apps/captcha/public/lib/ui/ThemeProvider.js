@@ -1,7 +1,6 @@
 'use strict'
 
 import { useSignalEffect } from '@preact/signals'
-
 import { useContext } from 'preact/hooks'
 import { createContext } from 'preact'
 

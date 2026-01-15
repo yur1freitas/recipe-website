@@ -1,7 +1,6 @@
-import { join } from 'node:path'
 import { readFile, writeFile } from 'node:fs/promises'
-
 import { generateKeys } from 'paseto-ts/v4'
+import { join } from 'node:path'
 
 const { publicKey, secretKey } = generateKeys('public', { format: 'paserk' })
 

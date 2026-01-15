@@ -1,10 +1,10 @@
 import type { UseCase } from '@core/shared'
 
+import { AuthError } from '~/shared/errors/AuthError'
+
 import type { UserRepositoryProvider } from '../providers/UserRepositoryProvider'
 import type { AccessTokenProvider } from '../providers/AccessTokenProvider'
 import type { UserPayload } from '../models/UserPayload'
-
-import { AuthError } from '~/shared/errors/AuthError'
 
 export interface VerifyUserSessionInput {
     token: string

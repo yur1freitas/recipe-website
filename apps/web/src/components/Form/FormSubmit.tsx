@@ -1,7 +1,8 @@
-import type { ComponentProps } from 'react'
 import type { AnyFormState } from '@tanstack/react-form'
+import type { ComponentProps } from 'react'
 
 import { useFormContext } from '~/contexts/form'
+
 import { Loading } from '../Loading'
 
 export interface FormSubmitProps extends ComponentProps<'button'> {

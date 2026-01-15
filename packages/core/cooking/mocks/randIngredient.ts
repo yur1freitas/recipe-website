@@ -1,13 +1,13 @@
+import { randId } from '@core/shared/mocks'
+
 import type {
     IngredientInput,
     IngredientProps
 } from '~/ingredient/models/Ingredient'
 
-import { randId } from '@core/shared/mocks'
-
+import { randMeasure } from './randMeasure'
 import { randUnit } from './randUnit'
 import { randName } from './randName'
-import { randMeasure } from './randMeasure'
 
 export type RandIngredientOptions = Partial<IngredientInput>
 

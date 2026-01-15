@@ -1,7 +1,10 @@
 import type { UseCase } from '@core/shared'
+
+import { CookingError } from '~/shared/errors/CookingError'
+
 import type { RecipeRepositoryProvider } from '../providers/RecipeRepositoryProvider'
 import type { RecipeInput } from '../models/Recipe'
-import { CookingError } from '~/shared/errors/CookingError'
+
 import { Recipe } from '../models/Recipe'
 
 export type UpdateRecipeInput = RecipeInput

@@ -1,7 +1,8 @@
 'use server'
 
-import type { LoginUserInput } from '@core/auth'
 import { cookies } from 'next/headers'
+
+import type { LoginUserInput } from '@core/auth'
 
 import { httpClient } from '~/client/http'
 

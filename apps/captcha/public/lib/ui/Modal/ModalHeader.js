@@ -1,7 +1,7 @@
 'use strict'
 
-import { html } from '../html.js'
 import { useModal } from './ModalRoot.js'
+import { html } from '../html.js'
 
 export const ModalHeader = ({ title, description }) => {
     const { close } = useModal()

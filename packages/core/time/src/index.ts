@@ -1,3 +1,4 @@
+export type { TimeInput, TimeUnit, TimeProps } from './types'
 export {
     DEFAULT_TIME,
     MAX_AMOUNT_IN_MS,
@@ -8,4 +9,3 @@ export {
     MAX_AMOUNT_IN_WEEKS
 } from './constants'
 export { Time } from './time'
-export type { TimeInput, TimeUnit, TimeProps } from './types'

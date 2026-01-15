@@ -1,14 +1,14 @@
 import { expect, describe, it, afterEach, beforeEach } from 'vitest'
-
 import { faker } from '@faker-js/faker/locale/pt_BR'
+
+import { RecipeRepositoryProviderMock } from '~mocks/providers/RecipeRepositoryProviderMock'
+import { randRecipe } from '~mocks/randRecipe'
 
 import { randId } from '@core/shared/mocks'
 
-import { randRecipe } from '~mocks/randRecipe'
-import { RecipeRepositoryProviderMock } from '~mocks/providers/RecipeRepositoryProviderMock'
+import type { RecipeProps } from '~/recipe/models/Recipe';
 
 import { FindRecipe } from '~/recipe/usecases/FindRecipe'
-import type { RecipeProps } from '~/recipe/models/Recipe';
 import { Recipe } from '~/recipe/models/Recipe'
 
 describe('FindRecipe', () => {

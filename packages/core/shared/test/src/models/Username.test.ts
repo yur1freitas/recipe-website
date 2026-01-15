@@ -1,5 +1,4 @@
 import { expect, describe, it, afterEach } from 'vitest'
-
 import { faker } from '@faker-js/faker/locale/pt_BR'
 
 import { randUsername } from '~mocks/randUsername'

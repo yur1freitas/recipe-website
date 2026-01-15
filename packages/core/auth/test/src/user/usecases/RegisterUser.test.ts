@@ -1,12 +1,11 @@
-import type { RegisterUserInput } from '~/user/usecases/RegisterUser'
-
 import { describe, it, expect, afterEach, beforeEach, vi } from 'vitest'
-
 import { faker } from '@faker-js/faker/locale/pt_BR'
 
 import { UserRepositoryProviderMock } from '~mocks/UserRepositoryProviderMock'
-import { randUser } from '~mocks/randUser'
 import { EncryptProviderMock } from '~mocks/EncryptProviderMock'
+import { randUser } from '~mocks/randUser'
+
+import type { RegisterUserInput } from '~/user/usecases/RegisterUser'
 
 import { RegisterUser } from '~/user/usecases/RegisterUser'
 

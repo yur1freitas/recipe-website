@@ -1,4 +1,5 @@
 import z from 'zod'
+
 import { ValueObject, ZodValidator } from '@core/shared'
 
 export const nameSchema = z
