@@ -548,4 +548,18 @@
             @apply drop-shadow-xs;
         }
     }
+
+    .time-field {
+        &-label {
+            @apply text-xs;
+        }
+
+        &-input {
+            @apply w-12 text-center;
+        }
+
+        &-group {
+            @apply flex flex-wrap items-center gap-2 py-2;
+        }
+    }
 }
