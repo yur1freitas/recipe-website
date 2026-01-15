@@ -177,6 +177,16 @@
         }
     }
 
+    .fieldset {
+        @apply w-full flex flex-col gap-4;
+
+        &-legend {
+            @apply font-semibold text-base;
+            @apply border-b border-input;
+            @apply pb-3;
+        }
+    }
+
     .section {
         @apply w-full min-h-screen relative;
     }
