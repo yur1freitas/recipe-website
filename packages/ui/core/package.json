@@ -12,6 +12,7 @@
         "./Label": "./dist/Label.js",
         "./Loading": "./dist/Loading.js",
         "./Section": "./dist/Section.js",
+        "./Select": "./dist/Select/index.js",
         "./Textarea": "./dist/Textarea.js",
         "./Typography": "./dist/Typography/index.js",
         "./VisuallyHidden": "./dist/VisuallyHidden.js",

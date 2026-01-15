@@ -268,4 +268,83 @@
             @apply xl:border xl:p-6 xl:shadow-xs;
         }
     }
+
+    .select {
+        @apply flex items-center justify-between gap-2;
+        @apply w-fit h-9 py-2;
+        @apply bg-transparent hover:bg-muted shadow-xs;
+        @apply border border-input outline-none rounded;
+        @apply text-sm whitespace-nowrap;
+
+        &:disabled {
+            @apply cursor-not-allowed opacity-50;
+        }
+
+        &:focus-visible {
+            @apply ring-3 ring-ring/50 border-ring;
+        }
+
+        &-icon > svg {
+            @apply size-4 pointer-events-none shrink-0;
+        }
+
+        &-popup {
+            @apply bg-background shadow-xs;
+            @apply border border-input rounded;
+            @apply min-w-(--anchor-width) origin-(--transform-origin);
+        }
+
+        &-item {
+            @apply grid items-center grid-cols-[1rem_1fr] gap-2;
+            @apply w-full py-2 pl-2 pr-6;
+            @apply outline-none;
+
+            &:disabled {
+                @apply cursor-not-allowed opacity-50;
+            }
+
+            &[data-highlighted] {
+                @apply bg-muted;
+            }
+
+            & > svg {
+                @apply size-4 pointer-events-none shrink-0;
+            }
+
+            &-indicator {
+                @apply col-start-1;
+            }
+
+            &-text {
+                @apply col-start-2;
+            }
+        }
+
+        &-list {
+            @apply max-h-(--available-height) relative;
+            @apply overflow-y-auto scroll-p-6;
+        }
+
+        &-arrow {
+            @apply flex items-center justify-center;
+            @apply w-full h-3 z-1;
+            @apply text-sm text-center;
+
+            &::before {
+                @apply content-[""] absolute w-full h-full left-0;
+            }
+
+            &[data-direction="up"] &[data-side="none"] {
+                @apply before:-top-full;
+            }
+
+            &[data-direction="down"] {
+                @apply bottom-0;
+
+                &[data-side="none"] {
+                    @apply before:-bottom-full;
+                }
+            }
+        }
+    }
 }
