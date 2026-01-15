@@ -24,7 +24,8 @@
     "scripts": {
         "build": "pnpm build:tsx && pnpm build:tailwind",
         "build:tsx": "tsdown",
-        "build:tailwind": "postcss ./theme.css -o ./dist/theme.css"
+        "build:tailwind": "postcss ./theme.css -o ./dist/theme.css",
+        "typecheck": "tsc --noEmit"
     },
     "dependencies": {
         "@base-ui/react": "catalog:frontend",
