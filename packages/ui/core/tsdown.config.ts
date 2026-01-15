@@ -7,7 +7,7 @@ export default defineConfig(
     mergeConfig(config, {
         platform: 'neutral',
         entry: {
-            '*': ['./src/components/*.tsx', './src/components/**/index.tsx']
+            '*': ['./src/components/*.tsx', './src/components/**/index.ts']
         },
         exports: {
             customExports(pkg) {
