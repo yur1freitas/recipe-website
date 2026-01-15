@@ -150,5 +150,59 @@
         &[aria-invalid="true"] {
             @apply ring-3 ring-destructive/10 border-destructive;
         }
+    },
+
+
+    .box {
+        @apply @container/box w-full bg-background;
+        @apply border-border rounded;
+
+        &-default {
+            @apply p-2;
+        }
+
+        &-popup {
+            @apply border max-w-[calc(100vw-1rem)] p-6;
+        }
+
+        &-xs {
+            @apply xs:w-lg;
+        }
+
+        &-sm {
+            @apply sm:w-160;
+        }
+
+        &-md {
+            @apply md:w-3xl;
+        }
+
+        &-lg {
+            @apply lg:w-5xl;
+        }
+
+        &-xl {
+            @apply xl:w-7xl;
+        }
+
+        &-default&-xs {
+            @apply xs:border xs:p-6 xs:shadow-xs;
+        }
+
+        &-default&-sm {
+            @apply sm:border sm:p-6 sm:shadow-xs;
+        }
+
+        &-default&-md {
+            @apply md:border md:p-6 md:shadow-xs;
+        }
+
+        &-default&-lg {
+            @apply md:border md:p-6 md:shadow-xs;
+        }
+
+        &-default&-xl {
+            @apply xl:border xl:p-6 xl:shadow-xs;
+        }
     }
 }
