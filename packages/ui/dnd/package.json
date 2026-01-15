@@ -1,0 +1,33 @@
+{
+    "name": "@ui/dnd",
+    "version": "0.0.1",
+    "description": "",
+    "license": "MIT",
+    "type": "module",
+    "exports": {
+        ".": "./dist/index.js",
+        "./package.json": "./package.json"
+    },
+    "scripts": {
+        "build": "tsdown",
+        "typecheck": "tsc --noEmit"
+    },
+    "dependencies": {
+        "@base-ui/react": "catalog:frontend",
+        "@dnd-kit/core": "catalog:frontend",
+        "@dnd-kit/sortable": "catalog:frontend",
+        "@dnd-kit/utilities": "catalog:frontend"
+    },
+    "devDependencies": {
+        "@config/tsdown": "workspace:",
+        "@config/typescript": "workspace:",
+        "@rollup/plugin-babel": "catalog:build",
+        "@types/react": "catalog:types",
+        "babel-plugin-react-compiler": "catalog:build",
+        "tsdown": "catalog:build",
+        "typescript": "catalog:"
+    },
+    "peerDependencies": {
+        "react": "catalog:frontend"
+    }
+}
