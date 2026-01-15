@@ -1,16 +1,7 @@
 {
-    "json": {
-        "lineWidth": 80,
-        "indentWidth": 4,
-        "newLineKind": "lf"
-    },
-    "markdown": {
-        "lineWidth": 80,
-        "newLineKind": "lf"
-    },
-    "dockerfile": {
-        "lineWidth": 80
-    },
+    "lineWidth": 80,
+    "indentWidth": 4,
+    "newLineKind": "lf",
     "malva": {
         "indentWidth": 4
     },
