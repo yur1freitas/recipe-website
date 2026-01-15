@@ -81,6 +81,15 @@
 }
 
 @layer components {
+    .loading {
+        @apply flex flex-col gap-y-1;
+        @apply text-center;
+
+        & > svg {
+            @apply animate-spin;
+        }
+    }
+
     .btn {
         @apply inline-flex items-center justify-center gap-2 shrink-0;
         @apply outline-none rounded shadow-xs;
