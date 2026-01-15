@@ -1,0 +1,31 @@
+cap-widget {
+    --border-color: color-mix(in oklab, var(--border) 20%, #0000);
+    --text-color: color-mix(in oklab, var(--foreground) 60%, transparent);
+
+    /* - - Border - - */
+    --cap-gap: 0.5rem;
+    --cap-widget-width: 14rem;
+    --cap-widget-height: 3rem;
+    --cap-widget-padding: 0 0.5rem;
+
+    --cap-color: var(--text-color);
+    --cap-background: var(--background);
+
+    --cap-border-color: var(--border-color);
+    --cap-border-radius: var(--radius);
+
+    /* - - Checkbox - - */
+    --cap-checkbox-border: 1px solid var(--border-color);
+    --cap-checkbox-border-radius: 0.5rem;
+
+    --cap-checkbox-background: var(--background);
+
+    --cap-checkbox-margin: 0;
+    --cap-checkbox-size: 1.5rem;
+
+    /* - - Spinner - - */
+    --cap-spinner-thickness: 2px;
+
+    --cap-spinner-color: var(--primary);
+    --cap-spinner-background-color: var(--border);
+}
