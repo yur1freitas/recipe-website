@@ -8,6 +8,7 @@
         "./Box": "./dist/Box.js",
         "./Button": "./dist/Button.js",
         "./Dialog": "./dist/Dialog/index.js",
+        "./Field": "./dist/Field/index.js",
         "./Fieldset": "./dist/Fieldset/index.js",
         "./Icon": "./dist/Icon.js",
         "./Input": "./dist/Input.js",
