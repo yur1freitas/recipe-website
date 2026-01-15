@@ -7,7 +7,6 @@
     "author": "",
     "type": "module",
     "scripts": {
-        "typecheck": "tsc --noEmit",
         "dev": "tsx --env-file=.env.dev src/index.ts",
         "dev:log": "SERVER_LOGGER=true pnpm run dev",
         "pm2:stop": "pm2 stop",
@@ -19,7 +18,8 @@
         "migrate": "dotenvx run -f .env.dev -- kysely migrate",
         "migrate:up": "pnpm run migrate up",
         "migrate:down": "pnpm run migrate down",
-        "migrate:create": "pnpm run migrate make --extension=ts"
+        "migrate:create": "pnpm run migrate make --extension=ts",
+        "typecheck": "tsc --noEmit"
     },
     "dependencies": {
         "@cap.js/server": "catalog:backend",

@@ -19,7 +19,8 @@
         "migrate": "dotenvx run -f .env.dev -- kysely migrate",
         "migrate:up": "pnpm run migrate up",
         "migrate:down": "pnpm run migrate down",
-        "migrate:create": "pnpm run migrate make --extension=ts"
+        "migrate:create": "pnpm run migrate make --extension=ts",
+        "typecheck": "tsc --noEmit"
     },
     "dependencies": {
         "@core/auth": "workspace:",
