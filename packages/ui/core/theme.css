@@ -409,4 +409,37 @@
             @apply bg-muted/10;
         }
     }
+
+    .dialog {
+        &-popup {
+            @apply fixed inset-1/2 -translate-1/2;
+            @apply transition-all duration-150;
+
+            &[data-starting-style],
+            &[data-ending-style] {
+                @apply opacity-0 -translate-1/2 scale-90 origin-center;
+            }
+        }
+
+        &-backdrop {
+            @apply fixed inset-0 w-full min-h-dvw;
+            @apply bg-black opacity-2;
+            @apply transition-opacity duration-150;
+
+            /* iOS 26+: Ensure the backdrop covers the entire visible viewport. */
+            @supports (-webkit-touch-callout: none) {
+                @apply absolute;
+            }
+
+            &[data-starting-style],
+            &[data-ending-style] {
+                @apply opacity-0;
+            }
+        }
+
+        &-actions {
+            @apply flex items-center justify-end gap-2;
+            @apply pt-4;
+        }
+    }
 }
