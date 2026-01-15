@@ -7,8 +7,12 @@
     "exports": {
         "./Box": "./dist/Box.js",
         "./Button": "./dist/Button.js",
+        "./Icon": "./dist/Icon.js",
         "./Input": "./dist/Input.js",
+        "./Loading": "./dist/Loading.js",
+        "./Textarea": "./dist/Textarea.js",
         "./Typography": "./dist/Typography/index.js",
+        "./VisuallyHidden": "./dist/VisuallyHidden.js",
         "./package.json": "./package.json",
         ".": {
             "style": "./dist/theme.css"
