@@ -9,9 +9,11 @@ import { FormSubmit } from './FormSubmit'
 import { FormInput } from './FormInput'
 import { FormLabel } from './FormLabel'
 import { FormPassword } from './FormPassword'
+import { FormFieldInfo } from './FormFieldInfo'
 
 export const Form = {
     Field: FormField,
+    FieldInfo: FormFieldInfo,
     Label: FormLabel,
     Input: FormInput,
     Submit: FormSubmit,
