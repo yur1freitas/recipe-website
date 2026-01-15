@@ -5,10 +5,14 @@
     "license": "MIT",
     "type": "module",
     "exports": {
+        "./Box": "./dist/Box.js",
+        "./Button": "./dist/Button.js",
+        "./Input": "./dist/Input.js",
+        "./Typography": "./dist/Typography/index.js",
+        "./package.json": "./package.json",
         ".": {
             "style": "./dist/theme.css"
-        },
-        "./package.json": "./package.json"
+        }
     },
     "scripts": {
         "build": "pnpm build:tsx && pnpm build:tailwind",
