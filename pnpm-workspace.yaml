@@ -61,6 +61,7 @@ catalogs:
         eslint-plugin-perfectionist: 5.3.1
         oxfmt: 0.24.0
         oxlint: 1.39.0
+        oxlint-tsgolint: 0.11.0
     schema:
         '@standard-schema/spec': 1.0.0
         '@standard-schema/utils': 0.3.0

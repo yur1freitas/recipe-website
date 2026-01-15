@@ -12,7 +12,8 @@
         "./package.json": "./package.json"
     },
     "scripts": {
-        "build": "tsdown"
+        "build": "tsdown",
+        "typecheck": "tsc --noEmit"
     },
     "dependencies": {
         "@standard-schema/spec": "catalog:schema",

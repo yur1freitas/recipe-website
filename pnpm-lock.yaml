@@ -5,81 +5,6 @@ settings:
     excludeLinksFromLockfile: false
 
 catalogs:
-    backend:
-        '@cap.js/server':
-            specifier: 4.0.5
-            version: 4.0.5
-        '@dotenvx/dotenvx':
-            specifier: 1.51.1
-            version: 1.51.1
-        '@fastify/auth':
-            specifier: 5.0.4
-            version: 5.0.4
-        '@fastify/cookie':
-            specifier: 11.0.2
-            version: 11.0.2
-        '@fastify/cors':
-            specifier: 11.1.0
-            version: 11.1.0
-        '@fastify/rate-limit':
-            specifier: 10.3.0
-            version: 10.3.0
-        '@fastify/schedule':
-            specifier: 6.0.0
-            version: 6.0.0
-        '@fastify/sensible':
-            specifier: 6.0.3
-            version: 6.0.3
-        '@fastify/static':
-            specifier: 8.3.0
-            version: 8.3.0
-        bcrypt:
-            specifier: 6.0.0
-            version: 6.0.0
-        fastify:
-            specifier: 5.6.2
-            version: 5.6.2
-        fastify-plugin:
-            specifier: 5.1.0
-            version: 5.1.0
-        paseto-ts:
-            specifier: 2.0.5
-            version: 2.0.5
-        pino-pretty:
-            specifier: 13.1.3
-            version: 13.1.3
-        toad-scheduler:
-            specifier: 3.1.0
-            version: 3.1.0
-    build:
-        '@tailwindcss/postcss':
-            specifier: 4.1.17
-            version: 4.1.17
-        babel-plugin-react-compiler:
-            specifier: 1.0.0
-            version: 1.0.0
-        tsdown:
-            specifier: 0.17.1
-            version: 0.17.1
-    db:
-        better-sqlite3:
-            specifier: 12.5.0
-            version: 12.5.0
-        iovalkey:
-            specifier: 0.3.3
-            version: 0.3.3
-        kysely:
-            specifier: 0.28.9
-            version: 0.28.9
-        kysely-codegen:
-            specifier: 0.19.0
-            version: 0.19.0
-        kysely-ctl:
-            specifier: 0.19.0
-            version: 0.19.0
-        pg:
-            specifier: 8.16.3
-            version: 8.16.3
     default:
         turbo:
             specifier: 2.6.1
@@ -87,50 +12,6 @@ catalogs:
         typescript:
             specifier: 5.9.3
             version: 5.9.3
-        uuid:
-            specifier: 13.0.0
-            version: 13.0.0
-    docs:
-        '@fastify/swagger':
-            specifier: 9.6.1
-            version: 9.6.1
-        '@scalar/fastify-api-reference':
-            specifier: 1.40.1
-            version: 1.40.1
-    frontend:
-        '@cap.js/widget':
-            specifier: 0.1.32
-            version: 0.1.32
-        '@tanstack/react-form':
-            specifier: 1.27.3
-            version: 1.27.3
-        daisyui:
-            specifier: 5.5.5
-            version: 5.5.5
-        lucide-react:
-            specifier: 0.561.0
-            version: 0.561.0
-        next:
-            specifier: 16.0.7
-            version: 16.0.7
-        openapi-fetch:
-            specifier: 0.15.0
-            version: 0.15.0
-        openapi-typescript:
-            specifier: 7.10.1
-            version: 7.10.1
-        react:
-            specifier: 19.2.1
-            version: 19.2.1
-        react-dom:
-            specifier: 19.2.1
-            version: 19.2.1
-        swr-openapi:
-            specifier: 5.5.0
-            version: 5.5.0
-        tailwindcss:
-            specifier: 4.1.17
-            version: 4.1.17
     lint:
         dprint:
             specifier: 0.50.2
@@ -144,55 +25,14 @@ catalogs:
         oxlint:
             specifier: 1.39.0
             version: 1.39.0
-    schema:
-        '@standard-schema/spec':
-            specifier: 1.0.0
-            version: 1.0.0
-        '@standard-schema/utils':
-            specifier: 0.3.0
-            version: 0.3.0
-        zod:
-            specifier: 4.1.12
-            version: 4.1.12
     script:
-        pm2:
-            specifier: 6.0.14
-            version: 6.0.14
         tsx:
             specifier: 4.21.0
             version: 4.21.0
-    test:
-        '@faker-js/faker':
-            specifier: 10.2.0
-            version: 10.2.0
-        '@vitest/coverage-v8':
-            specifier: 4.0.16
-            version: 4.0.16
-        '@vitest/ui':
-            specifier: 4.0.16
-            version: 4.0.16
-        vitest:
-            specifier: 4.0.16
-            version: 4.0.16
     types:
-        '@types/bcrypt':
-            specifier: 6.0.0
-            version: 6.0.0
-        '@types/better-sqlite3':
-            specifier: 7.6.13
-            version: 7.6.13
         '@types/node':
             specifier: 24.10.1
             version: 24.10.1
-        '@types/pg':
-            specifier: 8.15.6
-            version: 8.15.6
-        '@types/react':
-            specifier: 19.2.7
-            version: 19.2.7
-        '@types/react-dom':
-            specifier: 19.2.3
-            version: 19.2.3
 
 importers:
     .:
@@ -214,7 +54,7 @@ importers:
                 version: 0.24.0
             oxlint:
                 specifier: catalog:lint
-                version: 1.39.0
+                version: 1.39.0(oxlint-tsgolint@0.11.0)
             tsx:
                 specifier: catalog:script
                 version: 4.21.0
@@ -1608,6 +1448,48 @@ packages:
     '@oxfmt/win32-x64@0.24.0':
         resolution: {
             integrity: sha512-0tmlNzcyewAnauNeBCq0xmAkmiKzl+H09p0IdHy+QKrTQdtixtf+AOjDAADbRfihkS+heF15Pjc4IyJMdAAJjw==,
+        }
+        cpu: [x64]
+        os: [win32]
+
+    '@oxlint-tsgolint/darwin-arm64@0.11.0':
+        resolution: {
+            integrity: sha512-F67T8dXgYIrgv6wpd52fKQFdmieSOHaxBkscgso64YdtEHrV3s52ASiZGNzw62TKihn9Ox9ek3PYx9XsxIJDUw==,
+        }
+        cpu: [arm64]
+        os: [darwin]
+
+    '@oxlint-tsgolint/darwin-x64@0.11.0':
+        resolution: {
+            integrity: sha512-z44LO7+3z2mtcBxA9T66yEy/otp/2r5ypbkx7EYlPwbEqBAIDRt/8hqQ9/BUC//1qE549P1cBU6NjhgeyuXjYQ==,
+        }
+        cpu: [x64]
+        os: [darwin]
+
+    '@oxlint-tsgolint/linux-arm64@0.11.0':
+        resolution: {
+            integrity: sha512-IeIjmpPi2j2Dn1CRizGikysyLp9B0q3jqiAalv9ewRyb8hqQW5YeMlsswo8pHd0Hz3KyFfone0NkvBt77Ex2pg==,
+        }
+        cpu: [arm64]
+        os: [linux]
+
+    '@oxlint-tsgolint/linux-x64@0.11.0':
+        resolution: {
+            integrity: sha512-fpYGYU2pXjaXYnKgWrihFXE8zJiTRjYKSHAaBaVI056oqKjKGEoU2BfFbddpBrKgz9TmSOX/NGftrJnyMn1wXQ==,
+        }
+        cpu: [x64]
+        os: [linux]
+
+    '@oxlint-tsgolint/win32-arm64@0.11.0':
+        resolution: {
+            integrity: sha512-37nzks9eqBt7NYE6okquu51vaqMruF5voX475L16Y8asJVCGpO/2VSy3ulYAXhZ+5Kdc8ZgrljVViJOjfPEPaA==,
+        }
+        cpu: [arm64]
+        os: [win32]
+
+    '@oxlint-tsgolint/win32-x64@0.11.0':
+        resolution: {
+            integrity: sha512-TsK4C61+mjmbkUJ3Q3E9Ev3VFbeI6prPEAm9FAOq8VsfUGEiIUBBjrZ8ysGoQXNiU3dCKpmu012ptVUZTk5/eg==,
         }
         cpu: [x64]
         os: [win32]
@@ -4427,6 +4309,12 @@ packages:
         engines: { node: ^20.19.0 || >=22.12.0 }
         hasBin: true
 
+    oxlint-tsgolint@0.11.0:
+        resolution: {
+            integrity: sha512-fGYb7z/cljC0Rjtbxh7mIe8vtF/M9TShLvniwc2rdcqNG3Z9g3nM01cr2kWRb1DZdbY4/kItvIsrV4uhaMifyQ==,
+        }
+        hasBin: true
+
     oxlint@1.39.0:
         resolution: {
             integrity: sha512-wSiLr0wjG+KTU6c1LpVoQk7JZ7l8HCKlAkVDVTJKWmCGazsNxexxnOXl7dsar92mQcRnzko5g077ggP3RINSjA==,
@@ -5952,7 +5840,7 @@ snapshots:
     '@eslint/config-array@0.21.1':
         dependencies:
             '@eslint/object-schema': 2.1.7
-            debug: 4.4.3(supports-color@10.2.2)
+            debug: 4.4.3
             minimatch: 3.1.2
         transitivePeerDependencies:
             - supports-color
@@ -5968,7 +5856,7 @@ snapshots:
     '@eslint/eslintrc@3.3.3':
         dependencies:
             ajv: 6.12.6
-            debug: 4.4.3(supports-color@10.2.2)
+            debug: 4.4.3
             espree: 10.4.0
             globals: 14.0.0
             ignore: 5.3.2
@@ -6291,6 +6179,24 @@ snapshots:
         optional: true
 
     '@oxfmt/win32-x64@0.24.0':
+        optional: true
+
+    '@oxlint-tsgolint/darwin-arm64@0.11.0':
+        optional: true
+
+    '@oxlint-tsgolint/darwin-x64@0.11.0':
+        optional: true
+
+    '@oxlint-tsgolint/linux-arm64@0.11.0':
+        optional: true
+
+    '@oxlint-tsgolint/linux-x64@0.11.0':
+        optional: true
+
+    '@oxlint-tsgolint/win32-arm64@0.11.0':
+        optional: true
+
+    '@oxlint-tsgolint/win32-x64@0.11.0':
         optional: true
 
     '@oxlint/darwin-arm64@1.39.0':
@@ -6761,7 +6667,7 @@ snapshots:
         dependencies:
             '@typescript-eslint/tsconfig-utils': 8.53.0(typescript@5.9.3)
             '@typescript-eslint/types': 8.53.0
-            debug: 4.4.3(supports-color@10.2.2)
+            debug: 4.4.3
             typescript: 5.9.3
         transitivePeerDependencies:
             - supports-color
@@ -6783,7 +6689,7 @@ snapshots:
             '@typescript-eslint/tsconfig-utils': 8.53.0(typescript@5.9.3)
             '@typescript-eslint/types': 8.53.0
             '@typescript-eslint/visitor-keys': 8.53.0
-            debug: 4.4.3(supports-color@10.2.2)
+            debug: 4.4.3
             minimatch: 9.0.5
             semver: 7.7.3
             tinyglobby: 0.2.15
@@ -7174,6 +7080,10 @@ snapshots:
         dependencies:
             ms: 2.1.3
 
+    debug@4.4.3:
+        dependencies:
+            ms: 2.1.3
+
     debug@4.4.3(supports-color@10.2.2):
         dependencies:
             ms: 2.1.3
@@ -7344,7 +7254,7 @@ snapshots:
             ajv: 6.12.6
             chalk: 4.1.2
             cross-spawn: 7.0.6
-            debug: 4.4.3(supports-color@10.2.2)
+            debug: 4.4.3
             escape-string-regexp: 4.0.0
             eslint-scope: 8.4.0
             eslint-visitor-keys: 4.2.1
@@ -8118,7 +8028,17 @@ snapshots:
             '@oxfmt/win32-arm64': 0.24.0
             '@oxfmt/win32-x64': 0.24.0
 
-    oxlint@1.39.0:
+    oxlint-tsgolint@0.11.0:
+        optionalDependencies:
+            '@oxlint-tsgolint/darwin-arm64': 0.11.0
+            '@oxlint-tsgolint/darwin-x64': 0.11.0
+            '@oxlint-tsgolint/linux-arm64': 0.11.0
+            '@oxlint-tsgolint/linux-x64': 0.11.0
+            '@oxlint-tsgolint/win32-arm64': 0.11.0
+            '@oxlint-tsgolint/win32-x64': 0.11.0
+        optional: true
+
+    oxlint@1.39.0(oxlint-tsgolint@0.11.0):
         optionalDependencies:
             '@oxlint/darwin-arm64': 1.39.0
             '@oxlint/darwin-x64': 1.39.0
@@ -8128,6 +8048,7 @@ snapshots:
             '@oxlint/linux-x64-musl': 1.39.0
             '@oxlint/win32-arm64': 1.39.0
             '@oxlint/win32-x64': 1.39.0
+            oxlint-tsgolint: 0.11.0
 
     p-limit@3.1.0:
         dependencies:
