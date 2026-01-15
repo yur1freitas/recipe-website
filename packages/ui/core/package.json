@@ -1,0 +1,40 @@
+{
+    "name": "@ui/core",
+    "version": "0.0.1",
+    "description": "",
+    "license": "MIT",
+    "type": "module",
+    "exports": {
+        ".": {
+            "style": "./dist/theme.css"
+        },
+        "./package.json": "./package.json"
+    },
+    "scripts": {
+        "build": "pnpm build:tsx && pnpm build:tailwind",
+        "build:tsx": "tsdown",
+        "build:tailwind": "postcss ./theme.css -o ./dist/theme.css"
+    },
+    "dependencies": {
+        "@base-ui/react": "catalog:frontend",
+        "@core/time": "workspace:",
+        "lucide-react": "catalog:frontend",
+        "tailwind-variants": "catalog:frontend"
+    },
+    "devDependencies": {
+        "@config/tsdown": "workspace:",
+        "@config/typescript": "workspace:",
+        "@rollup/plugin-babel": "catalog:build",
+        "@tailwindcss/postcss": "catalog:build",
+        "@types/react": "catalog:types",
+        "babel-plugin-react-compiler": "catalog:build",
+        "postcss-cli": "catalog:script",
+        "postcss-nested": "catalog:build",
+        "tailwindcss": "catalog:frontend",
+        "tsdown": "catalog:build",
+        "typescript": "catalog:"
+    },
+    "peerDependencies": {
+        "react": "catalog:frontend"
+    }
+}
