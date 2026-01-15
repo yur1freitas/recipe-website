@@ -142,12 +142,12 @@
         }
     }
 
-    .label {
+    .label, .field-label {
         @apply text-sm font-medium align-middle leading-none;
         @apply aria-invalid:text-destructive;
     }
 
-    .input {
+    .input, .field-control {
         @apply inline-flex w-full min-w-0 h-9 px-3 py-1;
         @apply border border-input outline-none rounded;
         @apply bg-transparent shadow-xs;
@@ -164,6 +164,14 @@
         &[aria-invalid="true"] {
             @apply ring-3 ring-destructive/10 border-destructive;
         }
+    }
+
+    .field-error {
+        @apply text-destructive not-italic;
+    }
+
+    .field-description {
+        @apply text-sm text-muted leading-5;
     }
 
     .password {
