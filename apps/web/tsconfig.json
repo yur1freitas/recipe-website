@@ -1,9 +1,6 @@
 {
-    "extends": "@config/typescript/base.json",
+    "extends": "@config/typescript/react.json",
     "compilerOptions": {
-        "jsx": "preserve",
-        "lib": ["DOM", "DOM.Iterable", "ESNext"],
-
         "baseUrl": ".",
         "paths": {
             "~/*": ["./src/*"]
