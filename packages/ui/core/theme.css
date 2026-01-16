@@ -82,7 +82,7 @@
 
 @layer components {
     .loading {
-        @apply flex flex-col gap-y-1;
+        @apply flex flex-col items-center gap-y-1;
         @apply text-center;
 
         & > svg {
