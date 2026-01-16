@@ -4,12 +4,12 @@ import type { FieldsetLegendProps } from './FieldsetLegend'
 import { FieldsetRoot } from './FieldsetRoot'
 import { FieldsetLegend } from './FieldsetLegend'
 
-export const NumberField = {
+export const Fieldset = {
     Root: FieldsetRoot,
     Legend: FieldsetLegend
 }
 
-export namespace NumberFieldProps {
+export namespace FieldsetProps {
     export type Root = FieldsetRootProps
     export type Legend = FieldsetLegendProps
 }
