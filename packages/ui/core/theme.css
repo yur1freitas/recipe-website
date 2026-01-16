@@ -82,8 +82,24 @@
 
 @layer components {
     .loading {
-        @apply flex flex-col items-center gap-y-1;
+        @apply flex items-center justify-center gap-1;
         @apply text-center;
+
+        &-label-top {
+            @apply flex-col-reverse;
+        }
+
+        &-label-bottom {
+            @apply flex-col;
+        }
+
+        &-label-left {
+            @apply flex-row-reverse;
+        }
+
+        &-label-right {
+            @apply flex-row;
+        }
 
         & > svg {
             @apply animate-spin;
