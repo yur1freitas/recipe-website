@@ -15,7 +15,7 @@ const loadModule = async (): Promise<void> => {
     await import('@cap.js/widget')
 }
 
-export interface CaptchaProps {
+export type CaptchaProps = React.ComponentProps<'cap-widget'> & {
     ref?: React.Ref<CapWidget | null>
     id?: string
     name?: string
@@ -54,7 +54,8 @@ export function Captcha({
     i18nVerifyingAriaLabel,
     i18nVerifiedAriaLabel,
     i18nErrorAriaLabel,
-    i18nWasmDisable
+    i18nWasmDisable,
+    ...props
 }: CaptchaProps): React.JSX.Element {
     const mountedRef = useRef<boolean>(false)
     const widgetRef = useRef<CapWidget | null>(null)
@@ -109,6 +110,7 @@ export function Captcha({
 
     return (
         <cap-widget
+            {...props}
             id={id}
             ref={widgetRef}
             onBlur={onBlur}
