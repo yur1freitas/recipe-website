@@ -185,6 +185,10 @@
         }
     }
 
+    .field {
+        @apply flex flex-col gap-y-2;
+    }
+
     .field-error {
         @apply text-destructive not-italic;
     }
