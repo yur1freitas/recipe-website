@@ -320,7 +320,7 @@
 
     .select {
         @apply flex items-center justify-between gap-2;
-        @apply w-fit h-9 py-2;
+        @apply w-fit h-9 px-3 py-2;
         @apply bg-transparent hover:bg-muted shadow-xs;
         @apply border border-input outline-none rounded;
         @apply text-sm whitespace-nowrap;
