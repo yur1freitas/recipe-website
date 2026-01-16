@@ -1,4 +1,5 @@
 import { defineConfig, mergeConfig } from 'tsdown/config'
+import { join, parse as parsePath } from 'node:path'
 import babel from '@rollup/plugin-babel'
 import { config } from '@config/tsdown'
 
@@ -10,7 +11,13 @@ export default defineConfig(
                 const root = pkg['.']
 
                 if (typeof root === 'string') {
-                    pkg['.'] = { module: root, style: './theme.css' }
+                    const { dir, name } = parsePath(root)
+
+                    pkg['.'] = {
+                        module: root,
+                        types: `${dir}/${name}.d.ts`,
+                        style: './theme.css'
+                    }
                 }
 
                 if (typeof root === 'object') {
