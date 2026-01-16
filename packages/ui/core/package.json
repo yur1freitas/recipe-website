@@ -32,7 +32,9 @@
         "build": "pnpm build:tsx && pnpm build:tailwind",
         "build:tsx": "tsdown",
         "build:tailwind": "postcss ./theme.css -o ./dist/theme.css",
-        "typecheck": "tsc --noEmit"
+        "typecheck": "tsc --noEmit",
+        "storybook": "storybook dev -p 6006",
+        "build-storybook": "storybook build"
     },
     "dependencies": {
         "@base-ui/react": "catalog:frontend",
@@ -41,18 +43,29 @@
         "tailwind-variants": "catalog:frontend"
     },
     "devDependencies": {
-        "react": "catalog:frontend",
+        "@chromatic-com/storybook": "catalog:docs",
         "@config/tsdown": "workspace:",
         "@config/typescript": "workspace:",
         "@rollup/plugin-babel": "catalog:build",
+        "@storybook/addon-a11y": "catalog:docs",
+        "@storybook/addon-docs": "catalog:docs",
+        "@storybook/addon-vitest": "catalog:docs",
+        "@storybook/react-vite": "catalog:docs",
         "@tailwindcss/postcss": "catalog:build",
         "@types/react": "catalog:types",
+        "@vitest/browser-playwright": "catalog:test",
+        "@vitest/coverage-v8": "catalog:test",
         "babel-plugin-react-compiler": "catalog:build",
+        "playwright": "catalog:test",
         "postcss-cli": "catalog:script",
         "postcss-nested": "catalog:build",
+        "react": "catalog:frontend",
+        "storybook": "catalog:docs",
         "tailwindcss": "catalog:frontend",
         "tsdown": "catalog:build",
-        "typescript": "catalog:"
+        "typescript": "catalog:",
+        "vite": "catalog:build",
+        "vitest": "catalog:test"
     },
     "peerDependencies": {
         "react": "catalog:frontend"
