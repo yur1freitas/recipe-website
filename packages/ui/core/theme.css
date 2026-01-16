@@ -413,7 +413,7 @@
         &-item {
             @apply flex items-center relative;
             @apply text-sm leading-none select-none;
-            @apply px-4 pr-8 py-2;
+            @apply pl-4 pr-8 py-2;
 
             &[data-highlighted] {
                 @apply z-0 relative;
