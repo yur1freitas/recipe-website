@@ -356,12 +356,12 @@
                 @apply bg-muted;
             }
 
-            & > svg {
-                @apply size-4 pointer-events-none shrink-0;
-            }
-
             &-indicator {
                 @apply col-start-1;
+
+                & > svg {
+                    @apply size-4 pointer-events-none shrink-0;
+                }
             }
 
             &-text {
