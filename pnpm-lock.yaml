@@ -932,6 +932,9 @@ importers:
 
   packages/ui/form:
     dependencies:
+      '@ui/captcha':
+        specifier: 'workspace:'
+        version: link:../captcha
       '@ui/core':
         specifier: 'workspace:'
         version: link:../core

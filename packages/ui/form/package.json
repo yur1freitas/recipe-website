@@ -12,6 +12,9 @@
         "build": "tsdown",
         "typecheck": "tsc --noEmit"
     },
+    "dependencies": {
+        "@ui/captcha": "workspace:"
+    },
     "devDependencies": {
         "@config/tsdown": "workspace:",
         "@config/typescript": "workspace:",
