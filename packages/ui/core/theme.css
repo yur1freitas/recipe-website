@@ -151,7 +151,8 @@
         @apply inline-flex w-full min-w-0 h-9 px-3 py-1;
         @apply border border-input outline-none rounded;
         @apply bg-transparent shadow-xs;
-        @apply text-foreground text-base md:text-sm placeholder-muted;
+        @apply text-foreground text-base md:text-sm
+            placeholder-muted-foreground;
 
         &:disabled {
             @apply cursor-not-allowed opacity-50;
@@ -178,7 +179,8 @@
         @apply inline-flex w-full min-w-0 h-9 px-3 py-1;
         @apply border border-input rounded;
         @apply bg-transparent shadow-xs;
-        @apply text-foreground text-base md:text-sm placeholder-muted;
+        @apply text-foreground text-base md:text-sm
+            placeholder-muted-foreground;
 
         &:has(input:disabled) {
             @apply cursor-not-allowed opacity-50;
@@ -209,7 +211,8 @@
         @apply flex w-full min-h-16 px-3 py-2;
         @apply bg-transparent shadow-xs;
         @apply border border-input outline-none rounded;
-        @apply text-foreground text-base md:text-sm placeholder-muted;
+        @apply text-foreground text-base md:text-sm
+            placeholder-muted-foreground;
 
         &:focus-visible {
             @apply ring-1 ring-ring/50 border-ring;
@@ -533,7 +536,7 @@
             @apply inline-flex w-full min-w-0 h-9;
             @apply bg-transparent shadow-xs;
             @apply border-t border-b border-input outline-none;
-            @apply text-base md:text-sm placeholder-muted;
+            @apply text-base md:text-sm placeholder-muted-foreground;
 
             &:disabled {
                 @apply cursor-not-allowed opacity-50;
