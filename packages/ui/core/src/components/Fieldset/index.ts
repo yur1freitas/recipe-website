@@ -1,8 +1,8 @@
-import type { FieldsetRootProps } from './FieldsetRoot'
 import type { FieldsetLegendProps } from './FieldsetLegend'
+import type { FieldsetRootProps } from './FieldsetRoot'
 
-import { FieldsetRoot } from './FieldsetRoot'
 import { FieldsetLegend } from './FieldsetLegend'
+import { FieldsetRoot } from './FieldsetRoot'
 
 export const Fieldset = {
     Root: FieldsetRoot,

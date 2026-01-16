@@ -1,18 +1,18 @@
+import type { FieldDescriptionProps } from './FieldDescription'
 import type { FieldValidityProps } from './FieldValidity'
-import type { FieldRootProps } from './FieldRoot'
 import type { FieldPassworProps } from './FieldPassword'
+import type { FieldControlProps } from './FieldControl'
 import type { FieldLabelProps } from './FieldLabel'
 import type { FieldErrorProps } from './FieldError'
-import type { FieldDescriptionProps } from './FieldDescription'
-import type { FieldControlProps } from './FieldControl'
+import type { FieldRootProps } from './FieldRoot'
 
+import { FieldDescription } from './FieldDescription'
 import { FieldValidity } from './FieldValidity'
-import { FieldRoot } from './FieldRoot'
 import { FieldPassword } from './FieldPassword'
+import { FieldControl } from './FieldControl'
 import { FieldLabel } from './FieldLabel'
 import { FieldError } from './FieldError'
-import { FieldDescription } from './FieldDescription'
-import { FieldControl } from './FieldControl'
+import { FieldRoot } from './FieldRoot'
 
 export const Field = {
     Root: FieldRoot,

@@ -1,5 +1,4 @@
 import { Dialog as BaseDialog } from '@base-ui/react/dialog'
-
 import { cx } from 'tailwind-variants/utils'
 
 export type DialogBackdropProps = BaseDialog.Backdrop.Props & {

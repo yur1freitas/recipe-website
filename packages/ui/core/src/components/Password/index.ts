@@ -1,12 +1,12 @@
 import type { PasswordToggleButtonIconProps } from './PasswordToggleButtonIcon'
 import type { PasswordToggleButtonProps } from './PasswordToggleButton'
-import type { PasswordRootProps } from './PasswordRoot'
 import type { PasswordInputProps } from './PasswordInput'
+import type { PasswordRootProps } from './PasswordRoot'
 
 import { PasswordToggleButtonIcon } from './PasswordToggleButtonIcon'
 import { PasswordToggleButton } from './PasswordToggleButton'
-import { PasswordRoot } from './PasswordRoot'
 import { PasswordInputField } from './PasswordInput'
+import { PasswordRoot } from './PasswordRoot'
 
 export const Password = {
     Root: PasswordRoot,

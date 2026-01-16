@@ -1,10 +1,10 @@
+import type { SortableDrangHandleProps } from './SortableDragHandle'
 import type { SortableRootProps } from './SortableRoot'
 import type { SortableItemProps } from './SortableItem'
-import type { SortableDrangHandleProps } from './SortableDragHandle'
 
+import { SortableDrangHandle } from './SortableDragHandle'
 import { SortableRoot } from './SortableRoot'
 import { SortableItem } from './SortableItem'
-import { SortableDrangHandle } from './SortableDragHandle'
 
 export const Sortable = {
     Root: SortableRoot,

@@ -1,6 +1,7 @@
 import { Dialog as BaseDialog } from '@base-ui/react/dialog'
 
 import type { ButtonVariants } from '../Button'
+
 import { Button } from '../Button'
 
 export type DialogCloseProps = BaseDialog.Close.Props &

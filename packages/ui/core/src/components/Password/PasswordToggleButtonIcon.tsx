@@ -3,6 +3,7 @@ import { EyeIcon, EyeClosedIcon } from 'lucide-react'
 import { usePasswordContext } from '~/hooks/usePasswordContext'
 
 import type { IconProps } from '../Icon'
+
 import { Icon } from '../Icon'
 
 export type PasswordToggleButtonIconProps = Omit<IconProps, 'children'>

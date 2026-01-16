@@ -2,14 +2,14 @@
 
 import type { CapWidget } from '@cap.js/widget'
 
+import { useEffect, useImperativeHandle, useRef } from 'react'
+
 import type {
     CapErrorHandler,
     CapProgressHandler,
     CapResetHandler,
     CapSolveHandler
 } from '~/types'
-
-import { useEffect, useImperativeHandle, useRef } from 'react'
 
 const loadModule = async (): Promise<void> => {
     await import('@cap.js/widget')

@@ -1,6 +1,6 @@
-import type { PasswordProps } from '../Password'
-
 import { Field as BaseField } from '@base-ui/react'
+
+import type { PasswordProps } from '../Password'
 
 import { Password } from '../Password'
 

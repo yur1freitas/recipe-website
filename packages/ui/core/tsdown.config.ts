@@ -1,7 +1,6 @@
-import { config } from '@config/tsdown'
 import { defineConfig, mergeConfig } from 'tsdown/config'
-
 import babel from '@rollup/plugin-babel'
+import { config } from '@config/tsdown'
 
 export default defineConfig(
     mergeConfig(config, {

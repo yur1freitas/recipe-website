@@ -1,12 +1,12 @@
-import type { TimeFieldRootProps } from './TimeFieldRoot'
 import type { TimeFieldLabelProps } from './TimeFieldLabel'
 import type { TimeFieldInputProps } from './TimeFieldInput'
 import type { TimeFieldGroupProps } from './TimeFieldGroup'
+import type { TimeFieldRootProps } from './TimeFieldRoot'
 
-import { TimeFieldRoot } from './TimeFieldRoot'
 import { TimeFieldLabel } from './TimeFieldLabel'
 import { TimeFieldInput } from './TimeFieldInput'
 import { TimeFieldGroup } from './TimeFieldGroup'
+import { TimeFieldRoot } from './TimeFieldRoot'
 
 export const TimeField = {
     Input: TimeFieldInput,

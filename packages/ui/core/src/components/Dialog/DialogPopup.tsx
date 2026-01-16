@@ -2,6 +2,7 @@ import { Dialog as BaseDialog } from '@base-ui/react/dialog'
 import { cx } from 'tailwind-variants/utils'
 
 import type { BoxVariants } from '../Box'
+
 import { Box } from '../Box'
 
 export type DialogPopupProps = BaseDialog.Popup.Props &
