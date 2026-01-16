@@ -1,5 +1,4 @@
 import { NumberField as BaseNumberField } from '@base-ui/react/number-field'
-
 import { cx } from 'tailwind-variants/utils'
 
 export type NumberFieldDecrementProps = BaseNumberField.Decrement.Props & {

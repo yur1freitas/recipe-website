@@ -1,5 +1,4 @@
 import { Menu as BaseMenu } from '@base-ui/react/menu'
-
 import { cx } from 'tailwind-variants/utils'
 
 export type MenuPopupProps = BaseMenu.Popup.Props & { className?: string }

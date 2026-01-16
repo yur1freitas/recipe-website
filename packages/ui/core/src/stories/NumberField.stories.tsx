@@ -1,8 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { NumberField } from '../components/NumberField'
 import { MinusIcon, PlusIcon } from 'lucide-react'
+
 import { Label } from '~/components/Label'
+
+import { NumberField } from '../components/NumberField'
 
 const meta = {
     tags: ['autodocs'],

@@ -1,10 +1,11 @@
-import type { TimeUnit } from '@core/time'
 import type {
     NumberFieldRootChangeEventDetails,
     NumberFieldRootProps
 } from '@base-ui/react/number-field'
 
 import { MinusIcon, PlusIcon } from 'lucide-react'
+
+import type { TimeUnit } from '@core/time'
 
 import { useTimeFieldContext } from '~/hooks/useTimeFieldContext'
 

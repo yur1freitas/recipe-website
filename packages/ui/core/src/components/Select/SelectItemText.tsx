@@ -1,5 +1,4 @@
 import { Select as BaseSelect } from '@base-ui/react/select'
-
 import { cx } from 'tailwind-variants/utils'
 
 export type SelectItemTextProps = BaseSelect.ItemText.Props & {

@@ -1,15 +1,15 @@
+import type { FormPasswordProps } from './FormPassword'
 import type { FormSubmitProps } from './FormSubmit'
 import type { FormFieldProps } from './FormField'
 import type { FormInputProps } from './FormInput'
 import type { FormLabelProps } from './FormLabel'
-import type { FormPasswordProps } from './FormPassword'
 
-import { FormField } from './FormField'
+import { FormFieldInfo } from './FormFieldInfo'
+import { FormPassword } from './FormPassword'
 import { FormSubmit } from './FormSubmit'
+import { FormField } from './FormField'
 import { FormInput } from './FormInput'
 import { FormLabel } from './FormLabel'
-import { FormPassword } from './FormPassword'
-import { FormFieldInfo } from './FormFieldInfo'
 
 export const Form = {
     Field: FormField,

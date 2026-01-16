@@ -1,10 +1,11 @@
+import { useState } from 'react'
+
 import type { TimeInput } from '@core/time'
 
-import { useState } from 'react'
 import { Time } from '@core/time'
 
-import { FieldsetRoot } from '../Fieldset/FieldsetRoot'
 import { TimeFieldContext } from '../../contexts/TimeFieldContext'
+import { FieldsetRoot } from '../Fieldset/FieldsetRoot'
 
 export interface TimeFieldRootProps extends TimeInput {
     children?: React.ReactNode

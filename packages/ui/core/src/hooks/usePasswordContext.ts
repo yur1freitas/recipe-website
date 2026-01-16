@@ -1,6 +1,7 @@
 import { use } from 'react'
 
 import type { PasswordContextValue } from '~/contexts/PasswordContext'
+
 import { PasswordContext } from '~/contexts/PasswordContext'
 
 export function usePasswordContext(): PasswordContextValue {

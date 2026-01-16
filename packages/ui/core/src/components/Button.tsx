@@ -1,7 +1,7 @@
 import type { VariantProps } from 'tailwind-variants'
 
-import { tv } from 'tailwind-variants/lite'
 import { Button as BaseButton } from '@base-ui/react/button'
+import { tv } from 'tailwind-variants/lite'
 
 const button = tv({
     base: 'btn',

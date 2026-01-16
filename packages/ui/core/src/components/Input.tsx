@@ -1,6 +1,6 @@
 import type { InputProps as BaseInputProps } from '@base-ui/react/input'
-import { Input as BaseInput } from '@base-ui/react/input'
 
+import { Input as BaseInput } from '@base-ui/react/input'
 import { cx } from 'tailwind-variants/utils'
 
 export type InputProps = BaseInputProps & { className?: string }

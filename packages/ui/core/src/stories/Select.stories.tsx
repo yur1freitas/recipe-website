@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { Select } from '../components/Select'
 import { CheckIcon } from 'lucide-react'
+
+import { Select } from '../components/Select'
 
 const meta = {
     tags: ['autodocs'],
