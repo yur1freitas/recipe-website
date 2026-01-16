@@ -1,13 +1,9 @@
 import { Field as BaseField } from '@base-ui/react/field'
-import { cx } from 'tailwind-variants/utils'
+
+import { Label } from '../Label'
 
 export type FieldLabelProps = BaseField.Label.Props & { className?: string }
 
-export function FieldLabel({
-    className,
-    ...props
-}: FieldLabelProps): React.JSX.Element {
-    const classNames = cx('field-label', className)
-
-    return <BaseField.Label {...props} className={classNames} />
+export function FieldLabel(props: FieldLabelProps): React.JSX.Element {
+    return <BaseField.Label render={Label} {...props} />
 }
