@@ -1,23 +1,20 @@
 @import "@ui/core";
 
 cap-widget {
-    --border-color: color-mix(in oklab, var(--border) 20%, #0000);
-    --text-color: color-mix(in oklab, var(--foreground) 60%, transparent);
-
     /* - - Border - - */
     --cap-gap: 0.5rem;
     --cap-widget-width: 14rem;
     --cap-widget-height: 3rem;
     --cap-widget-padding: 0 0.5rem;
 
-    --cap-color: var(--text-color);
+    --cap-color: var(--foreground);
     --cap-background: var(--background);
 
-    --cap-border-color: var(--border-color);
+    --cap-border-color: var(--border);
     --cap-border-radius: var(--radius);
 
     /* - - Checkbox - - */
-    --cap-checkbox-border: 1px solid var(--border-color);
+    --cap-checkbox-border: 1px solid var(--border);
     --cap-checkbox-border-radius: 0.5rem;
 
     --cap-checkbox-background: var(--background);
