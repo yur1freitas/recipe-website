@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 /* https://ui.shadcn.com/docs/theming */
 :root {
@@ -180,7 +180,7 @@
             @apply ring-3 ring-ring/50 border-ring;
         }
 
-        &[aria-invalid='true'] {
+        &[aria-invalid="true"] {
             @apply ring-3 ring-destructive/10 border-destructive;
         }
     }
@@ -208,7 +208,7 @@
             @apply ring-3 ring-ring/50 border-ring;
         }
 
-        &:has(input[aria-invalid='true']) {
+        &:has(input[aria-invalid="true"]) {
             @apply ring-3 ring-destructive/10 border-destructive;
         }
 
@@ -268,6 +268,10 @@
 
     .typography-p {
         @apply leading-7 not-first:mt-2;
+    }
+
+    .typography-link {
+        @apply underline underline-offset-2;
     }
 
     .typography-small {
@@ -404,14 +408,14 @@
                 @apply content-[""] absolute w-full h-full left-0;
             }
 
-            &[data-direction='up'] &[data-side='none'] {
+            &[data-direction="up"] &[data-side="none"] {
                 @apply before:-top-full;
             }
 
-            &[data-direction='down'] {
+            &[data-direction="down"] {
                 @apply bottom-0;
 
-                &[data-side='none'] {
+                &[data-side="none"] {
                     @apply before:-bottom-full;
                 }
             }
@@ -449,19 +453,19 @@
         &-arrow {
             @apply flex;
 
-            &[data-side='top'] {
+            &[data-side="top"] {
                 @apply -bottom-2 rotate-180;
             }
 
-            &[data-side='bottom'] {
+            &[data-side="bottom"] {
                 @apply -top-2 rotate-0;
             }
 
-            &[data-side='left'] {
+            &[data-side="left"] {
                 @apply -right-4 rotate-80;
             }
 
-            &[data-side='right'] {
+            &[data-side="right"] {
                 @apply -left-4 -rotate-80;
             }
 
@@ -569,7 +573,7 @@
                 @apply ring-3 ring-ring/50 border-ring z-1;
             }
 
-            &[aria-invalid='true'] {
+            &[aria-invalid="true"] {
                 @apply ring-3 ring-destructive/10 border-destructive;
             }
         }
