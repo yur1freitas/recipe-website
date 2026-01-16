@@ -353,7 +353,7 @@
             }
 
             &[data-highlighted] {
-                @apply bg-muted;
+                @apply bg-muted first:rounded-t last:rounded-b;
             }
 
             &-indicator {
