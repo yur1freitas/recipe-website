@@ -12,18 +12,22 @@ export interface PasswordRootProps extends React.ComponentProps<'div'> {
 
 export function PasswordRoot({
     id,
+    visible,
     children,
-    className,
-    visible = false
+    className
 }: PasswordRootProps): React.JSX.Element {
     const classNames = cx('password', className)
 
     const [inputId, setInputId] = useState(useId())
-    const [isVisible, setIsVisible] = useState(visible)
+    const [isVisible, setIsVisible] = useState(false)
 
     useEffect(() => {
         if (id) setInputId(id)
     }, [id])
+
+    useEffect(() => {
+        setIsVisible(Boolean(visible))
+    }, [visible])
 
     const toggleVisibility = () => setIsVisible((state) => !state)
     const isHidden = !isVisible
