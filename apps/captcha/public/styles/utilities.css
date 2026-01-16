@@ -78,11 +78,11 @@
     pointer-events: none;
 }
 
-.password-input:has(input[type="password"]) .show-icon {
+.password-input:has(input[type='password']) .show-icon {
     display: none;
 }
 
-.password-input:has(input[type="text"]) .hidden-icon {
+.password-input:has(input[type='text']) .hidden-icon {
     display: none;
 }
 

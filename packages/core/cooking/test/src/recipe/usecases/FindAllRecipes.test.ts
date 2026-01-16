@@ -4,7 +4,7 @@ import { faker } from '@faker-js/faker/locale/pt_BR'
 import { RecipeRepositoryProviderMock } from '~mocks/providers/RecipeRepositoryProviderMock'
 import { randRecipe } from '~mocks/randRecipe'
 
-import type { RecipeProps } from '~/recipe/models/Recipe';
+import type { RecipeProps } from '~/recipe/models/Recipe'
 
 import { FindAllRecipes } from '~/recipe/usecases/FindAllRecipes'
 import { Recipe } from '~/recipe/models/Recipe'

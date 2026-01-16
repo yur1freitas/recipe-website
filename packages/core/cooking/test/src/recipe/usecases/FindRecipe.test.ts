@@ -6,7 +6,7 @@ import { randRecipe } from '~mocks/randRecipe'
 
 import { randId } from '@core/shared/mocks'
 
-import type { RecipeProps } from '~/recipe/models/Recipe';
+import type { RecipeProps } from '~/recipe/models/Recipe'
 
 import { FindRecipe } from '~/recipe/usecases/FindRecipe'
 import { Recipe } from '~/recipe/models/Recipe'
