@@ -13,10 +13,10 @@
         "typecheck": "tsc --noEmit"
     },
     "devDependencies": {
-        "@tanstack/react-form": "catalog:frontend",
         "@config/tsdown": "workspace:",
         "@config/typescript": "workspace:",
         "@rollup/plugin-babel": "catalog:build",
+        "@tanstack/react-form": "catalog:frontend",
         "@types/react": "catalog:types",
         "babel-plugin-react-compiler": "catalog:build",
         "react": "catalog:frontend",

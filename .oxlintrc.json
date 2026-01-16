@@ -108,14 +108,14 @@
         "unicorn/no-useless-spread": "warn",
         "unicorn/prefer-set-size": "warn",
         "unicorn/prefer-string-starts-ends-with": "warn",
-        "perfectionist/sort-exports": ["warn", {
-            "type": "line-length",
-            "order": "desc",
-            "groups": [
-                "type-export",
-                "value-export"
-            ]
-        }],
+        "perfectionist/sort-exports": [
+            "warn",
+            {
+                "type": "line-length",
+                "order": "desc",
+                "groups": ["type-export", "value-export"]
+            }
+        ],
         "perfectionist/sort-imports": [
             "warn",
             {

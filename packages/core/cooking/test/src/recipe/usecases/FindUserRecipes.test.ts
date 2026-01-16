@@ -10,14 +10,10 @@ import { randEmail, randEncryptedPassword, randId } from '@core/shared/mocks'
 import { randUser, UserRepositoryProviderMock } from '@core/auth/mocks'
 import { ValidatorError } from '@core/shared'
 
-import type {
-    FindUserRecipesInput
-} from '~/recipe/usecases/FindUserRecipes';
+import type { FindUserRecipesInput } from '~/recipe/usecases/FindUserRecipes'
 import type { RecipeProps } from '~/recipe/models/Recipe'
 
-import {
-    FindUserRecipes
-} from '~/recipe/usecases/FindUserRecipes'
+import { FindUserRecipes } from '~/recipe/usecases/FindUserRecipes'
 import { Recipe } from '~/recipe/models/Recipe'
 
 describe('FindUserRecipes', () => {

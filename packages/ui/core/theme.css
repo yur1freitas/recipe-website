@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 /* https://ui.shadcn.com/docs/theming */
 :root {
@@ -19,7 +19,7 @@
     --accent-foreground: oklch(0.21 0.006 285.885);
     --destructive: oklch(0.577 0.245 27.325);
     --destructive-foreground: oklch(1 0 0);
-    --success: oklch(0.60 0.13 163);
+    --success: oklch(0.6 0.13 163);
     --success-foreground: oklch(0.98 0.02 166);
     --border: oklch(0.92 0.004 286.32);
     --input: oklch(0.92 0.004 286.32);
@@ -42,7 +42,7 @@
     --muted-foreground: oklch(0.705 0.015 286.067);
     --accent: oklch(0.274 0.006 286.033);
     --accent-foreground: oklch(0.985 0 0);
-    --success: oklch(0.70 0.15 162);
+    --success: oklch(0.7 0.15 162);
     --success-foreground: oklch(0.26 0.05 173);
     --destructive: oklch(0.704 0.191 22.216);
     --destructive-foreground: oklch(1 0 0);
@@ -158,12 +158,14 @@
         }
     }
 
-    .label, .field-label {
+    .label,
+    .field-label {
         @apply text-sm font-medium align-middle leading-none;
         @apply aria-invalid:text-destructive;
     }
 
-    .input, .field-control {
+    .input,
+    .field-control {
         @apply inline-flex w-full min-w-0 h-9 px-3 py-1;
         @apply border border-input outline-none rounded;
         @apply bg-transparent shadow-xs;
@@ -178,7 +180,7 @@
             @apply ring-3 ring-ring/50 border-ring;
         }
 
-        &[aria-invalid="true"] {
+        &[aria-invalid='true'] {
             @apply ring-3 ring-destructive/10 border-destructive;
         }
     }
@@ -206,7 +208,7 @@
             @apply ring-3 ring-ring/50 border-ring;
         }
 
-        &:has(input[aria-invalid="true"]) {
+        &:has(input[aria-invalid='true']) {
             @apply ring-3 ring-destructive/10 border-destructive;
         }
 
@@ -402,14 +404,14 @@
                 @apply content-[""] absolute w-full h-full left-0;
             }
 
-            &[data-direction="up"] &[data-side="none"] {
+            &[data-direction='up'] &[data-side='none'] {
                 @apply before:-top-full;
             }
 
-            &[data-direction="down"] {
+            &[data-direction='down'] {
                 @apply bottom-0;
 
-                &[data-side="none"] {
+                &[data-side='none'] {
                     @apply before:-bottom-full;
                 }
             }
@@ -447,19 +449,19 @@
         &-arrow {
             @apply flex;
 
-            &[data-side="top"] {
+            &[data-side='top'] {
                 @apply -bottom-2 rotate-180;
             }
 
-            &[data-side="bottom"] {
+            &[data-side='bottom'] {
                 @apply -top-2 rotate-0;
             }
 
-            &[data-side="left"] {
+            &[data-side='left'] {
                 @apply -right-4 rotate-80;
             }
 
-            &[data-side="right"] {
+            &[data-side='right'] {
                 @apply -left-4 -rotate-80;
             }
 
@@ -567,7 +569,7 @@
                 @apply ring-3 ring-ring/50 border-ring z-1;
             }
 
-            &[aria-invalid="true"] {
+            &[aria-invalid='true'] {
                 @apply ring-3 ring-destructive/10 border-destructive;
             }
         }
