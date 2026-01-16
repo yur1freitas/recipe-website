@@ -13,7 +13,9 @@
     },
     "scripts": {
         "build": "tsdown",
-        "typecheck": "tsc --noEmit"
+        "typecheck": "tsc --noEmit",
+        "storybook": "storybook dev -p 6006",
+        "build-storybook": "storybook build"
     },
     "dependencies": {
         "@cap.js/widget": "catalog:frontend"
@@ -26,7 +28,18 @@
         "babel-plugin-react-compiler": "catalog:build",
         "react": "catalog:frontend",
         "tsdown": "catalog:build",
-        "typescript": "catalog:"
+        "typescript": "catalog:",
+        "@chromatic-com/storybook": "catalog:docs",
+        "@storybook/addon-a11y": "catalog:docs",
+        "@storybook/addon-docs": "catalog:docs",
+        "@storybook/addon-vitest": "catalog:docs",
+        "@storybook/react-vite": "catalog:docs",
+        "@vitest/browser-playwright": "catalog:test",
+        "@vitest/coverage-v8": "catalog:test",
+        "playwright": "catalog:test",
+        "storybook": "catalog:docs",
+        "vite": "catalog:build",
+        "vitest": "catalog:test"
     },
     "peerDependencies": {
         "@ui/core": "workspace:",
