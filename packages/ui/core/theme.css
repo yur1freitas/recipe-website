@@ -158,14 +158,12 @@
         }
     }
 
-    .label,
-    .field-label {
+    .label {
         @apply text-sm font-medium align-middle leading-none;
         @apply aria-invalid:text-destructive;
     }
 
-    .input,
-    .field-control {
+    .input {
         @apply inline-flex w-full min-w-0 h-9 px-3 py-1;
         @apply border border-input outline-none rounded;
         @apply bg-transparent shadow-xs;
