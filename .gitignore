@@ -21,3 +21,7 @@ tsconfig.tsbuildinfo
 
 # Docker
 docker-compose.yml
+
+# Storybook
+*storybook.log
+storybook-static
