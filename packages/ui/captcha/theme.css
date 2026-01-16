@@ -1,3 +1,5 @@
+@import "@ui/core";
+
 cap-widget {
     --border-color: color-mix(in oklab, var(--border) 20%, #0000);
     --text-color: color-mix(in oklab, var(--foreground) 60%, transparent);
