@@ -1,4 +1,5 @@
 import type { ParagraphProps } from './Paragraph'
+import type { ErrorProps } from './Error'
 import type { SmallProps } from './Small'
 import type { ListProps } from './List'
 import type { LinkProps } from './Link'
@@ -7,6 +8,7 @@ import type { H2Props } from './H2'
 import type { H1Props } from './H1'
 
 import { Paragraph } from './Paragraph'
+import { Error } from './Error'
 import { Small } from './Small'
 import { List } from './List'
 import { Link } from './Link'
@@ -21,6 +23,7 @@ export const Typography = {
     List,
     Link,
     Small,
+    Error,
     Paragraph
 }
 
@@ -31,5 +34,6 @@ export namespace TypographyProps {
     export type List = ListProps
     export type Link = LinkProps
     export type Small = SmallProps
+    export type Error = ErrorProps
     export type Paragraph = ParagraphProps
 }

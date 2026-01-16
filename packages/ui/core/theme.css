@@ -187,10 +187,6 @@
         @apply flex flex-col gap-y-2;
     }
 
-    .field-error {
-        @apply text-destructive not-italic;
-    }
-
     .field-description {
         @apply text-sm text-muted leading-5;
     }
@@ -278,6 +274,10 @@
 
     .typography-small {
         @apply text-xs font-medium leading-none;
+    }
+
+    .typography-error {
+        @apply text-destructive not-italic text-sm;
     }
 
     .typography-list {
