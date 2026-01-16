@@ -5,7 +5,7 @@ import { PasswordContext } from '~/contexts/PasswordContext'
 
 export interface PasswordRootProps extends React.ComponentProps<'div'> {
     id?: string
-    hidden?: boolean
+    visible?: boolean
     className?: string
     children?: React.ReactNode[] | React.ReactNode
 }
@@ -14,12 +14,12 @@ export function PasswordRoot({
     id,
     children,
     className,
-    hidden = false
+    visible = false
 }: PasswordRootProps): React.JSX.Element {
     const classNames = cx('password', className)
 
     const [inputId, setInputId] = useState(useId())
-    const [isVisible, setIsVisible] = useState(hidden)
+    const [isVisible, setIsVisible] = useState(visible)
 
     useEffect(() => {
         if (id) setInputId(id)
