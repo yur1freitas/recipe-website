@@ -52,7 +52,6 @@
         "@storybook/addon-docs": "catalog:docs",
         "@storybook/addon-vitest": "catalog:docs",
         "@storybook/react-vite": "catalog:docs",
-        "@tailwindcss/postcss": "catalog:build",
         "@types/react": "catalog:types",
         "@vitest/browser-playwright": "catalog:test",
         "@vitest/coverage-v8": "catalog:test",
