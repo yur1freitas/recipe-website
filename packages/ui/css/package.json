@@ -1,0 +1,12 @@
+{
+    "name": "@ui/css",
+    "version": "0.0.1",
+    "description": "",
+    "license": "MIT",
+    "type": "module",
+    "exports": {
+        ".": "./theme.css",
+        "./theme.css": "./theme.css",
+        "./package.json": "./package.json"
+    }
+}
