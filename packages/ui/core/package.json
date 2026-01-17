@@ -37,6 +37,7 @@
         "build-storybook": "storybook build"
     },
     "dependencies": {
+        "@ui/css": "workspace:",
         "@base-ui/react": "catalog:frontend",
         "@core/time": "workspace:",
         "lucide-react": "catalog:frontend",

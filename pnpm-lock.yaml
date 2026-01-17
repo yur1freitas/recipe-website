@@ -813,6 +813,9 @@ importers:
       '@core/time':
         specifier: 'workspace:'
         version: link:../../core/time
+      '@ui/css':
+        specifier: 'workspace:'
+        version: link:../css
       lucide-react:
         specifier: catalog:frontend
         version: 0.562.0(react@19.2.3)
@@ -889,6 +892,8 @@ importers:
       vitest:
         specifier: catalog:test
         version: 4.0.17(@types/node@24.10.8)(@vitest/browser-playwright@4.0.17)(@vitest/ui@4.0.17)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)(yaml@2.8.2)
+
+  packages/ui/css: {}
 
   packages/ui/dnd:
     dependencies:
