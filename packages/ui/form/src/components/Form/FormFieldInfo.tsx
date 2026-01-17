@@ -3,7 +3,7 @@ import { Field } from '@ui/core/Field'
 
 import { useFieldContext } from '~/contexts/form'
 
-export function FormFieldInfo(): React.JSX.Element {
+export function FormFieldInfo(): React.JSX.Element | null {
     const field = useFieldContext<string>()
 
     const meta = useStore(field.store, (store) => ({
@@ -16,9 +16,9 @@ export function FormFieldInfo(): React.JSX.Element {
         return <Field.Description>Validando...</Field.Description>
     }
 
-    return (
-        <Field.Error match={meta.isInvalid}>
-            {meta.errors[0].message}
-        </Field.Error>
-    )
+    if (meta.isInvalid) {
+        return <Field.Error match>{meta.errors[0]?.message}</Field.Error>
+    }
+
+    return null
 }
