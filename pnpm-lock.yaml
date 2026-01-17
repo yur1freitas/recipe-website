@@ -143,9 +143,6 @@ catalogs:
     '@tanstack/react-form':
       specifier: 1.27.7
       version: 1.27.7
-    daisyui:
-      specifier: 5.5.14
-      version: 5.5.14
     lucide-react:
       specifier: 0.562.0
       version: 0.562.0
@@ -473,6 +470,18 @@ importers:
       '@tanstack/react-form':
         specifier: catalog:frontend
         version: 1.27.7(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+      '@ui/captcha':
+        specifier: 'workspace:'
+        version: link:../../packages/ui/captcha
+      '@ui/core':
+        specifier: 'workspace:'
+        version: link:../../packages/ui/core
+      '@ui/dnd':
+        specifier: 'workspace:'
+        version: link:../../packages/ui/dnd
+      '@ui/form':
+        specifier: 'workspace:'
+        version: link:../../packages/ui/form
       lucide-react:
         specifier: catalog:frontend
         version: 0.562.0(react@19.2.3)
@@ -507,9 +516,6 @@ importers:
       babel-plugin-react-compiler:
         specifier: catalog:build
         version: 1.0.0
-      daisyui:
-        specifier: catalog:frontend
-        version: 5.5.14
       next:
         specifier: catalog:frontend
         version: 16.1.2(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -3032,9 +3038,6 @@ packages:
 
   culvert@0.1.2:
     resolution: {integrity: sha512-yi1x3EAWKjQTreYWeSd98431AV+IEE0qoDyOoaHJ7KJ21gv6HtBXHVLX74opVSGqcR8/AbjJBHAHpcOy2bj5Gg==}
-
-  daisyui@5.5.14:
-    resolution: {integrity: sha512-L47rvw7I7hK68TA97VB8Ee0woHew+/ohR6Lx6Ah/krfISOqcG4My7poNpX5Mo5/ytMxiR40fEaz6njzDi7cuSg==}
 
   data-uri-to-buffer@6.0.2:
     resolution: {integrity: sha512-7hvf7/GW8e86rW0ptuwS3OcBGDjIi6SZva7hCyWC0yYry2cOPmLIjXAUHI6DK2HsnwJd9ifmt57i8eV2n4YNpw==}
@@ -7294,8 +7297,6 @@ snapshots:
   csstype@3.2.3: {}
 
   culvert@0.1.2: {}
-
-  daisyui@5.5.14: {}
 
   data-uri-to-buffer@6.0.2: {}
 
