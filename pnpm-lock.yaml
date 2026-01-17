@@ -847,9 +847,6 @@ importers:
       '@storybook/react-vite':
         specifier: catalog:docs
         version: 10.1.11(esbuild@0.27.1)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(rollup@4.55.1)(storybook@10.1.11(@testing-library/dom@10.4.1)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.8)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)(yaml@2.8.2))
-      '@tailwindcss/postcss':
-        specifier: catalog:build
-        version: 4.1.18
       '@types/react':
         specifier: catalog:types
         version: 19.2.8
