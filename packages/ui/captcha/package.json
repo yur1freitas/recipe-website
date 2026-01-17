@@ -19,6 +19,7 @@
         "build-storybook": "storybook build"
     },
     "dependencies": {
+        "@ui/css": "workspace:",
         "@cap.js/widget": "catalog:frontend"
     },
     "devDependencies": {
@@ -43,7 +44,6 @@
         "vitest": "catalog:test"
     },
     "peerDependencies": {
-        "@ui/core": "workspace:",
         "react": "catalog:frontend"
     }
 }

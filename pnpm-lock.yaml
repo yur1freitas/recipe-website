@@ -743,9 +743,9 @@ importers:
       '@cap.js/widget':
         specifier: catalog:frontend
         version: 0.1.33
-      '@ui/core':
+      '@ui/css':
         specifier: 'workspace:'
-        version: link:../core
+        version: link:../css
     devDependencies:
       '@chromatic-com/storybook':
         specifier: catalog:docs
