@@ -1,9 +1,11 @@
-import React from 'react'
+'use client'
+
+import { Section } from '@ui/core/Section'
 
 export default function Layout({ children }: DefaultProps): React.JSX.Element {
     return (
-        <section className='w-full min-h-screen relative flex items-center justify-center'>
+        <Section className='flex items-center justify-center'>
             {children}
-        </section>
+        </Section>
     )
 }
