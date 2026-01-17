@@ -1,7 +1,7 @@
 export default function Page() {
     return (
         <div>
-            <div className='navbar bg-base-100 shadow-sm'>
+            <div className='navbar bg-base-100 shadow-sm btn'>
                 <div className='navbar-start'>
                     <div className='dropdown'>
                         <div
