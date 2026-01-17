@@ -32,7 +32,6 @@
         "@types/react": "catalog:types",
         "@types/react-dom": "catalog:types",
         "babel-plugin-react-compiler": "catalog:build",
-        "daisyui": "catalog:frontend",
         "next": "catalog:frontend",
         "openapi-typescript": "catalog:frontend",
         "tailwindcss": "catalog:frontend",
