@@ -11,16 +11,19 @@ import {
 } from 'react'
 import z from 'zod'
 
-import { $emailSchema } from '@core/shared'
+import { emailSchema } from '@core/shared'
+
+import { Typography } from '@ui/core/Typography'
+import { Loading } from '@ui/core/Loading'
+import { Box } from '@ui/core/Box'
 
 import { loginUserAction } from '~/actions/loginUserAction'
-import { Loading } from '~/components/Loading'
 import { Action } from '~/components/Action'
 import { useAppForm } from '~/hooks/form'
 import { CAPTCHA_ENDPOINT } from '~/env'
 
 const schema = z.object({
-    email: $emailSchema,
+    email: emailSchema,
     password: z.string(),
     captcha: z.string().nonempty('É necessário resolver o captcha')
 })
@@ -28,11 +31,10 @@ const schema = z.object({
 export default function Page(): React.JSX.Element {
     const widgetRef = useRef<CapWidget | null>(null)
 
+    const [isPending, startTransition] = useTransition()
     const [actionState, formAction] = useActionState(loginUserAction, {
         status: 'none'
     })
-
-    const [isPending, startTransition] = useTransition()
 
     const form = useAppForm({
         defaultValues: {
@@ -60,13 +62,13 @@ export default function Page(): React.JSX.Element {
     }, [widgetRef, actionState])
 
     return (
-        <div className='card w-full md:w-lg bg-base-100 dark:bg-base-300 border border-base-200 shadow-sm'>
-            <div className='card-body gap-y-4'>
-                <div className='flex flex-col gap-y-2 py-4'>
-                    <h2 className='text-3xl font-semibold'>Acessar Conta</h2>
-                    <small className='text-sm text-base-content/50'>
+        <Box size='xs'>
+            <div className='flex flex-col gap-y-4'>
+                <div className='py-4'>
+                    <Typography.H2>Acessar Conta</Typography.H2>
+                    <Typography.Paragraph className='text-muted-foreground'>
                         Acesse sua conta para poder enviar suas receitas!
-                    </small>
+                    </Typography.Paragraph>
                 </div>
                 <Suspense fallback={<Loading label='Carregando...' />}>
                     <form
@@ -76,10 +78,9 @@ export default function Page(): React.JSX.Element {
                             form.handleSubmit()
                         }}
                     >
-                        <div className='flex flex-col gap-y-2'>
-                            <form.AppField
-                                name='email'
-                                children={(field) => (
+                        <div className='flex flex-col gap-y-4'>
+                            <form.AppField name='email'>
+                                {(field) => (
                                     <field.Root>
                                         <field.Label>E-mail</field.Label>
                                         <field.Input
@@ -90,21 +91,19 @@ export default function Page(): React.JSX.Element {
                                         <field.Info />
                                     </field.Root>
                                 )}
-                            />
-                            <form.AppField
-                                name='password'
-                                children={(field) => (
+                            </form.AppField>
+                            <form.AppField name='password'>
+                                {(field) => (
                                     <field.Root>
                                         <field.Label>Senha</field.Label>
                                         <field.Password />
                                         <field.Info />
                                     </field.Root>
                                 )}
-                            />
+                            </form.AppField>
                         </div>
-                        <form.AppField
-                            name='captcha'
-                            children={(field) => (
+                        <form.AppField name='captcha'>
+                            {(field) => (
                                 <field.Root>
                                     <field.Captcha
                                         ref={widgetRef}
@@ -121,22 +120,22 @@ export default function Page(): React.JSX.Element {
                                     <field.Info />
                                 </field.Root>
                             )}
-                        />
+                        </form.AppField>
                         <form.AppForm>
-                            <form.Submit isPending={isPending}>
+                            <form.Submit size='lg' isPending={isPending}>
                                 Continuar
                             </form.Submit>
                         </form.AppForm>
                         <Action state={actionState} isPending={isPending} />
                     </form>
                 </Suspense>
-                <small className='text-sm text-base-content/75 flex gap-1'>
+                <Typography.Small className='inline-flex gap-1'>
                     Não possui uma conta?
-                    <a href='/register' className='link'>
+                    <Typography.Link href='/register'>
                         Clique aqui
-                    </a>
-                </small>
+                    </Typography.Link>
+                </Typography.Small>
             </div>
-        </div>
+        </Box>
     )
 }

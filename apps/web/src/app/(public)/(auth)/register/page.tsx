@@ -12,32 +12,34 @@ import {
 import { useRouter } from 'next/navigation'
 import z from 'zod'
 
-import { $emailSchema, $passwordSchema, $usernameSchema } from '@core/shared'
+import { emailSchema, passwordSchema, usernameSchema } from '@core/shared'
+
+import { Box } from '@ui/core/Box'
+import { Loading } from '@ui/core/Loading'
+import { Typography } from '@ui/core/Typography'
 
 import { registerUserAction } from '~/actions/registerUserAction'
-import { Loading } from '~/components/Loading'
 import { Action } from '~/components/Action'
 import { useAppForm } from '~/hooks/form'
 import { CAPTCHA_ENDPOINT } from '~/env'
 
 const schema = z.object({
-    name: $usernameSchema,
-    email: $emailSchema,
-    password: $passwordSchema,
+    name: usernameSchema,
+    email: emailSchema,
+    password: passwordSchema,
     confirmPassword: z.string(),
     captcha: z.string().nonempty('É necessário resolver o captcha')
 })
 
 export default function Page(): React.JSX.Element {
-    const { replace } = useRouter()
-
     const widgetRef = useRef<CapWidget | null>(null)
 
+    const [isPending, startTransition] = useTransition()
     const [actionState, formAction] = useActionState(registerUserAction, {
         status: 'none'
     })
 
-    const [isPending, startTransition] = useTransition()
+    const { replace } = useRouter()
 
     const form = useAppForm({
         defaultValues: {
@@ -71,17 +73,17 @@ export default function Page(): React.JSX.Element {
         if (widget && actionState.status === 'failed') {
             widget.reset()
         }
-    }, [widgetRef, actionState])
+    }, [replace, widgetRef, actionState])
 
     return (
-        <div className='card w-full md:w-lg bg-base-100 dark:bg-base-300 border border-base-200 shadow-sm'>
-            <div className='card-body gap-y-4'>
-                <div className='flex flex-col gap-y-2 py-4'>
-                    <h2 className='text-3xl font-semibold'>Criar Conta</h2>
-                    <small className='text-sm text-base-content/50'>
+        <Box size='xs'>
+            <div className='flex flex-col gap-y-4'>
+                <div className='py-4'>
+                    <Typography.H2>Criar Conta</Typography.H2>
+                    <Typography.Paragraph className='font-medium text-muted-foreground'>
                         Cadastra-se e estará pronto para poder enviar suas
                         receitas!
-                    </small>
+                    </Typography.Paragraph>
                 </div>
                 <Suspense fallback={<Loading label='Carregando...' />}>
                     <form
@@ -91,10 +93,9 @@ export default function Page(): React.JSX.Element {
                             form.handleSubmit()
                         }}
                     >
-                        <div className='flex flex-col gap-y-2'>
-                            <form.AppField
-                                name='name'
-                                children={(field) => (
+                        <div className='flex flex-col gap-y-4'>
+                            <form.AppField name='name'>
+                                {(field) => (
                                     <field.Root>
                                         <field.Label>Nome</field.Label>
                                         <field.Input
@@ -105,10 +106,9 @@ export default function Page(): React.JSX.Element {
                                         <field.Info />
                                     </field.Root>
                                 )}
-                            />
-                            <form.AppField
-                                name='email'
-                                children={(field) => (
+                            </form.AppField>
+                            <form.AppField name='email'>
+                                {(field) => (
                                     <field.Root>
                                         <field.Label>E-mail</field.Label>
                                         <field.Input
@@ -119,17 +119,16 @@ export default function Page(): React.JSX.Element {
                                         <field.Info />
                                     </field.Root>
                                 )}
-                            />
-                            <form.AppField
-                                name='password'
-                                children={(field) => (
+                            </form.AppField>
+                            <form.AppField name='password'>
+                                {(field) => (
                                     <field.Root>
                                         <field.Label>Senha</field.Label>
                                         <field.Password />
                                         <field.Info />
                                     </field.Root>
                                 )}
-                            />
+                            </form.AppField>
                             <form.AppField
                                 name='confirmPassword'
                                 validators={{
@@ -160,9 +159,8 @@ export default function Page(): React.JSX.Element {
                                 )}
                             </form.AppField>
                         </div>
-                        <form.AppField
-                            name='captcha'
-                            children={(field) => (
+                        <form.AppField name='captcha'>
+                            {(field) => (
                                 <field.Root>
                                     <field.Captcha
                                         ref={widgetRef}
@@ -179,22 +177,20 @@ export default function Page(): React.JSX.Element {
                                     <field.Info />
                                 </field.Root>
                             )}
-                        />
+                        </form.AppField>
                         <form.AppForm>
-                            <form.Submit isPending={isPending}>
+                            <form.Submit size='lg' isPending={isPending}>
                                 Continuar
                             </form.Submit>
                         </form.AppForm>
                         <Action state={actionState} isPending={isPending} />
                     </form>
                 </Suspense>
-                <small className='text-sm text-base-content/75 flex gap-1'>
+                <Typography.Small className='inline-flex items-center gap-1'>
                     Já possui uma conta?
-                    <a href='/login' className='link'>
-                        Clique aqui
-                    </a>
-                </small>
+                    <Typography.Link href='/login'>Clique aqui</Typography.Link>
+                </Typography.Small>
             </div>
-        </div>
+        </Box>
     )
 }
