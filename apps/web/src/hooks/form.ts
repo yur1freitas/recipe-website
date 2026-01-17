@@ -1,46 +1,19 @@
 import { createFormHook } from '@tanstack/react-form'
 
-import { fieldContext, formContext } from '~/contexts/form'
-import { FormSubmit } from '~/components/Form/FormSubmit'
-import { namedLazy } from '~/utils/namedLazy'
-
-const FieldRoot = namedLazy(
-    () => import('~/components/Field/FieldRoot'),
-    'FieldRoot'
-)
-const FieldLabel = namedLazy(
-    () => import('~/components/Field/FieldLabel'),
-    'FieldLabel'
-)
-const FieldInput = namedLazy(
-    () => import('~/components/Field/FieldInput'),
-    'FieldInput'
-)
-const FieldInfo = namedLazy(
-    () => import('~/components/Field/FieldInfo'),
-    'FieldInfo'
-)
-const FieldCaptcha = namedLazy(
-    () => import('~/components/Field/FieldCaptcha'),
-    'FieldCaptcha'
-)
-const FieldPassword = namedLazy(
-    () => import('~/components/Field/FieldPassword'),
-    'FieldPassword'
-)
+import { formContext, fieldContext, Form } from '@ui/form'
 
 export const { withForm, withFieldGroup, useAppForm } = createFormHook({
     formContext,
     fieldContext,
     formComponents: {
-        Submit: FormSubmit
+        Submit: Form.Submit
     },
     fieldComponents: {
-        Root: FieldRoot,
-        Label: FieldLabel,
-        Input: FieldInput,
-        Info: FieldInfo,
-        Captcha: FieldCaptcha,
-        Password: FieldPassword
+        Root: Form.Field,
+        Label: Form.Label,
+        Input: Form.Input,
+        Info: Form.FieldInfo,
+        Captcha: Form.Captcha,
+        Password: Form.Password
     }
 })
