@@ -1,13 +1,9 @@
-import { useState } from 'react'
-
-import type { TimeInput } from '@core/time'
-
-import { Time } from '@core/time'
-
 import { TimeFieldContext } from '../../contexts/TimeFieldContext'
 import { FieldsetRoot } from '../Fieldset/FieldsetRoot'
+import type { UseTimeInput } from '~/hooks/useTime'
+import { useTime } from '~/hooks/useTime'
 
-export interface TimeFieldRootProps extends TimeInput {
+export interface TimeFieldRootProps extends UseTimeInput {
     children?: React.ReactNode
 }
 
@@ -15,10 +11,10 @@ export function TimeFieldRoot({
     children,
     ...props
 }: TimeFieldRootProps): React.JSX.Element {
-    const [time, setTime] = useState(new Time(props))
+    const { time, setTime, updateTime } = useTime(props)
 
     return (
-        <TimeFieldContext value={{ time, setTime }}>
+        <TimeFieldContext value={{ time, setTime, updateTime }}>
             <FieldsetRoot>{children}</FieldsetRoot>
         </TimeFieldContext>
     )
