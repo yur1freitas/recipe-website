@@ -102,31 +102,37 @@ export class Time {
     setMilliseconds(amount: number) {
         const value = clamp(0, MAX_AMOUNT_IN_MS - 1, amount)
         this.$store.set('ms', value)
+        return this
     }
 
     setSeconds(amount: number) {
         const value = clamp(0, MAX_AMOUNT_IN_SECONDS - 1, amount)
         this.$store.set('second', value)
+        return this
     }
 
     setMinutes(amount: number) {
         const value = clamp(0, MAX_AMOUNT_IN_MINUTES - 1, amount)
         this.$store.set('minute', value)
+        return this
     }
 
     setHours(amount: number) {
         const value = clamp(0, MAX_AMOUNT_IN_HOURS - 1, amount)
         this.$store.set('hour', value)
+        return this
     }
 
     setDays(amount: number) {
         const value = clamp(0, MAX_AMOUNT_IN_DAYS - 1, amount)
         this.$store.set('day', value)
+        return this
     }
 
     setWeeks(amount: number) {
         const value = clamp(0, MAX_AMOUNT_IN_WEEKS - 1, amount)
         this.$store.set('week', value)
+        return this
     }
 
     addMilliseconds(amount: number): this {
