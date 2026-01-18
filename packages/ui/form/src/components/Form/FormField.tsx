@@ -9,7 +9,7 @@ export type FormFieldProps = FieldProps.Root
 export function FormField(props: FormFieldProps): React.JSX.Element {
     const { name, state } = useFieldContext<string>()
 
-    const isInvalid = state.meta.isTouched && state.meta.isValid
+    const isInvalid = state.meta.isTouched && !state.meta.isValid
 
     return (
         <Field.Root
