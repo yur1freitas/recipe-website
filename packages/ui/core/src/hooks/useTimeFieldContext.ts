@@ -48,7 +48,7 @@ export function useTimeFieldContext(type: TimeUnit): UseTimeFieldContextReturn {
         )
     }
 
-    const { time, setTime } = ctx
+    const { time, updateTime } = ctx
 
     const min = 0
     const max = MAX_AMOUNT_MAPPING[type]
@@ -56,37 +56,27 @@ export function useTimeFieldContext(type: TimeUnit): UseTimeFieldContextReturn {
     const value = time.props[type]
 
     const setValue = (value: number) => {
-        setTime((time) => {
-            const clonedTime = time.clone()
-
+        updateTime((time) => {
             switch (type) {
                 case 'ms': {
-                    clonedTime.setMilliseconds(value)
-                    break
+                    return time.setMilliseconds(value)
                 }
                 case 'second': {
-                    clonedTime.setSeconds(value)
-                    break
+                    return time.setSeconds(value)
                 }
                 case 'minute': {
-                    clonedTime.setMinutes(value)
-                    break
+                    return time.setMinutes(value)
                 }
                 case 'hour': {
-                    clonedTime.setHours(value)
-                    break
+                    return time.setHours(value)
                 }
                 case 'day': {
-                    clonedTime.setDays(value)
-                    break
+                    return time.setDays(value)
                 }
                 case 'week': {
-                    clonedTime.setWeeks(value)
-                    break
+                    return time.setWeeks(value)
                 }
             }
-
-            return clonedTime
         })
     }
 
