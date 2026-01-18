@@ -6,7 +6,8 @@ export default defineConfig(
     mergeConfig(config, {
         platform: 'neutral',
         entry: {
-            '*': ['./src/components/*.tsx', './src/components/**/index.ts']
+            '*': ['./src/components/*.tsx', './src/components/**/index.ts'],
+            'hooks/*': './src/hooks/*.ts'
         },
         exports: {
             customExports(pkg) {
