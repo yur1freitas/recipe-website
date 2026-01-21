@@ -552,4 +552,61 @@
             @apply flex flex-wrap items-center gap-2 py-2;
         }
     }
+
+    .scroll-area {
+        &-viewport {
+            @apply h-full rounded;
+            @apply outline -outline-offset-1 outline-input;
+
+            &:focus-visible {
+                @apply ring-3 ring-ring/50 border-ring;
+            }
+
+            &::before, &::after {
+                @apply content-[""] block left-0 w-full absolute;
+                @apply rounded transition-all duration-100;
+                @apply pointer-events-none;
+            }
+
+            &::before {
+                --scroll-area-overflow-y-start: inherit;
+                top: 0;
+                height: min(40px, var(--scroll-area-overflow-y-start));
+                background: linear-gradient(
+                    to bottom,
+                    color-mix(in oklab, var(--muted) 80%, transparent),
+                    transparent
+                );
+            }
+
+            &::after {
+                --scroll-area-overflow-y-end: inherit;
+                bottom: 0;
+                height: min(40px, var(--scroll-area-overflow-y-end, 40px));
+                background: linear-gradient(
+                    to top,
+                    color-mix(in oklab, var(--muted) 80%, transparent),
+                    transparent
+                );
+            }
+        }
+
+        &-scrollbar {
+            @apply w-1 flex justify-center;
+            @apply m-2 rounded bg-muted;
+            @apply opacity-0 transition-opacity pointer-events-none;
+
+            &[data-hovering] {
+                @apply opacity-100 delay-0 pointer-events-none;
+            }
+
+            &[data-scrolling] {
+                @apply opacity-100 duration-0 pointer-events-none;
+            }
+        }
+
+        &-thumb {
+            @apply w-full rounded bg-muted-foreground;
+        }
+    }
 }
