@@ -40,6 +40,14 @@ describe('Time', () => {
         expect(time.props).toEqual(input)
     })
 
+    it('deve instanciar uma classe Time a partir de outro Time', () => {
+        const input = randTime()
+        const time = new Time(input)
+        const otherTime = new Time(time)
+
+        expect(time.props).toStrictEqual(otherTime.props)
+    })
+
     it('deve instanciar uma classe Time a partir de um valor em milissegundos', () => {
         const input = randMilliseconds()
         const time = Time.fromMilliseconds(input)
