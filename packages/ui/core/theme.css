@@ -609,4 +609,41 @@
             @apply w-full rounded bg-muted-foreground;
         }
     }
+
+    .collapsible {
+        &-trigger {
+            @apply flex items-center gap-x-1 px-2 py-1;
+            @apply text-foreground text-sm;
+            @apply bg-background shadow-xs;
+            @apply border border-input outline-none rounded;
+
+            &:focus-visible {
+                @apply ring-3 ring-ring/50 border-ring;
+            }
+
+            &-icon > svg {
+                @apply size-4 shrink-0 pointer-events-none;
+            }
+
+            &[data-panel-open] &-icon > svg {
+                @apply rotate-90;
+            }
+        }
+
+        &-panel {
+            @apply flex flex-col justify-end;
+            @apply h-(--collapsible-panel-height) overflow-hidden;
+            @apply transition-all duration-150;
+            @apply text-base;
+
+            &[hidden]:not([hidden="until-found"]) {
+                @apply hidden;
+            }
+
+            &[data-starting-style],
+            &[data-ending-style] {
+                @apply h-0;
+            }
+        }
+    }
 }
