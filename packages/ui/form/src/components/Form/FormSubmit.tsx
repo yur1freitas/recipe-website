@@ -5,6 +5,7 @@ import { Loading } from '@ui/core/Loading'
 import { Button } from '@ui/core/Button'
 
 import { useFormContext } from '~/contexts/form'
+import { isInvalidForm } from '~/utils/isInvalidForm'
 
 export type FormSubmitProps = ButtonProps & {
     isPending?: boolean
@@ -14,7 +15,7 @@ export function FormSubmit({ children, isPending, ...props }: FormSubmitProps) {
     const form = useFormContext()
 
     const selector = (state: AnyFormState) => ({
-        isInvalid: state.isPristine || !state.isValid,
+        isInvalid: isInvalidForm(state),
         isSubmitting: isPending ?? state.isSubmitting
     })
 
