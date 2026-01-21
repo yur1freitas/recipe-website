@@ -3,13 +3,14 @@ import type { FieldProps } from '@ui/core/Field'
 import { Field } from '@ui/core/Field'
 
 import { useFieldContext } from '~/contexts/form'
+import { isInvalidField } from '~/utils/isInvalidField'
 
 export type FormInputProps = FieldProps.Control
 
 export function FormInput(props: FormInputProps): React.JSX.Element {
     const { name, state, handleBlur, handleChange } = useFieldContext<string>()
 
-    const isInvalid = state.meta.isTouched && !state.meta.isValid
+    const isInvalid = isInvalidField(state.meta)
     const errorMessage = isInvalid ? state.meta.errors?.[0]?.message : ''
 
     return (
