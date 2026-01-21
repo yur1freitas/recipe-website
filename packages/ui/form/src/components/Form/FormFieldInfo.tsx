@@ -2,7 +2,9 @@ import { useStore } from '@tanstack/react-form'
 import { Field } from '@ui/core/Field'
 
 import { useFieldContext } from '~/contexts/form'
+
 import { isInvalidField } from '~/utils/isInvalidField'
+import { pickErrorMessage } from '~/utils/pickErrorMessage'
 
 export function FormFieldInfo(): React.JSX.Element | null {
     const field = useFieldContext<string>()
@@ -10,7 +12,7 @@ export function FormFieldInfo(): React.JSX.Element | null {
     const meta = useStore(field.store, (store) => ({
         isValidating: store.meta.isValidating,
         isInvalid: isInvalidField(store.meta),
-        errors: store.meta.errors
+        error: pickErrorMessage(store.meta)
     }))
 
     if (meta.isValidating) {
@@ -18,7 +20,7 @@ export function FormFieldInfo(): React.JSX.Element | null {
     }
 
     if (meta.isInvalid) {
-        return <Field.Error match>{meta.errors[0]?.message}</Field.Error>
+        return <Field.Error match>{meta.error}</Field.Error>
     }
 
     return null
