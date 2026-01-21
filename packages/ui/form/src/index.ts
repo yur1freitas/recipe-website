@@ -6,3 +6,7 @@ export {
     useFormContext
 } from './contexts/form'
 export { Form } from './components/Form'
+
+export { isInvalidField } from './utils/isInvalidField'
+export { isInvalidForm } from './utils/isInvalidForm'
+export { pickErrorMessage } from './utils/pickErrorMessage'
