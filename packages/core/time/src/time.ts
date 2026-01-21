@@ -19,31 +19,33 @@ import { clamp } from './utils'
 export class Time {
     private $store: Map<TimeUnit, number>
 
-    constructor(input?: TimeInput) {
+    constructor(input?: TimeInput | Time) {
         this.$store = new Map(DEFAULT_TIME)
 
-        if (input?.ms) {
-            this.addMilliseconds(input.ms)
+        const props = input instanceof Time ? input.props : input
+
+        if (props?.ms) {
+            this.addMilliseconds(props.ms)
         }
 
-        if (input?.second) {
-            this.addSeconds(input.second)
+        if (props?.second) {
+            this.addSeconds(props.second)
         }
 
-        if (input?.minute) {
-            this.addMinutes(input.minute)
+        if (props?.minute) {
+            this.addMinutes(props.minute)
         }
 
-        if (input?.hour) {
-            this.addHours(input.hour)
+        if (props?.hour) {
+            this.addHours(props.hour)
         }
 
-        if (input?.day) {
-            this.addDays(input.day)
+        if (props?.day) {
+            this.addDays(props.day)
         }
 
-        if (input?.week) {
-            this.addWeeks(input.week)
+        if (props?.week) {
+            this.addWeeks(props.week)
         }
     }
 
