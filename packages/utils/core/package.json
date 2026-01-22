@@ -6,7 +6,11 @@
     "type": "module",
     "exports": {
         "./clamp": "./dist/clamp.js",
+        "./hasProperty": "./dist/hasProperty.js",
+        "./isPlainObject": "./dist/isPlainObject.js",
+        "./isPromise": "./dist/isPromise.js",
         "./pickProps": "./dist/pickProps.js",
+        "./types": "./dist/types.js",
         "./package.json": "./package.json"
     },
     "scripts": {
