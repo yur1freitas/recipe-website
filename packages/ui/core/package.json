@@ -14,7 +14,7 @@
         "./hooks/useBoolean": "./dist/hooks/useBoolean.js",
         "./hooks/usePasswordContext": "./dist/hooks/usePasswordContext.js",
         "./hooks/useTime": "./dist/hooks/useTime.js",
-        "./hooks/useTimeFieldContext": "./dist/hooks/useTimeFieldContext.js",
+        "./hooks/useTimeFieldsetContext": "./dist/hooks/useTimeFieldsetContext.js",
         "./Icon": "./dist/Icon.js",
         "./Input": "./dist/Input.js",
         "./Label": "./dist/Label.js",
