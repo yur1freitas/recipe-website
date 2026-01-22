@@ -1,6 +1,6 @@
 import { createContext } from 'react'
 
-import type { Time } from '@core/time'
+import type { Time } from '@utils/time'
 
 import type { SetTimeFn, UpdateTimeFn } from '~/hooks/useTime'
 
