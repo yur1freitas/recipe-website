@@ -22,6 +22,7 @@
         "./Menu": "./dist/Menu/index.js",
         "./NumberField": "./dist/NumberField/index.js",
         "./Password": "./dist/Password/index.js",
+        "./Progress": "./dist/Progress/index.js",
         "./ScrollArea": "./dist/ScrollArea/index.js",
         "./Section": "./dist/Section.js",
         "./Select": "./dist/Select/index.js",

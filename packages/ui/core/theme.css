@@ -646,4 +646,28 @@
             }
         }
     }
+
+     .progress {
+        @apply grid grid-cols-2 gap-y-2;
+
+        &-label {
+            @apply text-sm font-medium;
+        }
+
+        &-value {
+            @apply text-right col-start-2;
+        }
+
+        &-track {
+            @apply col-span-full;
+            @apply h-1.5 overflow-hidden;
+            @apply bg-muted shadow-xs rounded;
+            @apply border border-input;
+        }
+
+        &-indicator {
+            @apply bg-muted-foreground;
+            @apply transition-all duration-500;
+        }
+    }
 }
