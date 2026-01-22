@@ -12,15 +12,16 @@ export interface UseTimeOutput {
     updateTime: UpdateTimeFn
 }
 
-export interface UseTimeInput extends TimeInput {
+export interface UseTimeInput {
+    value?: TimeInput | Time
     onChangeTime?: ChangeValueHandler
 }
 
 export function useTime({
-    onChangeTime,
-    ...props
+    value,
+    onChangeTime
 }: UseTimeInput = {}): UseTimeOutput {
-    const [time, setTimeState] = useState(() => new Time(props))
+    const [time, setTimeState] = useState(() => new Time(value))
 
     const setTime: SetTimeFn = (time) => {
         onChangeTime?.(time)
