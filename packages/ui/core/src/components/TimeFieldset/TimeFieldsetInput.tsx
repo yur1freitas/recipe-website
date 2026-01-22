@@ -7,24 +7,24 @@ import { MinusIcon, PlusIcon } from 'lucide-react'
 
 import type { TimeUnit } from '@utils/time'
 
-import { useTimeFieldContext } from '~/hooks/useTimeFieldContext'
+import { useTimeFieldsetContext } from '~/hooks/useTimeFieldsetContext'
 
 import { NumberField } from '../NumberField'
 
-export type TimeFieldInputType = TimeUnit
+export type TimeFieldsetInputType = TimeUnit
 
-export interface TimeFieldInputProps extends NumberFieldRootProps {
-    type: TimeFieldInputType
+export interface TimeFieldsetInputProps extends NumberFieldRootProps {
+    type: TimeFieldsetInputType
 }
 
-export function TimeFieldInput({
+export function TimeFieldsetInput({
     type,
     onValueChange,
     allowWheelScrub = true,
     format = { minimumIntegerDigits: 2 },
     ...props
-}: TimeFieldInputProps): React.JSX.Element {
-    const { label, min, max, value, setValue } = useTimeFieldContext(type)
+}: TimeFieldsetInputProps): React.JSX.Element {
+    const { label, min, max, value, setValue } = useTimeFieldsetContext(type)
 
     const changeValueHandler = (
         value: number | null,
@@ -46,7 +46,7 @@ export function TimeFieldInput({
             allowWheelScrub={allowWheelScrub}
         >
             <NumberField.ScrubArea>
-                <NumberField.Label className='time-field-label'>
+                <NumberField.Label className='time-fieldset-label'>
                     {label}:
                 </NumberField.Label>
                 <NumberField.ScrubAreaCursor />
@@ -55,7 +55,7 @@ export function TimeFieldInput({
                 <NumberField.Decrement>
                     <MinusIcon />
                 </NumberField.Decrement>
-                <NumberField.Input className='time-field-input' />
+                <NumberField.Input className='time-fieldset-input' />
                 <NumberField.Increment>
                     <PlusIcon />
                 </NumberField.Increment>

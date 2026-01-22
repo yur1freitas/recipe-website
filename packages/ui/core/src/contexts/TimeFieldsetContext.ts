@@ -4,12 +4,11 @@ import type { Time } from '@utils/time'
 
 import type { SetTimeFn, UpdateTimeFn } from '~/hooks/useTime'
 
-export interface TimeFieldContextValue {
+export interface TimeFieldsetContextValue {
     time: Time
     setTime: SetTimeFn
     updateTime: UpdateTimeFn
 }
 
-export const TimeFieldContext = createContext<TimeFieldContextValue | null>(
-    null
-)
+export const TimeFieldsetContext =
+    createContext<TimeFieldsetContextValue | null>(null)

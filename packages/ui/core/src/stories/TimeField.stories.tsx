@@ -1,22 +1,22 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { TimeField } from '../components/TimeField'
+import { TimeFieldset } from '../components/TimeFieldset'
 
 const meta = {
     tags: ['autodocs'],
     title: 'Example/TimeField',
-    component: TimeField.Root,
+    component: TimeFieldset.Root,
     subcomponents: {
-        Label: TimeField.Label,
-        Group: TimeField.Group,
-        Input: TimeField.Label
+        Label: TimeFieldset.Label,
+        Group: TimeFieldset.Group,
+        Input: TimeFieldset.Label
     },
     parameters: {
         layout: 'centered'
     },
     argTypes: {},
     args: {}
-} satisfies Meta<typeof TimeField.Root>
+} satisfies Meta<typeof TimeFieldset.Root>
 
 export default meta
 
@@ -24,66 +24,66 @@ type Story = StoryObj<typeof meta>
 
 export const Millisecond: Story = {
     render: (props) => (
-        <TimeField.Root {...props}>
-            <TimeField.Label>TimeField</TimeField.Label>
-            <TimeField.Group>
-                <TimeField.Input type='ms' />
-            </TimeField.Group>
-        </TimeField.Root>
+        <TimeFieldset.Root {...props}>
+            <TimeFieldset.Label>TimeField</TimeFieldset.Label>
+            <TimeFieldset.Group>
+                <TimeFieldset.Input type='ms' />
+            </TimeFieldset.Group>
+        </TimeFieldset.Root>
     )
 }
 
 export const Second: Story = {
     render: (props) => (
-        <TimeField.Root {...props}>
-            <TimeField.Label>TimeField</TimeField.Label>
-            <TimeField.Group>
-                <TimeField.Input type='second' />
-            </TimeField.Group>
-        </TimeField.Root>
+        <TimeFieldset.Root {...props}>
+            <TimeFieldset.Label>TimeField</TimeFieldset.Label>
+            <TimeFieldset.Group>
+                <TimeFieldset.Input type='second' />
+            </TimeFieldset.Group>
+        </TimeFieldset.Root>
     )
 }
 
 export const Minute: Story = {
     render: (props) => (
-        <TimeField.Root {...props}>
-            <TimeField.Label>TimeField</TimeField.Label>
-            <TimeField.Group>
-                <TimeField.Input type='minute' />
-            </TimeField.Group>
-        </TimeField.Root>
+        <TimeFieldset.Root {...props}>
+            <TimeFieldset.Label>TimeField</TimeFieldset.Label>
+            <TimeFieldset.Group>
+                <TimeFieldset.Input type='minute' />
+            </TimeFieldset.Group>
+        </TimeFieldset.Root>
     )
 }
 
 export const Hour: Story = {
     render: (props) => (
-        <TimeField.Root {...props}>
-            <TimeField.Label>TimeField</TimeField.Label>
-            <TimeField.Group>
-                <TimeField.Input type='hour' />
-            </TimeField.Group>
-        </TimeField.Root>
+        <TimeFieldset.Root {...props}>
+            <TimeFieldset.Label>TimeField</TimeFieldset.Label>
+            <TimeFieldset.Group>
+                <TimeFieldset.Input type='hour' />
+            </TimeFieldset.Group>
+        </TimeFieldset.Root>
     )
 }
 
 export const Day: Story = {
     render: (props) => (
-        <TimeField.Root {...props}>
-            <TimeField.Label>TimeField</TimeField.Label>
-            <TimeField.Group>
-                <TimeField.Input type='day' />
-            </TimeField.Group>
-        </TimeField.Root>
+        <TimeFieldset.Root {...props}>
+            <TimeFieldset.Label>TimeField</TimeFieldset.Label>
+            <TimeFieldset.Group>
+                <TimeFieldset.Input type='day' />
+            </TimeFieldset.Group>
+        </TimeFieldset.Root>
     )
 }
 
 export const Week: Story = {
     render: (props) => (
-        <TimeField.Root {...props}>
-            <TimeField.Label>TimeField</TimeField.Label>
-            <TimeField.Group>
-                <TimeField.Input type='week' />
-            </TimeField.Group>
-        </TimeField.Root>
+        <TimeFieldset.Root {...props}>
+            <TimeFieldset.Label>TimeField</TimeFieldset.Label>
+            <TimeFieldset.Group>
+                <TimeFieldset.Input type='week' />
+            </TimeFieldset.Group>
+        </TimeFieldset.Root>
     )
 }

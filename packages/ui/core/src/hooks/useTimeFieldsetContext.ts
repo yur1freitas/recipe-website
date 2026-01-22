@@ -11,7 +11,7 @@ import {
     MAX_AMOUNT_IN_WEEKS
 } from '@utils/time'
 
-import { TimeFieldContext } from '../contexts/TimeFieldContext'
+import { TimeFieldsetContext } from '../contexts/TimeFieldsetContext'
 
 const MAX_AMOUNT_MAPPING: Record<TimeUnit, number> = {
     ms: MAX_AMOUNT_IN_MS,
@@ -31,7 +31,7 @@ const LABEL_MAPPING: Record<TimeUnit, string> = {
     week: 'Semanas'
 } as const
 
-export interface UseTimeFieldContextReturn {
+export interface UseTimeFieldsetContextReturn {
     label: string
     min: number
     max: number
@@ -39,12 +39,14 @@ export interface UseTimeFieldContextReturn {
     setValue: (value: number) => void
 }
 
-export function useTimeFieldContext(type: TimeUnit): UseTimeFieldContextReturn {
-    const ctx = use(TimeFieldContext)
+export function useTimeFieldsetContext(
+    type: TimeUnit
+): UseTimeFieldsetContextReturn {
+    const ctx = use(TimeFieldsetContext)
 
     if (!ctx) {
         throw new Error(
-            'O hook useTimeFieldContext deve ser usado dentro de <TimeFieldRoot>'
+            'O hook useTimeFieldsetContext deve ser usado dentro de <TimeFieldsetRoot>'
         )
     }
 
