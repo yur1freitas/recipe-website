@@ -1,6 +1,4 @@
-export type AnyObject = Record<PropertyKey, any>
-
-export type WithKey<T, K extends PropertyKey> = T & { [P in K]: unknown }
+import type { AnyObject, WithKey } from './types'
 
 export function hasProperty<
     TObject extends AnyObject,
