@@ -1,4 +1,4 @@
-export type AnyObject = Record<PropertyKey, any>
+import type { AnyObject } from './types'
 
 export function pickProps<
     TObject extends AnyObject,
