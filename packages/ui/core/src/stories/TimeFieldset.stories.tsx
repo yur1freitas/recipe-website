@@ -4,7 +4,7 @@ import { TimeFieldset } from '../components/TimeFieldset'
 
 const meta = {
     tags: ['autodocs'],
-    title: 'Example/TimeField',
+    title: 'Example/TimeFieldset',
     component: TimeFieldset.Root,
     subcomponents: {
         Label: TimeFieldset.Label,
@@ -25,7 +25,7 @@ type Story = StoryObj<typeof meta>
 export const Millisecond: Story = {
     render: (props) => (
         <TimeFieldset.Root {...props}>
-            <TimeFieldset.Label>TimeField</TimeFieldset.Label>
+            <TimeFieldset.Label>TimeFieldset</TimeFieldset.Label>
             <TimeFieldset.Group>
                 <TimeFieldset.Input type='ms' />
             </TimeFieldset.Group>
@@ -36,7 +36,7 @@ export const Millisecond: Story = {
 export const Second: Story = {
     render: (props) => (
         <TimeFieldset.Root {...props}>
-            <TimeFieldset.Label>TimeField</TimeFieldset.Label>
+            <TimeFieldset.Label>TimeFieldset</TimeFieldset.Label>
             <TimeFieldset.Group>
                 <TimeFieldset.Input type='second' />
             </TimeFieldset.Group>
@@ -47,7 +47,7 @@ export const Second: Story = {
 export const Minute: Story = {
     render: (props) => (
         <TimeFieldset.Root {...props}>
-            <TimeFieldset.Label>TimeField</TimeFieldset.Label>
+            <TimeFieldset.Label>TimeFieldset</TimeFieldset.Label>
             <TimeFieldset.Group>
                 <TimeFieldset.Input type='minute' />
             </TimeFieldset.Group>
@@ -58,7 +58,7 @@ export const Minute: Story = {
 export const Hour: Story = {
     render: (props) => (
         <TimeFieldset.Root {...props}>
-            <TimeFieldset.Label>TimeField</TimeFieldset.Label>
+            <TimeFieldset.Label>TimeFieldset</TimeFieldset.Label>
             <TimeFieldset.Group>
                 <TimeFieldset.Input type='hour' />
             </TimeFieldset.Group>
@@ -69,7 +69,7 @@ export const Hour: Story = {
 export const Day: Story = {
     render: (props) => (
         <TimeFieldset.Root {...props}>
-            <TimeFieldset.Label>TimeField</TimeFieldset.Label>
+            <TimeFieldset.Label>TimeFieldset</TimeFieldset.Label>
             <TimeFieldset.Group>
                 <TimeFieldset.Input type='day' />
             </TimeFieldset.Group>
@@ -80,7 +80,7 @@ export const Day: Story = {
 export const Week: Story = {
     render: (props) => (
         <TimeFieldset.Root {...props}>
-            <TimeFieldset.Label>TimeField</TimeFieldset.Label>
+            <TimeFieldset.Label>TimeFieldset</TimeFieldset.Label>
             <TimeFieldset.Group>
                 <TimeFieldset.Input type='week' />
             </TimeFieldset.Group>
