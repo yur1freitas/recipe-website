@@ -26,7 +26,7 @@
         "./Section": "./dist/Section.js",
         "./Select": "./dist/Select/index.js",
         "./Textarea": "./dist/Textarea.js",
-        "./TimeField": "./dist/TimeField/index.js",
+        "./TimeFieldset": "./dist/TimeFieldset/index.js",
         "./Typography": "./dist/Typography/index.js",
         "./VisuallyHidden": "./dist/VisuallyHidden.js",
         "./package.json": "./package.json",

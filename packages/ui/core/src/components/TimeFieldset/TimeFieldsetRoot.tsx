@@ -1,21 +1,21 @@
-import { TimeFieldContext } from '../../contexts/TimeFieldContext'
+import { TimeFieldsetContext } from '../../contexts/TimeFieldsetContext'
 import { FieldsetRoot } from '../Fieldset/FieldsetRoot'
 import type { UseTimeInput } from '~/hooks/useTime'
 import { useTime } from '~/hooks/useTime'
 
-export interface TimeFieldRootProps extends UseTimeInput {
+export interface TimeFieldsetRootProps extends UseTimeInput {
     children?: React.ReactNode
 }
 
-export function TimeFieldRoot({
+export function TimeFieldsetRoot({
     children,
     ...props
-}: TimeFieldRootProps): React.JSX.Element {
+}: TimeFieldsetRootProps): React.JSX.Element {
     const { time, setTime, updateTime } = useTime(props)
 
     return (
-        <TimeFieldContext value={{ time, setTime, updateTime }}>
+        <TimeFieldsetContext value={{ time, setTime, updateTime }}>
             <FieldsetRoot>{children}</FieldsetRoot>
-        </TimeFieldContext>
+        </TimeFieldsetContext>
     )
 }

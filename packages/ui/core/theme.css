@@ -539,7 +539,7 @@
         }
     }
 
-    .time-field {
+    .time-fieldset {
         &-label {
             @apply text-xs;
         }
