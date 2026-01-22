@@ -1,3 +1,5 @@
+import { clamp } from '@utils/core/clamp'
+
 import type { TimeInput, TimeUnit, TimeProps } from './types'
 
 import {
@@ -14,7 +16,6 @@ import {
     ONE_SECOND_IN_MS,
     ONE_WEEK_IN_MS
 } from './constants'
-import { clamp } from './utils'
 
 export class Time {
     private $store: Map<TimeUnit, number>
@@ -102,37 +103,67 @@ export class Time {
     }
 
     setMilliseconds(amount: number) {
-        const value = clamp(0, MAX_AMOUNT_IN_MS - 1, amount)
+        const value = clamp({
+            min: 0,
+            max: MAX_AMOUNT_IN_MS - 1,
+            value: amount
+        })
+
         this.$store.set('ms', value)
         return this
     }
 
     setSeconds(amount: number) {
-        const value = clamp(0, MAX_AMOUNT_IN_SECONDS - 1, amount)
+        const value = clamp({
+            min: 0,
+            max: MAX_AMOUNT_IN_SECONDS - 1,
+            value: amount
+        })
+
         this.$store.set('second', value)
         return this
     }
 
     setMinutes(amount: number) {
-        const value = clamp(0, MAX_AMOUNT_IN_MINUTES - 1, amount)
+        const value = clamp({
+            min: 0,
+            max: MAX_AMOUNT_IN_MINUTES - 1,
+            value: amount
+        })
+
         this.$store.set('minute', value)
         return this
     }
 
     setHours(amount: number) {
-        const value = clamp(0, MAX_AMOUNT_IN_HOURS - 1, amount)
+        const value = clamp({
+            min: 0,
+            max: MAX_AMOUNT_IN_HOURS - 1,
+            value: amount
+        })
+
         this.$store.set('hour', value)
         return this
     }
 
     setDays(amount: number) {
-        const value = clamp(0, MAX_AMOUNT_IN_DAYS - 1, amount)
+        const value = clamp({
+            min: 0,
+            max: MAX_AMOUNT_IN_DAYS - 1,
+            value: amount
+        })
+
         this.$store.set('day', value)
         return this
     }
 
     setWeeks(amount: number) {
-        const value = clamp(0, MAX_AMOUNT_IN_WEEKS - 1, amount)
+        const value = clamp({
+            min: 0,
+            max: MAX_AMOUNT_IN_WEEKS - 1,
+            value: amount
+        })
+
         this.$store.set('week', value)
         return this
     }

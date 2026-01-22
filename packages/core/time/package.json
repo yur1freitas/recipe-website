@@ -17,6 +17,9 @@
         "test:coverage": "vitest run --coverage",
         "typecheck": "tsc --noEmit"
     },
+    "dependencies": {
+        "@utils/core": "workspace:"
+    },
     "devDependencies": {
         "@config/tsdown": "workspace:",
         "@config/typescript": "workspace:",
