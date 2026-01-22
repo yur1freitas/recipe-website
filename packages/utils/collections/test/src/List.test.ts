@@ -5,7 +5,7 @@ import { randLength } from '~mocks/randLength'
 import { randIndex } from '~mocks/randIndex'
 import { randList } from '~mocks/randList'
 
-import { List } from '~/collections/List'
+import { List } from '~/List'
 
 describe('List', () => {
     afterEach(() => {

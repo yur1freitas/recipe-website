@@ -3,7 +3,8 @@ import z from 'zod'
 import type { EntityInput, EntityProps } from '@core/shared'
 import type { Time } from '@utils/time'
 
-import { idSchema, Entity, entitySchema, Id, List } from '@core/shared'
+import { idSchema, Entity, entitySchema, Id } from '@core/shared'
+import { List } from '@utils/collections/List'
 
 import type { IngredientInput } from '~/ingredient/models/Ingredient'
 import type { ToolInput } from '~/tool/models/Tool'
