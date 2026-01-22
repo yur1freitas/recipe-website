@@ -1,65 +1,30 @@
-import type {
-    NumberFieldRootChangeEventDetails,
-    NumberFieldRootProps
-} from '@base-ui/react/number-field'
-
 import { MinusIcon, PlusIcon } from 'lucide-react'
+import { cx } from 'tailwind-variants/utils'
 
-import type { TimeUnit } from '@utils/time'
+import type { NumberFieldInputProps } from '../NumberField/NumberFieldInput'
 
-import { useTimeFieldsetContext } from '~/hooks/useTimeFieldsetContext'
+import { NumberFieldIncrement } from '../NumberField/NumberFieldIncrement'
+import { NumberFieldInput } from '../NumberField/NumberFieldInput'
+import { NumberFieldDecrement } from '../NumberField/NumberFieldDecrement'
+import { NumberFieldGroup } from '../NumberField/NumberFieldGroup'
 
-import { NumberField } from '../NumberField'
-
-export type TimeFieldsetInputType = TimeUnit
-
-export interface TimeFieldsetInputProps extends NumberFieldRootProps {
-    type: TimeFieldsetInputType
-}
+export type TimeFieldsetInputProps = NumberFieldInputProps
 
 export function TimeFieldsetInput({
-    type,
-    onValueChange,
-    allowWheelScrub = true,
-    format = { minimumIntegerDigits: 2 },
+    className,
     ...props
-}: TimeFieldsetInputProps): React.JSX.Element {
-    const { label, min, max, value, setValue } = useTimeFieldsetContext(type)
-
-    const changeValueHandler = (
-        value: number | null,
-        eventDetails: NumberFieldRootChangeEventDetails
-    ) => {
-        onValueChange?.(value, eventDetails)
-        setValue(value ?? 0)
-    }
+}: TimeFieldsetInputProps) {
+    const classNames = cx('time-fieldset-input', className)
 
     return (
-        <NumberField.Root
-            {...props}
-            min={min}
-            max={max}
-            value={value}
-            defaultValue={min}
-            onValueChange={changeValueHandler}
-            format={format}
-            allowWheelScrub={allowWheelScrub}
-        >
-            <NumberField.ScrubArea>
-                <NumberField.Label className='time-fieldset-label'>
-                    {label}:
-                </NumberField.Label>
-                <NumberField.ScrubAreaCursor />
-            </NumberField.ScrubArea>
-            <NumberField.Group>
-                <NumberField.Decrement>
-                    <MinusIcon />
-                </NumberField.Decrement>
-                <NumberField.Input className='time-fieldset-input' />
-                <NumberField.Increment>
-                    <PlusIcon />
-                </NumberField.Increment>
-            </NumberField.Group>
-        </NumberField.Root>
+        <NumberFieldGroup>
+            <NumberFieldDecrement>
+                <MinusIcon />
+            </NumberFieldDecrement>
+            <NumberFieldInput className={classNames} {...props} />
+            <NumberFieldIncrement>
+                <PlusIcon />
+            </NumberFieldIncrement>
+        </NumberFieldGroup>
     )
 }
