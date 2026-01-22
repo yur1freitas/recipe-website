@@ -1,5 +1,5 @@
-import type { TimeInput } from '@core/time'
-import { Time } from '@core/time'
+import type { TimeInput } from '@utils/time'
+import { Time } from '@utils/time'
 import { useState } from 'react'
 
 export type SetTimeFn = (time: Time) => void
