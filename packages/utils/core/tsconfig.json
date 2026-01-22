@@ -1,5 +1,10 @@
 {
     "extends": "@config/typescript/base.json",
-    "include": ["src"],
+    "compilerOptions": {
+        "paths": {
+            "~/*": ["./src/*"]
+        }
+    },
+    "include": ["src", "test"],
     "exclude": ["node_modules/", "dist/"]
 }

@@ -1,7 +1,7 @@
 import { faker } from '@faker-js/faker/locale/pt_BR'
 import { describe, it, expect } from 'vitest'
 
-import { clamp } from '~/utils'
+import { clamp } from '~/clamp'
 
 describe('clamp', () => {
     it('deve limitar as extremidades de um valor', () => {
@@ -10,17 +10,17 @@ describe('clamp', () => {
 
         {
             const value = faker.number.int({ min: -100, max: 0 })
-            expect(clamp(min, max, value)).toBe(min)
+            expect(clamp({ min, max, value })).toBe(min)
         }
 
         {
             const value = faker.number.int({ min, max })
-            expect(clamp(min, max, value)).toBe(value)
+            expect(clamp({ min, max, value })).toBe(value)
         }
 
         {
             const value = faker.number.int({ min: 100, max: 200 })
-            expect(clamp(min, max, value)).toBe(max)
+            expect(clamp({ min, max, value })).toBe(max)
         }
     })
 })
