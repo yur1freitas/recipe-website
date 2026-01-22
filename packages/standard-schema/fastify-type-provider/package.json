@@ -14,6 +14,7 @@
         "typecheck": "tsc --noEmit"
     },
     "dependencies": {
+        "@utils/core": "workspace:",
         "@standard-schema/spec": "catalog:schema",
         "@standard-schema/utils": "catalog:schema"
     },
