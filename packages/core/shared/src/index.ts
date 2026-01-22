@@ -26,5 +26,3 @@ export { ValueObject } from './models/ValueObject'
 export { CustomError } from './errors/CustomError'
 
 export { Validator } from './validators/Validator'
-
-export { List } from './collections/List'
