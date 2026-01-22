@@ -2,10 +2,12 @@ import type { StandardSchemaV1 } from '@standard-schema/spec'
 
 import { SchemaError } from '@standard-schema/utils'
 
+import { hasProperty } from '@utils/core/hasProperty'
+import { isPromise } from '@utils/core/isPromise'
+
 import type { FastifySchemaCompiler } from 'fastify'
 
 import { StandardSchemaTypeProviderError } from './errors'
-import { hasProperty, isPromise } from './utils'
 
 export const StandardSchemaValidatorCompiler: FastifySchemaCompiler<
     StandardSchemaV1

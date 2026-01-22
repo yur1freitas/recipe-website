@@ -1,9 +1,9 @@
 import type { SwaggerTransform } from '@fastify/swagger'
 import type { FastifySchema } from 'fastify'
 
-import type { JsonSchemaTransformFn } from './types'
+import { isPlainObject } from '@utils/core/isPlainObject'
 
-import { isObject } from './utils'
+import type { JsonSchemaTransformFn } from './types'
 
 export function swaggerTransform<TSchema = unknown>(
     transformFn: JsonSchemaTransformFn<TSchema>
@@ -22,7 +22,7 @@ export function swaggerTransform<TSchema = unknown>(
             fastifySchema[name] = value ? transformFn(value, name) : {}
         }
 
-        if (isObject(response)) {
+        if (isPlainObject(response)) {
             for (const [name, value] of Object.entries(response)) {
                 response[name] = value ? transformFn(value, name) : {}
             }
