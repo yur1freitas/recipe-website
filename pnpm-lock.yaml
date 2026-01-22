@@ -922,6 +922,9 @@ importers:
       '@ui/core':
         specifier: 'workspace:'
         version: link:../core
+      '@utils/time':
+        specifier: 'workspace:'
+        version: link:../../utils/time
     devDependencies:
       '@config/tsdown':
         specifier: 'workspace:'
