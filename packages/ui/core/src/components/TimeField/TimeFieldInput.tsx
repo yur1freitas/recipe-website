@@ -5,7 +5,7 @@ import type {
 
 import { MinusIcon, PlusIcon } from 'lucide-react'
 
-import type { TimeUnit } from '@core/time'
+import type { TimeUnit } from '@utils/time'
 
 import { useTimeFieldContext } from '~/hooks/useTimeFieldContext'
 
