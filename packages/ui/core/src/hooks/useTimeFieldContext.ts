@@ -1,6 +1,6 @@
 import { use } from 'react'
 
-import type { TimeUnit } from '@core/time'
+import type { TimeUnit } from '@utils/time'
 
 import {
     MAX_AMOUNT_IN_DAYS,
@@ -9,7 +9,7 @@ import {
     MAX_AMOUNT_IN_MS,
     MAX_AMOUNT_IN_SECONDS,
     MAX_AMOUNT_IN_WEEKS
-} from '@core/time'
+} from '@utils/time'
 
 import { TimeFieldContext } from '../contexts/TimeFieldContext'
 
