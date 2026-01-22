@@ -43,8 +43,8 @@
         "build-storybook": "storybook build"
     },
     "dependencies": {
-        "@ui/css": "workspace:",
         "@base-ui/react": "catalog:frontend",
+        "@ui/css": "workspace:",
         "@utils/time": "workspace:",
         "lucide-react": "catalog:frontend",
         "tailwind-variants": "catalog:frontend"
@@ -58,7 +58,9 @@
         "@storybook/addon-docs": "catalog:docs",
         "@storybook/addon-vitest": "catalog:docs",
         "@storybook/react-vite": "catalog:docs",
+        "@tailwindcss/vite": "catalog:build",
         "@types/react": "catalog:types",
+        "@vitejs/plugin-react": "catalog:build",
         "@vitest/browser-playwright": "catalog:test",
         "@vitest/coverage-v8": "catalog:test",
         "babel-plugin-react-compiler": "catalog:build",
