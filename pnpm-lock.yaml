@@ -376,9 +376,6 @@ importers:
       '@core/shared':
         specifier: 'workspace:'
         version: link:../../packages/core/shared
-      '@core/time':
-        specifier: 'workspace:'
-        version: link:../../packages/core/time
       '@dotenvx/dotenvx':
         specifier: catalog:backend
         version: 1.51.4
@@ -400,6 +397,9 @@ importers:
       '@standard-schema/load-env':
         specifier: 'workspace:'
         version: link:../../packages/standard-schema/load-env
+      '@utils/time':
+        specifier: 'workspace:'
+        version: link:../../packages/utils/time
       bcrypt:
         specifier: catalog:backend
         version: 6.0.0
@@ -592,9 +592,9 @@ importers:
       '@core/shared':
         specifier: 'workspace:'
         version: link:../shared
-      '@core/time':
+      '@utils/time':
         specifier: 'workspace:'
-        version: link:../time
+        version: link:../../utils/time
       zod:
         specifier: catalog:schema
         version: 4.3.5
@@ -664,36 +664,6 @@ importers:
         specifier: catalog:test
         version: 4.0.17(@types/node@24.10.8)(@vitest/browser-playwright@4.0.17)(@vitest/ui@4.0.17)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)(yaml@2.8.2)
 
-  packages/core/time:
-    devDependencies:
-      '@config/tsdown':
-        specifier: 'workspace:'
-        version: link:../../config/tsdown
-      '@config/typescript':
-        specifier: 'workspace:'
-        version: link:../../config/typescript
-      '@config/vitest':
-        specifier: 'workspace:'
-        version: link:../../config/vitest
-      '@faker-js/faker':
-        specifier: catalog:test
-        version: 10.2.0
-      '@vitest/coverage-v8':
-        specifier: catalog:test
-        version: 4.0.17(@vitest/browser@4.0.17(vite@7.3.1(@types/node@24.10.8)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)(yaml@2.8.2))(vitest@4.0.17))(vitest@4.0.17)
-      '@vitest/ui':
-        specifier: catalog:test
-        version: 4.0.17(vitest@4.0.17)
-      tsdown:
-        specifier: catalog:build
-        version: 0.19.0(typescript@5.9.3)
-      typescript:
-        specifier: 'catalog:'
-        version: 5.9.3
-      vitest:
-        specifier: catalog:test
-        version: 4.0.17(@types/node@24.10.8)(@vitest/browser-playwright@4.0.17)(@vitest/ui@4.0.17)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)(yaml@2.8.2)
-
   packages/standard-schema/fastify-type-provider:
     dependencies:
       '@standard-schema/spec':
@@ -702,6 +672,9 @@ importers:
       '@standard-schema/utils':
         specifier: catalog:schema
         version: 0.3.0
+      '@utils/core':
+        specifier: 'workspace:'
+        version: link:../../utils/core
     devDependencies:
       '@config/tsdown':
         specifier: 'workspace:'
@@ -816,12 +789,12 @@ importers:
       '@base-ui/react':
         specifier: catalog:frontend
         version: 1.1.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
-      '@core/time':
-        specifier: 'workspace:'
-        version: link:../../core/time
       '@ui/css':
         specifier: 'workspace:'
         version: link:../css
+      '@utils/time':
+        specifier: 'workspace:'
+        version: link:../../utils/time
       lucide-react:
         specifier: catalog:frontend
         version: 0.562.0(react@19.2.3)
@@ -974,6 +947,70 @@ importers:
       typescript:
         specifier: 'catalog:'
         version: 5.9.3
+
+  packages/utils/core:
+    devDependencies:
+      '@config/tsdown':
+        specifier: 'workspace:'
+        version: link:../../config/tsdown
+      '@config/typescript':
+        specifier: 'workspace:'
+        version: link:../../config/typescript
+      '@config/vitest':
+        specifier: 'workspace:'
+        version: link:../../config/vitest
+      '@faker-js/faker':
+        specifier: catalog:test
+        version: 10.2.0
+      '@vitest/coverage-v8':
+        specifier: catalog:test
+        version: 4.0.17(@vitest/browser@4.0.17(vite@7.3.1(@types/node@24.10.8)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)(yaml@2.8.2))(vitest@4.0.17))(vitest@4.0.17)
+      '@vitest/ui':
+        specifier: catalog:test
+        version: 4.0.17(vitest@4.0.17)
+      tsdown:
+        specifier: catalog:build
+        version: 0.19.0(typescript@5.9.3)
+      typescript:
+        specifier: 'catalog:'
+        version: 5.9.3
+      vitest:
+        specifier: catalog:test
+        version: 4.0.17(@types/node@24.10.8)(@vitest/browser-playwright@4.0.17)(@vitest/ui@4.0.17)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)(yaml@2.8.2)
+
+  packages/utils/time:
+    dependencies:
+      '@utils/core':
+        specifier: 'workspace:'
+        version: link:../core
+    devDependencies:
+      '@config/tsdown':
+        specifier: 'workspace:'
+        version: link:../../config/tsdown
+      '@config/typescript':
+        specifier: 'workspace:'
+        version: link:../../config/typescript
+      '@config/vitest':
+        specifier: 'workspace:'
+        version: link:../../config/vitest
+      '@faker-js/faker':
+        specifier: catalog:test
+        version: 10.2.0
+      '@vitest/coverage-v8':
+        specifier: catalog:test
+        version: 4.0.17(@vitest/browser@4.0.17(vite@7.3.1(@types/node@24.10.8)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)(yaml@2.8.2))(vitest@4.0.17))(vitest@4.0.17)
+      '@vitest/ui':
+        specifier: catalog:test
+        version: 4.0.17(vitest@4.0.17)
+      tsdown:
+        specifier: catalog:build
+        version: 0.19.0(typescript@5.9.3)
+      typescript:
+        specifier: 'catalog:'
+        version: 5.9.3
+      vitest:
+        specifier: catalog:test
+        version: 4.0.17(@types/node@24.10.8)(@vitest/browser-playwright@4.0.17)(@vitest/ui@4.0.17)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)(yaml@2.8.2)
 
 packages:
 

@@ -26,7 +26,7 @@
         "@core/auth": "workspace:",
         "@core/cooking": "workspace:",
         "@core/shared": "workspace:",
-        "@core/time": "workspace:",
+        "@utils/time": "workspace:",
         "@dotenvx/dotenvx": "catalog:backend",
         "@fastify/cookie": "catalog:backend",
         "@fastify/cors": "catalog:backend",
