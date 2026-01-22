@@ -9,7 +9,7 @@ import type { SelectPortalProps } from './SelectPortal'
 import type { SelectValueProps } from './SelectValue'
 import type { SelectPopupProps } from './SelectPopup'
 import type { SelectGroupProps } from './SelectGroup'
-import type { SelectRootProps } from './SelectRoot'
+import type { SelectRootProps, SelectValueType } from './SelectRoot'
 import type { SelectListProps } from './SelectList'
 import type { SelectItemProps } from './SelectItem'
 import type { SelectIconProps } from './SelectIcon'
@@ -68,3 +68,5 @@ export namespace SelectProps {
     export type TriggerProps = SelectTriggerProps
     export type ValueProps = SelectValueProps
 }
+
+export type { SelectValueType }
