@@ -14,24 +14,24 @@ export interface UseTimeOutput {
 
 export interface UseTimeInput {
     value?: TimeInput | Time
-    onChangeTime?: ChangeValueHandler
+    onValueChange?: ChangeValueHandler
 }
 
 export function useTime({
     value,
-    onChangeTime
+    onValueChange
 }: UseTimeInput = {}): UseTimeOutput {
     const [time, setTimeState] = useState(() => new Time(value))
 
     const setTime: SetTimeFn = (time) => {
-        onChangeTime?.(time)
+        onValueChange?.(time)
         setTimeState(time)
     }
 
     const updateTime: UpdateTimeFn = (updater) => {
         setTimeState((prev) => {
             const updated = updater(prev.clone())
-            onChangeTime?.(updated)
+            onValueChange?.(updated)
 
             return updated
         })
