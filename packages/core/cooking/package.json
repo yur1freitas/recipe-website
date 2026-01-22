@@ -20,7 +20,7 @@
     "dependencies": {
         "@core/auth": "workspace:",
         "@core/shared": "workspace:",
-        "@core/time": "workspace:",
+        "@utils/time": "workspace:",
         "zod": "catalog:schema"
     },
     "devDependencies": {

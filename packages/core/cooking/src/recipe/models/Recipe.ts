@@ -1,7 +1,7 @@
 import z from 'zod'
 
 import type { EntityInput, EntityProps } from '@core/shared'
-import type { Time } from '@core/time'
+import type { Time } from '@utils/time'
 
 import { idSchema, Entity, entitySchema, Id, List } from '@core/shared'
 

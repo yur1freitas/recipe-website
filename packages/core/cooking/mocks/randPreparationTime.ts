@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker/locale/pt_BR'
 
-import { Time } from '@core/time'
+import { Time } from '@utils/time'
 
 export interface RandPreparationTime {
     testCase?: 'negative' | 'zero' | 'success'
