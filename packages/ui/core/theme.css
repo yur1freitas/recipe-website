@@ -1,5 +1,5 @@
-@import "tailwindcss";
-@import "@ui/css";
+@import 'tailwindcss';
+@import '@ui/css';
 
 @theme {
     --breakpoint-xs: 512px;
@@ -65,6 +65,10 @@
             @apply ring-3 ring-ring/50 border-ring;
         }
 
+        &:disabled {
+            @apply cursor-not-allowed opacity-50;
+        }
+
         & > svg {
             @apply size-4 pointer-events-none shrink-0;
         }
@@ -128,7 +132,7 @@
             @apply ring-3 ring-ring/50 border-ring;
         }
 
-        &[aria-invalid="true"] {
+        &[aria-invalid='true'] {
             @apply ring-3 ring-destructive/10 border-destructive;
         }
     }
@@ -156,7 +160,7 @@
             @apply ring-3 ring-ring/50 border-ring;
         }
 
-        &:has(input[aria-invalid="true"]) {
+        &:has(input[aria-invalid='true']) {
             @apply ring-3 ring-destructive/10 border-destructive;
         }
 
@@ -360,14 +364,14 @@
                 @apply content-[""] absolute w-full h-full left-0;
             }
 
-            &[data-direction="up"] &[data-side="none"] {
+            &[data-direction='up'] &[data-side='none'] {
                 @apply before:-top-full;
             }
 
-            &[data-direction="down"] {
+            &[data-direction='down'] {
                 @apply bottom-0;
 
-                &[data-side="none"] {
+                &[data-side='none'] {
                     @apply before:-bottom-full;
                 }
             }
@@ -405,19 +409,19 @@
         &-arrow {
             @apply flex;
 
-            &[data-side="top"] {
+            &[data-side='top'] {
                 @apply -bottom-2 rotate-180;
             }
 
-            &[data-side="bottom"] {
+            &[data-side='bottom'] {
                 @apply -top-2 rotate-0;
             }
 
-            &[data-side="left"] {
+            &[data-side='left'] {
                 @apply -right-4 rotate-80;
             }
 
-            &[data-side="right"] {
+            &[data-side='right'] {
                 @apply -left-4 -rotate-80;
             }
 
@@ -525,7 +529,7 @@
                 @apply ring-3 ring-ring/50 border-ring z-1;
             }
 
-            &[aria-invalid="true"] {
+            &[aria-invalid='true'] {
                 @apply ring-3 ring-destructive/10 border-destructive;
             }
         }
@@ -562,7 +566,8 @@
                 @apply ring-3 ring-ring/50 border-ring;
             }
 
-            &::before, &::after {
+            &::before,
+            &::after {
                 @apply content-[""] block left-0 w-full absolute;
                 @apply rounded transition-all duration-100;
                 @apply pointer-events-none;
@@ -636,7 +641,7 @@
             @apply transition-all duration-150;
             @apply text-base;
 
-            &[hidden]:not([hidden="until-found"]) {
+            &[hidden]:not([hidden='until-found']) {
                 @apply hidden;
             }
 
@@ -647,7 +652,7 @@
         }
     }
 
-     .progress {
+    .progress {
         @apply grid grid-cols-2 gap-y-2;
 
         &-label {
