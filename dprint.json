@@ -10,7 +10,7 @@
     },
     "excludes": [
         "**/node_modules",
-        "**/*-lock.json",
+        "**/*-lock.{json,yaml}",
         ".devcontainer/Dockerfile"
     ],
     "plugins": [
