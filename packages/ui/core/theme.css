@@ -184,12 +184,16 @@
         @apply text-foreground text-base md:text-sm
             placeholder-muted-foreground;
 
+        &:disabled {
+            @apply cursor-not-allowed opacity-50;
+        }
+
         &:focus-visible {
             @apply ring-3 ring-ring/50 border-ring;
         }
 
-        &:disabled {
-            @apply cursor-not-allowed opacity-50;
+        &[aria-invalid='true'] {
+            @apply ring-3 ring-destructive/10 border-destructive;
         }
     }
 
