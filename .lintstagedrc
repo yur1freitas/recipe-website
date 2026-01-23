@@ -1,0 +1,13 @@
+{
+    "**/*.{ts,tsx}": [
+      "oxlint --max-warnings=0",
+      "oxfmt --write" 
+    ], 
+    "**/*.{md,html,css,yml,yaml,json}": [
+      "dprint fmt",
+      "oxfmt --write"
+    ],
+    "**/Dockerfile": [
+      "dprint fmt"
+    ]
+}
