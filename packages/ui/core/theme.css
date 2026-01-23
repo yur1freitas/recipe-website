@@ -354,7 +354,7 @@
             }
 
             &-text {
-                @apply col-start-2;
+                @apply text-sm col-start-2;
             }
         }
 
