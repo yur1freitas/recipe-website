@@ -388,7 +388,7 @@
 
     .menu {
         &-popup {
-            @apply text-foreground py-4;
+            @apply text-foreground py-2;
             @apply bg-background shadow-xs;
             @apply border border-input outline-none rounded;
             @apply origin-(--transform-origin) duration-150;
