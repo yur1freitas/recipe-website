@@ -13,6 +13,7 @@
         "./Fieldset": "./dist/Fieldset/index.js",
         "./hooks/useBoolean": "./dist/hooks/useBoolean.js",
         "./hooks/usePasswordContext": "./dist/hooks/usePasswordContext.js",
+        "./hooks/useStep": "./dist/hooks/useStep.js",
         "./hooks/useTime": "./dist/hooks/useTime.js",
         "./hooks/useTimeFieldsetContext": "./dist/hooks/useTimeFieldsetContext.js",
         "./Icon": "./dist/Icon.js",
@@ -46,6 +47,7 @@
     "dependencies": {
         "@base-ui/react": "catalog:frontend",
         "@ui/css": "workspace:",
+        "@utils/core": "workspace:",
         "@utils/time": "workspace:",
         "lucide-react": "catalog:frontend",
         "tailwind-variants": "catalog:frontend"
