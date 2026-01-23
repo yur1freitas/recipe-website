@@ -5,6 +5,10 @@
     "license": "MIT",
     "type": "module",
     "exports": {
+        "./arrayInsert": "./dist/arrayInsert.js",
+        "./arrayMove": "./dist/arrayMove.js",
+        "./arrayRemove": "./dist/arrayRemove.js",
+        "./arraySwap": "./dist/arraySwap.js",
         "./clamp": "./dist/clamp.js",
         "./hasProperty": "./dist/hasProperty.js",
         "./isPlainObject": "./dist/isPlainObject.js",
@@ -21,14 +25,14 @@
         "typecheck": "tsc --noEmit"
     },
     "devDependencies": {
+        "@config/tsdown": "workspace:",
+        "@config/typescript": "workspace:",
         "@config/vitest": "workspace:",
         "@faker-js/faker": "catalog:test",
         "@vitest/coverage-v8": "catalog:test",
         "@vitest/ui": "catalog:test",
-        "vitest": "catalog:test",
-        "@config/tsdown": "workspace:",
-        "@config/typescript": "workspace:",
         "tsdown": "catalog:build",
-        "typescript": "catalog:"
+        "typescript": "catalog:",
+        "vitest": "catalog:test"
     }
 }
