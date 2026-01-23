@@ -187,6 +187,10 @@
         &:focus-visible {
             @apply ring-1 ring-ring/50 border-ring;
         }
+
+        &:disabled {
+            @apply cursor-not-allowed opacity-50;
+        }
     }
 
     .fieldset {
