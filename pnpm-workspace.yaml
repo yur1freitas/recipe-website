@@ -71,6 +71,9 @@ catalogs:
         swr-openapi: 5.6.0
         tailwind-variants: 3.2.2
         tailwindcss: 4.1.18
+    git:
+        husky: 9.1.7
+        lint-staged: 16.2.7
     lint:
         dprint: 0.51.1
         eslint-plugin-perfectionist: 5.3.1
