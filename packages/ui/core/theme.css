@@ -461,7 +461,7 @@
 
         &-backdrop {
             @apply fixed inset-0 w-full min-h-dvw;
-            @apply bg-black opacity-2;
+            @apply bg-black opacity-10;
             @apply transition-opacity duration-150;
 
             /* iOS 26+: Ensure the backdrop covers the entire visible viewport. */
