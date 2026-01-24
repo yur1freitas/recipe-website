@@ -9,7 +9,6 @@ import { SortableItemContext } from '~/contexts/SortableItemContext'
 
 export type SortableItemProps = {
     id: UniqueIdentifier
-    asChild?: boolean
 } & useRender.ComponentProps<'div'>
 
 export function SortableItem({
