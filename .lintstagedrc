@@ -1,6 +1,6 @@
 {
     "**/*.{ts,tsx}": [
-      "oxlint --max-warnings=0",
+      "oxlint --fix --max-warnings=0",
       "oxfmt --write" 
     ], 
     "**/*.{md,html,css,yml,yaml,json}": [
