@@ -7,9 +7,9 @@ import { CSS } from '@dnd-kit/utilities'
 
 import { SortableItemContext } from '~/contexts/SortableItemContext'
 
-export type SortableItemProps = {
+export type SortableItemProps = Omit<useRender.ComponentProps<'div'>, 'id'> & {
     id: UniqueIdentifier
-} & useRender.ComponentProps<'div'>
+}
 
 export function SortableItem({
     id,
