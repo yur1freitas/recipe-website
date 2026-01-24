@@ -1,5 +1,5 @@
+import type { SortableRootProps, SortableItems, Axis } from './SortableRoot'
 import type { SortableDrangHandleProps } from './SortableDragHandle'
-import type { SortableRootProps } from './SortableRoot'
 import type { SortableItemProps } from './SortableItem'
 
 import { SortableDrangHandle } from './SortableDragHandle'
@@ -17,3 +17,5 @@ export namespace SortableProps {
     export type Item = SortableItemProps
     export type DragHandle = SortableDrangHandleProps
 }
+
+export type { SortableItems, Axis }
