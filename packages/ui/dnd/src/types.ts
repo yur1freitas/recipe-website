@@ -17,3 +17,13 @@ export namespace DragEvent {
     export type Start = DragStartEvent
     export type Pending = DragPendingEvent
 }
+
+export namespace DragHandler {
+    export type Abort = (event: DragAbortEvent) => void
+    export type Cancel = (event: DragCancelEvent) => void
+    export type End = (event: DragEndEvent) => void
+    export type Move = (event: DragMoveEvent) => void
+    export type Over = (event: DragOverEvent) => void
+    export type Start = (event: DragStartEvent) => void
+    export type Pending = (event: DragPendingEvent) => void
+}
