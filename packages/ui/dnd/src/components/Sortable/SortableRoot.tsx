@@ -63,10 +63,10 @@ export function SortableRoot({
 
     return (
         <DndContext
-            {...props}
-            collisionDetection={closestCenter}
-            modifiers={_modifiers}
             sensors={sensors}
+            modifiers={_modifiers}
+            collisionDetection={closestCenter}
+            {...props}
         >
             <SortableContext strategy={strategy} items={items}>
                 {children}
