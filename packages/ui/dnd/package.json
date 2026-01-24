@@ -15,6 +15,7 @@
     "dependencies": {
         "@base-ui/react": "catalog:frontend",
         "@dnd-kit/core": "catalog:frontend",
+        "@dnd-kit/modifiers": "catalog:frontend",
         "@dnd-kit/sortable": "catalog:frontend",
         "@dnd-kit/utilities": "catalog:frontend"
     },
