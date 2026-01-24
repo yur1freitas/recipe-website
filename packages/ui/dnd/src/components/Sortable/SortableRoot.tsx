@@ -6,6 +6,7 @@ import {
     sortableKeyboardCoordinates,
     SortableContext
 } from '@dnd-kit/sortable'
+
 import {
     KeyboardSensor,
     closestCenter,
@@ -16,6 +17,11 @@ import {
     useSensor
 } from '@dnd-kit/core'
 
+import {
+    restrictToHorizontalAxis,
+    restrictToVerticalAxis
+} from '@dnd-kit/modifiers'
+
 export type Axis = 'x' | 'y'
 
 export type SortableItems = ({ id: UniqueIdentifier } | UniqueIdentifier)[]
@@ -23,6 +29,7 @@ export type SortableItems = ({ id: UniqueIdentifier } | UniqueIdentifier)[]
 export interface SortableRootProps extends DndContextProps {
     axis: Axis
     items: SortableItems
+    restrictToAxis?: boolean
     children?: React.ReactNode[] | React.ReactNode
 }
 
@@ -30,12 +37,21 @@ export function SortableRoot({
     axis,
     items,
     children,
+    modifiers = [],
+    restrictToAxis,
     ...props
 }: SortableRootProps): React.JSX.Element {
     const strategy =
         axis === 'x'
             ? horizontalListSortingStrategy
             : verticalListSortingStrategy
+
+    const _modifiers = restrictToAxis
+        ? [
+              axis === 'x' ? restrictToHorizontalAxis : restrictToVerticalAxis,
+              ...modifiers
+          ]
+        : modifiers
 
     const sensors = useSensors(
         useSensor(TouchSensor),
@@ -49,6 +65,7 @@ export function SortableRoot({
         <DndContext
             {...props}
             collisionDetection={closestCenter}
+            modifiers={_modifiers}
             sensors={sensors}
         >
             <SortableContext strategy={strategy} items={items}>
