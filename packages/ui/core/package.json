@@ -5,6 +5,7 @@
     "license": "MIT",
     "type": "module",
     "exports": {
+        "./Autocomplete": "./dist/Autocomplete/index.js",
         "./Box": "./dist/Box.js",
         "./Button": "./dist/Button.js",
         "./Collapsible": "./dist/Collapsible/index.js",
