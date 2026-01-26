@@ -1,10 +1,23 @@
-import { faker } from '@faker-js/faker/locale/pt_BR'
-
+import { randFraction } from './randFraction'
 import { randInt } from './randInt'
 
-export function randMixed(): string {
-    const numerator = faker.number.int({ min: 0, max: 100 })
-    const denominator = faker.number.int({ min: 1, max: 100 })
+export interface RandMixedOptions {
+    testCase?: 'denominator-zero' | 'negative' | 'positive' | 'any'
+}
 
-    return `${randInt()} ${numerator}/${denominator}`
+export function randMixed(options?: RandMixedOptions): string {
+    switch (options?.testCase) {
+        case 'denominator-zero': {
+            return `${randInt()} ${randInt({ testCase: 'positive' })}/0`
+        }
+        case 'negative': {
+            return `${randInt({ testCase: 'negative' })} ${randFraction({ testCase: 'positive' })}`
+        }
+        case 'positive': {
+            return `${randInt({ testCase: 'positive' })} ${randFraction({ testCase: 'positive' })}`
+        }
+        default: {
+            return `${randInt()} ${randFraction({ testCase: 'positive' })}`
+        }
+    }
 }
