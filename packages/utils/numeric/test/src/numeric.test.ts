@@ -200,4 +200,22 @@ describe('Numeric', () => {
         expect(output.input).toBe(input)
         expect(output.value).toBeTypeOf('number')
     })
+
+    it('deve transformar a instâcia em string', () => {
+        const input = randNumeric()
+        const numeric = new Numeric(input)
+
+        expect(`${numeric}`).toBe(input)
+        expect(numeric + '').toBe(input)
+        expect(numeric.toString()).toBe(input)
+    })
+
+    it('deve transformar a instâcia em JSON', () => {
+        const input = randNumeric()
+        const numeric = new Numeric(input)
+
+        expect(numeric.toJSON()).toBe(input)
+        expect(JSON.stringify(numeric)).toBe(`"${input}"`)
+        expect(JSON.stringify({ numeric })).toBe(`{"numeric":"${input}"}`)
+    })
 })
