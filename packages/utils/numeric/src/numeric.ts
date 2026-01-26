@@ -68,4 +68,8 @@ export class Numeric {
 
         return value
     }
+
+    toJSON(): string {
+        return this.$value
+    }
 }
