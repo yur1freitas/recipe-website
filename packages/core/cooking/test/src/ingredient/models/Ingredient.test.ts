@@ -32,7 +32,7 @@ describe('Ingredient', () => {
 
     it('deve lançar um erro se a medida for inválida', () => {
         const input = randIngredient({
-            measure: randMeasure({ testCase: 'empty' })
+            measure: randMeasure({ testCase: 'negative' })
         })
 
         expect(() => new Ingredient(input)).toThrowError(ValidatorError)
