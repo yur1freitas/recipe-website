@@ -27,6 +27,7 @@ export type { CreateMixedInput, CreateMixedOutput } from './utils/createMixed'
 
 export type { ParseMixedInput, ParseMixedOutput } from './utils/parseMixed'
 
+export type { NumericErrorInput } from './error'
 export {
     FLOAT_REGEX,
     FRACTION_REGEX,
@@ -36,6 +37,7 @@ export {
 } from './consts'
 
 export { createFraction } from './utils/createFraction'
+
 export { parseFraction } from './utils/parseFraction'
 export { parseFloating } from './utils/parseFloating'
 export { parseInteger } from './utils/parseInteger'
@@ -47,5 +49,6 @@ export { isNumeric } from './utils/isNumeric'
 export { getType } from './utils/getType'
 export { isFloat } from './utils/isFloat'
 export { isMixed } from './utils/isMixed'
+export { NumericError } from './error'
 export { isInt } from './utils/isInt'
 export { Numeric } from './numeric'
