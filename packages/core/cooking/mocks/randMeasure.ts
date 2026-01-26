@@ -1,17 +1,20 @@
-import { faker } from '@faker-js/faker/locale/pt_BR'
+import { randNumeric } from '@utils/numeric/mocks'
+import { Numeric } from '@utils/numeric'
 
 export interface RandMeasureOptions {
-    testCase?: 'empty' | 'success'
+    testCase?: 'zero' | 'negative' | 'success'
 }
 
-export function randMeasure(options?: RandMeasureOptions): string {
+export function randMeasure(options?: RandMeasureOptions): Numeric {
     switch (options?.testCase) {
-        case 'empty': {
-            const length = faker.number.int({ min: 0, max: 100 })
-            return ' '.repeat(length)
+        case 'zero': {
+            return new Numeric('0')
+        }
+        case 'negative': {
+            return new Numeric(randNumeric({ testCase: 'negative' }))
         }
         default: {
-            return faker.string.numeric()
+            return new Numeric(randNumeric({ testCase: 'positive' }))
         }
     }
 }
