@@ -17,7 +17,7 @@ export function parseFraction(input: ParseFractionInput): ParseFractionOutput {
     if (!isFraction(input)) {
         throw new NumericError({
             code: 'INVALID_FRACTION',
-            message: 'A entrada fornecida não é uma fração válida'
+            message: 'A entrada fornecida não é uma fração'
         })
     }
 
