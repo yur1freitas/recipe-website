@@ -1,3 +1,9 @@
+export type { RandFractionOptions } from './randFraction'
+export type { RandNumericOptions } from './randNumeric'
+export type { RandMixedOptions } from './randMixed'
+export type { RandFloatOptions } from './randFloat'
+export type { RandIntOptions } from './randInt'
+
 export { randFraction } from './randFraction'
 export { randNumeric } from './randNumeric'
 export { randMixed } from './randMixed'
