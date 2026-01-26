@@ -72,4 +72,8 @@ export class Numeric {
     toJSON(): string {
         return this.$value
     }
+
+    toString(): string {
+        return this.$value
+    }
 }
