@@ -7,8 +7,8 @@ import { randUnit } from '~mocks/randUnit'
 
 import { ValidatorError } from '@core/shared'
 
+import { UNIT_NAMES } from '~/ingredient/constants/unitNames'
 import { Ingredient } from '~/ingredient/models/Ingredient'
-import { UNIT_NAMES } from '~/index'
 
 describe('Ingredient', () => {
     afterEach(() => {
