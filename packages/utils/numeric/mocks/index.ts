@@ -1,4 +1,5 @@
 export { randFraction } from './randFraction'
+export { randNumeric } from './randNumeric'
 export { randMixed } from './randMixed'
 export { randFloat } from './randFloat'
 export { randInt } from './randInt'
