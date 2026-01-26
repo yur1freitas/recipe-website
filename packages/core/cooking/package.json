@@ -21,6 +21,7 @@
         "@core/auth": "workspace:",
         "@core/shared": "workspace:",
         "@utils/collections": "workspace:",
+        "@utils/numeric": "workspace:",
         "@utils/time": "workspace:",
         "zod": "catalog:schema"
     },

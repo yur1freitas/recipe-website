@@ -617,6 +617,9 @@ importers:
       '@utils/collections':
         specifier: 'workspace:'
         version: link:../../utils/collections
+      '@utils/numeric':
+        specifier: 'workspace:'
+        version: link:../../utils/numeric
       '@utils/time':
         specifier: 'workspace:'
         version: link:../../utils/time
