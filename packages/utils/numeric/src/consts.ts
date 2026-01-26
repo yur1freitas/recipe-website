@@ -1,6 +1,6 @@
 export const INT_REGEX = /^[+-]?\d+$/
 
-export const FLOAT_REGEX = /^[+-]?\d+(?:\.\d+)?$/
+export const FLOAT_REGEX = /^[+-]?\d+(?:\.\d+)$/
 
 export const FRACTION_REGEX = /^[+-]?\d+(?:\.\d+)?\/[+-]?[1-9]\d*(?:\.\d+)?$/
 
