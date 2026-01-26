@@ -8,5 +8,5 @@ export function randFraction(): string {
         faker.number.int({ min: -100, max: -1 })
     ])
 
-    return `${numerator}.${denominator}`
+    return `${numerator}/${denominator}`
 }
