@@ -1,7 +1,7 @@
 'use strict'
 
-import { useSignal } from '@preact/signals'
 import { createContext } from 'preact'
+import { useSignal } from '@preact/signals'
 
 import { html } from '../../../lib/ui/html.js'
 

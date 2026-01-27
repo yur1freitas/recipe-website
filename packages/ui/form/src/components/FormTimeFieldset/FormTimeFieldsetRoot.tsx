@@ -1,6 +1,6 @@
 import type { Time } from '@utils/time'
-import type { TimeFieldsetProps } from '@ui/core/TimeFieldset'
 
+import type { TimeFieldsetProps } from '@ui/core/TimeFieldset'
 import { TimeFieldset } from '@ui/core/TimeFieldset'
 
 import { useFieldContext } from '~/contexts/form'

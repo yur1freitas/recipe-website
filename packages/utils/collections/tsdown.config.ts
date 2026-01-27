@@ -1,6 +1,6 @@
 import type { UserConfig } from 'tsdown/config'
-import { defineConfig, mergeConfig } from 'tsdown/config'
 
+import { defineConfig, mergeConfig } from 'tsdown/config'
 import { config } from '@config/tsdown'
 
 const nodeEnv = process.env.NODE_ENV

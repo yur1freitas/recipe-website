@@ -1,5 +1,5 @@
-import { ScrollArea as BaseScrollArea } from '@base-ui/react/scroll-area'
 import { cx } from 'tailwind-variants/lite'
+import { ScrollArea as BaseScrollArea } from '@base-ui/react/scroll-area'
 
 export type ScrollAreaThumbProps = BaseScrollArea.Thumb.Props
 

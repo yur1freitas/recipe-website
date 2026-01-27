@@ -1,9 +1,9 @@
 import { faker } from '@faker-js/faker/locale/pt_BR'
 
-import { randFraction } from './randFraction'
-import { randFloat } from './randFloat'
 import { randMixed } from './randMixed'
 import { randInt } from './randInt'
+import { randFraction } from './randFraction'
+import { randFloat } from './randFloat'
 
 export interface RandNumericOptions {
     testCase?: 'negative' | 'positive' | 'any'

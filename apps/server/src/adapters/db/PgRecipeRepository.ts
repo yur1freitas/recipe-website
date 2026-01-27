@@ -3,7 +3,6 @@ import type { Kysely } from 'kysely'
 import { jsonArrayFrom } from 'kysely/helpers/postgres'
 
 import type { RecipeRepositoryProvider } from '@core/cooking'
-
 import { Recipe } from '@core/cooking'
 
 import type { DB } from '~/db/schema'

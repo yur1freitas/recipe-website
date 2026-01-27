@@ -1,8 +1,8 @@
 'use strict'
 
-import { Dropdown } from '../../../lib/ui/Dropdown/index.js'
-import { html } from '../../../lib/ui/html.js'
 import { Icons } from './Icons.js'
+import { html } from '../../../lib/ui/html.js'
+import { Dropdown } from '../../../lib/ui/Dropdown/index.js'
 
 const APIKeyRoot = ({ children }) => {
     return html`<div className="api-key">${children}</div>`

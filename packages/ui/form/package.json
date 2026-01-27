@@ -13,8 +13,8 @@
         "typecheck": "tsc --noEmit"
     },
     "dependencies": {
-        "@utils/numeric": "workspace:",
         "@ui/captcha": "workspace:",
+        "@utils/numeric": "workspace:",
         "@utils/time": "workspace:"
     },
     "devDependencies": {

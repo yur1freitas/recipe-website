@@ -6,7 +6,10 @@ import {
     sortableKeyboardCoordinates,
     SortableContext
 } from '@dnd-kit/sortable'
-
+import {
+    restrictToHorizontalAxis,
+    restrictToVerticalAxis
+} from '@dnd-kit/modifiers'
 import {
     KeyboardSensor,
     closestCenter,
@@ -16,11 +19,6 @@ import {
     useSensors,
     useSensor
 } from '@dnd-kit/core'
-
-import {
-    restrictToHorizontalAxis,
-    restrictToVerticalAxis
-} from '@dnd-kit/modifiers'
 
 export type Axis = 'x' | 'y'
 

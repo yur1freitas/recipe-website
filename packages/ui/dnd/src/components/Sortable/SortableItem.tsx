@@ -1,9 +1,9 @@
-import type { UniqueIdentifier } from '@dnd-kit/core'
 import type { CSSProperties } from 'react'
+import type { UniqueIdentifier } from '@dnd-kit/core'
 
-import { useRender } from '@base-ui/react/use-render'
-import { useSortable } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
+import { useSortable } from '@dnd-kit/sortable'
+import { useRender } from '@base-ui/react/use-render'
 
 import { SortableItemContext } from '~/contexts/SortableItemContext'
 

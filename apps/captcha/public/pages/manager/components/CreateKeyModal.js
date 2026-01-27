@@ -2,11 +2,11 @@
 
 import { useSignal } from '@preact/signals'
 
+import { NewKeyModal } from './NewKeyModal.js'
+import { Icons } from './Icons.js'
 import { Modal, useModal } from '../../../lib/ui/Modal/index.js'
 import { html } from '../../../lib/ui/html.js'
-import { NewKeyModal } from './NewKeyModal.js'
 import { POST } from '../../../lib/http.js'
-import { Icons } from './Icons.js'
 
 const CreateKeyForm = ({ onSuccess }) => {
     const { close } = useModal()

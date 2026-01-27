@@ -1,5 +1,4 @@
 import type { UseCase } from '@core/shared'
-
 import { Id } from '@core/shared'
 
 import type { RecipeRepositoryProvider } from '../providers/RecipeRepositoryProvider'

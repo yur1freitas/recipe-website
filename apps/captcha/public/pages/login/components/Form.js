@@ -1,11 +1,11 @@
 'use strict'
 
-import { useSignal } from '@preact/signals'
 import { h } from 'preact'
 import htm from 'htm'
+import { useSignal } from '@preact/signals'
 
-import { POST } from '../../../lib/http.js'
 import { Icons } from './Icons.js'
+import { POST } from '../../../lib/http.js'
 
 const html = htm.bind(h)
 

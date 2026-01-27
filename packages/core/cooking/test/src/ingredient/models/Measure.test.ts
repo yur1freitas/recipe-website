@@ -1,6 +1,6 @@
 import { expect, it, describe, afterEach } from 'vitest'
-import { faker } from '@faker-js/faker/locale/pt_BR'
 import { Numeric } from '@utils/numeric'
+import { faker } from '@faker-js/faker/locale/pt_BR'
 
 import { randMeasure } from '~mocks/randMeasure'
 

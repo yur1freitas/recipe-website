@@ -1,8 +1,8 @@
 import { describe, it, expect } from 'vitest'
 
 import { parseNumeric } from '~/utils/parseNumeric'
-import { NumericType } from '~/consts'
 import { NumericError } from '~/error'
+import { NumericType } from '~/consts'
 
 describe('parseNumeric', () => {
     it.each([

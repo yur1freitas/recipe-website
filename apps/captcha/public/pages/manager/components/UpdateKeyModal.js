@@ -2,10 +2,10 @@
 
 import { useSignal, useSignalEffect } from '@preact/signals'
 
-import { Modal, useModal } from '../../../lib/ui/Modal/index.js'
 import { useTargetKey } from '../hooks/useTargetKey.js'
-import { GET, PUT } from '../../../lib/http.js'
+import { Modal, useModal } from '../../../lib/ui/Modal/index.js'
 import { html } from '../../../lib/ui/html.js'
+import { GET, PUT } from '../../../lib/http.js'
 
 const UpdateKeyForm = () => {
     const { targetKey, setTargetKey } = useTargetKey()

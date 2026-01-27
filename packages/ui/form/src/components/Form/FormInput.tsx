@@ -1,11 +1,9 @@
 import type { FieldProps } from '@ui/core/Field'
-
 import { Field } from '@ui/core/Field'
 
-import { useFieldContext } from '~/contexts/form'
-
-import { isInvalidField } from '~/utils/isInvalidField'
 import { pickErrorMessage } from '~/utils/pickErrorMessage'
+import { isInvalidField } from '~/utils/isInvalidField'
+import { useFieldContext } from '~/contexts/form'
 
 export type FormInputProps = FieldProps.Control
 

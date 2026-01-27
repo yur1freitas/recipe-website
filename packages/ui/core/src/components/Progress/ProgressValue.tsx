@@ -1,5 +1,5 @@
-import { Progress as BaseProgress } from '@base-ui/react/progress'
 import { cx } from 'tailwind-variants/utils'
+import { Progress as BaseProgress } from '@base-ui/react/progress'
 
 export type ProgressValueProps = BaseProgress.Value.Props
 

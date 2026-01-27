@@ -1,9 +1,9 @@
 import { NumericType } from '~/consts'
 
-import { isFraction } from './isFraction'
-import { isFloat } from './isFloat'
 import { isMixed } from './isMixed'
 import { isInt } from './isInt'
+import { isFraction } from './isFraction'
+import { isFloat } from './isFloat'
 
 export function getType(input: string): NumericType {
     if (isInt(input)) {

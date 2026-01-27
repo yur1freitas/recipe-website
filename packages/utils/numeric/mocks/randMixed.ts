@@ -1,5 +1,5 @@
-import { randFraction } from './randFraction'
 import { randInt } from './randInt'
+import { randFraction } from './randFraction'
 
 export interface RandMixedOptions {
     testCase?: 'denominator-zero' | 'negative' | 'positive' | 'any'

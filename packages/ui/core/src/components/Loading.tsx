@@ -1,7 +1,7 @@
 import type { VariantProps } from 'tailwind-variants/lite'
 
-import { LoaderCircleIcon } from 'lucide-react'
 import { tv } from 'tailwind-variants/lite'
+import { LoaderCircleIcon } from 'lucide-react'
 
 const loading = tv({
     base: 'loading',

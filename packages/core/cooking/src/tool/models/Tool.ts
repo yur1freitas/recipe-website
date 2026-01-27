@@ -1,11 +1,10 @@
 import z from 'zod'
 
 import type { EntityInput, EntityProps } from '@core/shared'
-
 import { Entity, entitySchema } from '@core/shared'
 
-import { amountSchema, Amount } from '~/shared/models/Amount'
 import { nameSchema, Name } from '~/shared/models/Name'
+import { amountSchema, Amount } from '~/shared/models/Amount'
 
 export interface ToolInput extends EntityInput {
     name: string

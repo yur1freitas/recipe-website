@@ -1,8 +1,8 @@
 'use strict'
 
+import { createPortal } from 'preact/compat'
 import { useSignalRef } from '@preact/signals/utils'
 import { useSignalEffect } from '@preact/signals'
-import { createPortal } from 'preact/compat'
 
 import { useDropdown } from './DropdownRoot.js'
 import { html } from '../html.js'

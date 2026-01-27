@@ -1,5 +1,5 @@
-import { Collapsible as BaseCollapsible } from '@base-ui/react/collapsible'
 import { cx } from 'tailwind-variants/utils'
+import { Collapsible as BaseCollapsible } from '@base-ui/react/collapsible'
 
 export type CollapsiblePanelProps = BaseCollapsible.Panel.Props
 

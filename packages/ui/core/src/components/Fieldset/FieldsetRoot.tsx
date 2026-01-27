@@ -1,5 +1,5 @@
-import { Fieldset as BaseFieldset } from '@base-ui/react/fieldset'
 import { cx } from 'tailwind-variants/utils'
+import { Fieldset as BaseFieldset } from '@base-ui/react/fieldset'
 
 export type FieldsetRootProps = BaseFieldset.Root.Props & {
     className?: string

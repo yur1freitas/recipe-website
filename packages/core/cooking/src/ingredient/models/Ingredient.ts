@@ -3,15 +3,14 @@ import type { Numeric } from '@utils/numeric'
 import z from 'zod'
 
 import type { EntityInput, EntityProps } from '@core/shared'
-
 import { Entity, entitySchema } from '@core/shared'
 
 import { nameSchema, Name } from '~/shared/models/Name'
 
 import type { UnitEnum } from '../constants/UnitEnum'
 
-import { measureSchema, Measure } from './Measure'
 import { unitSchema, Unit } from './Unit'
+import { measureSchema, Measure } from './Measure'
 
 export interface IngredientInput extends EntityInput {
     name: string

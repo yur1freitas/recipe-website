@@ -1,5 +1,5 @@
-import { defineConfig } from 'kysely-ctl'
 import { Pool } from 'pg'
+import { defineConfig } from 'kysely-ctl'
 
 import { env } from './src/env'
 

@@ -1,7 +1,6 @@
+import fp from 'fastify-plugin'
 import type { FastifyReply, FastifyRequest } from 'fastify'
 import type { HttpError } from '@fastify/sensible'
-
-import fp from 'fastify-plugin'
 
 import { env } from '~/env'
 

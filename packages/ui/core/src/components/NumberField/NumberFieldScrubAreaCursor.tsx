@@ -1,5 +1,5 @@
-import { NumberField as BaseNumberField } from '@base-ui/react/number-field'
 import { cx } from 'tailwind-variants/utils'
+import { NumberField as BaseNumberField } from '@base-ui/react/number-field'
 
 export type NumberFieldScrubAreaCursorProps =
     BaseNumberField.ScrubAreaCursor.Props & { className?: string }

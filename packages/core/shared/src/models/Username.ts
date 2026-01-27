@@ -1,7 +1,7 @@
 import z from 'zod'
 
-import { ZodValidator } from '../validators/ZodValidator'
 import { ValueObject } from './ValueObject'
+import { ZodValidator } from '../validators/ZodValidator'
 
 export const usernameSchema = z
     .string()

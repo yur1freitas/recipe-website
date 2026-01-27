@@ -1,9 +1,9 @@
 'use strict'
 
-import { SearchProvider } from '../contexts/SearchContext.js'
 import { useSearch } from '../hooks/useSearch.js'
-import { html } from '../../../lib/ui/html.js'
+import { SearchProvider } from '../contexts/SearchContext.js'
 import { Icons } from '../components/Icons.js'
+import { html } from '../../../lib/ui/html.js'
 
 const SearchRoot = SearchProvider
 

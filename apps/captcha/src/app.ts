@@ -1,25 +1,25 @@
 import type { StandardSchemaTypeProvider } from '@standard-schema/fastify-type-provider'
 
+import { z, ZodType } from 'zod'
 import {
     StandardSchemaSerializerCompiler,
     StandardSchemaValidatorCompiler,
     swaggerTransform
 } from '@standard-schema/fastify-type-provider'
 import fastifyScalar from '@scalar/fastify-api-reference'
-import { z, ZodType } from 'zod'
 
-import fastifyRateLimit from '@fastify/rate-limit'
-import fastifySchedule from '@fastify/schedule'
-import fastifySensible from '@fastify/sensible'
+import fastify from 'fastify'
 import fastifySwagger from '@fastify/swagger'
 import fastifyStatic from '@fastify/static'
-import fastifyCookie from '@fastify/cookie'
+import fastifySensible from '@fastify/sensible'
+import fastifySchedule from '@fastify/schedule'
+import fastifyRateLimit from '@fastify/rate-limit'
 import fastifyCors from '@fastify/cors'
+import fastifyCookie from '@fastify/cookie'
 import fastifyAuth from '@fastify/auth'
-import fastify from 'fastify'
 
-import { STATIC_FILES_PATH } from './consts'
 import { env } from './env'
+import { STATIC_FILES_PATH } from './consts'
 
 const app = fastify({ logger: env.SERVER_LOGGER })
     .withTypeProvider<StandardSchemaTypeProvider>()

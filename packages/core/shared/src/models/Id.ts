@@ -1,8 +1,8 @@
-import { v7 } from 'uuid'
 import z from 'zod'
+import { v7 } from 'uuid'
 
-import { ZodValidator } from '../validators/ZodValidator'
 import { ValueObject } from './ValueObject'
+import { ZodValidator } from '../validators/ZodValidator'
 
 export const idSchema = z
     .uuidv7('O id deve ser válido')

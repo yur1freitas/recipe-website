@@ -1,20 +1,20 @@
 import type { NumberFieldScrubAreaCursorProps } from './NumberFieldScrubAreaCursor'
 import type { NumberFieldScrubAreaProps } from './NumberFieldScrubArea'
-import type { NumberFieldIncrementProps } from './NumberFieldIncrement'
-import type { NumberFieldDecrementProps } from './NumberFieldDecrement'
+import type { NumberFieldRootProps } from './NumberFieldRoot'
 import type { NumberFieldLabelProps } from './NumberFieldLabel'
 import type { NumberFieldInputProps } from './NumberFieldInput'
+import type { NumberFieldIncrementProps } from './NumberFieldIncrement'
 import type { NumberFieldGroupProps } from './NumberFieldGroup'
-import type { NumberFieldRootProps } from './NumberFieldRoot'
+import type { NumberFieldDecrementProps } from './NumberFieldDecrement'
 
 import { NumberFieldScrubAreaCursor } from './NumberFieldScrubAreaCursor'
 import { NumberFieldScrubArea } from './NumberFieldScrubArea'
-import { NumberFieldIncrement } from './NumberFieldIncrement'
-import { NumberFieldDecrement } from './NumberFieldDecrement'
+import { NumberFieldRoot } from './NumberFieldRoot'
 import { NumberFieldLabel } from './NumberFieldLabel'
 import { NumberFieldInput } from './NumberFieldInput'
+import { NumberFieldIncrement } from './NumberFieldIncrement'
 import { NumberFieldGroup } from './NumberFieldGroup'
-import { NumberFieldRoot } from './NumberFieldRoot'
+import { NumberFieldDecrement } from './NumberFieldDecrement'
 
 export const NumberField = {
     Root: NumberFieldRoot,

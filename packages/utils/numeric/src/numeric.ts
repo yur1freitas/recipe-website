@@ -2,8 +2,8 @@ import type { ParseNumericOutput } from './utils/parseNumeric'
 
 import { parseNumeric } from './utils/parseNumeric'
 import { getType } from './utils/getType'
-import { NumericType } from './consts'
 import { NumericError } from './error'
+import { NumericType } from './consts'
 
 export class Numeric {
     private $type: NumericType

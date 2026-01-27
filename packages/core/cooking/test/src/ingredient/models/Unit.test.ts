@@ -3,8 +3,8 @@ import { faker } from '@faker-js/faker/locale/pt_BR'
 
 import { randUnit } from '~mocks/randUnit'
 
-import { UNIT_NAMES } from '~/ingredient/constants/unitNames'
 import { Unit } from '~/ingredient/models/Unit'
+import { UNIT_NAMES } from '~/ingredient/constants/unitNames'
 
 describe('Unit', () => {
     afterEach(() => {

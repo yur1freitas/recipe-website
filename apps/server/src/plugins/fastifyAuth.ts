@@ -1,11 +1,9 @@
+import fp from 'fastify-plugin'
 import type { FastifyReply, FastifyRequest } from 'fastify'
 
-import fp from 'fastify-plugin'
-
-import type { VerifyUserSession } from '@core/auth'
-
-import { AuthError, VerifyUserSessionErrors } from '@core/auth'
 import { ValidatorError } from '@core/shared'
+import type { VerifyUserSession } from '@core/auth'
+import { AuthError, VerifyUserSessionErrors } from '@core/auth'
 
 declare module 'fastify' {
     interface FastifyContextConfig {

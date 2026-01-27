@@ -2,11 +2,11 @@
 
 import { useSignal } from '@preact/signals'
 
+import { DeleteAPIKeyModal } from './DeleteAPIKeyModal.js'
+import { APIKey } from './APIKey.js'
 import { useTargetAPIKey } from '../hooks/useTargetAPIKey.js'
 import { useAPIKeyStore } from '../hooks/useAPIKeyStore.js'
-import { DeleteAPIKeyModal } from './DeleteAPIKeyModal.js'
 import { html } from '../../../lib/ui/html.js'
-import { APIKey } from './APIKey.js'
 
 export const APIKeyList = () => {
     const { apiKeys } = useAPIKeyStore()

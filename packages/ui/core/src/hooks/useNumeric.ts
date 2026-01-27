@@ -1,5 +1,5 @@
-import { isNumeric, Numeric } from '@utils/numeric'
 import { useEffect, useState } from 'react'
+import { isNumeric, Numeric } from '@utils/numeric'
 
 import { useBoolean } from './useBoolean'
 
