@@ -962,6 +962,9 @@ importers:
       '@ui/core':
         specifier: 'workspace:'
         version: link:../core
+      '@utils/numeric':
+        specifier: 'workspace:'
+        version: link:../../utils/numeric
       '@utils/time':
         specifier: 'workspace:'
         version: link:../../utils/time
