@@ -4,10 +4,10 @@
       "oxfmt --no-error-on-unmatched-pattern --write" 
     ], 
     "**/*.{md,html,css,yml,yaml,json}": [
-      "dprint fmt",
+      "dprint  fmt --allow-no-files",
       "oxfmt --no-error-on-unmatched-pattern --write"
     ],
     "**/Dockerfile": [
-      "dprint fmt"
+      "dprint fmt --allow-no-files"
     ]
 }
