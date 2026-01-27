@@ -47,7 +47,8 @@ export function NumericInput({
     const { rawValue, setRawValue, isInvalid } = useNumeric({
         rawValue: String(value ?? defaultValue),
         onValueChange,
-        onRawValueChange
+        onRawValueChange,
+        defaultState: 'valid'
     })
 
     useEffect(() => {
