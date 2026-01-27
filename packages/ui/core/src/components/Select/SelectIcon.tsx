@@ -1,6 +1,6 @@
-import { Select as BaseSelect } from '@base-ui/react/select'
-import { ChevronDownIcon } from 'lucide-react'
 import { cx } from 'tailwind-variants/utils'
+import { ChevronDownIcon } from 'lucide-react'
+import { Select as BaseSelect } from '@base-ui/react/select'
 
 export type SelectIconProps = BaseSelect.Icon.Props & { className?: string }
 

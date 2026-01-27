@@ -1,7 +1,6 @@
 import z from 'zod'
 
 import type { EntityProps, EntityInput } from '@core/shared'
-
 import {
     emailSchema,
     usernameSchema,

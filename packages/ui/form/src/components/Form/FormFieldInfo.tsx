@@ -1,10 +1,10 @@
 import { useStore } from '@tanstack/react-form'
+
 import { Field } from '@ui/core/Field'
 
-import { useFieldContext } from '~/contexts/form'
-
-import { isInvalidField } from '~/utils/isInvalidField'
 import { pickErrorMessage } from '~/utils/pickErrorMessage'
+import { isInvalidField } from '~/utils/isInvalidField'
+import { useFieldContext } from '~/contexts/form'
 
 export function FormFieldInfo(): React.JSX.Element | null {
     const field = useFieldContext<string>()

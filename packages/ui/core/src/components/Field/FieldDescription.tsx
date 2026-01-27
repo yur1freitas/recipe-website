@@ -1,5 +1,5 @@
-import { Field as BaseField } from '@base-ui/react/field'
 import { cx } from 'tailwind-variants/utils'
+import { Field as BaseField } from '@base-ui/react/field'
 
 export type FieldDescriptionProps = BaseField.Description.Props & {
     className?: string

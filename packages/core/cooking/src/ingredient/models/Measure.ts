@@ -1,5 +1,5 @@
-import { Numeric } from '@utils/numeric'
 import z from 'zod'
+import { Numeric } from '@utils/numeric'
 
 import { ValueObject, ZodValidator } from '@core/shared'
 

@@ -2,8 +2,8 @@ import { randId } from '@core/shared/mocks'
 
 import type { ToolProps } from '~/tool/models/Tool'
 
-import { randAmount } from './randAmount'
 import { randName } from './randName'
+import { randAmount } from './randAmount'
 
 export interface RandToolOptions {
     id?: string

@@ -5,9 +5,9 @@ import type {
     IngredientProps
 } from '~/ingredient/models/Ingredient'
 
-import { randMeasure } from './randMeasure'
 import { randUnit } from './randUnit'
 import { randName } from './randName'
+import { randMeasure } from './randMeasure'
 
 export type RandIngredientOptions = Partial<IngredientInput>
 

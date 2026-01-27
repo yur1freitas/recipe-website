@@ -1,10 +1,10 @@
-import type { CollapsibleRootProps } from './CollapsibleRoot'
 import type { CollapsibleTriggerProps } from './CollapsibleTrigger'
+import type { CollapsibleRootProps } from './CollapsibleRoot'
 import type { CollapsiblePanelProps } from './CollapsiblePanel'
 import type { CollapsibleIconProps } from './CollapsibleIcon'
 
-import { CollapsibleRoot } from './CollapsibleRoot'
 import { CollapsibleTrigger } from './CollapsibleTrigger'
+import { CollapsibleRoot } from './CollapsibleRoot'
 import { CollapsiblePanel } from './CollapsiblePanel'
 import { CollapsibleIcon } from './CollapsibleIcon'
 

@@ -1,5 +1,5 @@
-import { Menu as BaseMenu } from '@base-ui/react/menu'
 import { cx } from 'tailwind-variants/utils'
+import { Menu as BaseMenu } from '@base-ui/react/menu'
 
 type ArrowSvgProps = React.ComponentProps<'svg'>
 

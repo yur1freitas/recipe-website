@@ -1,12 +1,10 @@
-import type { CaptchaProps } from '@ui/captcha'
-
-import { Captcha } from '@ui/captcha'
 import { Field } from '@ui/core/Field'
+import type { CaptchaProps } from '@ui/captcha'
+import { Captcha } from '@ui/captcha'
 
-import { useFieldContext } from '~/contexts/form'
-
-import { isInvalidField } from '~/utils/isInvalidField'
 import { pickErrorMessage } from '~/utils/pickErrorMessage'
+import { isInvalidField } from '~/utils/isInvalidField'
+import { useFieldContext } from '~/contexts/form'
 
 export type FormCaptchaProps = CaptchaProps
 

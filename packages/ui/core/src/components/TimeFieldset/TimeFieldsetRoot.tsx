@@ -1,8 +1,9 @@
 import type { Time, TimeInput } from '@utils/time'
-import { TimeFieldsetContext } from '../../contexts/TimeFieldsetContext'
-import { FieldsetRoot } from '../Fieldset/FieldsetRoot'
 
 import { useTime } from '~/hooks/useTime'
+
+import { FieldsetRoot } from '../Fieldset/FieldsetRoot'
+import { TimeFieldsetContext } from '../../contexts/TimeFieldsetContext'
 
 export interface TimeFieldsetRootProps {
     value?: TimeInput | Time

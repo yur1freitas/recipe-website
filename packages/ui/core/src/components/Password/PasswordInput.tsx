@@ -1,5 +1,5 @@
-import { useRender } from '@base-ui/react/use-render'
 import { cx } from 'tailwind-variants/utils'
+import { useRender } from '@base-ui/react/use-render'
 
 import { usePasswordContext } from '~/hooks/usePasswordContext'
 

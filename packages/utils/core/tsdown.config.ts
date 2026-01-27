@@ -1,5 +1,4 @@
 import { defineConfig, mergeConfig } from 'tsdown/config'
-
 import { config } from '@config/tsdown'
 
 export default defineConfig(

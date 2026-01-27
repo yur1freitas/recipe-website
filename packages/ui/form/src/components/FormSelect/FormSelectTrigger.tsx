@@ -1,11 +1,9 @@
 import type { SelectProps } from '@ui/core/Select'
-
 import { Select } from '@ui/core/Select'
 
-import { useFieldContext } from '~/contexts/form'
-
-import { isInvalidField } from '~/utils/isInvalidField'
 import { pickErrorMessage } from '~/utils/pickErrorMessage'
+import { isInvalidField } from '~/utils/isInvalidField'
+import { useFieldContext } from '~/contexts/form'
 
 export type FormSelectTriggerProps = SelectProps.TriggerProps
 

@@ -1,12 +1,11 @@
 import z from 'zod'
 
-import type { LoginUser, LoginUserInput } from '@core/auth'
-
 import { emailSchema, passwordSchema, ValidatorError } from '@core/shared'
+import type { LoginUser, LoginUserInput } from '@core/auth'
 import { AuthError, LoginUserErrors } from '@core/auth'
 
-import { httpErrorSchema, serverErrorSchema } from '~/schemas/httpErrorSchema'
 import { createController } from '~/utils/controller'
+import { httpErrorSchema, serverErrorSchema } from '~/schemas/httpErrorSchema'
 
 interface Options {
     loginUser: LoginUser

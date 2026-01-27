@@ -2,8 +2,8 @@ import { describe, it, expect, afterEach, beforeEach } from 'vitest'
 import { faker } from '@faker-js/faker/locale/pt_BR'
 
 import { UserRepositoryProviderMock } from '~mocks/UserRepositoryProviderMock'
-import { AccessTokenProviderMock } from '~mocks/AccessTokenProviderMock'
 import { randUser } from '~mocks/randUser'
+import { AccessTokenProviderMock } from '~mocks/AccessTokenProviderMock'
 
 import { randEncryptedPassword } from '@core/shared/mocks'
 

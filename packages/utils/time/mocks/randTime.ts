@@ -1,9 +1,9 @@
 import type { TimeInput } from '~/types'
 
-import { randMilliseconds } from './randMilliseconds'
+import { randWeeks } from './randWeeks'
 import { randSeconds } from './randSeconds'
 import { randMinutes } from './randMinutes'
-import { randWeeks } from './randWeeks'
+import { randMilliseconds } from './randMilliseconds'
 import { randHours } from './randHours'
 import { randDays } from './randDays'
 

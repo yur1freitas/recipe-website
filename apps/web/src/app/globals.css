@@ -1,7 +1,8 @@
-@import "tailwindcss";
-@import "@ui/core";
-@import "@ui/captcha";
+@import 'tailwindcss';
+@import '@ui/core';
+@import '@ui/captcha';
 
-html, body {
+html,
+body {
     @apply bg-background text-foreground;
 }

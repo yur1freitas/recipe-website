@@ -1,14 +1,14 @@
+import type { ProgressValueProps } from './ProgressValue'
+import type { ProgressTrackProps } from './ProgressTrack'
+import type { ProgressRootProps } from './ProgressRoot'
 import type { ProgressLabelProps } from './ProgressLabel'
 import type { ProgressIndicatorProps } from './ProgressIndicator'
-import type { ProgressValueProps } from './ProgressValue'
-import type { ProgressRootProps } from './ProgressRoot'
-import type { ProgressTrackProps } from './ProgressTrack'
 
+import { ProgressValue } from './ProgressValue'
+import { ProgressTrack } from './ProgressTrack'
+import { ProgressRoot } from './ProgressRoot'
 import { ProgressLabel } from './ProgressLabel'
 import { ProgressIndicator } from './ProgressIndicator'
-import { ProgressRoot } from './ProgressRoot'
-import { ProgressTrack } from './ProgressTrack'
-import { ProgressValue } from './ProgressValue'
 
 export const Progress = {
     Track: ProgressTrack,

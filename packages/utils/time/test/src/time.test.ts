@@ -1,16 +1,17 @@
-import { faker } from '@faker-js/faker/locale/pt_BR'
 import { describe, it, expect, vi } from 'vitest'
+import { faker } from '@faker-js/faker/locale/pt_BR'
 
-import { randMilliseconds } from '~mocks/randMilliseconds'
+import { randWeeks } from '~mocks/randWeeks'
+import { randTime } from '~mocks/randTime'
 import { randSeconds } from '~mocks/randSeconds'
 import { randMinutes } from '~mocks/randMinutes'
-import { randWeeks } from '~mocks/randWeeks'
+import { randMilliseconds } from '~mocks/randMilliseconds'
 import { randHours } from '~mocks/randHours'
-import { randTime } from '~mocks/randTime'
 import { randDays } from '~mocks/randDays'
 
 import type { TimeUnit } from '~/types'
 
+import { Time } from '~/time'
 import {
     MAX_AMOUNT_IN_DAYS,
     MAX_AMOUNT_IN_HOURS,
@@ -24,7 +25,6 @@ import {
     ONE_SECOND_IN_MS,
     ONE_WEEK_IN_MS
 } from '~/constants'
-import { Time } from '~/time'
 
 describe('Time', () => {
     const NUM_DIGITS = 2

@@ -1,9 +1,8 @@
+import type { TimeUnit } from '@utils/time'
 import type {
     NumberFieldRootChangeEventDetails,
     NumberFieldRootProps
 } from '@base-ui/react/number-field'
-
-import type { TimeUnit } from '@utils/time'
 
 import { useTimeFieldsetContext } from '~/hooks/useTimeFieldsetContext'
 

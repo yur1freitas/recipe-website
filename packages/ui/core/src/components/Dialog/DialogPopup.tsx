@@ -1,5 +1,5 @@
-import { Dialog as BaseDialog } from '@base-ui/react/dialog'
 import { cx } from 'tailwind-variants/utils'
+import { Dialog as BaseDialog } from '@base-ui/react/dialog'
 
 import type { BoxVariants } from '../Box'
 

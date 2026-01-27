@@ -1,15 +1,15 @@
 import { NumericError } from '~/error'
 import { NumericType } from '~/consts'
 
+import type { ParseMixedOutput } from './parseMixed'
+import type { ParseIntegerOutput } from './parseInteger'
 import type { ParseFractionOutput } from './parseFraction'
 import type { ParseFloatingOutput } from './parseFloating'
-import type { ParseIntegerOutput } from './parseInteger'
-import type { ParseMixedOutput } from './parseMixed'
 
+import { parseMixed } from './parseMixed'
+import { parseInteger } from './parseInteger'
 import { parseFraction } from './parseFraction'
 import { parseFloating } from './parseFloating'
-import { parseInteger } from './parseInteger'
-import { parseMixed } from './parseMixed'
 import { getType } from './getType'
 
 export type ParseNumericInput = string

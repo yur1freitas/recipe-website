@@ -1,7 +1,7 @@
-import type { SwaggerTransform } from '@fastify/swagger'
-import type { FastifySchema } from 'fastify'
-
 import { isPlainObject } from '@utils/core/isPlainObject'
+
+import type { FastifySchema } from 'fastify'
+import type { SwaggerTransform } from '@fastify/swagger'
 
 import type { JsonSchemaTransformFn } from './types'
 

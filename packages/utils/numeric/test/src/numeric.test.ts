@@ -1,14 +1,14 @@
-import { faker } from '@faker-js/faker/locale/pt_BR'
 import { describe, it, expect } from 'vitest'
+import { faker } from '@faker-js/faker/locale/pt_BR'
 
-import { randFraction } from '~mocks/randFraction'
 import { randNumeric } from '~mocks/randNumeric'
-import { randFloat } from '~mocks/randFloat'
 import { randMixed } from '~mocks/randMixed'
 import { randInt } from '~mocks/randInt'
+import { randFraction } from '~mocks/randFraction'
+import { randFloat } from '~mocks/randFloat'
 
-import { NumericType } from '~/consts'
 import { Numeric } from '~/numeric'
+import { NumericType } from '~/consts'
 
 describe('Numeric', () => {
     it('deve instanciar uma classe Numeric', () => {

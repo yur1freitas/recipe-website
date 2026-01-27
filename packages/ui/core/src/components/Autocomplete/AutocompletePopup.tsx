@@ -1,5 +1,5 @@
-import { Autocomplete as BaseAutocomplete } from '@base-ui/react/autocomplete'
 import { cx } from 'tailwind-variants/utils'
+import { Autocomplete as BaseAutocomplete } from '@base-ui/react/autocomplete'
 
 export type AutocompletePopupProps = BaseAutocomplete.Popup.Props
 

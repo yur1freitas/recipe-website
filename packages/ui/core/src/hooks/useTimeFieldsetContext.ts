@@ -1,7 +1,6 @@
-import { use } from 'react'
-
 import type { TimeUnit } from '@utils/time'
 
+import { use } from 'react'
 import {
     MAX_AMOUNT_IN_DAYS,
     MAX_AMOUNT_IN_HOURS,

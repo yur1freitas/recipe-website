@@ -1,10 +1,10 @@
+import { join } from 'node:path'
 import { CamelCasePlugin, Kysely, SqliteDialect } from 'kysely'
 import Sqlite from 'better-sqlite3'
-import { join } from 'node:path'
 
-import { DATABASE_FILENAME } from '~/consts'
 import { ensureDirSync } from '~/utils/fs'
 import { env } from '~/env'
+import { DATABASE_FILENAME } from '~/consts'
 
 import type { Database } from './types'
 

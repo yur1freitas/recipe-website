@@ -1,11 +1,11 @@
 import { NumericError } from '~/error'
 import { NumericType } from '~/consts'
 
-import type { ParseFractionOutput } from './parseFraction'
 import type { ParseIntegerOutput } from './parseInteger'
+import type { ParseFractionOutput } from './parseFraction'
 
-import { parseFraction } from './parseFraction'
 import { parseInteger } from './parseInteger'
+import { parseFraction } from './parseFraction'
 import { isMixed } from './isMixed'
 
 export type ParseMixedInput = string

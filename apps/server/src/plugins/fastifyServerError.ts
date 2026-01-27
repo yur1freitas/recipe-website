@@ -1,6 +1,5 @@
-import type { FastifyReply } from 'fastify'
-
 import fp from 'fastify-plugin'
+import type { FastifyReply } from 'fastify'
 
 import { DEFAULT_SERVER_ERROR_MESSAGE } from '~/consts'
 

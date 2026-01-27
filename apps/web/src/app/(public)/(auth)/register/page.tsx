@@ -2,6 +2,7 @@
 
 import type { CapWidget } from '@cap.js/widget'
 
+import z from 'zod'
 import {
     Suspense,
     useActionState,
@@ -10,18 +11,17 @@ import {
     useTransition
 } from 'react'
 import { useRouter } from 'next/navigation'
-import z from 'zod'
 
 import { emailSchema, passwordSchema, usernameSchema } from '@core/shared'
 
-import { Box } from '@ui/core/Box'
-import { Loading } from '@ui/core/Loading'
 import { Typography } from '@ui/core/Typography'
+import { Loading } from '@ui/core/Loading'
+import { Box } from '@ui/core/Box'
 
-import { registerUserAction } from '~/actions/registerUserAction'
-import { Action } from '~/components/Action'
 import { useAppForm } from '~/hooks/form'
 import { CAPTCHA_ENDPOINT } from '~/env'
+import { Action } from '~/components/Action'
+import { registerUserAction } from '~/actions/registerUserAction'
 
 const schema = z.object({
     name: usernameSchema,

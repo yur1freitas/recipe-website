@@ -1,12 +1,11 @@
 import z from 'zod'
 
-import type { RegisterUser, RegisterUserInput } from '@core/auth'
-
-import { AuthError, RegisterUserErrors, userSchema } from '@core/auth'
 import { ValidatorError } from '@core/shared'
+import type { RegisterUser, RegisterUserInput } from '@core/auth'
+import { AuthError, RegisterUserErrors, userSchema } from '@core/auth'
 
-import { httpErrorSchema, serverErrorSchema } from '~/schemas/httpErrorSchema'
 import { createController } from '~/utils/controller'
+import { httpErrorSchema, serverErrorSchema } from '~/schemas/httpErrorSchema'
 
 interface Options {
     registerUser: RegisterUser

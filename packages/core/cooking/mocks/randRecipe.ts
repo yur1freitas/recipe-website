@@ -4,13 +4,13 @@ import { randId } from '@core/shared/mocks'
 
 import type { RecipeInput, RecipeProps } from '~/recipe/models/Recipe'
 
-import { randPreparationTime } from './randPreparationTime'
-import { randDescription } from './randDescription'
-import { randIngredient } from './randIngredient'
-import { randDifficulty } from './randDifficulty'
 import { randTool } from './randTool'
 import { randStep } from './randStep'
+import { randPreparationTime } from './randPreparationTime'
 import { randName } from './randName'
+import { randIngredient } from './randIngredient'
+import { randDifficulty } from './randDifficulty'
+import { randDescription } from './randDescription'
 
 export type RandRecipeOptions = Partial<RecipeInput>
 

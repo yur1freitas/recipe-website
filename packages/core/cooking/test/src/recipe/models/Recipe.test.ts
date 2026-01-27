@@ -1,16 +1,16 @@
 import { expect, it, describe, afterEach } from 'vitest'
 import { faker } from '@faker-js/faker/locale/pt_BR'
 
-import { randPreparationTime } from '~mocks/randPreparationTime'
-import { randDescription } from '~mocks/randDescription'
-import { randIngredient } from '~mocks/randIngredient'
-import { randDifficulty } from '~mocks/randDifficulty'
-import { randRecipe } from '~mocks/randRecipe'
-import { randAmount } from '~mocks/randAmount'
-import { randOrder } from '~mocks/randOrder'
 import { randTool } from '~mocks/randTool'
 import { randStep } from '~mocks/randStep'
+import { randRecipe } from '~mocks/randRecipe'
+import { randPreparationTime } from '~mocks/randPreparationTime'
+import { randOrder } from '~mocks/randOrder'
 import { randName } from '~mocks/randName'
+import { randIngredient } from '~mocks/randIngredient'
+import { randDifficulty } from '~mocks/randDifficulty'
+import { randDescription } from '~mocks/randDescription'
+import { randAmount } from '~mocks/randAmount'
 
 import { ValidatorError } from '@core/shared'
 

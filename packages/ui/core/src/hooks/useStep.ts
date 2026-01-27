@@ -1,5 +1,4 @@
 import { useState } from 'react'
-
 import { clamp } from '@utils/core/clamp'
 
 export type SetStepFn = (step: number) => void

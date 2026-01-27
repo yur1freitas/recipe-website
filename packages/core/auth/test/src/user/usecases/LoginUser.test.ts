@@ -2,14 +2,14 @@ import { describe, it, expect, afterEach, beforeEach } from 'vitest'
 import { faker } from '@faker-js/faker/locale/pt_BR'
 
 import { UserRepositoryProviderMock } from '~mocks/UserRepositoryProviderMock'
-import { AccessTokenProviderMock } from '~mocks/AccessTokenProviderMock'
-import { EncryptProviderMock } from '~mocks/EncryptProviderMock'
 import { randUser } from '~mocks/randUser'
+import { EncryptProviderMock } from '~mocks/EncryptProviderMock'
+import { AccessTokenProviderMock } from '~mocks/AccessTokenProviderMock'
 
 import { randEmail, randPassword } from '@core/shared/mocks'
 
-import type { UserRepositoryProvider } from '~/user/providers/UserRepositoryProvider'
 import type { LoginUserInput } from '~/user/usecases/LoginUser'
+import type { UserRepositoryProvider } from '~/user/providers/UserRepositoryProvider'
 import type { UserPayload } from '~/user/models/UserPayload'
 import type { UserProps } from '~/user/models/User'
 

@@ -1,7 +1,6 @@
 import type { Kysely } from 'kysely'
 
 import type { UserRepositoryProvider } from '@core/auth'
-
 import { User } from '@core/auth'
 
 import type { DB } from '~/db/schema'

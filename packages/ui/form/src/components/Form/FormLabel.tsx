@@ -1,5 +1,4 @@
 import type { FieldProps } from '@ui/core/Field'
-
 import { Field } from '@ui/core/Field'
 
 export type FormLabelProps = FieldProps.Label

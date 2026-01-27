@@ -1,16 +1,16 @@
-import type { ScrollAreaRootProps } from './ScrollAreaRoot'
-import type { ScrollAreaThumbProps } from './ScrollAreaThumb'
-import type { ScrollAreaCornerProps } from './ScrollAreaCorner'
 import type { ScrollAreaViewportProps } from './ScrollAreaViewport'
-import type { ScrollAreaContentProps } from './ScrollAreaContent'
+import type { ScrollAreaThumbProps } from './ScrollAreaThumb'
 import type { ScrollAreaScrollbarProps } from './ScrollAreaScrollbar'
+import type { ScrollAreaRootProps } from './ScrollAreaRoot'
+import type { ScrollAreaCornerProps } from './ScrollAreaCorner'
+import type { ScrollAreaContentProps } from './ScrollAreaContent'
 
-import { ScrollAreaRoot } from './ScrollAreaRoot'
-import { ScrollAreaThumb } from './ScrollAreaThumb'
-import { ScrollAreaCorner } from './ScrollAreaCorner'
 import { ScrollAreaViewport } from './ScrollAreaViewport'
-import { ScrollAreaContent } from './ScrollAreaContent'
+import { ScrollAreaThumb } from './ScrollAreaThumb'
 import { ScrollAreaScrollbar } from './ScrollAreaScrollbar'
+import { ScrollAreaRoot } from './ScrollAreaRoot'
+import { ScrollAreaCorner } from './ScrollAreaCorner'
+import { ScrollAreaContent } from './ScrollAreaContent'
 
 export const ScrollArea = {
     Root: ScrollAreaRoot,

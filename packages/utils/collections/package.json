@@ -17,15 +17,15 @@
         "typecheck": "tsc --noEmit"
     },
     "devDependencies": {
+        "@config/tsdown": "workspace:",
+        "@config/typescript": "workspace:",
         "@config/vitest": "workspace:",
         "@faker-js/faker": "catalog:test",
         "@vitest/coverage-v8": "catalog:test",
         "@vitest/ui": "catalog:test",
-        "vitest": "catalog:test",
-        "@config/tsdown": "workspace:",
-        "@config/typescript": "workspace:",
         "tsdown": "catalog:build",
-        "typescript": "catalog:"
+        "typescript": "catalog:",
+        "vitest": "catalog:test"
     },
     "peerDependencies": {
         "@faker-js/faker": "catalog:test"

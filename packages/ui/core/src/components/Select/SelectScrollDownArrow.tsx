@@ -1,5 +1,5 @@
-import { Select as BaseSelect } from '@base-ui/react/select'
 import { cx } from 'tailwind-variants/utils'
+import { Select as BaseSelect } from '@base-ui/react/select'
 
 export type SelectScrollDownArrowProps = BaseSelect.ScrollDownArrow.Props & {
     className?: string

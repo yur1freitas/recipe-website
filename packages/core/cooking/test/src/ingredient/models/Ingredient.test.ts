@@ -1,14 +1,14 @@
 import { expect, it, describe, afterEach } from 'vitest'
 import { faker } from '@faker-js/faker/locale/pt_BR'
 
-import { randIngredient } from '~mocks/randIngredient'
-import { randMeasure } from '~mocks/randMeasure'
 import { randUnit } from '~mocks/randUnit'
+import { randMeasure } from '~mocks/randMeasure'
+import { randIngredient } from '~mocks/randIngredient'
 
 import { ValidatorError } from '@core/shared'
 
-import { UNIT_NAMES } from '~/ingredient/constants/unitNames'
 import { Ingredient } from '~/ingredient/models/Ingredient'
+import { UNIT_NAMES } from '~/ingredient/constants/unitNames'
 
 describe('Ingredient', () => {
     afterEach(() => {

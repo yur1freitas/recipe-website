@@ -1,8 +1,8 @@
 'use strict'
 
-import { Modal, useModal } from '../../../lib/ui/Modal/index.js'
 import { useTargetKey } from '../hooks/useTargetKey.js'
 import { useKeyStore } from '../hooks/useKeyStore.js'
+import { Modal, useModal } from '../../../lib/ui/Modal/index.js'
 import { html } from '../../../lib/ui/html.js'
 import { DELETE } from '../../../lib/http.js'
 

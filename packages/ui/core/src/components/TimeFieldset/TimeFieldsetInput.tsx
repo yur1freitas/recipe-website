@@ -1,12 +1,12 @@
-import { MinusIcon, PlusIcon } from 'lucide-react'
 import { cx } from 'tailwind-variants/utils'
+import { MinusIcon, PlusIcon } from 'lucide-react'
 
 import type { NumberFieldInputProps } from '../NumberField/NumberFieldInput'
 
-import { NumberFieldIncrement } from '../NumberField/NumberFieldIncrement'
 import { NumberFieldInput } from '../NumberField/NumberFieldInput'
-import { NumberFieldDecrement } from '../NumberField/NumberFieldDecrement'
+import { NumberFieldIncrement } from '../NumberField/NumberFieldIncrement'
 import { NumberFieldGroup } from '../NumberField/NumberFieldGroup'
+import { NumberFieldDecrement } from '../NumberField/NumberFieldDecrement'
 
 export type TimeFieldsetInputProps = NumberFieldInputProps
 

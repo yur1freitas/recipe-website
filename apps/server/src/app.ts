@@ -1,22 +1,21 @@
 import type { StandardSchemaTypeProvider } from '@standard-schema/fastify-type-provider'
 
+import { ZodType } from 'zod'
+import z from 'zod'
 import {
     StandardSchemaSerializerCompiler,
     StandardSchemaValidatorCompiler,
     swaggerTransform
 } from '@standard-schema/fastify-type-provider'
 import fastifyScalar from '@scalar/fastify-api-reference'
-import { ZodType } from 'zod'
-import z from 'zod'
 
 import type { PinoLoggerOptions } from 'fastify/types/logger'
-
-import fastifyRateLimit from '@fastify/rate-limit'
-import fastifySensible from '@fastify/sensible'
-import fastifySwagger from '@fastify/swagger'
-import fastifyCookie from '@fastify/cookie'
-import fastifyCors from '@fastify/cors'
 import fastify from 'fastify'
+import fastifySwagger from '@fastify/swagger'
+import fastifySensible from '@fastify/sensible'
+import fastifyRateLimit from '@fastify/rate-limit'
+import fastifyCors from '@fastify/cors'
+import fastifyCookie from '@fastify/cookie'
 
 import { fastifyServerError } from './plugins/fastifyServerError'
 import { fastifyResponse } from './plugins/fastifyResponse'
