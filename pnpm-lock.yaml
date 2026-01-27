@@ -823,6 +823,9 @@ importers:
       '@utils/core':
         specifier: 'workspace:'
         version: link:../../utils/core
+      '@utils/numeric':
+        specifier: 'workspace:'
+        version: link:../../utils/numeric
       '@utils/time':
         specifier: 'workspace:'
         version: link:../../utils/time

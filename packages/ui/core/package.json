@@ -13,6 +13,7 @@
         "./Field": "./dist/Field/index.js",
         "./Fieldset": "./dist/Fieldset/index.js",
         "./hooks/useBoolean": "./dist/hooks/useBoolean.js",
+        "./hooks/useNumeric": "./dist/hooks/useNumeric.js",
         "./hooks/usePasswordContext": "./dist/hooks/usePasswordContext.js",
         "./hooks/useStep": "./dist/hooks/useStep.js",
         "./hooks/useTime": "./dist/hooks/useTime.js",
@@ -23,6 +24,7 @@
         "./Loading": "./dist/Loading.js",
         "./Menu": "./dist/Menu/index.js",
         "./NumberField": "./dist/NumberField/index.js",
+        "./NumericInput": "./dist/NumericInput.js",
         "./Password": "./dist/Password/index.js",
         "./Progress": "./dist/Progress/index.js",
         "./ScrollArea": "./dist/ScrollArea/index.js",
@@ -49,6 +51,7 @@
         "@base-ui/react": "catalog:frontend",
         "@ui/css": "workspace:",
         "@utils/core": "workspace:",
+        "@utils/numeric": "workspace:",
         "@utils/time": "workspace:",
         "lucide-react": "catalog:frontend",
         "tailwind-variants": "catalog:frontend"
