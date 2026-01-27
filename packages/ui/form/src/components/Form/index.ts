@@ -1,3 +1,4 @@
+import type { FormNumericInputProps } from './FormNumericInput'
 import type { FormPasswordProps } from './FormPassword'
 import type { FormTextareaProps } from './FormTextarea'
 import type { FormCaptchaProps } from './FormCaptcha'
@@ -6,6 +7,7 @@ import type { FormFieldProps } from './FormField'
 import type { FormInputProps } from './FormInput'
 import type { FormLabelProps } from './FormLabel'
 
+import { FormNumericInput } from './FormNumericInput'
 import { FormFieldInfo } from './FormFieldInfo'
 import { FormPassword } from './FormPassword'
 import { FormTextarea } from './FormTextarea'
@@ -23,7 +25,8 @@ export const Form = {
     Submit: FormSubmit,
     Password: FormPassword,
     Captcha: FormCaptcha,
-    Textarea: FormTextarea
+    Textarea: FormTextarea,
+    NumericInput: FormNumericInput
 }
 
 export namespace FormProps {
@@ -34,4 +37,5 @@ export namespace FormProps {
     export type Password = FormPasswordProps
     export type Captcha = FormCaptchaProps
     export type Textarea = FormTextareaProps
+    export type NumericInput = FormNumericInputProps
 }
