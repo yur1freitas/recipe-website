@@ -21,6 +21,12 @@ describe('Step', () => {
         expect(step.props).toStrictEqual(input)
     })
 
+    it('deve formatar uma etapa', () => {
+        const step = new Step({ order: 1, description: 'Prepare o molho' })
+
+        expect(step.format()).toBe('1. Prepare o molho')
+    })
+
     it('deve lançar um erro se o a ordem for inválida', () => {
         const input = randStep({
             order: randOrder({ testCase: 'float' })
