@@ -1,8 +1,8 @@
 import type { AnyFormState } from '@tanstack/react-form'
 
 import { Loading } from '@ui/core/Loading'
-import type { ButtonProps } from '@ui/core/Button'
 import { Button } from '@ui/core/Button'
+import type { ButtonProps } from '@ui/core/Button'
 
 import { isInvalidForm } from '~/utils/isInvalidForm'
 import { useFormContext } from '~/contexts/form'
@@ -11,7 +11,12 @@ export type FormSubmitProps = ButtonProps & {
     isPending?: boolean
 }
 
-export function FormSubmit({ children, isPending, ...props }: FormSubmitProps) {
+export function FormSubmit({
+    children,
+    className,
+    isPending,
+    ...props
+}: FormSubmitProps) {
     const form = useFormContext()
 
     const selector = (state: AnyFormState) => ({
@@ -27,7 +32,7 @@ export function FormSubmit({ children, isPending, ...props }: FormSubmitProps) {
                     nativeButton
                     type='submit'
                     disabled={isInvalid}
-                    className='data-[submit=true]:animate-pulse'
+                    className={`data-[submit=true]:animate-pulse ${className ?? ''}`.trim()}
                 >
                     {isSubmitting ? <Loading /> : children}
                 </Button>
