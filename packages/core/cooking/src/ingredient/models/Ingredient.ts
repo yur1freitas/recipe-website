@@ -2,8 +2,8 @@ import type { Numeric } from '@utils/numeric'
 
 import z from 'zod'
 
-import type { EntityInput, EntityProps } from '@core/shared'
 import { Entity, entitySchema } from '@core/shared'
+import type { EntityInput, EntityProps } from '@core/shared'
 
 import { nameSchema, Name } from '~/shared/models/Name'
 
@@ -52,7 +52,7 @@ export class Ingredient extends Entity<IngredientInput> {
     }
 
     format(): string {
-        const isPlural = false
+        const isPlural = this.measure.toNumber() > 1
 
         return `${this.measure.value} ${this.unit.format(
             isPlural
