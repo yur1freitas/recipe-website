@@ -39,4 +39,8 @@ export class Step extends Entity<StepInput> {
             description: this.description.value
         }
     }
+
+    format(): string {
+        return `${this.order.value}. ${this.description.value}`
+    }
 }
