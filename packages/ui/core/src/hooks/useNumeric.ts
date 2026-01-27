@@ -14,11 +14,14 @@ export type ChangeRawValueHandler = (event: ChangeRawValueEvent) => void
 export type SetRawValueFn = React.Dispatch<React.SetStateAction<string>>
 export type SetValueFn = React.Dispatch<React.SetStateAction<Numeric>>
 
+export type State = 'valid' | 'invalid'
+
 export interface UseNumericInput {
     value?: Numeric
     rawValue?: string
     onValueChange?: ChangeValueHandler
     onRawValueChange?: ChangeRawValueHandler
+    defaultState?: State
 }
 
 export interface UseNumericOutput {
@@ -34,9 +37,12 @@ export function useNumeric({
     value = new Numeric('0'),
     rawValue = '',
     onValueChange,
-    onRawValueChange
+    onRawValueChange,
+    defaultState = 'invalid'
 }: UseNumericInput = {}): UseNumericOutput {
-    const { value: isValid, setValue: setIsValid } = useBoolean()
+    const { value: isValid, setValue: setIsValid } = useBoolean(
+        defaultState === 'valid'
+    )
 
     const [currentRawValue, setCurrentRawValue] = useState<string>(
         () => rawValue
