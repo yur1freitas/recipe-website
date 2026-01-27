@@ -1,6 +1,6 @@
 import z from 'zod'
+import { Time } from '@utils/time'
 
-import { Time } from '@core/time'
 import { idSchema, ValidatorError } from '@core/shared'
 import type { UpdateRecipe } from '@core/cooking'
 import {

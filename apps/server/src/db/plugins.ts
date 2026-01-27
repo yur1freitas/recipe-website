@@ -7,7 +7,7 @@ import type {
     UnknownRow
 } from 'kysely'
 
-import { Time } from '@core/time'
+import { Time } from '@utils/time'
 
 export interface TimePluginOptions {
     columns?: string[]
