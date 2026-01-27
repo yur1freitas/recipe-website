@@ -21,6 +21,8 @@
             "fastify",
             "type-core",
             "core",
+            "type-ui",
+            "ui",
             "type-internal",
             "internal",
             ["type-parent", "type-sibling"],
@@ -44,6 +46,15 @@
             {
                 "groupName": "mocks",
                 "elementNamePattern": ["~mocks/"]
+            },
+            {
+                "selector": "type",
+                "groupName": "type-ui",
+                "elementNamePattern": ["@ui/"]
+            },
+            {
+                "groupName": "ui",
+                "elementNamePattern": ["@ui/"]
             },
             {
                 "selector": "type",
