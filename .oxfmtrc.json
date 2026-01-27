@@ -8,5 +8,52 @@
     "printWidth": 80,
     "tabWidth": 4,
     "trailingComma": "none",
-    "ignorePatterns": ["*-lock.{yaml,json}"]
+    "ignorePatterns": ["*-lock.{yaml,json}"],
+    "experimentalSortImports": {
+        "order": "desc",
+        "groups": [
+            "style",
+            ["type-builtin", "type-external"],
+            ["builtin", "external"],
+            "type-mocks",
+            "mocks",
+            "type-fastify",
+            "fastify",
+            "type-core",
+            "core",
+            "type-internal",
+            "internal",
+            ["type-parent", "type-sibling"],
+            ["parent", "sibling"]
+        ],
+        "customGroups": [
+            {
+                "selector": "type",
+                "groupName": "type-mocks",
+                "elementNamePattern": ["~mocks/"]
+            },
+            {
+                "selector": "type",
+                "groupName": "type-fastify",
+                "elementNamePattern": ["fastify", "@fastify/"]
+            },
+            {
+                "groupName": "fastify",
+                "elementNamePattern": ["fastify", "@fastify/"]
+            },
+            {
+                "groupName": "mocks",
+                "elementNamePattern": ["~mocks/"]
+            },
+            {
+                "selector": "type",
+                "groupName": "type-core",
+                "elementNamePattern": ["@core/"]
+            },
+            {
+                "groupName": "core",
+                "elementNamePattern": ["@core/"]
+            }
+        ]
+    }
 }

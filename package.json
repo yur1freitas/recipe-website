@@ -24,7 +24,6 @@
         "@config/typescript": "workspace:",
         "@types/node": "catalog:types",
         "dprint": "catalog:lint",
-        "eslint-plugin-perfectionist": "catalog:lint",
         "husky": "catalog:git",
         "lint-staged": "catalog:git",
         "oxfmt": "catalog:lint",
