@@ -1,7 +1,6 @@
 {
     "$schema": "./node_modules/oxlint/configuration_schema.json",
     "plugins": ["unicorn", "typescript", "oxc"],
-    "jsPlugins": ["eslint-plugin-perfectionist"],
     "rules": {
         "constructor-super": "warn",
         "for-direction": "warn",
@@ -107,66 +106,7 @@
         "unicorn/no-useless-length-check": "warn",
         "unicorn/no-useless-spread": "warn",
         "unicorn/prefer-set-size": "warn",
-        "unicorn/prefer-string-starts-ends-with": "warn",
-        "perfectionist/sort-exports": [
-            "warn",
-            {
-                "type": "line-length",
-                "order": "desc",
-                "groups": ["type-export", "value-export"]
-            }
-        ],
-        "perfectionist/sort-imports": [
-            "warn",
-            {
-                "type": "line-length",
-                "order": "desc",
-                "groups": [
-                    "style",
-                    ["type-builtin", "type-external"],
-                    ["builtin", "external"],
-                    "type-mocks",
-                    "mocks",
-                    "type-fastify",
-                    "fastify",
-                    "type-core",
-                    "core",
-                    "type-internal",
-                    "internal",
-                    ["type-parent", "type-sibling"],
-                    ["parent", "sibling"]
-                ],
-                "customGroups": [
-                    {
-                        "selector": "type",
-                        "groupName": "type-core",
-                        "elementNamePattern": "^@core/.+"
-                    },
-                    {
-                        "groupName": "core",
-                        "elementNamePattern": "^@core/.+"
-                    },
-                    {
-                        "selector": "type",
-                        "groupName": "type-fastify",
-                        "elementNamePattern": ["^fastify", "^@fastify/.+"]
-                    },
-                    {
-                        "groupName": "fastify",
-                        "elementNamePattern": ["^fastify", "^@fastify/.+"]
-                    },
-                    {
-                        "selector": "type",
-                        "groupName": "type-mocks",
-                        "elementNamePattern": "^~mocks/.+"
-                    },
-                    {
-                        "groupName": "mocks",
-                        "elementNamePattern": "^~mocks/.+"
-                    }
-                ]
-            }
-        ]
+        "unicorn/prefer-string-starts-ends-with": "warn"
     },
     "settings": {
         "jsx-a11y": {
