@@ -11,7 +11,8 @@ const button = tv({
             success: 'btn-success',
             secondary: 'btn-secondary',
             destructive: 'btn-destructive',
-            outline: 'btn-outline'
+            outline: 'btn-outline',
+            ghost: 'btn-ghost'
         },
         size: {
             sm: 'btn-sm',

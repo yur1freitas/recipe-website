@@ -86,6 +86,10 @@
                 hover:bg-muted;
         }
 
+        &-ghost {
+            @apply text-foreground bg-background hover:bg-muted shadow-none;
+        }
+
         &-success {
             @apply bg-success text-success-foregroud hover:bg-success/80;
         }
