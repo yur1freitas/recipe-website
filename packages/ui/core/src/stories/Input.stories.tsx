@@ -9,7 +9,13 @@ const meta = {
     parameters: {
         layout: 'centered'
     },
-    argTypes: {},
+    argTypes: {
+        variant: {
+            type: 'string',
+            control: 'select',
+            options: ['default', 'value-only']
+        }
+    },
     args: {}
 } satisfies Meta<typeof Input>
 
@@ -29,4 +35,16 @@ export const WithInvalidState: Story = {
     args: {
         'aria-invalid': 'true'
     }
+}
+
+export const ValueOnly: Story = {
+    args: { variant: 'value-only', defaultValue: 'Hello World' }
+}
+
+export const ValueOnlyAndReadonly: Story = {
+    args: { variant: 'value-only', readOnly: true, defaultValue: 'Hello World' }
+}
+
+export const ValueOnlyAndDisabled: Story = {
+    args: { variant: 'value-only', disabled: true, defaultValue: 'Hello World' }
 }
