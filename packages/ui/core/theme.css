@@ -117,6 +117,22 @@
         @apply aria-invalid:text-destructive;
     }
 
+    .value-only-input {
+        @apply outline-none cursor-default select-none;
+
+        &:disabled {
+            @apply opacity-50;
+        }
+
+        &:focus-visible {
+            @apply border-b border-ring/50;
+        }
+
+        &:read-only {
+            @apply pointer-events-none;
+        }
+    }
+
     .input {
         @apply inline-flex w-full min-w-0 h-9 px-3 py-1;
         @apply border border-input outline-none rounded;
