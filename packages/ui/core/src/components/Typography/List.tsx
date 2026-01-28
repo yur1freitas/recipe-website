@@ -5,13 +5,13 @@ import { tv } from 'tailwind-variants/lite'
 const list = tv({
     base: 'typography-list',
     variants: {
-        type: {
+        variant: {
             disc: 'typography-list-disc',
             decimal: 'typography-list-decimal'
         }
     },
     defaultVariants: {
-        type: 'disc'
+        variant: 'disc'
     }
 })
 
@@ -22,12 +22,12 @@ export type ListProps = React.ComponentProps<'ul'> &
     ListVariants
 
 export function List({
-    type,
+    variant,
     className,
     ...props
 }: ListProps): React.JSX.Element {
-    const classNames = list({ type, className })
-    const Comp = type === 'decimal' ? 'ol' : 'ul'
+    const classNames = list({ variant, className })
+    const Comp = variant === 'decimal' ? 'ol' : 'ul'
 
-    return <Comp {...props} data-type={type} className={classNames} />
+    return <Comp {...props} data-variant={variant} className={classNames} />
 }

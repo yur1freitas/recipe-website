@@ -11,7 +11,7 @@ const meta = {
     },
     argTypes: {
         type: {
-            type: 'string',
+            variant: 'string',
             control: 'select',
             options: ['disc', 'decimal']
         }
@@ -35,12 +35,12 @@ export const Default: Story = {}
 
 export const Disc: Story = {
     args: {
-        type: 'disc'
+        variant: 'disc'
     }
 }
 
 export const Decimal: Story = {
     args: {
-        type: 'decimal'
+        variant: 'decimal'
     }
 }
