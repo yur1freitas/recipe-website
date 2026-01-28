@@ -19,6 +19,7 @@ const meta = {
                 'primary',
                 'secondary',
                 'outline',
+                'ghost',
                 'success',
                 'destructive'
             ]
@@ -55,6 +56,12 @@ export const Secondary: Story = {
 export const Outline: Story = {
     args: {
         variant: 'outline'
+    }
+}
+
+export const Ghost: Story = {
+    args: {
+        variant: 'ghost'
     }
 }
 
