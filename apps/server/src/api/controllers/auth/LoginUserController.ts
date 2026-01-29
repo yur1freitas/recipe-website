@@ -1,17 +1,25 @@
+import type { StandardSchemaTypeProvider } from '@standard-schema/fastify-type-provider'
+
 import z from 'zod'
+
+import fp from 'fastify-plugin'
+import type { RawServerDefault } from 'fastify'
 
 import { emailSchema, passwordSchema, ValidatorError } from '@core/shared'
 import type { LoginUser, LoginUserInput } from '@core/auth'
 import { AuthError, LoginUserErrors } from '@core/auth'
 
-import { createController } from '~/utils/controller'
 import { httpErrorSchema, serverErrorSchema } from '~/schemas/httpErrorSchema'
 
 interface Options {
     loginUser: LoginUser
 }
 
-export const loginUserController = createController<Options>((app, options) => {
+export const loginUserController = fp<
+    Options,
+    RawServerDefault,
+    StandardSchemaTypeProvider
+>((app, options) => {
     const { loginUser } = options
 
     app.post(
