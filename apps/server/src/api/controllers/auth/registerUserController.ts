@@ -30,7 +30,9 @@ export const registerUserController = fp<
                 description: 'Rota para registrar um usuário',
                 body: userSchema.omit({ id: true }),
                 response: {
-                    201: z.null().describe('Usuário cadastrado com sucesso'),
+                    201: z
+                        .undefined()
+                        .describe('Usuário cadastrado com sucesso'),
                     400: httpErrorSchema.describe('Erro de validação'),
                     409: httpErrorSchema.describe(
                         'O email do usuário já está cadastrado'

@@ -36,7 +36,7 @@ export const deleteRecipeController = fp<
                 description: 'Deletar uma receita cadastrada',
                 params: z.object({ id: idSchema }),
                 response: {
-                    204: z.null().describe('Receita deletada com sucesso'),
+                    204: z.undefined().describe('Receita deletada com sucesso'),
                     400: httpErrorSchema.describe('Erro de validação'),
                     500: serverErrorSchema
                 }
