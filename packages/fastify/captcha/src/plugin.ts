@@ -67,7 +67,7 @@ export const fastifyCaptcha = fp<FastifyCaptchaOptions>(
         }
 
         app.decorate('captchaAuth', auth)
-        app.decorate('captchaValidation', preValidation)
+        app.decorate('captchaHandler', preValidation)
     },
     {
         name: '@fastify/captcha',
