@@ -56,7 +56,7 @@ export const findRecipesController = fp<
 
             if (!err) {
                 if (recipe) {
-                    return reply.ok(recipe.props)
+                    return reply.send(recipe.props)
                 }
 
                 return reply.notFound()
@@ -98,7 +98,7 @@ export const findRecipesController = fp<
             if (!err) {
                 const data = recipes.map((recipe) => recipe.props)
 
-                return reply.ok(data)
+                return reply.send(data)
             }
 
             if (ValidatorError.isError(err)) {
@@ -138,7 +138,7 @@ export const findRecipesController = fp<
             const [err, recipes] = await app.to(findUserRecipes.execute({ id }))
 
             if (!err) {
-                return reply.ok(recipes.map((recipe) => recipe.props))
+                return reply.send(recipes.map((recipe) => recipe.props))
             }
 
             if (CookingError.isError(err) || ValidatorError.isError(err)) {

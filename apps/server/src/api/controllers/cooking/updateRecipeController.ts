@@ -89,7 +89,7 @@ export const updateRecipeController = fp<
             )
 
             if (!err) {
-                return reply.noContent()
+                return reply.status(204).send()
             }
 
             if (CookingError.isError(err) || ValidatorError.isError(err)) {

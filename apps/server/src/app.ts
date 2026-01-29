@@ -18,7 +18,6 @@ import fastifyCors from '@fastify/cors'
 import fastifyCookie from '@fastify/cookie'
 
 import { fastifyServerError } from './plugins/fastifyServerError'
-import { fastifyResponse } from './plugins/fastifyResponse'
 import { env } from './env'
 
 const logger: Record<string, boolean | PinoLoggerOptions> = {
@@ -45,7 +44,6 @@ app.register(fastifyCors, { origin: [env.WEB_URL] })
     .register(fastifyRateLimit)
     .register(fastifyCookie)
     .register(fastifySensible)
-    .register(fastifyResponse)
     .register(fastifyServerError)
 
 // - - API Reference - -

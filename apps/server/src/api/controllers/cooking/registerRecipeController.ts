@@ -85,7 +85,7 @@ export const registerRecipeController = fp<
             )
 
             if (!err) {
-                return reply.created()
+                return reply.status(201).send()
             }
 
             if (CookingError.isError(err) || ValidatorError.isError(err)) {
