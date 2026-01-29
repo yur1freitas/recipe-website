@@ -6,8 +6,8 @@ import fp from 'fastify-plugin'
 import type { RawServerDefault } from 'fastify'
 
 import { ValidatorError } from '@core/shared'
+import type { RegisterUser } from '@core/auth'
 import { AuthError, RegisterUserErrors, userSchema } from '@core/auth'
-import type { RegisterUser, RegisterUserInput } from '@core/auth'
 
 import { httpErrorSchema, serverErrorSchema } from '~/schemas/httpErrorSchema'
 
@@ -43,7 +43,7 @@ export const registerUserController = fp<
             }
         },
         async (request, reply) => {
-            const { name, email, password } = request.body as RegisterUserInput
+            const { name, email, password } = request.body
 
             const [err] = await app.to(
                 registerUser.execute({ name, email, password })

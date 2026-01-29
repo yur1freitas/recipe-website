@@ -6,8 +6,8 @@ import fp from 'fastify-plugin'
 import type { RawServerDefault } from 'fastify'
 
 import { emailSchema, passwordSchema, ValidatorError } from '@core/shared'
-import type { LoginUser, LoginUserInput } from '@core/auth'
 import { AuthError, LoginUserErrors } from '@core/auth'
+import type { LoginUser } from '@core/auth'
 
 import { httpErrorSchema, serverErrorSchema } from '~/schemas/httpErrorSchema'
 
@@ -52,7 +52,7 @@ export const loginUserController = fp<
             }
         },
         async (request, reply) => {
-            const { email, password } = request.body as LoginUserInput
+            const { email, password } = request.body
 
             const [err, data] = await app.to(
                 loginUser.execute({ email, password })
