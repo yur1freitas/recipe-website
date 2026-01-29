@@ -1,3 +1,5 @@
+import { fastifyPaseto } from '@fastify/paseto'
+
 import {
     DeleteRecipe,
     FindAllRecipes,
@@ -15,7 +17,6 @@ import {
 
 import { listeningInfo } from './utils/info'
 import { fastifyCaptcha } from './plugins/fastifyCaptcha'
-import { fastifyAuth } from './plugins/fastifyAuth'
 import { env } from './env'
 import { valkey } from './db/valkey'
 import { app } from './app'
@@ -75,7 +76,27 @@ try {
         recipeRepositoryProvider
     )
 
-    app.register(fastifyAuth, { verifyUserSession }).register(fastifyCaptcha, {
+    app.register(fastifyPaseto, {
+        cookieName: 'accessToken',
+        paseto: {
+            mode: 'public',
+            key: env.TOKEN_PUBLIC_KEY,
+            decodeOptions: {
+                validatePayload: true,
+                assertion: {
+                    iss: env.TOKEN_ISSUER,
+                    aud: env.TOKEN_AUDIENCE,
+                    exp: env.TOKEN_EXPIRATION
+                }
+            }
+        },
+        customValidationLogic: async (token) => {
+            const [err] = await app.to(verifyUserSession.execute({ token }))
+            return !err
+        }
+    })
+
+    app.register(fastifyCaptcha, {
         keyName: 'captcha'
     })
 

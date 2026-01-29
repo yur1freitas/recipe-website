@@ -26,7 +26,6 @@ export const logoutUserController = fp<
         '/auth/logout',
         {
             config: {
-                auth: 'paseto',
                 rateLimit: {
                     max: 5,
                     timeWindow: '1 hour'
@@ -40,7 +39,8 @@ export const logoutUserController = fp<
                     400: httpErrorSchema.describe('Erro de validação'),
                     500: serverErrorSchema
                 }
-            }
+            },
+            preHandler: [app.pasetoHandler()]
         },
         async (request, reply) => {
             const { accessToken } = request.cookies

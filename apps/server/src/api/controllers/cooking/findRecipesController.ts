@@ -6,12 +6,12 @@ import fp from 'fastify-plugin'
 import type { RawServerDefault } from 'fastify'
 
 import { idSchema, ValidatorError } from '@core/shared'
+import type { FindAllRecipes, FindRecipe, FindUserRecipes } from '@core/cooking'
 import {
     CookingError,
     FindUserRecipesErrors,
     recipeSchema
 } from '@core/cooking'
-import type { FindAllRecipes, FindRecipe, FindUserRecipes } from '@core/cooking'
 
 import { httpErrorSchema, serverErrorSchema } from '~/schemas/httpErrorSchema'
 
@@ -32,7 +32,6 @@ export const findRecipesController = fp<
         '/cooking/recipes/:id',
         {
             config: {
-                auth: 'paseto',
                 rateLimit: {
                     max: 5,
                     timeWindow: 1000 * 60
@@ -47,7 +46,8 @@ export const findRecipesController = fp<
                     400: httpErrorSchema.describe('Erro de validação'),
                     500: serverErrorSchema
                 }
-            }
+            },
+            preHandler: [app.pasetoHandler()]
         },
         async (request, reply) => {
             const { id } = request.params
@@ -76,7 +76,6 @@ export const findRecipesController = fp<
         '/cooking/recipes',
         {
             config: {
-                auth: 'paseto',
                 rateLimit: {
                     max: 5,
                     timeWindow: 1000 * 60
@@ -90,7 +89,8 @@ export const findRecipesController = fp<
                     400: httpErrorSchema.describe('Erro de validação'),
                     500: serverErrorSchema
                 }
-            }
+            },
+            preHandler: [app.pasetoHandler()]
         },
         async (_, reply) => {
             const [err, recipes] = await app.to(findAllRecipes.execute())
@@ -115,7 +115,6 @@ export const findRecipesController = fp<
         '/cooking/authors/:id/recipes',
         {
             config: {
-                auth: 'paseto',
                 rateLimit: {
                     max: 5,
                     timeWindow: 1000 * 60
@@ -130,7 +129,8 @@ export const findRecipesController = fp<
                     400: httpErrorSchema.describe('Erro de validação'),
                     500: serverErrorSchema
                 }
-            }
+            },
+            preHandler: [app.pasetoHandler()]
         },
         async (request, reply) => {
             const { id } = request.params

@@ -6,8 +6,8 @@ import fp from 'fastify-plugin'
 import type { RawServerDefault } from 'fastify'
 
 import { idSchema, ValidatorError } from '@core/shared'
-import type { DeleteRecipe } from '@core/cooking'
 import { CookingError, DeleteRecipeErrors } from '@core/cooking'
+import type { DeleteRecipe } from '@core/cooking'
 
 import { httpErrorSchema, serverErrorSchema } from '~/schemas/httpErrorSchema'
 
@@ -26,7 +26,6 @@ export const deleteRecipeController = fp<
         '/cooking/recipes/:id',
         {
             config: {
-                auth: 'paseto',
                 rateLimit: {
                     max: 5,
                     timeWindow: 1000 * 60
@@ -41,7 +40,8 @@ export const deleteRecipeController = fp<
                     400: httpErrorSchema.describe('Erro de validação'),
                     500: serverErrorSchema
                 }
-            }
+            },
+            preHandler: [app.pasetoHandler()]
         },
         async (request, reply) => {
             const { id } = request.params

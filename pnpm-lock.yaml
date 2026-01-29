@@ -404,6 +404,9 @@ importers:
       '@fastify/cors':
         specifier: catalog:backend
         version: 11.2.0
+      '@fastify/paseto':
+        specifier: 'workspace:'
+        version: link:../../packages/fastify/paseto
       '@fastify/rate-limit':
         specifier: catalog:backend
         version: 10.3.0

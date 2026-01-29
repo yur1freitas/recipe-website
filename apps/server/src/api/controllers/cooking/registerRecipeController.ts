@@ -7,13 +7,13 @@ import fp from 'fastify-plugin'
 import type { RawServerDefault } from 'fastify'
 
 import { ValidatorError } from '@core/shared'
+import type { RegisterRecipe } from '@core/cooking'
 import {
     preparationTimeSchema,
     CookingError,
     recipeSchema,
     RegisterRecipeErrors
 } from '@core/cooking'
-import type { RegisterRecipe } from '@core/cooking'
 
 import { httpErrorSchema, serverErrorSchema } from '~/schemas/httpErrorSchema'
 
@@ -32,7 +32,6 @@ export const registerRecipeController = fp<
         '/cooking/recipes',
         {
             config: {
-                auth: 'paseto',
                 rateLimit: {
                     max: 5,
                     timeWindow: 1000 * 60
@@ -57,7 +56,8 @@ export const registerRecipeController = fp<
                     400: httpErrorSchema.describe('Erro de validação'),
                     500: serverErrorSchema
                 }
-            }
+            },
+            preHandler: [app.pasetoHandler()]
         },
         async (request, reply) => {
             const {
