@@ -6,61 +6,68 @@ import fp from 'fastify-plugin'
 import type { RawServerDefault } from 'fastify'
 
 import { ValidatorError } from '@core/shared'
-import type { RegisterUser } from '@core/auth'
-import { AuthError, RegisterUserErrors, userSchema } from '@core/auth'
+import { AuthError, LoginUserErrors } from '@core/auth'
+import type { LogoutUser } from '@core/auth'
 
 import { httpErrorSchema, serverErrorSchema } from '~/schemas/httpErrorSchema'
 
 interface Options {
-    registerUser: RegisterUser
+    logoutUser: LogoutUser
 }
 
-export const registerUserController = fp<
+export const logoutUserController = fp<
     Options,
     RawServerDefault,
     StandardSchemaTypeProvider
 >((app, options) => {
-    const { registerUser } = options
+    const { logoutUser } = options
 
-    app.post(
-        '/auth/register',
+    app.get(
+        '/auth/logout',
         {
             config: {
-                captcha: true
+                auth: 'paseto',
+                rateLimit: {
+                    max: 5,
+                    timeWindow: '1 hour'
+                }
             },
             schema: {
                 tags: ['auth'],
-                description: 'Rota para registrar um usuário',
-                body: userSchema.omit({ id: true }),
+                description: 'Desconectar o usuário da sessão',
                 response: {
-                    201: z.null().describe('Usuário cadastrado com sucesso'),
+                    204: z.null().describe('Usuário deconectado com sucesso'),
                     400: httpErrorSchema.describe('Erro de validação'),
-                    409: httpErrorSchema.describe(
-                        'O email do usuário já está cadastrado'
-                    ),
                     500: serverErrorSchema
                 }
             }
         },
         async (request, reply) => {
-            const { name, email, password } = request.body
+            const { accessToken } = request.cookies
 
             const [err] = await app.to(
-                registerUser.execute({ name, email, password })
+                logoutUser.execute({ token: accessToken! })
             )
 
             if (!err) {
-                return reply.created()
+                const options = {
+                    path: '/',
+                    maxAge: 0,
+                    secure: false,
+                    httpOnly: true
+                }
+
+                return reply.cookie('accessToken', '', options).noContent()
             }
 
             if (AuthError.isError(err) || ValidatorError.isError(err)) {
                 const { code, message } = err
 
                 switch (code) {
-                    case RegisterUserErrors.UserAlreadyExists:
-                        return reply.conflict(message)
-                    case RegisterUserErrors.FailedRegisterUser:
-                        return reply.internalServerError(message)
+                    case LoginUserErrors.UserDoesNotExist:
+                        return reply.notFound(message)
+                    case LoginUserErrors.IncorrectCredentials:
+                        return reply.forbidden(message)
                     default:
                         return reply.badRequest(message)
                 }
