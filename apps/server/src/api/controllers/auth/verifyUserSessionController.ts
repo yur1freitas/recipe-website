@@ -5,23 +5,13 @@ import z from 'zod'
 import fp from 'fastify-plugin'
 import type { RawServerDefault } from 'fastify'
 
-import { ValidatorError } from '@core/shared'
-import type { VerifyUserSession } from '@core/auth'
-import { AuthError, VerifyUserSessionErrors } from '@core/auth'
-
 import { httpErrorSchema, serverErrorSchema } from '~/schemas/httpErrorSchema'
 
-interface Options {
-    verifyUserSession: VerifyUserSession
-}
-
 export const verifyUserSessionController = fp<
-    Options,
+    any,
     RawServerDefault,
     StandardSchemaTypeProvider
->((app, options) => {
-    const { verifyUserSession } = options
-
+>((app) => {
     app.get(
         '/auth/verify',
         {
@@ -30,40 +20,16 @@ export const verifyUserSessionController = fp<
                 description: 'Verificar a sessão do usuário',
                 response: {
                     204: z.undefined().describe('A sessão do usuário é válida'),
-                    400: httpErrorSchema.describe('Erro de validação'),
-                    401: httpErrorSchema.describe('Token de acesso inválido'),
+                    401: httpErrorSchema.describe(
+                        'A sessão do usuário é inválida'
+                    ),
                     500: serverErrorSchema
                 }
-            }
+            },
+            preHandler: [app.pasetoHandler()]
         },
-        async (request, reply) => {
-            const { accessToken } = request.cookies
-
-            if (!accessToken) {
-                return reply.badRequest('Você não está em uma sessão válida')
-            }
-
-            const [err] = await app.to(
-                verifyUserSession.execute({ token: accessToken })
-            )
-
-            if (!err) {
-                return reply.status(204).send()
-            }
-
-            if (AuthError.isError(err) || ValidatorError.isError(err)) {
-                const { code, message } = err
-
-                switch (code) {
-                    case VerifyUserSessionErrors.InvalidAccessToken:
-                    case VerifyUserSessionErrors.UserNotFound:
-                        return reply.unauthorized(message)
-                    default:
-                        return reply.badRequest(message)
-                }
-            }
-
-            return reply.serverError(err)
+        async (_, reply) => {
+            return reply.status(204).send()
         }
     )
 })

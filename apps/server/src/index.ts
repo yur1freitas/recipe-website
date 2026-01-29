@@ -114,7 +114,7 @@ try {
     app.register(registerUserController, { registerUser })
         .register(loginUserController, { loginUser })
         .register(logoutUserController, { logoutUser })
-        .register(verifyUserSessionController, { verifyUserSession })
+        .register(verifyUserSessionController)
 
     app.register(registerRecipeController, { registerRecipe })
         .register(updateRecipeController, { updateRecipe })
