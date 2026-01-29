@@ -398,6 +398,9 @@ importers:
       '@dotenvx/dotenvx':
         specifier: catalog:backend
         version: 1.51.4
+      '@fastify/captcha':
+        specifier: 'workspace:'
+        version: link:../../packages/fastify/captcha
       '@fastify/cookie':
         specifier: catalog:backend
         version: 11.0.2

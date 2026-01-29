@@ -25,9 +25,6 @@ export const registerUserController = fp<
     app.post(
         '/auth/register',
         {
-            config: {
-                captcha: true
-            },
             schema: {
                 tags: ['auth'],
                 description: 'Rota para registrar um usuário',
@@ -40,7 +37,8 @@ export const registerUserController = fp<
                     ),
                     500: serverErrorSchema
                 }
-            }
+            },
+            preValidation: [app.captchaHandler()]
         },
         async (request, reply) => {
             const { name, email, password } = request.body

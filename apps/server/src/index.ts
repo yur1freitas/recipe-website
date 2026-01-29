@@ -1,4 +1,5 @@
 import { fastifyPaseto } from '@fastify/paseto'
+import { fastifyCaptcha } from '@fastify/captcha'
 
 import {
     DeleteRecipe,
@@ -16,7 +17,6 @@ import {
 } from '@core/auth'
 
 import { listeningInfo } from './utils/info'
-import { fastifyCaptcha } from './plugins/fastifyCaptcha'
 import { env } from './env'
 import { valkey } from './db/valkey'
 import { app } from './app'
@@ -97,7 +97,10 @@ try {
     })
 
     app.register(fastifyCaptcha, {
-        keyName: 'captcha'
+        bodyProperty: 'captcha',
+        endpoint: env.CAPTCHA_URL,
+        apiKey: env.CAPTCHA_API_KEY,
+        secretKey: env.CAPTCHA_SECRET_KEY
     })
 
     app.register(registerUserController, { registerUser })
