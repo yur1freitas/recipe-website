@@ -6,8 +6,8 @@ import fp from 'fastify-plugin'
 import type { RawServerDefault } from 'fastify'
 
 import { ValidatorError } from '@core/shared'
-import { AuthError, VerifyUserSessionErrors } from '@core/auth'
 import type { VerifyUserSession } from '@core/auth'
+import { AuthError, VerifyUserSessionErrors } from '@core/auth'
 
 import { httpErrorSchema, serverErrorSchema } from '~/schemas/httpErrorSchema'
 
@@ -29,7 +29,7 @@ export const verifyUserSessionController = fp<
                 tags: ['auth'],
                 description: 'Verificar a sessão do usuário',
                 response: {
-                    204: z.null().describe('A sessão do usuário é válida'),
+                    204: z.undefined().describe('A sessão do usuário é válida'),
                     400: httpErrorSchema.describe('Erro de validação'),
                     401: httpErrorSchema.describe('Token de acesso inválido'),
                     500: serverErrorSchema

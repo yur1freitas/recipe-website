@@ -52,7 +52,7 @@ export const registerRecipeController = fp<
                     })
                     .omit({ id: true }),
                 response: {
-                    201: z.null().describe('Receita criada com sucesso'),
+                    201: z.undefined().describe('Receita criada com sucesso'),
                     400: httpErrorSchema.describe('Erro de validação'),
                     500: serverErrorSchema
                 }

@@ -53,7 +53,9 @@ export const updateRecipeController = fp<
                     })
                     .omit({ id: true }),
                 response: {
-                    204: z.null().describe('Receita atualizada com sucesso'),
+                    204: z
+                        .undefined()
+                        .describe('Receita atualizada com sucesso'),
                     400: httpErrorSchema.describe('Erro de validação'),
                     500: serverErrorSchema
                 }

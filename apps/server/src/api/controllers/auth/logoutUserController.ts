@@ -35,7 +35,9 @@ export const logoutUserController = fp<
                 tags: ['auth'],
                 description: 'Desconectar o usuário da sessão',
                 response: {
-                    204: z.null().describe('Usuário deconectado com sucesso'),
+                    204: z
+                        .undefined()
+                        .describe('Usuário deconectado com sucesso'),
                     400: httpErrorSchema.describe('Erro de validação'),
                     500: serverErrorSchema
                 }
