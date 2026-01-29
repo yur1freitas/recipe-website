@@ -14,7 +14,7 @@ export function listeningInfo(app: FastifyInstance): void {
         console.info(
             '\x1b[31m%s\x1b[0m',
             '- API Reference:',
-            `${completeAddress}/reference`
+            `${completeAddress}/reference\n`
         )
     }
 }
