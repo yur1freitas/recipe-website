@@ -57,7 +57,7 @@ export const logoutUserController = fp<
                     httpOnly: true
                 }
 
-                return reply.cookie('accessToken', '', options).noContent()
+                return reply.status(204).cookie('accessToken', '', options)
             }
 
             if (AuthError.isError(err) || ValidatorError.isError(err)) {

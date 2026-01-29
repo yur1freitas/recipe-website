@@ -49,7 +49,7 @@ export const deleteRecipeController = fp<
             const [err] = await app.to(deleteRecipe.execute({ id }))
 
             if (!err) {
-                return reply.noContent()
+                return reply.status(204).send()
             }
 
             if (CookingError.isError(err) || ValidatorError.isError(err)) {

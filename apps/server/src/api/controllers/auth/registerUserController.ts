@@ -6,8 +6,8 @@ import fp from 'fastify-plugin'
 import type { RawServerDefault } from 'fastify'
 
 import { ValidatorError } from '@core/shared'
-import { AuthError, RegisterUserErrors, userSchema } from '@core/auth'
 import type { RegisterUser } from '@core/auth'
+import { AuthError, RegisterUserErrors, userSchema } from '@core/auth'
 
 import { httpErrorSchema, serverErrorSchema } from '~/schemas/httpErrorSchema'
 
@@ -48,7 +48,7 @@ export const registerUserController = fp<
             )
 
             if (!err) {
-                return reply.created()
+                return reply.status(201).send()
             }
 
             if (AuthError.isError(err) || ValidatorError.isError(err)) {

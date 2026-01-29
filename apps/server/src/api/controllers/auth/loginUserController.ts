@@ -60,7 +60,7 @@ export const loginUserController = fp<
             )
 
             if (!err) {
-                return reply.ok({ token: data.token })
+                return reply.send({ token: data.token })
             }
 
             if (AuthError.isError(err) || ValidatorError.isError(err)) {
