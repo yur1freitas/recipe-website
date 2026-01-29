@@ -1,7 +1,7 @@
 import type { StandardSchemaTypeProvider } from '@standard-schema/fastify-type-provider'
 
-import { ZodType } from 'zod'
 import z from 'zod'
+import { ZodType } from 'zod'
 import {
     StandardSchemaSerializerCompiler,
     StandardSchemaValidatorCompiler,
@@ -14,6 +14,7 @@ import fastify from 'fastify'
 import fastifySwagger from '@fastify/swagger'
 import fastifySensible from '@fastify/sensible'
 import fastifyRateLimit from '@fastify/rate-limit'
+import { fastifyGracefulShutdown } from '@fastify/graceful-shutdown'
 import fastifyCors from '@fastify/cors'
 import fastifyCookie from '@fastify/cookie'
 
@@ -45,6 +46,7 @@ app.register(fastifyCors, { origin: [env.WEB_URL] })
     .register(fastifyCookie)
     .register(fastifySensible)
     .register(fastifyServerError)
+    .register(fastifyGracefulShutdown)
 
 // - - API Reference - -
 app.register(fastifySwagger, {
@@ -74,11 +76,6 @@ app.register(fastifySwagger, {
         telemetry: false,
         theme: 'deepSpace'
     }
-})
-
-process.on('SIGINT', async () => {
-    await app.close()
-    process.exit(0)
 })
 
 export { app }
