@@ -19,6 +19,7 @@ import {
 import { listeningInfo } from './utils/info'
 import { env } from './env'
 import { valkey } from './db/valkey'
+import { pg } from './db/pg'
 import { app } from './app'
 import { updateRecipeController } from './api/controllers/cooking/updateRecipeController'
 import { registerRecipeController } from './api/controllers/cooking/registerRecipeController'
@@ -102,6 +103,13 @@ try {
         apiKey: env.CAPTCHA_API_KEY,
         secretKey: env.CAPTCHA_SECRET_KEY
     })
+
+    app.after(() =>
+        app.gracefulShutdown(async () => {
+            valkey.disconnect()
+            await pg.$client.end()
+        })
+    )
 
     app.register(registerUserController, { registerUser })
         .register(loginUserController, { loginUser })

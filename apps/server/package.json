@@ -30,6 +30,7 @@
         "@fastify/captcha": "workspace:",
         "@fastify/cookie": "catalog:backend",
         "@fastify/cors": "catalog:backend",
+        "@fastify/graceful-shutdown": "workspace:",
         "@fastify/paseto": "workspace:",
         "@fastify/rate-limit": "catalog:backend",
         "@fastify/sensible": "catalog:backend",
