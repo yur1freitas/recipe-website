@@ -29,6 +29,7 @@
         "@dotenvx/dotenvx": "catalog:backend",
         "@fastify/cookie": "catalog:backend",
         "@fastify/cors": "catalog:backend",
+        "@fastify/paseto": "workspace:",
         "@fastify/rate-limit": "catalog:backend",
         "@fastify/sensible": "catalog:backend",
         "@fastify/swagger": "catalog:docs",
