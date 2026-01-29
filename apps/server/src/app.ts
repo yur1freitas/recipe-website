@@ -68,28 +68,6 @@ app.register(fastifySwagger, {
 
         return schema
     })
-    // transformObject: (input) => {
-    //     const { schemas } = z.toJSONSchema(z.globalRegistry, {
-    //         target: 'openapi-3.0',
-    //         reused: 'inline',
-    //         cycles: 'ref',
-    //         io: 'output',
-    //         uri(id) {
-    //             return id
-    //         }
-    //     })
-
-    //     return {
-    //         ...input.openapiObject,
-    //         components: {
-    //             ...input.openapiObject.components,
-    //             schemas: {
-    //                 ...input.openapiObject.components?.schemas,
-    //                 ...schemas
-    //             }
-    //         }
-    //     }
-    // }
 }).register(fastifyScalar, {
     routePrefix: '/reference',
     configuration: {
