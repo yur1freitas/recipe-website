@@ -14,6 +14,7 @@ import {
     recipeSchema,
     RegisterRecipeErrors
 } from '@core/cooking'
+import type { UserPayload } from '@core/auth'
 
 import { httpErrorSchema, serverErrorSchema } from '~/schemas/httpErrorSchema'
 
@@ -50,7 +51,7 @@ export const registerRecipeController = fp<
                             .transform((t) => new Time({ ms: t }))
                             .pipe(preparationTimeSchema)
                     })
-                    .omit({ id: true }),
+                    .omit({ id: true, authorId: true }),
                 response: {
                     201: z.undefined().describe('Receita criada com sucesso'),
                     400: httpErrorSchema.describe('Erro de validação'),
@@ -60,8 +61,9 @@ export const registerRecipeController = fp<
             preHandler: [app.pasetoHandler()]
         },
         async (request, reply) => {
+            const { id: authorId } = request.tokenPayload as UserPayload
+
             const {
-                authorId,
                 name,
                 description,
                 difficulty,
