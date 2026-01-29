@@ -27,6 +27,7 @@
         "@core/cooking": "workspace:",
         "@core/shared": "workspace:",
         "@dotenvx/dotenvx": "catalog:backend",
+        "@fastify/captcha": "workspace:",
         "@fastify/cookie": "catalog:backend",
         "@fastify/cors": "catalog:backend",
         "@fastify/paseto": "workspace:",
