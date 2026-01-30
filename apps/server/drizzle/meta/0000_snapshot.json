@@ -1,0 +1,427 @@
+{
+    "id": "a5fe9881-0ab2-4443-8202-5b1e18888405",
+    "prevId": "00000000-0000-0000-0000-000000000000",
+    "version": "7",
+    "dialect": "postgresql",
+    "tables": {
+        "public.ingredients": {
+            "name": "ingredients",
+            "schema": "",
+            "columns": {
+                "pk": {
+                    "name": "pk",
+                    "type": "integer",
+                    "primaryKey": true,
+                    "notNull": true,
+                    "identity": {
+                        "type": "always",
+                        "name": "ingredients_pk_seq",
+                        "schema": "public",
+                        "increment": "1",
+                        "startWith": "1",
+                        "minValue": "1",
+                        "maxValue": "2147483647",
+                        "cache": "1",
+                        "cycle": false
+                    }
+                },
+                "id": {
+                    "name": "id",
+                    "type": "uuid",
+                    "primaryKey": false,
+                    "notNull": true
+                },
+                "recipe_id": {
+                    "name": "recipe_id",
+                    "type": "uuid",
+                    "primaryKey": false,
+                    "notNull": true
+                },
+                "name": {
+                    "name": "name",
+                    "type": "varchar(120)",
+                    "primaryKey": false,
+                    "notNull": true
+                },
+                "measure": {
+                    "name": "measure",
+                    "type": "VARCHAR(120) NOT NULL",
+                    "primaryKey": false,
+                    "notNull": false
+                },
+                "unit": {
+                    "name": "unit",
+                    "type": "varchar",
+                    "primaryKey": false,
+                    "notNull": true
+                }
+            },
+            "indexes": {},
+            "foreignKeys": {
+                "ingredients_recipe_id_recipes_id_fk": {
+                    "name": "ingredients_recipe_id_recipes_id_fk",
+                    "tableFrom": "ingredients",
+                    "tableTo": "recipes",
+                    "columnsFrom": ["recipe_id"],
+                    "columnsTo": ["id"],
+                    "onDelete": "no action",
+                    "onUpdate": "no action"
+                }
+            },
+            "compositePrimaryKeys": {},
+            "uniqueConstraints": {
+                "ingredients_id_unique": {
+                    "name": "ingredients_id_unique",
+                    "nullsNotDistinct": false,
+                    "columns": ["id"]
+                }
+            },
+            "policies": {},
+            "checkConstraints": {
+                "name_length_check": {
+                    "name": "name_length_check",
+                    "value": "LENGTH(\"ingredients\".\"name\") >= 3"
+                }
+            },
+            "isRLSEnabled": false
+        },
+        "public.recipes": {
+            "name": "recipes",
+            "schema": "",
+            "columns": {
+                "pk": {
+                    "name": "pk",
+                    "type": "integer",
+                    "primaryKey": true,
+                    "notNull": true,
+                    "identity": {
+                        "type": "always",
+                        "name": "recipes_pk_seq",
+                        "schema": "public",
+                        "increment": "1",
+                        "startWith": "1",
+                        "minValue": "1",
+                        "maxValue": "2147483647",
+                        "cache": "1",
+                        "cycle": false
+                    }
+                },
+                "id": {
+                    "name": "id",
+                    "type": "uuid",
+                    "primaryKey": false,
+                    "notNull": true
+                },
+                "author_id": {
+                    "name": "author_id",
+                    "type": "uuid",
+                    "primaryKey": false,
+                    "notNull": true
+                },
+                "name": {
+                    "name": "name",
+                    "type": "varchar(64)",
+                    "primaryKey": false,
+                    "notNull": true
+                },
+                "description": {
+                    "name": "description",
+                    "type": "varchar(256)",
+                    "primaryKey": false,
+                    "notNull": true
+                },
+                "difficulty": {
+                    "name": "difficulty",
+                    "type": "varchar",
+                    "primaryKey": false,
+                    "notNull": true
+                },
+                "preparation_time": {
+                    "name": "preparation_time",
+                    "type": "INTEGER NOT NULL",
+                    "primaryKey": false,
+                    "notNull": false
+                }
+            },
+            "indexes": {},
+            "foreignKeys": {
+                "recipes_author_id_users_id_fk": {
+                    "name": "recipes_author_id_users_id_fk",
+                    "tableFrom": "recipes",
+                    "tableTo": "users",
+                    "columnsFrom": ["author_id"],
+                    "columnsTo": ["id"],
+                    "onDelete": "no action",
+                    "onUpdate": "no action"
+                }
+            },
+            "compositePrimaryKeys": {},
+            "uniqueConstraints": {
+                "recipes_id_unique": {
+                    "name": "recipes_id_unique",
+                    "nullsNotDistinct": false,
+                    "columns": ["id"]
+                }
+            },
+            "policies": {},
+            "checkConstraints": {
+                "name_length_check": {
+                    "name": "name_length_check",
+                    "value": "LENGTH(\"recipes\".\"name\") >= 3"
+                },
+                "description_length_check": {
+                    "name": "description_length_check",
+                    "value": "LENGTH(\"recipes\".\"description\") > 0"
+                },
+                "preparation_time_min_value_check": {
+                    "name": "preparation_time_min_value_check",
+                    "value": "\"recipes\".\"preparation_time\" > 0"
+                }
+            },
+            "isRLSEnabled": false
+        },
+        "public.steps": {
+            "name": "steps",
+            "schema": "",
+            "columns": {
+                "pk": {
+                    "name": "pk",
+                    "type": "integer",
+                    "primaryKey": true,
+                    "notNull": true,
+                    "identity": {
+                        "type": "always",
+                        "name": "steps_pk_seq",
+                        "schema": "public",
+                        "increment": "1",
+                        "startWith": "1",
+                        "minValue": "1",
+                        "maxValue": "2147483647",
+                        "cache": "1",
+                        "cycle": false
+                    }
+                },
+                "id": {
+                    "name": "id",
+                    "type": "uuid",
+                    "primaryKey": false,
+                    "notNull": true
+                },
+                "recipe_id": {
+                    "name": "recipe_id",
+                    "type": "uuid",
+                    "primaryKey": false,
+                    "notNull": true
+                },
+                "order": {
+                    "name": "order",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": true
+                },
+                "description": {
+                    "name": "description",
+                    "type": "varchar(120)",
+                    "primaryKey": false,
+                    "notNull": true
+                }
+            },
+            "indexes": {},
+            "foreignKeys": {
+                "steps_recipe_id_recipes_id_fk": {
+                    "name": "steps_recipe_id_recipes_id_fk",
+                    "tableFrom": "steps",
+                    "tableTo": "recipes",
+                    "columnsFrom": ["recipe_id"],
+                    "columnsTo": ["id"],
+                    "onDelete": "no action",
+                    "onUpdate": "no action"
+                }
+            },
+            "compositePrimaryKeys": {},
+            "uniqueConstraints": {
+                "steps_id_unique": {
+                    "name": "steps_id_unique",
+                    "nullsNotDistinct": false,
+                    "columns": ["id"]
+                }
+            },
+            "policies": {},
+            "checkConstraints": {
+                "order_min_value_check": {
+                    "name": "order_min_value_check",
+                    "value": "\"steps\".\"order\" > 0"
+                },
+                "description_length_check": {
+                    "name": "description_length_check",
+                    "value": "LENGTH(\"steps\".\"description\") > 0"
+                }
+            },
+            "isRLSEnabled": false
+        },
+        "public.tools": {
+            "name": "tools",
+            "schema": "",
+            "columns": {
+                "pk": {
+                    "name": "pk",
+                    "type": "integer",
+                    "primaryKey": true,
+                    "notNull": true,
+                    "identity": {
+                        "type": "always",
+                        "name": "tools_pk_seq",
+                        "schema": "public",
+                        "increment": "1",
+                        "startWith": "1",
+                        "minValue": "1",
+                        "maxValue": "2147483647",
+                        "cache": "1",
+                        "cycle": false
+                    }
+                },
+                "id": {
+                    "name": "id",
+                    "type": "uuid",
+                    "primaryKey": false,
+                    "notNull": true
+                },
+                "recipe_id": {
+                    "name": "recipe_id",
+                    "type": "uuid",
+                    "primaryKey": false,
+                    "notNull": true
+                },
+                "name": {
+                    "name": "name",
+                    "type": "varchar(64)",
+                    "primaryKey": false,
+                    "notNull": true
+                },
+                "amount": {
+                    "name": "amount",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": true
+                }
+            },
+            "indexes": {},
+            "foreignKeys": {
+                "tools_recipe_id_recipes_id_fk": {
+                    "name": "tools_recipe_id_recipes_id_fk",
+                    "tableFrom": "tools",
+                    "tableTo": "recipes",
+                    "columnsFrom": ["recipe_id"],
+                    "columnsTo": ["id"],
+                    "onDelete": "no action",
+                    "onUpdate": "no action"
+                }
+            },
+            "compositePrimaryKeys": {},
+            "uniqueConstraints": {
+                "tools_id_unique": {
+                    "name": "tools_id_unique",
+                    "nullsNotDistinct": false,
+                    "columns": ["id"]
+                }
+            },
+            "policies": {},
+            "checkConstraints": {
+                "name_length_check": {
+                    "name": "name_length_check",
+                    "value": "LENGTH(\"tools\".\"name\") >= 3"
+                },
+                "amount_min_value_check": {
+                    "name": "amount_min_value_check",
+                    "value": "\"tools\".\"amount\" > 0"
+                }
+            },
+            "isRLSEnabled": false
+        },
+        "public.users": {
+            "name": "users",
+            "schema": "",
+            "columns": {
+                "pk": {
+                    "name": "pk",
+                    "type": "integer",
+                    "primaryKey": true,
+                    "notNull": true,
+                    "identity": {
+                        "type": "always",
+                        "name": "users_pk_seq",
+                        "schema": "public",
+                        "increment": "1",
+                        "startWith": "1",
+                        "minValue": "1",
+                        "maxValue": "2147483647",
+                        "cache": "1",
+                        "cycle": false
+                    }
+                },
+                "id": {
+                    "name": "id",
+                    "type": "uuid",
+                    "primaryKey": false,
+                    "notNull": true
+                },
+                "name": {
+                    "name": "name",
+                    "type": "varchar(120)",
+                    "primaryKey": false,
+                    "notNull": true
+                },
+                "email": {
+                    "name": "email",
+                    "type": "varchar(120)",
+                    "primaryKey": false,
+                    "notNull": true
+                },
+                "password": {
+                    "name": "password",
+                    "type": "text",
+                    "primaryKey": false,
+                    "notNull": true
+                }
+            },
+            "indexes": {},
+            "foreignKeys": {},
+            "compositePrimaryKeys": {},
+            "uniqueConstraints": {
+                "users_id_unique": {
+                    "name": "users_id_unique",
+                    "nullsNotDistinct": false,
+                    "columns": ["id"]
+                },
+                "users_email_unique": {
+                    "name": "users_email_unique",
+                    "nullsNotDistinct": false,
+                    "columns": ["email"]
+                }
+            },
+            "policies": {},
+            "checkConstraints": {
+                "name_length_check": {
+                    "name": "name_length_check",
+                    "value": "LENGTH(\"users\".\"name\") >= 3"
+                },
+                "password_length_check": {
+                    "name": "password_length_check",
+                    "value": "LENGTH(\"users\".\"password\") >= 8"
+                }
+            },
+            "isRLSEnabled": false
+        }
+    },
+    "enums": {},
+    "schemas": {},
+    "sequences": {},
+    "roles": {},
+    "policies": {},
+    "views": {},
+    "_meta": {
+        "columns": {},
+        "schemas": {},
+        "tables": {}
+    }
+}

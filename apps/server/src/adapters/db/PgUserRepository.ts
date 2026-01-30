@@ -1,26 +1,23 @@
-import type { Kysely } from 'kysely'
+import { eq, inArray } from 'drizzle-orm'
 
-import type { UserRepositoryProvider } from '@core/auth'
+import type { Ensure } from '@core/shared'
+import type { UserProps, UserRepositoryProvider } from '@core/auth'
 import { User } from '@core/auth'
 
-import type { DB } from '~/db/schema'
-
+import { usersTable } from '~/db/schemas/users'
+import { toolsTable } from '~/db/schemas/tools'
+import { stepsTable } from '~/db/schemas/steps'
+import { recipesTable } from '~/db/schemas/recipes'
+import { ingredientsTable } from '~/db/schemas/ingredients'
+import { pg } from '~/db/pg'
 import { app } from '~/app'
 
 export class PgUserRepository implements UserRepositoryProvider {
-    constructor(private $db: Kysely<DB>) {}
-
     async create(user: User): Promise<boolean> {
         try {
-            await this.$db
-                .insertInto('users')
-                .values({
-                    id: user.id.value,
-                    name: user.name.value,
-                    email: user.email.value,
-                    password: user.password!.value
-                })
-                .execute()
+            await pg
+                .insert(usersTable)
+                .values(user.props as Ensure<UserProps, 'password'>)
 
             return true
         } catch (err) {
@@ -30,100 +27,81 @@ export class PgUserRepository implements UserRepositoryProvider {
     }
 
     async delete(id: string): Promise<void> {
-        await this.$db.transaction().execute(async (trx) => {
-            const rows = await trx
-                .selectFrom('recipes')
-                .select(['id'])
-                .where('authorId', '=', id)
-                .execute()
+        await pg.transaction(async (tx) => {
+            const rows = await tx
+                .select({ id: recipesTable.id })
+                .from(recipesTable)
+                .where(eq(recipesTable.authorId, id))
 
-            const ids = rows.map((row) => row.id)
+            const recipeIds = rows.map((row) => row.id)
 
-            await trx.deleteFrom('steps').where('recipeId', 'in', ids).execute()
-            await trx.deleteFrom('tools').where('recipeId', 'in', ids).execute()
-            await trx
-                .deleteFrom('ingredients')
-                .where('recipeId', 'in', ids)
-                .execute()
+            await tx
+                .delete(stepsTable)
+                .where(inArray(recipesTable.id, recipeIds))
 
-            await trx.deleteFrom('recipes').where('authorId', '=', id).execute()
+            await tx
+                .delete(toolsTable)
+                .where(inArray(recipesTable.id, recipeIds))
 
-            await this.$db
-                .deleteFrom('users')
-                .where('id', '=', id)
-                .executeTakeFirst()
+            await tx
+                .delete(ingredientsTable)
+                .where(inArray(recipesTable.id, recipeIds))
+
+            await tx
+                .delete(recipesTable)
+                .where(inArray(recipesTable.id, recipeIds))
+
+            await tx.delete(usersTable).where(eq(usersTable.id, id))
         })
     }
 
     async update(user: User): Promise<void> {
-        await this.$db
-            .updateTable('users')
-            .set({
-                name: user.name.value,
-                email: user.email.value,
-                password: user.password?.value
-            })
-            .where('id', '=', user.id.value)
-            .executeTakeFirst()
+        await pg
+            .update(usersTable)
+            .set(user.props)
+            .where(eq(usersTable.id, user.id.value))
     }
 
     async findAll(): Promise<User[]> {
-        const rows = await this.$db
-            .selectFrom('users')
-            .select(['id', 'name', 'email', 'password'])
-            .execute()
+        const rows = await pg.query.users.findMany({
+            columns: { pk: false }
+        })
 
-        const users = rows.map((row) => new User(row))
-
-        return users
+        return rows.map((row) => new User(row))
     }
 
     async findById(id: string): Promise<User | null> {
-        const row = await this.$db
-            .selectFrom('users')
-            .select(['id', 'name', 'email', 'password'])
-            .where('id', '=', id)
-            .executeTakeFirst()
+        const row = await pg.query.users.findFirst({
+            columns: { pk: false },
+            where: (fields, { eq }) => eq(fields.id, id)
+        })
 
-        if (row) {
-            const user = new User(row)
-            return user
-        }
-
-        return null
+        return row ? new User(row) : null
     }
 
     async findByEmail(email: string): Promise<User | null> {
-        const row = await this.$db
-            .selectFrom('users')
-            .select(['id', 'name', 'email', 'password'])
-            .where('email', '=', email)
-            .executeTakeFirst()
+        const row = await pg.query.users.findFirst({
+            columns: { pk: false },
+            where: (fields, { eq }) => eq(fields.email, email)
+        })
 
-        if (row) {
-            const user = new User(row)
-            return user
-        }
-
-        return null
+        return row ? new User(row) : null
     }
 
     async existsById(id: string): Promise<boolean> {
-        const row = await this.$db
-            .selectFrom('users')
-            .select([])
-            .where('id', '=', id)
-            .executeTakeFirst()
+        const row = await pg.query.users.findFirst({
+            columns: { id: true },
+            where: (fields, { eq }) => eq(fields.id, id)
+        })
 
         return Boolean(row)
     }
 
     async existsByEmail(email: string): Promise<boolean> {
-        const row = await this.$db
-            .selectFrom('users')
-            .select([])
-            .where('email', '=', email)
-            .executeTakeFirst()
+        const row = await pg.query.users.findFirst({
+            columns: { id: true },
+            where: (fields, { eq }) => eq(fields.email, email)
+        })
 
         return Boolean(row)
     }
