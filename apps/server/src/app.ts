@@ -1,7 +1,7 @@
 import type { StandardSchemaTypeProvider } from '@standard-schema/fastify-type-provider'
 
-import { ZodType } from 'zod'
 import z from 'zod'
+import { ZodType } from 'zod'
 import {
     StandardSchemaSerializerCompiler,
     StandardSchemaValidatorCompiler,
@@ -74,7 +74,8 @@ app.register(fastifySwagger, {
     routePrefix: '/reference',
     configuration: {
         telemetry: false,
-        theme: 'fastify'
+        theme: 'fastify',
+        customCss: `.parameter-item-trigger :last-child { height: 1rem !important; }`
     }
 })
 
