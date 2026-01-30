@@ -7,13 +7,13 @@ import fp from 'fastify-plugin'
 import type { RawServerDefault } from 'fastify'
 
 import { idSchema, ValidatorError } from '@core/shared'
-import type { UpdateRecipe } from '@core/cooking'
 import {
     preparationTimeSchema,
     CookingError,
     recipeSchema,
     UpdateRecipeErrors
 } from '@core/cooking'
+import type { UpdateRecipe } from '@core/cooking'
 
 import { httpErrorSchema, serverErrorSchema } from '~/schemas/httpErrorSchema'
 
@@ -107,7 +107,7 @@ export const updateRecipeController = fp<
                 }
             }
 
-            return reply.serverError(err)
+            return reply.internalServerError(err.message)
         }
     )
 })

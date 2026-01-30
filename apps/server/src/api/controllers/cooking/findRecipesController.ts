@@ -6,12 +6,12 @@ import fp from 'fastify-plugin'
 import type { RawServerDefault } from 'fastify'
 
 import { idSchema, ValidatorError } from '@core/shared'
-import type { FindAllRecipes, FindRecipe, FindUserRecipes } from '@core/cooking'
 import {
     CookingError,
     FindUserRecipesErrors,
     recipeSchema
 } from '@core/cooking'
+import type { FindAllRecipes, FindRecipe, FindUserRecipes } from '@core/cooking'
 
 import { httpErrorSchema, serverErrorSchema } from '~/schemas/httpErrorSchema'
 
@@ -68,7 +68,7 @@ export const findRecipesController = fp<
                 return reply.badRequest(message)
             }
 
-            return reply.serverError(err)
+            return reply.internalServerError(err.message)
         }
     )
 
@@ -107,7 +107,7 @@ export const findRecipesController = fp<
                 return reply.badRequest(message)
             }
 
-            return reply.serverError(err)
+            return reply.internalServerError(err.message)
         }
     )
 
@@ -154,7 +154,7 @@ export const findRecipesController = fp<
                 }
             }
 
-            return reply.serverError(err)
+            return reply.internalServerError(err.message)
         }
     )
 })
