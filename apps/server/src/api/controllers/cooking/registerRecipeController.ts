@@ -7,16 +7,17 @@ import fp from 'fastify-plugin'
 import type { RawServerDefault } from 'fastify'
 
 import { ValidatorError } from '@core/shared'
+import type { RegisterRecipe } from '@core/cooking'
 import {
     preparationTimeSchema,
     CookingError,
     recipeSchema,
     RegisterRecipeErrors
 } from '@core/cooking'
-import type { RegisterRecipe } from '@core/cooking'
 import type { UserPayload } from '@core/auth'
 
-import { httpErrorSchema, serverErrorSchema } from '~/schemas/httpErrorSchema'
+import { validationErrorSchema } from '~/schemas/validationErrorSchema'
+import { serverErrorSchema } from '~/schemas/httpErrorSchema'
 
 interface Options {
     registerRecipe: RegisterRecipe
@@ -54,7 +55,7 @@ export const registerRecipeController = fp<
                     .omit({ id: true, authorId: true }),
                 response: {
                     201: z.undefined().describe('Receita criada com sucesso'),
-                    400: httpErrorSchema.describe('Erro de validação'),
+                    400: validationErrorSchema,
                     500: serverErrorSchema
                 }
             },

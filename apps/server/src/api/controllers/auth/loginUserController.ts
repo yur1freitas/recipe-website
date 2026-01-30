@@ -6,9 +6,10 @@ import fp from 'fastify-plugin'
 import type { RawServerDefault } from 'fastify'
 
 import { emailSchema, passwordSchema, ValidatorError } from '@core/shared'
-import { AuthError, LoginUserErrors } from '@core/auth'
 import type { LoginUser } from '@core/auth'
+import { AuthError, LoginUserErrors } from '@core/auth'
 
+import { validationErrorSchema } from '~/schemas/validationErrorSchema'
 import { httpErrorSchema, serverErrorSchema } from '~/schemas/httpErrorSchema'
 
 interface Options {
@@ -40,7 +41,7 @@ export const loginUserController = fp<
                         .describe(
                             'Logado com sucesso e retorna token de acesso'
                         ),
-                    400: httpErrorSchema.describe('Error de validação'),
+                    400: validationErrorSchema,
                     403: httpErrorSchema.describe(
                         'Credenciais de acesso incorretas'
                     ),

@@ -15,7 +15,8 @@ import {
 } from '@core/cooking'
 import type { UpdateRecipe } from '@core/cooking'
 
-import { httpErrorSchema, serverErrorSchema } from '~/schemas/httpErrorSchema'
+import { validationErrorSchema } from '~/schemas/validationErrorSchema'
+import { serverErrorSchema } from '~/schemas/httpErrorSchema'
 
 interface Options {
     updateRecipe: UpdateRecipe
@@ -56,7 +57,7 @@ export const updateRecipeController = fp<
                     204: z
                         .undefined()
                         .describe('Receita atualizada com sucesso'),
-                    400: httpErrorSchema.describe('Erro de validação'),
+                    400: validationErrorSchema,
                     500: serverErrorSchema
                 }
             },
