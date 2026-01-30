@@ -10,7 +10,7 @@ import type { DeleteRecipe } from '@core/cooking'
 import { CookingError, DeleteRecipeErrors } from '@core/cooking'
 
 import { validationErrorSchema } from '~/schemas/validationErrorSchema'
-import { serverErrorSchema } from '~/schemas/httpErrorSchema'
+import { serverErrorSchema } from '~/schemas/serverErrorSchema'
 
 interface Options {
     deleteRecipe: DeleteRecipe

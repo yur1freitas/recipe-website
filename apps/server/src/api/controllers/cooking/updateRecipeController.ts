@@ -16,7 +16,7 @@ import {
 import type { UpdateRecipe } from '@core/cooking'
 
 import { validationErrorSchema } from '~/schemas/validationErrorSchema'
-import { serverErrorSchema } from '~/schemas/httpErrorSchema'
+import { serverErrorSchema } from '~/schemas/serverErrorSchema'
 
 interface Options {
     updateRecipe: UpdateRecipe

@@ -6,11 +6,12 @@ import fp from 'fastify-plugin'
 import type { RawServerDefault } from 'fastify'
 
 import { emailSchema, passwordSchema, ValidatorError } from '@core/shared'
-import type { LoginUser } from '@core/auth'
 import { AuthError, LoginUserErrors } from '@core/auth'
+import type { LoginUser } from '@core/auth'
 
 import { validationErrorSchema } from '~/schemas/validationErrorSchema'
-import { httpErrorSchema, serverErrorSchema } from '~/schemas/httpErrorSchema'
+import { serverErrorSchema } from '~/schemas/serverErrorSchema'
+import { httpErrorSchema } from '~/schemas/httpErrorSchema'
 
 interface Options {
     loginUser: LoginUser
