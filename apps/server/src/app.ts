@@ -1,7 +1,7 @@
 import type { StandardSchemaTypeProvider } from '@standard-schema/fastify-type-provider'
 
-import z from 'zod'
 import { ZodType } from 'zod'
+import z from 'zod'
 import {
     StandardSchemaSerializerCompiler,
     StandardSchemaValidatorCompiler,
@@ -18,7 +18,6 @@ import { fastifyGracefulShutdown } from '@fastify/graceful-shutdown'
 import fastifyCors from '@fastify/cors'
 import fastifyCookie from '@fastify/cookie'
 
-import { fastifyServerError } from './plugins/fastifyServerError'
 import { env } from './env'
 
 const logger: Record<string, boolean | PinoLoggerOptions> = {
@@ -45,7 +44,6 @@ app.register(fastifyCors, { origin: [env.WEB_URL] })
     .register(fastifyRateLimit)
     .register(fastifyCookie)
     .register(fastifySensible)
-    .register(fastifyServerError)
     .register(fastifyGracefulShutdown)
 
 // - - API Reference - -

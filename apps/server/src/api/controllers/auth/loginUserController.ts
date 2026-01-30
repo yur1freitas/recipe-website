@@ -76,7 +76,7 @@ export const loginUserController = fp<
                 }
             }
 
-            return reply.serverError(err)
+            return reply.internalServerError(err.message)
         }
     )
 })

@@ -75,7 +75,7 @@ export const logoutUserController = fp<
                 }
             }
 
-            return reply.serverError(err)
+            return reply.internalServerError(err.message)
         }
     )
 })
