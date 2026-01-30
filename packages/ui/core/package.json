@@ -8,6 +8,7 @@
         "./Autocomplete": "./dist/Autocomplete/index.js",
         "./Box": "./dist/Box.js",
         "./Button": "./dist/Button.js",
+        "./Card": "./dist/Card/index.js",
         "./Collapsible": "./dist/Collapsible/index.js",
         "./Dialog": "./dist/Dialog/index.js",
         "./Field": "./dist/Field/index.js",
