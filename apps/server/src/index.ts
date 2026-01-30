@@ -18,7 +18,6 @@ import { fastifyCaptcha } from './plugins/fastifyCaptcha'
 import { fastifyAuth } from './plugins/fastifyAuth'
 import { env } from './env'
 import { valkey } from './db/valkey'
-import { postgres } from './db/postgres'
 import { app } from './app'
 import { updateRecipeController } from './api/controllers/cooking/updateRecipeController'
 import { registerRecipeController } from './api/controllers/cooking/registerRecipeController'
@@ -35,8 +34,8 @@ import { PgRecipeRepository } from './adapters/db/PgRecipeRepository'
 import { PasetoAdapter } from './adapters/auth/PasetoAdapter'
 
 try {
-    const userRepositoryProvider = new PgUserRepository(postgres)
-    const recipeRepositoryProvider = new PgRecipeRepository(postgres)
+    const userRepositoryProvider = new PgUserRepository()
+    const recipeRepositoryProvider = new PgRecipeRepository()
     const encryptionProvider = new BcryptAdapter()
     const accessTokenProvider = new PasetoAdapter()
 

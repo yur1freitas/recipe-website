@@ -1,73 +1,52 @@
-import type { Kysely } from 'kysely'
-
-import { jsonArrayFrom } from 'kysely/helpers/postgres'
+import { eq, sql } from 'drizzle-orm'
 
 import type { RecipeRepositoryProvider } from '@core/cooking'
 import { Recipe } from '@core/cooking'
 
-import type { DB } from '~/db/schema'
-
+import { toolsTable } from '~/db/schemas/tools'
+import { stepsTable } from '~/db/schemas/steps'
+import { recipesTable } from '~/db/schemas/recipes'
+import { ingredientsTable } from '~/db/schemas/ingredients'
+import { pg } from '~/db/pg'
 import { app } from '~/app'
 
 export class PgRecipeRepository implements RecipeRepositoryProvider {
-    constructor(private $db: Kysely<DB>) {}
-
     async create(recipe: Recipe): Promise<boolean> {
         try {
-            await this.$db.transaction().execute(async (trx) => {
-                await trx
-                    .insertInto('recipes')
-                    .values({
-                        id: recipe.id.value,
-                        name: recipe.name.value,
-                        authorId: recipe.authorId.value,
-                        difficulty: recipe.difficulty.value,
-                        description: recipe.description.value,
-                        preparationTime: recipe.preparationTime.value
-                    })
-                    .execute()
-
-                if (recipe.ingredients.length > 0) {
-                    await trx
-                        .insertInto('ingredients')
-                        .values(
-                            recipe.ingredients.toArray().map((i) => ({
-                                id: i.id.value,
-                                recipeId: recipe.id.value,
-                                name: i.name.value,
-                                unit: i.unit.value,
-                                measure: i.measure.value
-                            }))
-                        )
-                        .execute()
-                }
+            await pg.transaction(async (tx) => {
+                await tx.insert(recipesTable).values(recipe.props)
 
                 if (recipe.steps.length > 0) {
-                    await trx
-                        .insertInto('steps')
-                        .values(
-                            recipe.steps.toArray().map((s) => ({
-                                id: s.id.value,
-                                recipeId: recipe.id.value,
-                                order: s.order.value,
-                                description: s.description.value
-                            }))
-                        )
-                        .execute()
+                    const steps = recipe.steps
+                        .map((step) => ({
+                            recipeId: recipe.id.value,
+                            ...step.props
+                        }))
+                        .toArray()
+
+                    await tx.insert(stepsTable).values(steps)
                 }
 
                 if (recipe.tools.length > 0) {
-                    await trx
-                        .insertInto('tools')
-                        .values(
-                            recipe.tools.toArray().map((t) => ({
-                                id: t.id.value,
-                                recipeId: recipe.id.value,
-                                name: t.name.value,
-                                amount: t.amount.value
-                            }))
-                        )
-                        .execute()
+                    const tools = recipe.tools
+                        .map((step) => ({
+                            recipeId: recipe.id.value,
+                            ...step.props
+                        }))
+                        .toArray()
+
+                    await tx.insert(toolsTable).values(tools)
+                }
+
+                if (recipe.ingredients.length > 0) {
+                    const ingredients = recipe.ingredients
+                        .map((ingredient) => ({
+                            recipeId: recipe.id.value,
+                            ...ingredient.props
+                        }))
+                        .toArray()
+
+                    await tx.insert(ingredientsTable).values(ingredients)
                 }
             })
 
@@ -80,76 +59,87 @@ export class PgRecipeRepository implements RecipeRepositoryProvider {
 
     async update(recipe: Recipe): Promise<boolean> {
         try {
-            await this.$db.transaction().execute(async (trx) => {
-                await trx
-                    .updateTable('recipes')
+            await pg.transaction(async (tx) => {
+                await tx
+                    .update(recipesTable)
                     .set({
                         name: recipe.name.value,
-                        authorId: recipe.authorId.value,
-                        difficulty: recipe.difficulty.value,
                         description: recipe.description.value,
+                        difficulty: recipe.difficulty.value,
                         preparationTime: recipe.preparationTime.value
                     })
-                    .where('id', '=', recipe.id.value)
-                    .executeTakeFirst()
-
-                await Promise.all([
-                    trx
-                        .deleteFrom('tools')
-                        .where('recipeId', '=', recipe.id.value)
-                        .execute(),
-                    trx
-                        .deleteFrom('steps')
-                        .where('recipeId', '=', recipe.id.value)
-                        .execute(),
-                    trx
-                        .deleteFrom('ingredients')
-                        .where('recipeId', '=', recipe.id.value)
-                        .execute()
-                ])
-
-                if (recipe.ingredients.length > 0) {
-                    await trx
-                        .insertInto('ingredients')
-                        .values(
-                            recipe.ingredients.toArray().map((i) => ({
-                                id: i.id.value,
-                                recipeId: recipe.id.value,
-                                name: i.name.value,
-                                unit: i.unit.value,
-                                measure: i.measure.value
-                            }))
-                        )
-                        .execute()
-                }
+                    .where(eq(recipesTable.id, recipe.id.value))
 
                 if (recipe.steps.length > 0) {
-                    await trx
-                        .insertInto('steps')
-                        .values(
-                            recipe.steps.toArray().map((s) => ({
-                                id: s.id.value,
-                                recipeId: recipe.id.value,
-                                order: s.order.value,
-                                description: s.description.value
-                            }))
-                        )
-                        .execute()
+                    const steps = recipe.steps
+                        .map((step) => ({
+                            recipeId: recipe.id.value,
+                            ...step.props
+                        }))
+                        .toArray()
+
+                    await tx
+                        .insert(stepsTable)
+                        .values(steps)
+                        .onConflictDoUpdate({
+                            target: stepsTable.id,
+                            set: {
+                                order: sql.raw(`excluded.${stepsTable.order}`),
+                                description: sql.raw(
+                                    `excluded.${stepsTable.description}`
+                                )
+                            }
+                        })
                 }
 
                 if (recipe.tools.length > 0) {
-                    trx.insertInto('tools')
-                        .values(
-                            recipe.tools.toArray().map((t) => ({
-                                id: t.id.value,
-                                recipeId: recipe.id.value,
-                                name: t.name.value,
-                                amount: t.amount.value
-                            }))
-                        )
-                        .execute()
+                    const tools = recipe.tools
+                        .map((step) => ({
+                            recipeId: recipe.id.value,
+                            ...step.props
+                        }))
+                        .toArray()
+
+                    await tx
+                        .insert(toolsTable)
+                        .values(tools)
+                        .onConflictDoUpdate({
+                            target: toolsTable.id,
+                            set: {
+                                name: sql.raw(`excluded.${toolsTable.name}`),
+                                amount: sql.raw(`excluded.${toolsTable.amount}`)
+                            }
+                        })
+                }
+
+                if (recipe.ingredients.length > 0) {
+                    const ingredients = recipe.ingredients
+                        .map((ingredient) => ({
+                            recipeId: recipe.id.value,
+                            ...ingredient.props
+                        }))
+                        .toArray()
+
+                    await tx
+                        .insert(ingredientsTable)
+                        .values(ingredients)
+                        .onConflictDoUpdate({
+                            target: ingredientsTable.id,
+                            set: {
+                                name: sql.raw(
+                                    `excluded.${ingredientsTable.name}`
+                                ),
+                                unit: sql.raw(
+                                    `excluded.${ingredientsTable.unit}`
+                                ),
+                                measure: sql.raw(
+                                    `excluded.${ingredientsTable.measure}`
+                                )
+                            }
+                        })
                 }
             })
+
             return true
         } catch (err) {
             app.log.error(err)
@@ -159,25 +149,16 @@ export class PgRecipeRepository implements RecipeRepositoryProvider {
 
     async delete(id: string): Promise<boolean> {
         try {
-            await this.$db.transaction().execute(async (trx) => {
-                await trx
-                    .deleteFrom('steps')
-                    .where('recipeId', '=', id)
-                    .execute()
-                await trx
-                    .deleteFrom('tools')
-                    .where('recipeId', '=', id)
-                    .execute()
+            await pg.transaction(async (tx) => {
+                await tx.delete(stepsTable).where(eq(stepsTable.id, id))
 
-                await trx
-                    .deleteFrom('ingredients')
-                    .where('recipeId', '=', id)
-                    .execute()
+                await tx.delete(toolsTable).where(eq(toolsTable.id, id))
 
-                await trx
-                    .deleteFrom('recipes')
-                    .where('id', '=', id)
-                    .executeTakeFirst()
+                await tx
+                    .delete(ingredientsTable)
+                    .where(eq(ingredientsTable.id, id))
+
+                await tx.delete(recipesTable).where(eq(recipesTable.id, id))
             })
 
             return true
@@ -188,134 +169,57 @@ export class PgRecipeRepository implements RecipeRepositoryProvider {
     }
 
     async findAll(): Promise<Recipe[]> {
-        const rows = await this.$db
-            .selectFrom('recipes')
-            .select([
-                'id',
-                'authorId',
-                'name',
-                'description',
-                'description',
-                'difficulty',
-                'preparationTime'
-            ])
-            .select((eb) => [
-                jsonArrayFrom(
-                    eb
-                        .selectFrom('steps')
-                        .select(['id', 'order', 'description'])
-                        .whereRef('steps.recipeId', '=', 'recipes.id')
-                ).as('steps'),
-                jsonArrayFrom(
-                    eb
-                        .selectFrom('tools')
-                        .select(['id', 'name', 'amount'])
-                        .whereRef('tools.recipeId', '=', 'recipes.id')
-                ).as('tools'),
-                jsonArrayFrom(
-                    eb
-                        .selectFrom('ingredients')
-                        .select(['id', 'name', 'unit', 'measure'])
-                        .whereRef('ingredients.recipeId', '=', 'recipes.id')
-                ).as('ingredients')
-            ])
-            .execute()
+        const rows = await pg.query.recipes.findMany({
+            columns: {
+                pk: false
+            },
+            with: {
+                tools: { columns: { pk: false } },
+                steps: { columns: { pk: false } },
+                ingredients: { columns: { pk: false } }
+            }
+        })
 
-        const recipes = rows.map((row) => new Recipe(row))
-
-        return recipes
+        return rows.map((row) => new Recipe(row))
     }
 
     async findById(id: string): Promise<Recipe | null> {
-        const row = await this.$db
-            .selectFrom('recipes')
-            .select([
-                'id',
-                'authorId',
-                'name',
-                'description',
-                'description',
-                'difficulty',
-                'preparationTime'
-            ])
-            .where('id', '=', id)
-            .select((eb) => [
-                jsonArrayFrom(
-                    eb
-                        .selectFrom('steps')
-                        .select(['id', 'order', 'description'])
-                        .whereRef('steps.recipeId', '=', 'recipes.id')
-                ).as('steps'),
-                jsonArrayFrom(
-                    eb
-                        .selectFrom('tools')
-                        .select(['id', 'name', 'amount'])
-                        .whereRef('tools.recipeId', '=', 'recipes.id')
-                ).as('tools'),
-                jsonArrayFrom(
-                    eb
-                        .selectFrom('ingredients')
-                        .select(['id', 'name', 'unit', 'measure'])
-                        .whereRef('ingredients.recipeId', '=', 'recipes.id')
-                ).as('ingredients')
-            ])
-            .executeTakeFirst()
+        const row = await pg.query.recipes.findFirst({
+            columns: {
+                pk: false
+            },
+            with: {
+                tools: { columns: { pk: false } },
+                steps: { columns: { pk: false } },
+                ingredients: { columns: { pk: false } }
+            },
+            where: (fields, { eq }) => eq(fields.id, id)
+        })
 
-        if (row) {
-            const recipe = new Recipe(row)
-
-            return recipe
-        }
-
-        return null
+        return row ? new Recipe(row) : null
     }
 
     async findByAuthor(id: string): Promise<Recipe[]> {
-        const rows = await this.$db
-            .selectFrom('recipes')
-            .select([
-                'id',
-                'authorId',
-                'name',
-                'description',
-                'description',
-                'difficulty',
-                'preparationTime'
-            ])
-            .where('authorId', '=', id)
-            .select((eb) => [
-                jsonArrayFrom(
-                    eb
-                        .selectFrom('steps')
-                        .select(['id', 'order', 'description'])
-                        .whereRef('steps.recipeId', '=', 'recipes.id')
-                ).as('steps'),
-                jsonArrayFrom(
-                    eb
-                        .selectFrom('tools')
-                        .select(['id', 'name', 'amount'])
-                        .whereRef('tools.recipeId', '=', 'recipes.id')
-                ).as('tools'),
-                jsonArrayFrom(
-                    eb
-                        .selectFrom('ingredients')
-                        .select(['id', 'name', 'unit', 'measure'])
-                        .whereRef('ingredients.recipeId', '=', 'recipes.id')
-                ).as('ingredients')
-            ])
-            .execute()
+        const rows = await pg.query.recipes.findMany({
+            columns: {
+                pk: false
+            },
+            with: {
+                tools: { columns: { pk: false } },
+                steps: { columns: { pk: false } },
+                ingredients: { columns: { pk: false } }
+            },
+            where: (fields, { eq }) => eq(fields.authorId, id)
+        })
 
-        const recipes = rows.map((row) => new Recipe(row))
-
-        return recipes
+        return rows.map((row) => new Recipe(row))
     }
 
     async existsById(id: string): Promise<boolean> {
-        const row = await this.$db
-            .selectFrom('recipes')
-            .select([])
-            .where('id', '=', id)
-            .executeTakeFirst()
+        const row = await pg.query.recipes.findFirst({
+            columns: { id: true },
+            where: (fields, { eq }) => eq(fields.id, id)
+        })
 
         return Boolean(row)
     }

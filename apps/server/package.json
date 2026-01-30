@@ -14,12 +14,12 @@
         "pm2:logs": "pm2 logs",
         "pm2:describe": "pm2 describe",
         "pm2:restart": "pm2 restart",
+        "drizzle:up": "drizzle-kit up",
+        "drizzle:push": "drizzle-kit push",
+        "drizzle:drop": "drizzle-kit drop",
+        "drizzle:generate": "drizzle-kit generate",
+        "drizzle:migrate": "drizzle-kit migrate",
         "scripts:keys": "tsx scripts/createPasetoKeys.ts",
-        "kysely:codegen": "kysely-codegen",
-        "migrate": "dotenvx run -f .env.dev -- kysely migrate",
-        "migrate:up": "pnpm run migrate up",
-        "migrate:down": "pnpm run migrate down",
-        "migrate:create": "pnpm run migrate make --extension=ts",
         "typecheck": "tsc --noEmit"
     },
     "dependencies": {
@@ -33,13 +33,13 @@
         "@fastify/sensible": "catalog:backend",
         "@fastify/swagger": "catalog:docs",
         "@standard-schema/load-env": "workspace:",
+        "@utils/numeric": "workspace:",
         "@utils/time": "workspace:",
         "bcrypt": "catalog:backend",
+        "drizzle-orm": "catalog:backend",
         "fastify": "catalog:backend",
         "fastify-plugin": "catalog:backend",
         "iovalkey": "catalog:db",
-        "kysely": "catalog:db",
-        "kysely-ctl": "catalog:db",
         "paseto-ts": "catalog:backend",
         "pg": "catalog:db",
         "pm2": "catalog:script",
@@ -51,7 +51,7 @@
         "@standard-schema/fastify-type-provider": "workspace:",
         "@types/bcrypt": "catalog:types",
         "@types/pg": "catalog:types",
-        "kysely-codegen": "catalog:db",
+        "drizzle-kit": "catalog:backend",
         "pino-pretty": "catalog:backend"
     }
 }
