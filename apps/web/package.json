@@ -12,6 +12,7 @@
     "dependencies": {
         "@cap.js/widget": "catalog:frontend",
         "@core/auth": "workspace:",
+        "@core/cooking": "workspace:",
         "@core/shared": "workspace:",
         "@dotenvx/dotenvx": "catalog:backend",
         "@tanstack/react-form": "catalog:frontend",
@@ -19,6 +20,9 @@
         "@ui/core": "workspace:",
         "@ui/dnd": "workspace:",
         "@ui/form": "workspace:",
+        "@utils/core": "workspace:",
+        "@utils/numeric": "workspace:",
+        "@utils/time": "workspace:",
         "lucide-react": "catalog:frontend",
         "openapi-fetch": "catalog:frontend",
         "react": "catalog:frontend",

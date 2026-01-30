@@ -4,500 +4,1036 @@
  */
 
 export interface paths {
-    "/auth/register": {
+    '/auth/register': {
         parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
+            query?: never
+            header?: never
+            path?: never
+            cookie?: never
+        }
+        get?: never
+        put?: never
         /** @description Rota para registrar um usuário */
         post: {
             parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
+                query?: never
+                header?: never
+                path?: never
+                cookie?: never
+            }
             requestBody: {
                 content: {
-                    "application/json": {
+                    'application/json': {
                         /**
                          * Nome de Usuário
                          * @example John Doe
                          */
-                        name: string;
+                        name: string
                         /**
                          * Endereço de Email
                          * Format: email
                          * @example user@example.com
                          */
-                        email: string;
+                        email: string
                         /**
                          * Senha
                          * @example abc123ABC
                          */
-                        password: string & (string);
-                    };
-                };
-            };
+                        password: string & string
+                    }
+                }
+            }
             responses: {
                 /** @description Usuário cadastrado com sucesso */
                 201: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "application/json": null;
-                    };
-                };
-                /** @description Erro de validação */
+                        'application/json': unknown
+                    }
+                }
+                /** @description Um erro de validação */
                 400: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "application/json": {
-                            error: string;
-                            message: string;
-                            statusCode: number;
-                        };
-                    };
-                };
+                        'application/json': {
+                            error: string
+                            message: string
+                            /** @enum {number} */
+                            statusCode: 400
+                        }
+                    }
+                }
                 /** @description O email do usuário já está cadastrado */
                 409: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "application/json": {
-                            error: string;
-                            message: string;
-                            statusCode: number;
-                        };
-                    };
-                };
+                        'application/json': {
+                            error: string
+                            message: string
+                            statusCode: number
+                        }
+                    }
+                }
                 /** @description Um erro inesperado interno do servidor */
                 500: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "application/json": {
-                            error: string;
-                            message: string;
+                        'application/json': {
+                            error: string
+                            message: string
                             /** @enum {number} */
-                            statusCode: 500;
-                        };
-                    };
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/auth/login": {
+                            statusCode: 500
+                        }
+                    }
+                }
+            }
+        }
+        delete?: never
+        options?: never
+        head?: never
+        patch?: never
+        trace?: never
+    }
+    '/auth/login': {
         parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
+            query?: never
+            header?: never
+            path?: never
+            cookie?: never
+        }
+        get?: never
+        put?: never
         /** @description Rota de login de conta */
         post: {
             parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
+                query?: never
+                header?: never
+                path?: never
+                cookie?: never
+            }
             requestBody: {
                 content: {
-                    "application/json": {
+                    'application/json': {
                         /**
                          * Endereço de Email
                          * Format: email
                          * @example user@example.com
                          */
-                        email: string;
+                        email: string
                         /**
                          * Senha
                          * @example abc123ABC
                          */
-                        password: string & (string);
-                    };
-                };
-            };
+                        password: string & string
+                    }
+                }
+            }
             responses: {
                 /** @description Logado com sucesso e retorna token de acesso */
                 200: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "application/json": {
-                            token: string;
-                        };
-                    };
-                };
-                /** @description Error de validação */
+                        'application/json': {
+                            token: string
+                        }
+                    }
+                }
+                /** @description Um erro de validação */
                 400: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "application/json": {
-                            error: string;
-                            message: string;
-                            statusCode: number;
-                        };
-                    };
-                };
+                        'application/json': {
+                            error: string
+                            message: string
+                            /** @enum {number} */
+                            statusCode: 400
+                        }
+                    }
+                }
                 /** @description Credenciais de acesso incorretas */
                 403: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "application/json": {
-                            error: string;
-                            message: string;
-                            statusCode: number;
-                        };
-                    };
-                };
+                        'application/json': {
+                            error: string
+                            message: string
+                            statusCode: number
+                        }
+                    }
+                }
                 /** @description Não existe um usuário com o email cadastrado */
                 404: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "application/json": {
-                            error: string;
-                            message: string;
-                            statusCode: number;
-                        };
-                    };
-                };
+                        'application/json': {
+                            error: string
+                            message: string
+                            statusCode: number
+                        }
+                    }
+                }
                 /** @description Um erro inesperado interno do servidor */
                 500: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "application/json": {
-                            error: string;
-                            message: string;
+                        'application/json': {
+                            error: string
+                            message: string
                             /** @enum {number} */
-                            statusCode: 500;
-                        };
-                    };
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/auth/logout": {
+                            statusCode: 500
+                        }
+                    }
+                }
+            }
+        }
+        delete?: never
+        options?: never
+        head?: never
+        patch?: never
+        trace?: never
+    }
+    '/auth/logout': {
         parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
+            query?: never
+            header?: never
+            path?: never
+            cookie?: never
+        }
         /** @description Desconectar o usuário da sessão */
         get: {
             parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
+                query?: never
+                header?: never
+                path?: never
+                cookie?: {
+                    accessToken?: string
+                }
+            }
             requestBody?: {
                 content: {
-                    "application/json": unknown;
-                };
-            };
+                    'application/json': unknown
+                }
+            }
             responses: {
                 /** @description Usuário deconectado com sucesso */
                 204: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "application/json": null;
-                    };
-                };
-                /** @description Erro de validação */
+                        'application/json': unknown
+                    }
+                }
+                /** @description Um erro de validação */
                 400: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "application/json": {
-                            error: string;
-                            message: string;
-                            statusCode: number;
-                        };
-                    };
-                };
+                        'application/json': {
+                            error: string
+                            message: string
+                            /** @enum {number} */
+                            statusCode: 400
+                        }
+                    }
+                }
                 /** @description Um erro inesperado interno do servidor */
                 500: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "application/json": {
-                            error: string;
-                            message: string;
+                        'application/json': {
+                            error: string
+                            message: string
                             /** @enum {number} */
-                            statusCode: 500;
-                        };
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/auth/verify": {
+                            statusCode: 500
+                        }
+                    }
+                }
+            }
+        }
+        put?: never
+        post?: never
+        delete?: never
+        options?: never
+        head?: never
+        patch?: never
+        trace?: never
+    }
+    '/auth/verify': {
         parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
+            query?: never
+            header?: never
+            path?: never
+            cookie?: never
+        }
         /** @description Verificar a sessão do usuário */
         get: {
             parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
+                query?: never
+                header?: never
+                path?: never
+                cookie?: {
+                    accessToken?: Record<string, never>
+                }
+            }
             requestBody?: {
                 content: {
-                    "application/json": unknown;
-                };
-            };
+                    'application/json': unknown
+                }
+            }
             responses: {
                 /** @description A sessão do usuário é válida */
-                201: {
+                204: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "application/json": null;
-                    };
-                };
-                /** @description Erro de validação */
-                400: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": {
-                            error: string;
-                            message: string;
-                            statusCode: number;
-                        };
-                    };
-                };
-                /** @description Token de acesso inválido */
+                        'application/json': unknown
+                    }
+                }
+                /** @description A sessão do usuário é inválida */
                 401: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "application/json": {
-                            error: string;
-                            message: string;
-                            statusCode: number;
-                        };
-                    };
-                };
+                        'application/json': {
+                            error: string
+                            message: string
+                            statusCode: number
+                        }
+                    }
+                }
                 /** @description Um erro inesperado interno do servidor */
                 500: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "application/json": {
-                            error: string;
-                            message: string;
+                        'application/json': {
+                            error: string
+                            message: string
                             /** @enum {number} */
-                            statusCode: 500;
-                        };
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/auth/captcha/challenge": {
+                            statusCode: 500
+                        }
+                    }
+                }
+            }
+        }
+        put?: never
+        post?: never
+        delete?: never
+        options?: never
+        head?: never
+        patch?: never
+        trace?: never
+    }
+    '/cooking/recipes': {
         parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
+            query?: never
+            header?: never
+            path?: never
+            cookie?: never
+        }
+        /** @description Buscar todas as receitas */
         get: {
             parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
+                query?: never
+                header?: never
+                path?: never
+                cookie?: {
+                    accessToken?: string
+                }
+            }
             requestBody?: {
                 content: {
-                    "application/json": unknown;
-                };
-            };
+                    'application/json': unknown
+                }
+            }
             responses: {
-                /** @description Default Response */
+                /** @description Lista de Receitas */
                 200: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "application/json": {
-                            message?: string;
-                            expires: number;
-                            challenge: {
-                                c: number;
-                                s: number;
-                                d: number;
-                            };
-                        };
-                    };
-                };
-                /** @description Um erro inesperado interno do servidor */
-                500: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": {
-                            error: string;
-                            message: string;
-                            statusCode: number;
-                        };
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/auth/captcha/redeem": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        post: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody: {
-                content: {
-                    "application/json": {
-                        token: string;
-                        solutions: number[];
-                    };
-                };
-            };
-            responses: {
-                /** @description Usuário cadastrado com sucesso */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": {
-                            success: boolean;
-                            token?: string;
-                            message?: string;
-                            expires?: number;
-                        };
-                    };
-                };
-                /** @description Corpo de requisição inválido */
+                        'application/json': {
+                            /**
+                             * Format: uuid
+                             * @default 019c105a-312d-7089-8a61-b959fae47cc0
+                             * @example 019c105a-2b91-732b-8e45-eea31cbfbca3
+                             */
+                            id: string
+                            /**
+                             * Format: uuid
+                             * @default 019c105a-312d-7089-8a61-b959fae47cc0
+                             * @example 019c105a-2b91-732b-8e45-eea31cbfbca3
+                             */
+                            authorId: string
+                            name: string
+                            description: string
+                            /** @enum {string} */
+                            difficulty: 'easy' | 'medium' | 'hard'
+                            preparationTime: unknown
+                            steps: {
+                                /**
+                                 * Format: uuid
+                                 * @default 019c105a-312d-7089-8a61-b959fae47cc0
+                                 * @example 019c105a-2b91-732b-8e45-eea31cbfbca3
+                                 */
+                                id: string
+                                order: number
+                                description: string
+                            }[]
+                            tools: {
+                                /**
+                                 * Format: uuid
+                                 * @default 019c105a-312d-7089-8a61-b959fae47cc0
+                                 * @example 019c105a-2b91-732b-8e45-eea31cbfbca3
+                                 */
+                                id: string
+                                name: string
+                                amount: number
+                            }[]
+                            ingredients: {
+                                /**
+                                 * Format: uuid
+                                 * @default 019c105a-312d-7089-8a61-b959fae47cc0
+                                 * @example 019c105a-2b91-732b-8e45-eea31cbfbca3
+                                 */
+                                id: string
+                                name: string
+                                /** @enum {string} */
+                                unit:
+                                    | 'drop'
+                                    | 'pinch'
+                                    | 'tsp'
+                                    | 'tbsp'
+                                    | 'dsp'
+                                    | 'ssp'
+                                    | 'g'
+                                    | 'mg'
+                                    | 'kg'
+                                    | 'l'
+                                    | 'ml'
+                                    | 'cup'
+                                measure: unknown
+                            }[]
+                        }[]
+                    }
+                }
+                /** @description Um erro de validação */
                 400: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "application/json": {
-                            error: string;
-                            message: string;
-                            statusCode: number;
-                        };
-                    };
-                };
+                        'application/json': {
+                            error: string
+                            message: string
+                            /** @enum {number} */
+                            statusCode: 400
+                        }
+                    }
+                }
                 /** @description Um erro inesperado interno do servidor */
                 500: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "application/json": {
-                            error: string;
-                            message: string;
+                        'application/json': {
+                            error: string
+                            message: string
                             /** @enum {number} */
-                            statusCode: 500;
-                        };
-                    };
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
+                            statusCode: 500
+                        }
+                    }
+                }
+            }
+        }
+        put?: never
+        /** @description Cadastrar uma receita */
+        post: {
+            parameters: {
+                query?: never
+                header?: never
+                path?: never
+                cookie?: {
+                    accessToken?: string
+                }
+            }
+            requestBody: {
+                content: {
+                    'application/json': {
+                        name: string
+                        description: string
+                        /** @enum {string} */
+                        difficulty: 'easy' | 'medium' | 'hard'
+                        preparationTime: unknown
+                        steps: {
+                            /**
+                             * Format: uuid
+                             * @default 019c105a-3127-7048-bd1f-37da1d7bf852
+                             * @example 019c105a-2b91-732b-8e45-eea31cbfbca3
+                             */
+                            id?: string
+                            order: number
+                            description: string
+                        }[]
+                        tools: {
+                            /**
+                             * Format: uuid
+                             * @default 019c105a-3127-7048-bd1f-37da1d7bf852
+                             * @example 019c105a-2b91-732b-8e45-eea31cbfbca3
+                             */
+                            id?: string
+                            name: string
+                            amount: number
+                        }[]
+                        ingredients: {
+                            /**
+                             * Format: uuid
+                             * @default 019c105a-3127-7048-bd1f-37da1d7bf852
+                             * @example 019c105a-2b91-732b-8e45-eea31cbfbca3
+                             */
+                            id?: string
+                            name: string
+                            /** @enum {string} */
+                            unit:
+                                | 'drop'
+                                | 'pinch'
+                                | 'tsp'
+                                | 'tbsp'
+                                | 'dsp'
+                                | 'ssp'
+                                | 'g'
+                                | 'mg'
+                                | 'kg'
+                                | 'l'
+                                | 'ml'
+                                | 'cup'
+                            measure: unknown
+                        }[]
+                    }
+                }
+            }
+            responses: {
+                /** @description Receita criada com sucesso */
+                201: {
+                    headers: {
+                        [name: string]: unknown
+                    }
+                    content: {
+                        'application/json': unknown
+                    }
+                }
+                /** @description Um erro de validação */
+                400: {
+                    headers: {
+                        [name: string]: unknown
+                    }
+                    content: {
+                        'application/json': {
+                            error: string
+                            message: string
+                            /** @enum {number} */
+                            statusCode: 400
+                        }
+                    }
+                }
+                /** @description Um erro inesperado interno do servidor */
+                500: {
+                    headers: {
+                        [name: string]: unknown
+                    }
+                    content: {
+                        'application/json': {
+                            error: string
+                            message: string
+                            /** @enum {number} */
+                            statusCode: 500
+                        }
+                    }
+                }
+            }
+        }
+        delete?: never
+        options?: never
+        head?: never
+        patch?: never
+        trace?: never
+    }
+    '/cooking/recipes/{id}': {
+        parameters: {
+            query?: never
+            header?: never
+            path?: never
+            cookie?: never
+        }
+        /** @description Procurar uma receita */
+        get: {
+            parameters: {
+                query?: never
+                header?: never
+                path: {
+                    /** @example 019c105a-2b91-732b-8e45-eea31cbfbca3 */
+                    id: string
+                }
+                cookie?: {
+                    accessToken?: string
+                }
+            }
+            requestBody?: {
+                content: {
+                    'application/json': unknown
+                }
+            }
+            responses: {
+                /** @description Receita */
+                200: {
+                    headers: {
+                        [name: string]: unknown
+                    }
+                    content: {
+                        'application/json': {
+                            /**
+                             * Format: uuid
+                             * @default 019c105a-312c-74cf-9657-6b4ade59135f
+                             * @example 019c105a-2b91-732b-8e45-eea31cbfbca3
+                             */
+                            id: string
+                            /**
+                             * Format: uuid
+                             * @default 019c105a-312c-74cf-9657-6b4ade59135f
+                             * @example 019c105a-2b91-732b-8e45-eea31cbfbca3
+                             */
+                            authorId: string
+                            name: string
+                            description: string
+                            /** @enum {string} */
+                            difficulty: 'easy' | 'medium' | 'hard'
+                            preparationTime: unknown
+                            steps: {
+                                /**
+                                 * Format: uuid
+                                 * @default 019c105a-312c-74cf-9657-6b4ade59135f
+                                 * @example 019c105a-2b91-732b-8e45-eea31cbfbca3
+                                 */
+                                id: string
+                                order: number
+                                description: string
+                            }[]
+                            tools: {
+                                /**
+                                 * Format: uuid
+                                 * @default 019c105a-312c-74cf-9657-6b4ade59135f
+                                 * @example 019c105a-2b91-732b-8e45-eea31cbfbca3
+                                 */
+                                id: string
+                                name: string
+                                amount: number
+                            }[]
+                            ingredients: {
+                                /**
+                                 * Format: uuid
+                                 * @default 019c105a-312c-74cf-9657-6b4ade59135f
+                                 * @example 019c105a-2b91-732b-8e45-eea31cbfbca3
+                                 */
+                                id: string
+                                name: string
+                                /** @enum {string} */
+                                unit:
+                                    | 'drop'
+                                    | 'pinch'
+                                    | 'tsp'
+                                    | 'tbsp'
+                                    | 'dsp'
+                                    | 'ssp'
+                                    | 'g'
+                                    | 'mg'
+                                    | 'kg'
+                                    | 'l'
+                                    | 'ml'
+                                    | 'cup'
+                                measure: unknown
+                            }[]
+                        }
+                    }
+                }
+                /** @description Um erro de validação */
+                400: {
+                    headers: {
+                        [name: string]: unknown
+                    }
+                    content: {
+                        'application/json': {
+                            error: string
+                            message: string
+                            /** @enum {number} */
+                            statusCode: 400
+                        }
+                    }
+                }
+                /** @description Um erro inesperado interno do servidor */
+                500: {
+                    headers: {
+                        [name: string]: unknown
+                    }
+                    content: {
+                        'application/json': {
+                            error: string
+                            message: string
+                            /** @enum {number} */
+                            statusCode: 500
+                        }
+                    }
+                }
+            }
+        }
+        /** @description Atualizar uma receita cadastrada */
+        put: {
+            parameters: {
+                query?: never
+                header?: never
+                path: {
+                    /** @example 019c105a-2b91-732b-8e45-eea31cbfbca3 */
+                    id: string
+                }
+                cookie?: {
+                    accessToken?: string
+                }
+            }
+            requestBody: {
+                content: {
+                    'application/json': {
+                        /**
+                         * Format: uuid
+                         * @default 019c105a-3128-70ea-9ca9-2e14e0658318
+                         * @example 019c105a-2b91-732b-8e45-eea31cbfbca3
+                         */
+                        authorId: string
+                        name: string
+                        description: string
+                        /** @enum {string} */
+                        difficulty: 'easy' | 'medium' | 'hard'
+                        preparationTime: unknown
+                        steps: {
+                            /**
+                             * Format: uuid
+                             * @default 019c105a-3128-70ea-9ca9-2e14e0658318
+                             * @example 019c105a-2b91-732b-8e45-eea31cbfbca3
+                             */
+                            id?: string
+                            order: number
+                            description: string
+                        }[]
+                        tools: {
+                            /**
+                             * Format: uuid
+                             * @default 019c105a-3128-70ea-9ca9-2e14e0658318
+                             * @example 019c105a-2b91-732b-8e45-eea31cbfbca3
+                             */
+                            id?: string
+                            name: string
+                            amount: number
+                        }[]
+                        ingredients: {
+                            /**
+                             * Format: uuid
+                             * @default 019c105a-3128-70ea-9ca9-2e14e0658318
+                             * @example 019c105a-2b91-732b-8e45-eea31cbfbca3
+                             */
+                            id?: string
+                            name: string
+                            /** @enum {string} */
+                            unit:
+                                | 'drop'
+                                | 'pinch'
+                                | 'tsp'
+                                | 'tbsp'
+                                | 'dsp'
+                                | 'ssp'
+                                | 'g'
+                                | 'mg'
+                                | 'kg'
+                                | 'l'
+                                | 'ml'
+                                | 'cup'
+                            measure: unknown
+                        }[]
+                    }
+                }
+            }
+            responses: {
+                /** @description Receita atualizada com sucesso */
+                204: {
+                    headers: {
+                        [name: string]: unknown
+                    }
+                    content: {
+                        'application/json': unknown
+                    }
+                }
+                /** @description Um erro de validação */
+                400: {
+                    headers: {
+                        [name: string]: unknown
+                    }
+                    content: {
+                        'application/json': {
+                            error: string
+                            message: string
+                            /** @enum {number} */
+                            statusCode: 400
+                        }
+                    }
+                }
+                /** @description Um erro inesperado interno do servidor */
+                500: {
+                    headers: {
+                        [name: string]: unknown
+                    }
+                    content: {
+                        'application/json': {
+                            error: string
+                            message: string
+                            /** @enum {number} */
+                            statusCode: 500
+                        }
+                    }
+                }
+            }
+        }
+        post?: never
+        /** @description Deletar uma receita cadastrada */
+        delete: {
+            parameters: {
+                query?: never
+                header?: never
+                path: {
+                    /** @example 019c105a-2b91-732b-8e45-eea31cbfbca3 */
+                    id: string
+                }
+                cookie?: {
+                    accessToken?: string
+                }
+            }
+            requestBody?: {
+                content: {
+                    'application/json': unknown
+                }
+            }
+            responses: {
+                /** @description Receita deletada com sucesso */
+                204: {
+                    headers: {
+                        [name: string]: unknown
+                    }
+                    content: {
+                        'application/json': unknown
+                    }
+                }
+                /** @description Um erro de validação */
+                400: {
+                    headers: {
+                        [name: string]: unknown
+                    }
+                    content: {
+                        'application/json': {
+                            error: string
+                            message: string
+                            /** @enum {number} */
+                            statusCode: 400
+                        }
+                    }
+                }
+                /** @description Um erro inesperado interno do servidor */
+                500: {
+                    headers: {
+                        [name: string]: unknown
+                    }
+                    content: {
+                        'application/json': {
+                            error: string
+                            message: string
+                            /** @enum {number} */
+                            statusCode: 500
+                        }
+                    }
+                }
+            }
+        }
+        options?: never
+        head?: never
+        patch?: never
+        trace?: never
+    }
+    '/cooking/authors/{id}/recipes': {
+        parameters: {
+            query?: never
+            header?: never
+            path?: never
+            cookie?: never
+        }
+        /** @description Buscar todas as receitas de um usuário */
+        get: {
+            parameters: {
+                query?: never
+                header?: never
+                path: {
+                    /** @example 019c105a-2b91-732b-8e45-eea31cbfbca3 */
+                    id: string
+                }
+                cookie?: {
+                    accessToken?: string
+                }
+            }
+            requestBody?: {
+                content: {
+                    'application/json': unknown
+                }
+            }
+            responses: {
+                /** @description Lista de Receitas */
+                200: {
+                    headers: {
+                        [name: string]: unknown
+                    }
+                    content: {
+                        'application/json': {
+                            /**
+                             * Format: uuid
+                             * @default 019c105a-312e-73dd-8aaf-f1870fe7d9cd
+                             * @example 019c105a-2b91-732b-8e45-eea31cbfbca3
+                             */
+                            id: string
+                            /**
+                             * Format: uuid
+                             * @default 019c105a-312e-73dd-8aaf-f1870fe7d9cd
+                             * @example 019c105a-2b91-732b-8e45-eea31cbfbca3
+                             */
+                            authorId: string
+                            name: string
+                            description: string
+                            /** @enum {string} */
+                            difficulty: 'easy' | 'medium' | 'hard'
+                            preparationTime: unknown
+                            steps: {
+                                /**
+                                 * Format: uuid
+                                 * @default 019c105a-312e-73dd-8aaf-f1870fe7d9cd
+                                 * @example 019c105a-2b91-732b-8e45-eea31cbfbca3
+                                 */
+                                id: string
+                                order: number
+                                description: string
+                            }[]
+                            tools: {
+                                /**
+                                 * Format: uuid
+                                 * @default 019c105a-312e-73dd-8aaf-f1870fe7d9cd
+                                 * @example 019c105a-2b91-732b-8e45-eea31cbfbca3
+                                 */
+                                id: string
+                                name: string
+                                amount: number
+                            }[]
+                            ingredients: {
+                                /**
+                                 * Format: uuid
+                                 * @default 019c105a-312e-73dd-8aaf-f1870fe7d9cd
+                                 * @example 019c105a-2b91-732b-8e45-eea31cbfbca3
+                                 */
+                                id: string
+                                name: string
+                                /** @enum {string} */
+                                unit:
+                                    | 'drop'
+                                    | 'pinch'
+                                    | 'tsp'
+                                    | 'tbsp'
+                                    | 'dsp'
+                                    | 'ssp'
+                                    | 'g'
+                                    | 'mg'
+                                    | 'kg'
+                                    | 'l'
+                                    | 'ml'
+                                    | 'cup'
+                                measure: unknown
+                            }[]
+                        }[]
+                    }
+                }
+                /** @description Um erro de validação */
+                400: {
+                    headers: {
+                        [name: string]: unknown
+                    }
+                    content: {
+                        'application/json': {
+                            error: string
+                            message: string
+                            /** @enum {number} */
+                            statusCode: 400
+                        }
+                    }
+                }
+                /** @description Um erro inesperado interno do servidor */
+                500: {
+                    headers: {
+                        [name: string]: unknown
+                    }
+                    content: {
+                        'application/json': {
+                            error: string
+                            message: string
+                            /** @enum {number} */
+                            statusCode: 500
+                        }
+                    }
+                }
+            }
+        }
+        put?: never
+        post?: never
+        delete?: never
+        options?: never
+        head?: never
+        patch?: never
+        trace?: never
+    }
 }
-export type webhooks = Record<string, never>;
+export type webhooks = Record<string, never>
 export interface components {
-    schemas: never;
-    responses: never;
-    parameters: never;
-    requestBodies: never;
-    headers: never;
-    pathItems: never;
+    schemas: never
+    responses: never
+    parameters: never
+    requestBodies: never
+    headers: never
+    pathItems: never
 }
-export type $defs = Record<string, never>;
-export type operations = Record<string, never>;
+export type $defs = Record<string, never>
+export type operations = Record<string, never>

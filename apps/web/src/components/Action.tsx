@@ -12,7 +12,7 @@ export function Action({
     }
 
     if (state.status === 'failed') {
-        return <em className='text-error not-italic'>{state.error}</em>
+        return <em className='text-destructive not-italic'>{state.error}</em>
     }
 
     return null
