@@ -23,7 +23,9 @@ import { pg } from './db/pg'
 import { app } from './app'
 import { updateRecipeController } from './api/controllers/cooking/updateRecipeController'
 import { registerRecipeController } from './api/controllers/cooking/registerRecipeController'
-import { findRecipesController } from './api/controllers/cooking/findRecipesController'
+import { findUserRecipesController } from './api/controllers/cooking/findUserRecipesController'
+import { findRecipeController } from './api/controllers/cooking/findRecipeController'
+import { findAllRecipesController } from './api/controllers/cooking/findAllRecipesController'
 import { deleteRecipeController } from './api/controllers/cooking/deleteRecipeController'
 import { verifyUserSessionController } from './api/controllers/auth/verifyUserSessionController'
 import { registerUserController } from './api/controllers/auth/registerUserController'
@@ -119,11 +121,9 @@ try {
     app.register(registerRecipeController, { registerRecipe })
         .register(updateRecipeController, { updateRecipe })
         .register(deleteRecipeController, { deleteRecipe })
-        .register(findRecipesController, {
-            findRecipe,
-            findAllRecipes,
-            findUserRecipes
-        })
+        .register(findRecipeController, { findRecipe })
+        .register(findAllRecipesController, { findAllRecipes })
+        .register(findUserRecipesController, { findUserRecipes })
 
     await app.listen({ port: env.API_PORT })
 
