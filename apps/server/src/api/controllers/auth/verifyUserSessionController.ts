@@ -5,7 +5,8 @@ import z from 'zod'
 import fp from 'fastify-plugin'
 import type { RawServerDefault } from 'fastify'
 
-import { httpErrorSchema, serverErrorSchema } from '~/schemas/httpErrorSchema'
+import { serverErrorSchema } from '~/schemas/serverErrorSchema'
+import { httpErrorSchema } from '~/schemas/httpErrorSchema'
 
 export const verifyUserSessionController = fp<
     any,

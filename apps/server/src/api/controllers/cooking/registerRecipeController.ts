@@ -17,7 +17,7 @@ import {
 import type { UserPayload } from '@core/auth'
 
 import { validationErrorSchema } from '~/schemas/validationErrorSchema'
-import { serverErrorSchema } from '~/schemas/httpErrorSchema'
+import { serverErrorSchema } from '~/schemas/serverErrorSchema'
 
 interface Options {
     registerRecipe: RegisterRecipe

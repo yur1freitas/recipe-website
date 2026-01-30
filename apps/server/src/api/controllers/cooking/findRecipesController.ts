@@ -14,7 +14,7 @@ import {
 import type { FindAllRecipes, FindRecipe, FindUserRecipes } from '@core/cooking'
 
 import { validationErrorSchema } from '~/schemas/validationErrorSchema'
-import { serverErrorSchema } from '~/schemas/httpErrorSchema'
+import { serverErrorSchema } from '~/schemas/serverErrorSchema'
 
 interface Options {
     findRecipe: FindRecipe

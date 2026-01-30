@@ -6,11 +6,12 @@ import fp from 'fastify-plugin'
 import type { RawServerDefault } from 'fastify'
 
 import { ValidatorError } from '@core/shared'
-import type { RegisterUser } from '@core/auth'
 import { AuthError, RegisterUserErrors, userSchema } from '@core/auth'
+import type { RegisterUser } from '@core/auth'
 
 import { validationErrorSchema } from '~/schemas/validationErrorSchema'
-import { httpErrorSchema, serverErrorSchema } from '~/schemas/httpErrorSchema'
+import { serverErrorSchema } from '~/schemas/serverErrorSchema'
+import { httpErrorSchema } from '~/schemas/httpErrorSchema'
 
 interface Options {
     registerUser: RegisterUser

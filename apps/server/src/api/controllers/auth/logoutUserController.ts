@@ -10,7 +10,7 @@ import type { LogoutUser } from '@core/auth'
 import { AuthError, LoginUserErrors } from '@core/auth'
 
 import { validationErrorSchema } from '~/schemas/validationErrorSchema'
-import { serverErrorSchema } from '~/schemas/httpErrorSchema'
+import { serverErrorSchema } from '~/schemas/serverErrorSchema'
 
 interface Options {
     logoutUser: LogoutUser
