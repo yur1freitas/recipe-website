@@ -1,7 +1,7 @@
 import type { StandardSchemaTypeProvider } from '@standard-schema/fastify-type-provider'
 
-import { ZodType } from 'zod'
 import z from 'zod'
+import { ZodType } from 'zod'
 import {
     StandardSchemaSerializerCompiler,
     StandardSchemaValidatorCompiler,
@@ -12,7 +12,7 @@ import fastifyScalar from '@scalar/fastify-api-reference'
 import type { PinoLoggerOptions } from 'fastify/types/logger'
 import fastify from 'fastify'
 import fastifySwagger from '@fastify/swagger'
-import fastifySensible from '@fastify/sensible'
+import fastifySensible, { HttpError } from '@fastify/sensible'
 import fastifyRateLimit from '@fastify/rate-limit'
 import { fastifyGracefulShutdown } from '@fastify/graceful-shutdown'
 import fastifyCors from '@fastify/cors'
@@ -79,8 +79,12 @@ app.register(fastifySwagger, {
 })
 
 app.setErrorHandler((error, _, reply) => {
-    app.log.error(error)
-    reply.internalServerError(DEFAULT_SERVER_ERROR_MESSAGE)
+    if (error instanceof HttpError && error.statusCode === 500) {
+        app.log.error(error)
+        reply.internalServerError(DEFAULT_SERVER_ERROR_MESSAGE)
+    } else {
+        reply.send(error)
+    }
 })
 
 export { app }
