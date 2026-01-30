@@ -19,6 +19,7 @@ import fastifyCors from '@fastify/cors'
 import fastifyCookie from '@fastify/cookie'
 
 import { env } from './env'
+import { DEFAULT_SERVER_ERROR_MESSAGE } from './consts'
 
 const logger: Record<string, boolean | PinoLoggerOptions> = {
     development: {
@@ -75,6 +76,11 @@ app.register(fastifySwagger, {
         theme: 'fastify',
         customCss: `.parameter-item-trigger :last-child { height: 1rem !important; }`
     }
+})
+
+app.setErrorHandler((error, _, reply) => {
+    app.log.error(error)
+    reply.internalServerError(DEFAULT_SERVER_ERROR_MESSAGE)
 })
 
 export { app }
