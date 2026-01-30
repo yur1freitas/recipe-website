@@ -1,9 +1,10 @@
 import z from 'zod'
 
+import { httpErrorSchema } from './httpErrorSchema'
+
 export const serverErrorSchema = z
     .object({
-        error: z.string(),
-        message: z.string(),
+        ...httpErrorSchema.shape,
         statusCode: z.literal(500)
     })
     .meta({
