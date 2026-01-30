@@ -1,6 +1,13 @@
 import { createFormHook } from '@tanstack/react-form'
 
-import { formContext, fieldContext, Form } from '@ui/form'
+import {
+    formContext,
+    fieldContext,
+    Form,
+    FormSelect,
+    FormTimeFieldset,
+    FormNumberField
+} from '@ui/form'
 
 export const { withForm, withFieldGroup, useAppForm } = createFormHook({
     formContext,
@@ -14,6 +21,14 @@ export const { withForm, withFieldGroup, useAppForm } = createFormHook({
         Input: Form.Input,
         Info: Form.FieldInfo,
         Captcha: Form.Captcha,
-        Password: Form.Password
+        Password: Form.Password,
+        Textarea: Form.Textarea,
+        Select: FormSelect.Root,
+        SelectTrigger: FormSelect.Trigger,
+        TimeFieldset: FormTimeFieldset.Root,
+        TimeFieldsetInput: FormTimeFieldset.Input,
+        NumberField: FormNumberField.Root,
+        NumberFieldInput: FormNumberField.Input,
+        NumbericInput: Form.NumericInput
     }
 })

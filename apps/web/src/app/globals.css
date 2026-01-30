@@ -4,5 +4,5 @@
 
 html,
 body {
-    @apply bg-background text-foreground;
+    @apply w-full min-h-screen relative bg-background text-foreground;
 }

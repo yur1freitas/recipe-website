@@ -31,7 +31,7 @@ export async function loginUserAction(
     const accessToken = data.token
 
     const cookieStore = await cookies()
-    cookieStore.set('acessToken', accessToken, {
+    cookieStore.set('accessToken', accessToken, {
         path: '/',
         secure: false,
         httpOnly: true,
