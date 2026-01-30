@@ -13,7 +13,8 @@ import {
 } from '@core/cooking'
 import type { FindAllRecipes, FindRecipe, FindUserRecipes } from '@core/cooking'
 
-import { httpErrorSchema, serverErrorSchema } from '~/schemas/httpErrorSchema'
+import { validationErrorSchema } from '~/schemas/validationErrorSchema'
+import { serverErrorSchema } from '~/schemas/httpErrorSchema'
 
 interface Options {
     findRecipe: FindRecipe
@@ -43,7 +44,7 @@ export const findRecipesController = fp<
                 params: z.object({ id: idSchema }),
                 response: {
                     200: recipeSchema.describe('Receita'),
-                    400: httpErrorSchema.describe('Erro de validação'),
+                    400: validationErrorSchema,
                     500: serverErrorSchema
                 }
             },
@@ -86,7 +87,7 @@ export const findRecipesController = fp<
                 description: 'Buscar todas as receitas',
                 response: {
                     200: z.array(recipeSchema).describe('Lista de Receitas'),
-                    400: httpErrorSchema.describe('Erro de validação'),
+                    400: validationErrorSchema,
                     500: serverErrorSchema
                 }
             },
@@ -126,7 +127,7 @@ export const findRecipesController = fp<
                 params: z.object({ id: idSchema }),
                 response: {
                     200: z.array(recipeSchema).describe('Lista de Receitas'),
-                    400: httpErrorSchema.describe('Erro de validação'),
+                    400: validationErrorSchema,
                     500: serverErrorSchema
                 }
             },

@@ -6,10 +6,11 @@ import fp from 'fastify-plugin'
 import type { RawServerDefault } from 'fastify'
 
 import { ValidatorError } from '@core/shared'
-import { AuthError, LoginUserErrors } from '@core/auth'
 import type { LogoutUser } from '@core/auth'
+import { AuthError, LoginUserErrors } from '@core/auth'
 
-import { httpErrorSchema, serverErrorSchema } from '~/schemas/httpErrorSchema'
+import { validationErrorSchema } from '~/schemas/validationErrorSchema'
+import { serverErrorSchema } from '~/schemas/httpErrorSchema'
 
 interface Options {
     logoutUser: LogoutUser
@@ -38,7 +39,7 @@ export const logoutUserController = fp<
                     204: z
                         .undefined()
                         .describe('Usuário deconectado com sucesso'),
-                    400: httpErrorSchema.describe('Erro de validação'),
+                    400: validationErrorSchema,
                     500: serverErrorSchema
                 }
             },

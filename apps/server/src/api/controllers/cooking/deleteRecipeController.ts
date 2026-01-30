@@ -6,10 +6,11 @@ import fp from 'fastify-plugin'
 import type { RawServerDefault } from 'fastify'
 
 import { idSchema, ValidatorError } from '@core/shared'
-import { CookingError, DeleteRecipeErrors } from '@core/cooking'
 import type { DeleteRecipe } from '@core/cooking'
+import { CookingError, DeleteRecipeErrors } from '@core/cooking'
 
-import { httpErrorSchema, serverErrorSchema } from '~/schemas/httpErrorSchema'
+import { validationErrorSchema } from '~/schemas/validationErrorSchema'
+import { serverErrorSchema } from '~/schemas/httpErrorSchema'
 
 interface Options {
     deleteRecipe: DeleteRecipe
@@ -37,7 +38,7 @@ export const deleteRecipeController = fp<
                 params: z.object({ id: idSchema }),
                 response: {
                     204: z.undefined().describe('Receita deletada com sucesso'),
-                    400: httpErrorSchema.describe('Erro de validação'),
+                    400: validationErrorSchema,
                     500: serverErrorSchema
                 }
             },

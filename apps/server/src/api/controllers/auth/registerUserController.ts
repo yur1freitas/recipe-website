@@ -9,6 +9,7 @@ import { ValidatorError } from '@core/shared'
 import type { RegisterUser } from '@core/auth'
 import { AuthError, RegisterUserErrors, userSchema } from '@core/auth'
 
+import { validationErrorSchema } from '~/schemas/validationErrorSchema'
 import { httpErrorSchema, serverErrorSchema } from '~/schemas/httpErrorSchema'
 
 interface Options {
@@ -33,7 +34,7 @@ export const registerUserController = fp<
                     201: z
                         .undefined()
                         .describe('Usuário cadastrado com sucesso'),
-                    400: httpErrorSchema.describe('Erro de validação'),
+                    400: validationErrorSchema,
                     409: httpErrorSchema.describe(
                         'O email do usuário já está cadastrado'
                     ),
