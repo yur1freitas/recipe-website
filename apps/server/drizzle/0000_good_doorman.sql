@@ -3,7 +3,7 @@ CREATE TABLE "ingredients" (
 	"id" uuid NOT NULL,
 	"recipe_id" uuid NOT NULL,
 	"name" varchar(120) NOT NULL,
-	"measure" "VARCHAR(120) NOT NULL",
+	"measure" varchar(120) NOT NULL,
 	"unit" varchar NOT NULL,
 	CONSTRAINT "ingredients_id_unique" UNIQUE("id"),
 	CONSTRAINT "name_length_check" CHECK (LENGTH("ingredients"."name") >= 3)
@@ -16,7 +16,7 @@ CREATE TABLE "recipes" (
 	"name" varchar(64) NOT NULL,
 	"description" varchar(256) NOT NULL,
 	"difficulty" varchar NOT NULL,
-	"preparation_time" "INTEGER NOT NULL",
+	"preparation_time" integer NOT NULL,
 	CONSTRAINT "recipes_id_unique" UNIQUE("id"),
 	CONSTRAINT "name_length_check" CHECK (LENGTH("recipes"."name") >= 3),
 	CONSTRAINT "description_length_check" CHECK (LENGTH("recipes"."description") > 0),

@@ -1,5 +1,5 @@
 {
-    "id": "a5fe9881-0ab2-4443-8202-5b1e18888405",
+    "id": "63580fe2-8594-441c-b0de-34d3e1732a59",
     "prevId": "00000000-0000-0000-0000-000000000000",
     "version": "7",
     "dialect": "postgresql",
@@ -45,9 +45,9 @@
                 },
                 "measure": {
                     "name": "measure",
-                    "type": "VARCHAR(120) NOT NULL",
+                    "type": "varchar(120)",
                     "primaryKey": false,
-                    "notNull": false
+                    "notNull": true
                 },
                 "unit": {
                     "name": "unit",
@@ -138,9 +138,9 @@
                 },
                 "preparation_time": {
                     "name": "preparation_time",
-                    "type": "INTEGER NOT NULL",
+                    "type": "integer",
                     "primaryKey": false,
-                    "notNull": false
+                    "notNull": true
                 }
             },
             "indexes": {},
