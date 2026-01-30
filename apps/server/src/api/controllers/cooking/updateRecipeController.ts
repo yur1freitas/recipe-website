@@ -42,6 +42,9 @@ export const updateRecipeController = fp<
                 tags: ['cooking'],
                 description: 'Atualizar uma receita cadastrada',
                 params: z.object({ id: idSchema }),
+                cookies: {
+                    accessToken: z.string()
+                },
                 body: z
                     .object({
                         ...recipeSchema.shape,

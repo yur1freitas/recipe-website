@@ -35,6 +35,9 @@ export const findAllRecipesController = fp<
             schema: {
                 tags: ['cooking'],
                 description: 'Buscar todas as receitas',
+                cookies: {
+                    accessToken: z.string()
+                },
                 response: {
                     200: z.array(recipeSchema).describe('Lista de Receitas'),
                     400: validationErrorSchema,
