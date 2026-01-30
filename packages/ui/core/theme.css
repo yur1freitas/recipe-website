@@ -752,4 +752,51 @@
             @apply z-1;
         }
     }
+
+    .card {
+        &-xs {
+            --padding: 0.75rem;
+        }
+
+        &-sm {
+            --padding: 1rem;
+        }
+
+        &-md {
+            --padding: 1.5rem;
+        }
+
+        &-root {
+            @apply flex flex-col;
+            @apply border border-border rounded;
+            @apply text-foreground bg-background shadow-xs;
+        }
+
+        &-header {
+            @apply grid auto-rows-min grid-rows-[auto_auto] items-start;
+            @apply pt-(--padding) px-(--padding);
+
+            &:is(.border-b) {
+                @apply pb-6;
+            }
+        }
+
+        &-title {
+            @apply font-semibold;
+        }
+
+        &-description {
+            @apply text-muted-foreground text-sm;
+        }
+
+        &-content {
+            @apply py-2 px-(--padding);
+        }
+
+        &-footer {
+            @apply flex items-center;
+            @apply py-(--padding) px-(--padding);
+            @apply border-t border-border bg-muted/50;
+        }
+    }
 }
