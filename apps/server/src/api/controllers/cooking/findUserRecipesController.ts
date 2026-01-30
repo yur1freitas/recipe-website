@@ -6,12 +6,12 @@ import fp from 'fastify-plugin'
 import type { RawServerDefault } from 'fastify'
 
 import { idSchema, ValidatorError } from '@core/shared'
-import type { FindUserRecipes } from '@core/cooking'
 import {
     CookingError,
     FindUserRecipesErrors,
     recipeSchema
 } from '@core/cooking'
+import type { FindUserRecipes } from '@core/cooking'
 
 import { validationErrorSchema } from '~/schemas/validationErrorSchema'
 import { serverErrorSchema } from '~/schemas/serverErrorSchema'
@@ -40,6 +40,9 @@ export const findUserRecipesController = fp<
                 tags: ['cooking'],
                 description: 'Buscar todas as receitas de um usuário',
                 params: z.object({ id: idSchema }),
+                cookies: {
+                    accessToken: z.string()
+                },
                 response: {
                     200: z.array(recipeSchema).describe('Lista de Receitas'),
                     400: validationErrorSchema,

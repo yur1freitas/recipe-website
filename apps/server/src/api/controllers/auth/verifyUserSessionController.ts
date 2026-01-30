@@ -19,6 +19,9 @@ export const verifyUserSessionController = fp<
             schema: {
                 tags: ['auth'],
                 description: 'Verificar a sessão do usuário',
+                cookies: {
+                    accessToken: z.string().optional()
+                },
                 response: {
                     204: z.undefined().describe('A sessão do usuário é válida'),
                     401: httpErrorSchema.describe(

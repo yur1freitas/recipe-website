@@ -42,6 +42,9 @@ export const registerRecipeController = fp<
             schema: {
                 tags: ['cooking'],
                 description: 'Cadastrar uma receita',
+                cookies: {
+                    accessToken: z.string()
+                },
                 body: z
                     .object({
                         ...recipeSchema.shape,

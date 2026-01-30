@@ -36,6 +36,9 @@ export const deleteRecipeController = fp<
                 tags: ['cooking'],
                 description: 'Deletar uma receita cadastrada',
                 params: z.object({ id: idSchema }),
+                cookies: {
+                    accessToken: z.string()
+                },
                 response: {
                     204: z.undefined().describe('Receita deletada com sucesso'),
                     400: validationErrorSchema,

@@ -35,6 +35,9 @@ export const logoutUserController = fp<
             schema: {
                 tags: ['auth'],
                 description: 'Desconectar o usuário da sessão',
+                cookies: {
+                    accessToken: z.string()
+                },
                 response: {
                     204: z
                         .undefined()

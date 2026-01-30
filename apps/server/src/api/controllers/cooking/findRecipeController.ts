@@ -36,6 +36,9 @@ export const findRecipeController = fp<
                 tags: ['cooking'],
                 description: 'Procurar uma receita',
                 params: z.object({ id: idSchema }),
+                cookies: {
+                    accessToken: z.string()
+                },
                 response: {
                     200: recipeSchema.describe('Receita'),
                     400: validationErrorSchema,
