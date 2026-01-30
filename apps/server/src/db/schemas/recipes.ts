@@ -25,7 +25,7 @@ export const recipesTable = pgTable(
                 DifficultyEnum.HARD
             ]
         }).notNull(),
-        preparationTime: pgTime()
+        preparationTime: pgTime().notNull()
     },
     (table) => [
         check('name_length_check', sql`LENGTH(${table.name}) >= 3`),

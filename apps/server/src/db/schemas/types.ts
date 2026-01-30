@@ -8,7 +8,7 @@ export const pgTime = customType<{
     notNull: true
 }>({
     dataType(): string {
-        return 'INTEGER NOT NULL'
+        return 'integer'
     },
     toDriver(value) {
         return value.toMilliseconds()
@@ -24,7 +24,7 @@ export const pgNumeric = customType<{
     notNull: true
 }>({
     dataType(): string {
-        return 'VARCHAR(120) NOT NULL'
+        return 'varchar(120)'
     },
     toDriver(value) {
         return value.toString()

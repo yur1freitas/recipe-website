@@ -17,7 +17,7 @@ export const ingredientsTable = pgTable(
             .notNull()
             .references(() => recipesTable.id),
         name: varchar({ length: 120 }).notNull(),
-        measure: pgNumeric(),
+        measure: pgNumeric().notNull(),
         unit: varchar({
             enum: [
                 UnitEnum.CUP,
