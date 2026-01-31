@@ -799,4 +799,56 @@
             @apply border-t border-border bg-muted/50;
         }
     }
+
+    .search {
+        &-root {
+            @apply flex items-center;
+            @apply w-full rounded shadow-xs;
+            @apply relative;
+        }
+
+        &-input {
+            @apply shadow-none focus-visible:z-1;
+
+            &[type='search']::-webkit-search-cancel-button {
+                @apply hidden;
+            }
+        }
+
+        &-button {
+            @apply [&>svg]:size-1/3;
+        }
+
+        &-cancel-button {
+            @apply absolute inline-flex shadow-none text-muted-foreground z-2;
+
+            & > svg {
+                @apply size-4 select-none shrink-0;
+            }
+        }
+
+        &-default &-button {
+            @apply order-1 border-r-0 rounded-r-none;
+        }
+
+        &-default &-input {
+            @apply order-2 rounded-l-none pl-1 pr-6;
+        }
+
+        &-default &-cancel-button {
+            @apply right-1.5;
+        }
+
+        &-reversed &-button {
+            @apply order-2 border-l-0 rounded-l-none;
+        }
+
+        &-reversed &-input {
+            @apply order-1 rounded-r-none pr-1 pl-6;
+        }
+
+        &-reversed &-cancel-button {
+            @apply left-1.5;
+        }
+    }
 }
