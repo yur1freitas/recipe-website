@@ -25,6 +25,7 @@
         "./Label": "./dist/Label.js",
         "./Loading": "./dist/Loading.js",
         "./Menu": "./dist/Menu/index.js",
+        "./Navbar": "./dist/Navbar/index.js",
         "./NumberField": "./dist/NumberField/index.js",
         "./NumericInput": "./dist/NumericInput.js",
         "./Password": "./dist/Password/index.js",
