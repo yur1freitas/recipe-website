@@ -1,3 +1,4 @@
+import { cx } from 'tailwind-variants/utils'
 import { cloneElement, Children } from 'react'
 
 import { VisuallyHidden } from './VisuallyHidden'
@@ -13,10 +14,15 @@ export interface IconProps extends React.ComponentProps<'svg'> {
 export function Icon({
     label,
     children,
+    className,
     ...props
 }: IconProps): React.JSX.Element {
-    const clonedIcon = cloneElement(Children.only(children), {
+    const child = Children.only(children)
+    const classNames = cx(child.props?.className, className)
+
+    const clonedIcon = cloneElement(child, {
         ...props,
+        'className': classNames,
         'aria-hidden': true,
         'focusable': false
     })
