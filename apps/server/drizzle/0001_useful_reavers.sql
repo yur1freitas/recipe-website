@@ -1,0 +1,1 @@
+CREATE INDEX "name_search_index" ON "recipes" USING gin (to_tsvector('portuguese', "name"));
