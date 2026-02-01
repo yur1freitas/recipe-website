@@ -43,11 +43,6 @@ export type { ToolInput, ToolProps } from './tool/models/Tool'
 
 export type { StepInput, StepProps } from './step/models/Step'
 
-export type {
-    SearchRecipesInput,
-    SearchRecipesOutput
-} from './recipe/usecases/SearchRecipes'
-
 export {
     preparationTimeSchema,
     PreparationTime,
@@ -88,9 +83,6 @@ export {
     UpdateRecipe,
     UpdateRecipeErrors
 } from './recipe/usecases/UpdateRecipe'
-
-export { SearchRecipes } from './recipe/usecases/SearchRecipes'
-
 export { amountSchema, Amount, AmountValidator } from './shared/models/Amount'
 
 export { Ingredient, ingredientSchema } from './ingredient/models/Ingredient'
