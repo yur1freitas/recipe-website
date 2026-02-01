@@ -48,18 +48,6 @@ export class RecipeRepositoryProviderMock implements RecipeRepositoryProvider {
         return recipes
     }
 
-    findByName(name: string): Recipe[] {
-        const recipes = this.$store
-            .values()
-            .filter((recipe) =>
-                recipe.name.toLowerCase().includes(name.toLowerCase())
-            )
-            .map((recipe) => new Recipe(recipe))
-            .toArray()
-
-        return recipes
-    }
-
     existsById(id: string): boolean {
         const recipe = this.$store.values().find((recipe) => recipe.id === id)
 
