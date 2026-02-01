@@ -9,5 +9,6 @@ export interface RecipeRepositoryProvider {
     findAll(): Awaitable<Recipe[]>
     findById(id: string): Awaitable<Recipe | null>
     findByAuthor(id: string): Awaitable<Recipe[]>
+    findByName(name: string): Awaitable<Recipe[]>
     existsById(id: string): Awaitable<boolean>
 }
