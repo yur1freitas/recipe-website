@@ -9,6 +9,9 @@ import { ValidatorError } from '@core/shared'
 import type { FindAllRecipes } from '@core/cooking'
 import { recipeSchema } from '@core/cooking'
 
+import type { SearchRecipesInput } from '~/utils/searchRecipes'
+
+import { searchRecipes } from '~/utils/searchRecipes'
 import { validationErrorSchema } from '~/schemas/validationErrorSchema'
 import { serverErrorSchema } from '~/schemas/serverErrorSchema'
 
@@ -38,6 +41,19 @@ export const findAllRecipesController = fp<
                 cookies: {
                     accessToken: z.string()
                 },
+                querystring: z.object({
+                    search: z.string().trim().nonempty().optional(),
+                    limit: z.coerce
+                        .number<number>()
+                        .int()
+                        .positive()
+                        .optional(),
+                    offset: z.coerce
+                        .number<number>()
+                        .int()
+                        .positive()
+                        .optional()
+                }),
                 response: {
                     200: z.array(recipeSchema).describe('Lista de Receitas'),
                     400: validationErrorSchema,
@@ -46,7 +62,25 @@ export const findAllRecipesController = fp<
             },
             preHandler: [app.pasetoHandler()]
         },
-        async (_, reply) => {
+        async (request, reply) => {
+            const { limit, offset, search } = request.query
+
+            if ((limit && offset) || search) {
+                const [err, data] = await app.to(
+                    searchRecipes({
+                        limit,
+                        offset,
+                        search
+                    } as SearchRecipesInput)
+                )
+
+                if (!err) {
+                    return reply.send(data)
+                }
+
+                return reply.internalServerError(err.message)
+            }
+
             const [err, recipes] = await app.to(findAllRecipes.execute())
 
             if (!err) {

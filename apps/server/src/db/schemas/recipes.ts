@@ -1,4 +1,11 @@
-import { check, integer, pgTable, uuid, varchar } from 'drizzle-orm/pg-core'
+import {
+    check,
+    integer,
+    pgTable,
+    uuid,
+    varchar,
+    index
+} from 'drizzle-orm/pg-core'
 import { sql } from 'drizzle-orm'
 
 import { DifficultyEnum } from '@core/cooking'
@@ -36,6 +43,10 @@ export const recipesTable = pgTable(
         check(
             'preparation_time_min_value_check',
             sql`${table.preparationTime} > 0`
+        ),
+        index('name_search_index').using(
+            'gin',
+            sql`to_tsvector('portuguese', ${table.name})`
         )
     ]
 )
