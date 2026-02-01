@@ -46,12 +46,12 @@ export const findAllRecipesController = fp<
                     limit: z.coerce
                         .number<number>()
                         .int()
-                        .positive()
+                        .nonnegative()
                         .optional(),
                     offset: z.coerce
                         .number<number>()
                         .int()
-                        .positive()
+                        .nonnegative()
                         .optional()
                 }),
                 response: {
