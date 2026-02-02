@@ -15,6 +15,7 @@
         "./Fieldset": "./dist/Fieldset/index.js",
         "./hooks/useBoolean": "./dist/hooks/useBoolean.js",
         "./hooks/useNumeric": "./dist/hooks/useNumeric.js",
+        "./hooks/useBreakpoint": "./dist/hooks/useBreakpoint.js",
         "./hooks/usePasswordContext": "./dist/hooks/usePasswordContext.js",
         "./hooks/useSearchContext": "./dist/hooks/useSearchContext.js",
         "./hooks/useStep": "./dist/hooks/useStep.js",
