@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
+import { useBreakpoint } from '~/hooks/useBreakpoint'
 import { Grid } from '~/components/Grid'
 
 const Square = () => <div className='size-16 m-1 bg-black rounded' />
@@ -77,6 +78,16 @@ export const WithColumnsAndRows: Story = {
     args: { cols: 2, rows: 2 }
 }
 
-export const Responsive: Story = {
-    args: { cols: { default: 1, md: 2 }, rows: { default: 1, md: 2 } }
+export const WithUseBreakpoint: Story = {
+    render: (props) => {
+        const { value } = useBreakpoint({ default: 1, md: 2 })
+
+        return (
+            <Grid cols={value} rows={value} {...props}>
+                <Square />
+                <Square />
+                <Square />
+            </Grid>
+        )
+    }
 }
