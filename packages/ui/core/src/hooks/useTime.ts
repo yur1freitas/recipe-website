@@ -1,6 +1,6 @@
 import type { TimeInput } from '@utils/time'
 
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import { Time } from '@utils/time'
 
 export type SetTimeFn = (time: Time) => void
@@ -24,19 +24,25 @@ export function useTime({
 }: UseTimeInput = {}): UseTimeOutput {
     const [time, setTimeState] = useState(() => new Time(value))
 
-    const setTime: SetTimeFn = (time) => {
-        onValueChange?.(time)
-        setTimeState(time)
-    }
+    const setTime: SetTimeFn = useCallback(
+        (time) => {
+            onValueChange?.(time)
+            setTimeState(time)
+        },
+        [onValueChange]
+    )
 
-    const updateTime: UpdateTimeFn = (updater) => {
-        setTimeState((prev) => {
-            const updated = updater(prev.clone())
-            onValueChange?.(updated)
+    const updateTime: UpdateTimeFn = useCallback(
+        (updater) => {
+            setTimeState((prev) => {
+                const updated = updater(prev.clone())
+                onValueChange?.(updated)
 
-            return updated
-        })
-    }
+                return updated
+            })
+        },
+        [onValueChange]
+    )
 
     return {
         time,

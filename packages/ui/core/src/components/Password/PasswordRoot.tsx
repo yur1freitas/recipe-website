@@ -1,7 +1,7 @@
 'use client'
 
 import { cx } from 'tailwind-variants/utils'
-import { useEffect, useId, useState } from 'react'
+import { useCallback, useEffect, useId, useState } from 'react'
 
 import { PasswordContext } from '~/contexts/PasswordContext'
 
@@ -31,7 +31,12 @@ export function PasswordRoot({
         setIsVisible(Boolean(visible))
     }, [visible])
 
-    const toggleVisibility = () => setIsVisible((state) => !state)
+    //
+    const toggleVisibility = useCallback(
+        () => setIsVisible((state) => !state),
+        []
+    )
+
     const isHidden = !isVisible
 
     const value = {

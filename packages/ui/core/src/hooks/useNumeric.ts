@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { isNumeric, Numeric } from '@utils/numeric'
 
 import { useBoolean } from './useBoolean'
@@ -49,40 +49,47 @@ export function useNumeric({
     )
     const [currentValue, setCurrentValue] = useState<Numeric>(() => value)
 
-    const setValue: SetValueFn = (input) => {
-        const newValue =
-            typeof input === 'function' ? input(currentValue) : input
+    const setValue: SetValueFn = useCallback(
+        (input) => {
+            const newValue =
+                typeof input === 'function' ? input(currentValue) : input
 
-        onValueChange?.(newValue)
-        setCurrentValue(newValue)
-    }
+            onValueChange?.(newValue)
+            setCurrentValue(newValue)
+        },
+        [currentValue, onValueChange]
+    )
 
-    const setRawValue: SetRawValueFn = (input) => {
-        const newRaw =
-            typeof input === 'function' ? input(currentRawValue) : input
+    const setRawValue: SetRawValueFn = useCallback(
+        (input) => {
+            const newRaw =
+                typeof input === 'function' ? input(currentRawValue) : input
 
-        const isValid = isNumeric(newRaw)
+            const isValid = isNumeric(newRaw)
 
-        onRawValueChange?.({ isValid, rawValue: newRaw })
-        setCurrentRawValue(newRaw)
+            onRawValueChange?.({ isValid, rawValue: newRaw })
+            setCurrentRawValue(newRaw)
 
-        if (isValid) {
-            const numeric = new Numeric(newRaw)
+            if (isValid) {
+                const numeric = new Numeric(newRaw)
 
-            onValueChange?.(numeric)
-            setCurrentValue(numeric)
-        }
+                onValueChange?.(numeric)
+                setCurrentValue(numeric)
+            }
 
-        setIsValid(isValid)
-    }
+            setIsValid(isValid)
+        },
+        [currentRawValue, onValueChange, onRawValueChange] // oxlint-disable-line react/exhaustive-deps
+    )
 
     useEffect(() => {
         if (isNumeric(rawValue)) {
             const numeric = new Numeric(rawValue)
+
             setIsValid(true)
             setCurrentValue(numeric)
         }
-    }, [rawValue, setIsValid, setCurrentValue])
+    }, [rawValue]) // oxlint-disable-line react/exhaustive-deps
 
     return {
         isValid,

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import { clamp } from '@utils/core/clamp'
 
 export type SetStepFn = (step: number) => void
@@ -25,25 +25,43 @@ export function useStep(
     const canGoToNextStep = currentStep <= maxStep
     const canGoToPrevStep = currentStep >= MIN_STEP_VALUE
 
-    const setStep: SetStepFn = (value) =>
-        setCurrentStep(clamp({ min: 1, max: maxStep, value }))
+    const setStep: SetStepFn = useCallback(
+        (value) => setCurrentStep(clamp({ min: 1, max: maxStep, value })),
+        [maxStep, setCurrentStep]
+    )
 
-    const updateStep: UpdateStepFn = (updater) =>
-        setCurrentStep((value) =>
-            clamp({ min: MIN_STEP_VALUE, max: maxStep, value: updater(value) })
-        )
+    const updateStep: UpdateStepFn = useCallback(
+        (updater) =>
+            setCurrentStep((value) =>
+                clamp({
+                    min: MIN_STEP_VALUE,
+                    max: maxStep,
+                    value: updater(value)
+                })
+            ),
+        [maxStep]
+    )
 
-    const reset = () => setCurrentStep(MIN_STEP_VALUE)
+    const reset = useCallback(
+        () => setCurrentStep(MIN_STEP_VALUE),
+        [setCurrentStep]
+    )
 
-    const nextStep = () =>
-        setCurrentStep((value) =>
-            clamp({ min: MIN_STEP_VALUE, max: maxStep, value: value + 1 })
-        )
+    const nextStep = useCallback(
+        () =>
+            setCurrentStep((value) =>
+                clamp({ min: MIN_STEP_VALUE, max: maxStep, value: value + 1 })
+            ),
+        [maxStep]
+    )
 
-    const prevStep = () =>
-        setCurrentStep((value) =>
-            clamp({ min: MIN_STEP_VALUE, max: maxStep, value: value - 1 })
-        )
+    const prevStep = useCallback(
+        () =>
+            setCurrentStep((value) =>
+                clamp({ min: MIN_STEP_VALUE, max: maxStep, value: value - 1 })
+            ),
+        [maxStep]
+    )
 
     return {
         step: currentStep,

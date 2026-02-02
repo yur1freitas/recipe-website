@@ -1,7 +1,9 @@
 'use client'
 
+import type { FieldControl } from '@base-ui/react/field'
+
 import { cx } from 'tailwind-variants/utils'
-import { useEffect } from 'react'
+import { useCallback, useEffect } from 'react'
 
 import { useSearchContext } from '~/hooks/useSearchContext'
 
@@ -24,13 +26,13 @@ export function SearchInput({
     const { value, defaultValue, inputId, setInputId, handleValueChange } =
         useSearchContext()
 
-    const _onValueChange: SearchInputProps['onValueChange'] = (
-        value,
-        event
-    ) => {
-        onValueChange?.(value, event)
-        handleValueChange(value)
-    }
+    const _onValueChange = useCallback(
+        (value: string, event: FieldControl.ChangeEventDetails) => {
+            onValueChange?.(value, event)
+            handleValueChange(value)
+        },
+        [onValueChange, handleValueChange]
+    )
 
     useEffect(() => {
         if (id) setInputId(id)

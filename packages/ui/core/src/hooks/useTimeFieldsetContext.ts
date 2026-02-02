@@ -1,6 +1,6 @@
 import type { TimeUnit } from '@utils/time'
 
-import { use } from 'react'
+import { use, useCallback } from 'react'
 import {
     MAX_AMOUNT_IN_DAYS,
     MAX_AMOUNT_IN_HOURS,
@@ -56,30 +56,33 @@ export function useTimeFieldsetContext(
     const label = LABEL_MAPPING[type]
     const value = time.props[type]
 
-    const setValue = (value: number) => {
-        updateTime((time) => {
-            switch (type) {
-                case 'ms': {
-                    return time.setMilliseconds(value)
+    const setValue = useCallback(
+        (value: number) => {
+            updateTime((time) => {
+                switch (type) {
+                    case 'ms': {
+                        return time.setMilliseconds(value)
+                    }
+                    case 'second': {
+                        return time.setSeconds(value)
+                    }
+                    case 'minute': {
+                        return time.setMinutes(value)
+                    }
+                    case 'hour': {
+                        return time.setHours(value)
+                    }
+                    case 'day': {
+                        return time.setDays(value)
+                    }
+                    case 'week': {
+                        return time.setWeeks(value)
+                    }
                 }
-                case 'second': {
-                    return time.setSeconds(value)
-                }
-                case 'minute': {
-                    return time.setMinutes(value)
-                }
-                case 'hour': {
-                    return time.setHours(value)
-                }
-                case 'day': {
-                    return time.setDays(value)
-                }
-                case 'week': {
-                    return time.setWeeks(value)
-                }
-            }
-        })
-    }
+            })
+        },
+        [type, updateTime]
+    )
 
     return { label, min, max, value, setValue }
 }

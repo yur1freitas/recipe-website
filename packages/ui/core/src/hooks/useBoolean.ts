@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 
 export interface UseBooleanReturn {
     value: boolean
@@ -11,9 +11,9 @@ export interface UseBooleanReturn {
 export function useBoolean(defaultValue: boolean = false): UseBooleanReturn {
     const [value, setValue] = useState(defaultValue)
 
-    const toggle = () => setValue((value) => !value)
-    const setTrue = () => setValue(true)
-    const setFalse = () => setValue(false)
+    const toggle = useCallback(() => setValue((value) => !value), [setValue])
+    const setTrue = useCallback(() => setValue(true), [setValue])
+    const setFalse = useCallback(() => setValue(false), [setValue])
 
     return {
         value,

@@ -1,5 +1,3 @@
-'use client'
-
 import { cx } from 'tailwind-variants/utils'
 
 import type { NumberFieldProps } from '../NumberField'

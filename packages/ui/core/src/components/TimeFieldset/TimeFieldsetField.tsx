@@ -6,6 +6,8 @@ import type {
     NumberFieldRootProps
 } from '@base-ui/react/number-field'
 
+import { useCallback } from 'react'
+
 import { useTimeFieldsetContext } from '~/hooks/useTimeFieldsetContext'
 
 import { NumberField } from '../NumberField'
@@ -25,13 +27,16 @@ export function TimeFieldsetField({
 }: TimeFieldsetFieldProps): React.JSX.Element {
     const { min, max, value, setValue } = useTimeFieldsetContext(type)
 
-    const changeValueHandler = (
-        value: number | null,
-        eventDetails: NumberFieldRootChangeEventDetails
-    ) => {
-        onValueChange?.(value, eventDetails)
-        setValue(value ?? 0)
-    }
+    const changeValueHandler = useCallback(
+        (
+            value: number | null,
+            eventDetails: NumberFieldRootChangeEventDetails
+        ) => {
+            onValueChange?.(value, eventDetails)
+            setValue(value ?? 0)
+        },
+        [setValue, onValueChange]
+    )
 
     return (
         <NumberField.Root

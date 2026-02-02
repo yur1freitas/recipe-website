@@ -3,6 +3,7 @@
 import type { ButtonProps as BaseButtonProps } from '@base-ui/react/button'
 
 import { cx } from 'tailwind-variants/utils'
+import { useCallback } from 'react'
 import { Button as BaseButton } from '@base-ui/react/button'
 
 import { useSearchContext } from '~/hooks/useSearchContext'
@@ -18,10 +19,13 @@ export function SearchCancelButton({
 
     const { inputId, isDirty, handleValueClear } = useSearchContext()
 
-    const _onClick: BaseButtonProps['onClick'] = (event) => {
-        handleValueClear()
-        onClick?.(event)
-    }
+    const _onClick: BaseButtonProps['onClick'] = useCallback(
+        (event) => {
+            handleValueClear()
+            onClick?.(event)
+        },
+        [onClick, handleValueClear]
+    )
 
     return (
         <>
