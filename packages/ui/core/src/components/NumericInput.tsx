@@ -1,3 +1,5 @@
+'use client'
+
 import type { Numeric } from '@utils/numeric'
 
 import { useEffect, useImperativeHandle, useRef } from 'react'

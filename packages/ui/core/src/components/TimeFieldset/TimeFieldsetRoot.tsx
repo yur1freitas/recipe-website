@@ -1,3 +1,5 @@
+'use client'
+
 import type { Time, TimeInput } from '@utils/time'
 
 import { useTime } from '~/hooks/useTime'
