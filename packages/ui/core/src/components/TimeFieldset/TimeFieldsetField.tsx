@@ -1,3 +1,5 @@
+'use client'
+
 import type { TimeUnit } from '@utils/time'
 import type {
     NumberFieldRootChangeEventDetails,

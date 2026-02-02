@@ -1,3 +1,5 @@
+'use client'
+
 import { EyeIcon, EyeClosedIcon } from 'lucide-react'
 
 import { usePasswordContext } from '~/hooks/usePasswordContext'

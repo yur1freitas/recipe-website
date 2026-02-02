@@ -1,3 +1,5 @@
+'use client'
+
 import { cx } from 'tailwind-variants/utils'
 
 import { usePasswordContext } from '~/hooks/usePasswordContext'

@@ -1,3 +1,5 @@
+'use client'
+
 import type { ButtonProps as BaseButtonProps } from '@base-ui/react/button'
 
 import { cx } from 'tailwind-variants/utils'
