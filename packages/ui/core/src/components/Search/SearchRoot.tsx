@@ -3,7 +3,7 @@
 import type { VariantProps } from 'tailwind-variants/lite'
 
 import { tv } from 'tailwind-variants/lite'
-import { useId, useState } from 'react'
+import { useCallback, useId, useState } from 'react'
 import { useRender } from '@base-ui/react/use-render'
 
 import { SearchContext } from '~/contexts/SearchContext'
@@ -62,17 +62,20 @@ export function SearchRoot({
         }
     })
 
-    const handleValueClear = () => {
+    const handleValueClear = useCallback(() => {
         setValue('')
         setIsDirt(false)
         onValueClear?.()
-    }
+    }, [onValueClear])
 
-    const handleValueChange = (value: string) => {
-        setIsDirt(true)
-        setValue(value)
-        onValueChange?.(value)
-    }
+    const handleValueChange = useCallback(
+        (value: string) => {
+            setIsDirt(true)
+            setValue(value)
+            onValueChange?.(value)
+        },
+        [onValueChange]
+    )
 
     return (
         <SearchContext.Provider

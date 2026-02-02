@@ -1,6 +1,7 @@
 'use client'
 
 import { cx } from 'tailwind-variants/utils'
+import { useCallback } from 'react'
 
 import { usePasswordContext } from '~/hooks/usePasswordContext'
 
@@ -19,10 +20,13 @@ export function PasswordToggleButton({
 
     const { inputId, toggleVisibility } = usePasswordContext()
 
-    const clickHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
-        onClick?.(event)
-        toggleVisibility()
-    }
+    const clickHandler = useCallback(
+        (event: React.MouseEvent<HTMLButtonElement>) => {
+            onClick?.(event)
+            toggleVisibility()
+        },
+        [onClick] // oxlint-disable-line react/exhaustive-deps
+    )
 
     return (
         <button
