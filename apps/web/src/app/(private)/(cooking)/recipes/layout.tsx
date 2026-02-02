@@ -1,11 +1,17 @@
-'use client'
+'use server'
 
 import { Section } from '@ui/core/Section'
 
-export default function Layout({ children }: DefaultProps): React.JSX.Element {
+import { Private } from '~/components/Private'
+
+export default async function Layout({
+    children
+}: DefaultProps): Promise<React.JSX.Element> {
     return (
-        <Section className='flex items-center justify-center'>
-            {children}
-        </Section>
+        <Private>
+            <Section className='flex items-center justify-center'>
+                {children}
+            </Section>
+        </Private>
     )
 }

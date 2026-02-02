@@ -25,6 +25,7 @@
         "@utils/time": "workspace:",
         "lucide-react": "catalog:frontend",
         "openapi-fetch": "catalog:frontend",
+        "paseto-ts": "catalog:backend",
         "react": "catalog:frontend",
         "react-dom": "catalog:frontend",
         "swr-openapi": "catalog:frontend",
