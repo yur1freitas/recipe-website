@@ -10,6 +10,7 @@ import {
     useRef,
     useTransition
 } from 'react'
+import { useRouter } from 'next/navigation'
 
 import { emailSchema } from '@core/shared'
 
@@ -17,6 +18,7 @@ import { Typography } from '@ui/core/Typography'
 import { Loading } from '@ui/core/Loading'
 import { Box } from '@ui/core/Box'
 
+import { useAuth } from '~/hooks/useAuth'
 import { useAppForm } from '~/hooks/form'
 import { CAPTCHA_ENDPOINT } from '~/env'
 import { Action } from '~/components/Action'
@@ -29,6 +31,9 @@ const schema = z.object({
 })
 
 export default function Page(): React.JSX.Element {
+    const { isAuth } = useAuth()
+    const { push } = useRouter()
+
     const widgetRef = useRef<CapWidget | null>(null)
 
     const [isPending, startTransition] = useTransition()
@@ -52,6 +57,12 @@ export default function Page(): React.JSX.Element {
             startTransition(() => formAction({ email, password, captcha }))
         }
     })
+
+    useEffect(() => {
+        if (isAuth) {
+            push('/')
+        }
+    }, [isAuth, push])
 
     useEffect(() => {
         const widget = widgetRef.current

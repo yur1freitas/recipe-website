@@ -528,6 +528,9 @@ importers:
       openapi-fetch:
         specifier: catalog:frontend
         version: 0.15.0
+      paseto-ts:
+        specifier: catalog:backend
+        version: 2.0.5
       react:
         specifier: catalog:frontend
         version: 19.2.3
