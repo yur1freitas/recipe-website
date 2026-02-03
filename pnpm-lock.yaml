@@ -182,6 +182,9 @@ catalogs:
     tailwindcss:
       specifier: 4.1.18
       version: 4.1.18
+    virtua:
+      specifier: 0.48.5
+      version: 0.48.5
   git:
     husky:
       specifier: 9.1.7
@@ -540,6 +543,9 @@ importers:
       swr-openapi:
         specifier: catalog:frontend
         version: 5.6.0(openapi-fetch@0.15.0)(openapi-typescript@7.10.1(typescript@5.9.3))(react@19.2.3)(swr@2.3.7(react@19.2.3))(typescript@5.9.3)
+      virtua:
+        specifier: catalog:frontend
+        version: 0.48.5(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       zod:
         specifier: catalog:schema
         version: 4.3.5
@@ -5479,6 +5485,26 @@ packages:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
 
+  virtua@0.48.5:
+    resolution: {integrity: sha512-REjLvX8tGzNQYyJ+remkpK3a7CI0tXPyiyxvL419X+FbBUIa3Org7Bd1OWYXdC6jXqhuW5JFOtGD6qQrM2JnjQ==}
+    peerDependencies:
+      react: '>=16.14.0'
+      react-dom: '>=16.14.0'
+      solid-js: '>=1.0'
+      svelte: '>=5.0'
+      vue: '>=3.2'
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
+      solid-js:
+        optional: true
+      svelte:
+        optional: true
+      vue:
+        optional: true
+
   vite@7.3.1:
     resolution: {integrity: sha512-w+N7Hifpc3gRjZ63vYBXA56dvvRlNWRczTdmCBBa+CotUzAPf5b7YMdMR/8CQoeYE5LX3W4wj6RYTgonm1b9DA==}
     engines: {node: ^20.19.0 || >=22.12.0}
@@ -9620,6 +9646,11 @@ snapshots:
   uuid@13.0.0: {}
 
   vary@1.1.2: {}
+
+  virtua@0.48.5(react-dom@19.2.3(react@19.2.3))(react@19.2.3):
+    optionalDependencies:
+      react: 19.2.3
+      react-dom: 19.2.3(react@19.2.3)
 
   vite@7.3.1(@types/node@24.10.8)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)(yaml@2.8.2):
     dependencies:
