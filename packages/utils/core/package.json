@@ -11,6 +11,7 @@
         "./arrayRemove": "./dist/arrayRemove.js",
         "./arraySwap": "./dist/arraySwap.js",
         "./clamp": "./dist/clamp.js",
+        "./debounce": "./dist/debounce.js",
         "./hasProperty": "./dist/hasProperty.js",
         "./isPlainObject": "./dist/isPlainObject.js",
         "./isPromise": "./dist/isPromise.js",
