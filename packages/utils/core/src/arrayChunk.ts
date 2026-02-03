@@ -1,7 +1,9 @@
 export function arrayChunk<T>(array: T[], size: number): T[][] {
-    if (size < 1 || !Number.isSafeInteger(size)) return [array]
+    const copy = array.slice(0)
 
-    const length = Math.ceil(array.length / size)
+    if (size < 1 || !Number.isSafeInteger(size)) return [copy]
 
-    return [...Array(length)].map((_) => array.splice(0, size))
+    const length = Math.ceil(copy.length / size)
+
+    return [...Array(length)].map((_) => copy.splice(0, size))
 }
