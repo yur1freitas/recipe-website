@@ -29,6 +29,7 @@
         "react": "catalog:frontend",
         "react-dom": "catalog:frontend",
         "swr-openapi": "catalog:frontend",
+        "virtua": "catalog:frontend",
         "zod": "catalog:schema"
     },
     "devDependencies": {
