@@ -359,7 +359,11 @@ export interface paths {
         /** @description Buscar todas as receitas */
         get: {
             parameters: {
-                query?: never
+                query?: {
+                    search?: string
+                    limit?: number
+                    offset?: number
+                }
                 header?: never
                 path?: never
                 cookie?: {
@@ -381,14 +385,14 @@ export interface paths {
                         'application/json': {
                             /**
                              * Format: uuid
-                             * @default 019c105a-312d-7089-8a61-b959fae47cc0
-                             * @example 019c105a-2b91-732b-8e45-eea31cbfbca3
+                             * @default 019c1a1b-8388-742e-a9c1-0063ec517253
+                             * @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f
                              */
                             id: string
                             /**
                              * Format: uuid
-                             * @default 019c105a-312d-7089-8a61-b959fae47cc0
-                             * @example 019c105a-2b91-732b-8e45-eea31cbfbca3
+                             * @default 019c1a1b-8388-742e-a9c1-0063ec517253
+                             * @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f
                              */
                             authorId: string
                             name: string
@@ -399,8 +403,8 @@ export interface paths {
                             steps: {
                                 /**
                                  * Format: uuid
-                                 * @default 019c105a-312d-7089-8a61-b959fae47cc0
-                                 * @example 019c105a-2b91-732b-8e45-eea31cbfbca3
+                                 * @default 019c1a1b-8388-742e-a9c1-0063ec517253
+                                 * @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f
                                  */
                                 id: string
                                 order: number
@@ -409,8 +413,8 @@ export interface paths {
                             tools: {
                                 /**
                                  * Format: uuid
-                                 * @default 019c105a-312d-7089-8a61-b959fae47cc0
-                                 * @example 019c105a-2b91-732b-8e45-eea31cbfbca3
+                                 * @default 019c1a1b-8388-742e-a9c1-0063ec517253
+                                 * @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f
                                  */
                                 id: string
                                 name: string
@@ -419,8 +423,8 @@ export interface paths {
                             ingredients: {
                                 /**
                                  * Format: uuid
-                                 * @default 019c105a-312d-7089-8a61-b959fae47cc0
-                                 * @example 019c105a-2b91-732b-8e45-eea31cbfbca3
+                                 * @default 019c1a1b-8388-742e-a9c1-0063ec517253
+                                 * @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f
                                  */
                                 id: string
                                 name: string
@@ -495,8 +499,8 @@ export interface paths {
                         steps: {
                             /**
                              * Format: uuid
-                             * @default 019c105a-3127-7048-bd1f-37da1d7bf852
-                             * @example 019c105a-2b91-732b-8e45-eea31cbfbca3
+                             * @default 019c1a1b-8383-710e-8d0d-cdf010a6a722
+                             * @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f
                              */
                             id?: string
                             order: number
@@ -505,8 +509,8 @@ export interface paths {
                         tools: {
                             /**
                              * Format: uuid
-                             * @default 019c105a-3127-7048-bd1f-37da1d7bf852
-                             * @example 019c105a-2b91-732b-8e45-eea31cbfbca3
+                             * @default 019c1a1b-8383-710e-8d0d-cdf010a6a722
+                             * @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f
                              */
                             id?: string
                             name: string
@@ -515,8 +519,8 @@ export interface paths {
                         ingredients: {
                             /**
                              * Format: uuid
-                             * @default 019c105a-3127-7048-bd1f-37da1d7bf852
-                             * @example 019c105a-2b91-732b-8e45-eea31cbfbca3
+                             * @default 019c1a1b-8383-710e-8d0d-cdf010a6a722
+                             * @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f
                              */
                             id?: string
                             name: string
@@ -598,7 +602,7 @@ export interface paths {
                 query?: never
                 header?: never
                 path: {
-                    /** @example 019c105a-2b91-732b-8e45-eea31cbfbca3 */
+                    /** @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f */
                     id: string
                 }
                 cookie?: {
@@ -620,14 +624,14 @@ export interface paths {
                         'application/json': {
                             /**
                              * Format: uuid
-                             * @default 019c105a-312c-74cf-9657-6b4ade59135f
-                             * @example 019c105a-2b91-732b-8e45-eea31cbfbca3
+                             * @default 019c1a1b-8387-73c9-a1c9-ffc113be8f1c
+                             * @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f
                              */
                             id: string
                             /**
                              * Format: uuid
-                             * @default 019c105a-312c-74cf-9657-6b4ade59135f
-                             * @example 019c105a-2b91-732b-8e45-eea31cbfbca3
+                             * @default 019c1a1b-8387-73c9-a1c9-ffc113be8f1c
+                             * @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f
                              */
                             authorId: string
                             name: string
@@ -638,8 +642,8 @@ export interface paths {
                             steps: {
                                 /**
                                  * Format: uuid
-                                 * @default 019c105a-312c-74cf-9657-6b4ade59135f
-                                 * @example 019c105a-2b91-732b-8e45-eea31cbfbca3
+                                 * @default 019c1a1b-8387-73c9-a1c9-ffc113be8f1c
+                                 * @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f
                                  */
                                 id: string
                                 order: number
@@ -648,8 +652,8 @@ export interface paths {
                             tools: {
                                 /**
                                  * Format: uuid
-                                 * @default 019c105a-312c-74cf-9657-6b4ade59135f
-                                 * @example 019c105a-2b91-732b-8e45-eea31cbfbca3
+                                 * @default 019c1a1b-8387-73c9-a1c9-ffc113be8f1c
+                                 * @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f
                                  */
                                 id: string
                                 name: string
@@ -658,8 +662,8 @@ export interface paths {
                             ingredients: {
                                 /**
                                  * Format: uuid
-                                 * @default 019c105a-312c-74cf-9657-6b4ade59135f
-                                 * @example 019c105a-2b91-732b-8e45-eea31cbfbca3
+                                 * @default 019c1a1b-8387-73c9-a1c9-ffc113be8f1c
+                                 * @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f
                                  */
                                 id: string
                                 name: string
@@ -718,7 +722,7 @@ export interface paths {
                 query?: never
                 header?: never
                 path: {
-                    /** @example 019c105a-2b91-732b-8e45-eea31cbfbca3 */
+                    /** @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f */
                     id: string
                 }
                 cookie?: {
@@ -730,8 +734,8 @@ export interface paths {
                     'application/json': {
                         /**
                          * Format: uuid
-                         * @default 019c105a-3128-70ea-9ca9-2e14e0658318
-                         * @example 019c105a-2b91-732b-8e45-eea31cbfbca3
+                         * @default 019c1a1b-8385-72d5-b833-1a9f4289e618
+                         * @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f
                          */
                         authorId: string
                         name: string
@@ -742,8 +746,8 @@ export interface paths {
                         steps: {
                             /**
                              * Format: uuid
-                             * @default 019c105a-3128-70ea-9ca9-2e14e0658318
-                             * @example 019c105a-2b91-732b-8e45-eea31cbfbca3
+                             * @default 019c1a1b-8385-72d5-b833-1a9f4289e618
+                             * @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f
                              */
                             id?: string
                             order: number
@@ -752,8 +756,8 @@ export interface paths {
                         tools: {
                             /**
                              * Format: uuid
-                             * @default 019c105a-3128-70ea-9ca9-2e14e0658318
-                             * @example 019c105a-2b91-732b-8e45-eea31cbfbca3
+                             * @default 019c1a1b-8385-72d5-b833-1a9f4289e618
+                             * @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f
                              */
                             id?: string
                             name: string
@@ -762,8 +766,8 @@ export interface paths {
                         ingredients: {
                             /**
                              * Format: uuid
-                             * @default 019c105a-3128-70ea-9ca9-2e14e0658318
-                             * @example 019c105a-2b91-732b-8e45-eea31cbfbca3
+                             * @default 019c1a1b-8385-72d5-b833-1a9f4289e618
+                             * @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f
                              */
                             id?: string
                             name: string
@@ -833,7 +837,7 @@ export interface paths {
                 query?: never
                 header?: never
                 path: {
-                    /** @example 019c105a-2b91-732b-8e45-eea31cbfbca3 */
+                    /** @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f */
                     id: string
                 }
                 cookie?: {
@@ -903,7 +907,7 @@ export interface paths {
                 query?: never
                 header?: never
                 path: {
-                    /** @example 019c105a-2b91-732b-8e45-eea31cbfbca3 */
+                    /** @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f */
                     id: string
                 }
                 cookie?: {
@@ -925,14 +929,14 @@ export interface paths {
                         'application/json': {
                             /**
                              * Format: uuid
-                             * @default 019c105a-312e-73dd-8aaf-f1870fe7d9cd
-                             * @example 019c105a-2b91-732b-8e45-eea31cbfbca3
+                             * @default 019c1a1b-8389-714f-8c28-a78044dd4dd7
+                             * @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f
                              */
                             id: string
                             /**
                              * Format: uuid
-                             * @default 019c105a-312e-73dd-8aaf-f1870fe7d9cd
-                             * @example 019c105a-2b91-732b-8e45-eea31cbfbca3
+                             * @default 019c1a1b-8389-714f-8c28-a78044dd4dd7
+                             * @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f
                              */
                             authorId: string
                             name: string
@@ -943,8 +947,8 @@ export interface paths {
                             steps: {
                                 /**
                                  * Format: uuid
-                                 * @default 019c105a-312e-73dd-8aaf-f1870fe7d9cd
-                                 * @example 019c105a-2b91-732b-8e45-eea31cbfbca3
+                                 * @default 019c1a1b-8389-714f-8c28-a78044dd4dd7
+                                 * @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f
                                  */
                                 id: string
                                 order: number
@@ -953,8 +957,8 @@ export interface paths {
                             tools: {
                                 /**
                                  * Format: uuid
-                                 * @default 019c105a-312e-73dd-8aaf-f1870fe7d9cd
-                                 * @example 019c105a-2b91-732b-8e45-eea31cbfbca3
+                                 * @default 019c1a1b-8389-714f-8c28-a78044dd4dd7
+                                 * @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f
                                  */
                                 id: string
                                 name: string
@@ -963,8 +967,8 @@ export interface paths {
                             ingredients: {
                                 /**
                                  * Format: uuid
-                                 * @default 019c105a-312e-73dd-8aaf-f1870fe7d9cd
-                                 * @example 019c105a-2b91-732b-8e45-eea31cbfbca3
+                                 * @default 019c1a1b-8389-714f-8c28-a78044dd4dd7
+                                 * @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f
                                  */
                                 id: string
                                 name: string
