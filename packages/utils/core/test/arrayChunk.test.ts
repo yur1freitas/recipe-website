@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest'
+import { faker } from '@faker-js/faker/locale/pt_BR'
 
 import { arrayChunk } from '~/arrayChunk'
 
@@ -26,5 +27,15 @@ describe('arrayChunk', () => {
         const chunks = arrayChunk(array, 1.2)
 
         expect(chunks).toStrictEqual([array])
+    })
+
+    it('deve preservar o array ao criar as chunks', () => {
+        const array = [1, 2, 3]
+
+        const size = faker.number.int({ min: 1, max: 3 })
+
+        arrayChunk(array, size)
+
+        expect(array).toHaveLength(3)
     })
 })
