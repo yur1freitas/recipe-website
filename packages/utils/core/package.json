@@ -5,6 +5,7 @@
     "license": "MIT",
     "type": "module",
     "exports": {
+        "./arrayChunk": "./dist/arrayChunk.js",
         "./arrayInsert": "./dist/arrayInsert.js",
         "./arrayMove": "./dist/arrayMove.js",
         "./arrayRemove": "./dist/arrayRemove.js",
