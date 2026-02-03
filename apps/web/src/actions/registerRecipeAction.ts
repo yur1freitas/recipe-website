@@ -1,6 +1,7 @@
 'use server'
 
 import { cookies } from 'next/headers'
+import { updateTag } from 'next/cache'
 
 import { httpClient } from '~/client/http'
 
@@ -21,7 +22,6 @@ export async function registerRecipeAction(
     } = JSON.parse(data)
 
     const cookieStore = await cookies()
-    const accessToken = cookieStore.get('accessToken')?.value ?? ''
 
     const { error } = await httpClient.POST('/cooking/recipes', {
         body: {
@@ -33,14 +33,16 @@ export async function registerRecipeAction(
             tools,
             ingredients
         },
-        params: {
-            cookie: { accessToken }
+        headers: {
+            Cookie: cookieStore.toString()
         }
     })
 
     if (error) {
         return { status: 'failed', error: error.message }
     }
+
+    updateTag('recipes')
 
     return { status: 'success' }
 }
