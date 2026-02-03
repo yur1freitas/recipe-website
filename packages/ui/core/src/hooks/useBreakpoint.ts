@@ -37,8 +37,10 @@ export const getBreakpoint = <T>(
 export function useBreakpoint<T>(
     input: UseBreakpointInput<T>
 ): UseBreakpointOutput<T> {
-    const [breakpoint, setBreakpoint] = useState<UseBreakpointOutput<T>>(() =>
-        getBreakpoint<T>(input)
+    const [breakpoint, setBreakpoint] = useState<UseBreakpointOutput<T>>(
+        () => ({
+            value: input.default
+        })
     )
 
     const handleChange = useCallback(() => {
@@ -53,6 +55,8 @@ export function useBreakpoint<T>(
     }, [input])
 
     useEffect(() => {
+        handleChange()
+
         const eventListeners = new Set<MediaQueryList>()
 
         for (const { query } of BREAKPOINTS) {
