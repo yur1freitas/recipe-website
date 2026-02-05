@@ -160,7 +160,13 @@ export const RecipeFormBase = withForm({
                         </subForm.AppField>
                         <subForm.AppField name='preparationTime'>
                             {(field) => (
-                                <field.TimeFieldset>
+                                <field.TimeFieldset
+                                    onValueChange={(time) =>
+                                        field.handleChange(
+                                            time.toMilliseconds()
+                                        )
+                                    }
+                                >
                                     <TimeFieldset.Legend>
                                         Tempo de Preparo
                                     </TimeFieldset.Legend>
