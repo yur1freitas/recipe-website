@@ -11,6 +11,12 @@ export const descriptionSchema = z
         /^[\p{L}\p{M}\d\s,;.'"()-]+$/iu,
         'A descrição deve conter apenas caracteres permitidos'
     )
+    .meta({
+        examples: [
+            'Em uma tijela grande, coloque farinha',
+            'A receita de pão de queijo é aquela escolha perfeita para quem quer um lanche delicioso e caseiro'
+        ]
+    })
 
 export const DescriptionValidator = new ZodValidator(descriptionSchema)
 
