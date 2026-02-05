@@ -1,19 +1,13 @@
 import type { StandardSchemaTypeProvider } from '@standard-schema/fastify-type-provider'
 
 import z from 'zod'
-import { Time } from '@utils/time'
 
 import fp from 'fastify-plugin'
 import type { RawServerDefault } from 'fastify'
 
 import { ValidatorError } from '@core/shared'
 import type { RegisterRecipe } from '@core/cooking'
-import {
-    preparationTimeSchema,
-    CookingError,
-    recipeSchema,
-    RegisterRecipeErrors
-} from '@core/cooking'
+import { CookingError, recipeSchema, RegisterRecipeErrors } from '@core/cooking'
 import type { UserPayload } from '@core/auth'
 
 import { validationErrorSchema } from '~/schemas/validationErrorSchema'
@@ -45,17 +39,7 @@ export const registerRecipeController = fp<
                 cookies: {
                     accessToken: z.string()
                 },
-                body: z
-                    .object({
-                        ...recipeSchema.shape,
-                        preparationTime: z
-                            .number()
-                            .int()
-                            .positive()
-                            .transform((t) => new Time({ ms: t }))
-                            .pipe(preparationTimeSchema)
-                    })
-                    .omit({ id: true, authorId: true }),
+                body: recipeSchema.omit({ id: true, authorId: true }),
                 response: {
                     201: z.undefined().describe('Receita criada com sucesso'),
                     400: validationErrorSchema,
