@@ -1,6 +1,8 @@
+import type { JsonValue } from '~/types'
+
 import type { Validator } from '../validators/Validator'
 
-export abstract class ValueObject<TValue> {
+export abstract class ValueObject<TValue extends JsonValue> {
     readonly value: TValue
 
     constructor(validator: Validator<TValue>, value?: TValue) {
