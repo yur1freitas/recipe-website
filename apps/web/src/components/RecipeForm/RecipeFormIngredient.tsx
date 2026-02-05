@@ -158,6 +158,13 @@ export const RecipeFormIngredient = withForm({
                                                         Quantidade
                                                     </field.Label>
                                                     <field.NumbericInput
+                                                        onValueChange={(
+                                                            measure
+                                                        ) =>
+                                                            field.handleChange(
+                                                                measure.toString()
+                                                            )
+                                                        }
                                                         placeholder='Ex. 3 1/2'
                                                         required
                                                     />
