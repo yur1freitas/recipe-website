@@ -1,5 +1,3 @@
-import type { Numeric } from '@utils/numeric'
-
 import z from 'zod'
 
 import { Entity, entitySchema } from '@core/shared'
@@ -15,7 +13,7 @@ import { measureSchema, Measure } from './Measure'
 export interface IngredientInput extends EntityInput {
     name: string
     unit: UnitEnum
-    measure: Numeric
+    measure: string
 }
 
 export type IngredientProps = EntityProps<IngredientInput>
