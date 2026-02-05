@@ -1,39 +1,49 @@
 import z from 'zod'
-import { Numeric } from '@utils/numeric'
+import { isNumeric, Numeric, parseNumeric } from '@utils/numeric'
 
 import { ValueObject, ZodValidator } from '@core/shared'
 
 export const measureSchema = z
-    .instanceof(Numeric)
+    .string()
+    .trim()
+    .nonempty('A medida não pode ser vazia')
     .refine(
-        (measure) => measure.toNumber() > 0,
+        (measure) => isNumeric(measure),
+        'A medida deve ser um valor numérico'
+    )
+    .refine(
+        (measure) => parseNumeric(measure).value > 0,
         'A medida deve ser maior que zero'
     )
 
 export const MeasureValidator = new ZodValidator(measureSchema)
 
-export class Measure extends ValueObject<Numeric> {
-    constructor(value: Numeric) {
+export class Measure extends ValueObject<string> {
+    protected $numeric: Numeric
+
+    constructor(value: string) {
         super(MeasureValidator, value)
+
+        this.$numeric = new Numeric(this.value)
     }
 
     get isInt(): boolean {
-        return this.value.isInt
+        return this.$numeric.isInt
     }
 
     get isFloat(): boolean {
-        return this.value.isFloat
+        return this.$numeric.isFloat
     }
 
     get isFraction(): boolean {
-        return this.value.isFraction
+        return this.$numeric.isFraction
     }
 
     get isMixed(): boolean {
-        return this.value.isMixed
+        return this.$numeric.isMixed
     }
 
     toNumber(): number {
-        return this.value.toNumber()
+        return this.$numeric.toNumber()
     }
 }
