@@ -6,6 +6,9 @@ export const orderSchema = z
     .number('O índice da ordem deve ser um número')
     .min(1, 'O menor índice possível é 1')
     .int('O índice da ordem deve ser um valor inteiro')
+    .meta({
+        examples: [1, 2, 3]
+    })
 
 export const OrderValidator = new ZodValidator(orderSchema)
 
