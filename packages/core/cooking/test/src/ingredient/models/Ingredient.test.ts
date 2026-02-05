@@ -1,5 +1,4 @@
 import { expect, it, describe, afterEach } from 'vitest'
-import { Numeric } from '@utils/numeric'
 import { faker } from '@faker-js/faker/locale/pt_BR'
 
 import { randUnit } from '~mocks/randUnit'
@@ -40,7 +39,7 @@ describe('Ingredient', () => {
     })
 
     it('deve formatar as informações do ingrediente no singular', () => {
-        const input = randIngredient({ measure: new Numeric('1') })
+        const input = randIngredient({ measure: '1' })
         const ingredient = new Ingredient(input)
 
         expect(ingredient.format()).toBe(
@@ -49,7 +48,7 @@ describe('Ingredient', () => {
     })
 
     it('deve formatar as informações do ingrediente no plural', () => {
-        const input = randIngredient({ measure: new Numeric('2') })
+        const input = randIngredient({ measure: '2' })
         const ingredient = new Ingredient(input)
 
         expect(ingredient.format()).toBe(
