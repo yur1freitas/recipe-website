@@ -4,39 +4,33 @@ import { Time } from '@utils/time'
 import { ValueObject, ZodValidator } from '@core/shared'
 
 export const preparationTimeSchema = z
-    .instanceof(Time)
-    .refine(
-        (time) => time.toMilliseconds() > 0,
-        'O tempo de preparo não pode ser nulo'
-    )
+    .number()
+    .positive('O tempo de preparo não pode ser nulo')
 
 export const PreparationTimeValidator = new ZodValidator(preparationTimeSchema)
 
-export class PreparationTime extends ValueObject<Time> {
-    constructor(value: Time) {
+export class PreparationTime extends ValueObject<number> {
+    protected $time: Time
+
+    constructor(value: number) {
         super(PreparationTimeValidator, value)
+
+        this.$time = Time.fromMilliseconds(this.value)
     }
 
     get ms(): number {
-        return this.value.ms
+        return this.$time.ms
     }
 
     get seconds(): number {
-        return this.value.seconds
+        return this.$time.seconds
     }
 
     get minutes(): number {
-        return this.value.minutes
+        return this.$time.minutes
     }
 
     get hours(): number {
-        return this.value.hours
-    }
-
-    override equals(target: PreparationTime): boolean {
-        return (
-            target instanceof PreparationTime &&
-            target.value.toMilliseconds() === this.value.toMilliseconds()
-        )
+        return this.$time.hours
     }
 }
