@@ -11,7 +11,6 @@ import { sql } from 'drizzle-orm'
 import { DifficultyEnum } from '@core/cooking'
 
 import { usersTable } from './users'
-import { pgTime } from './types'
 
 export const recipesTable = pgTable(
     'recipes',
@@ -32,7 +31,7 @@ export const recipesTable = pgTable(
                 DifficultyEnum.HARD
             ]
         }).notNull(),
-        preparationTime: pgTime().notNull()
+        preparationTime: integer().notNull()
     },
     (table) => [
         check('name_length_check', sql`LENGTH(${table.name}) >= 3`),

@@ -3,7 +3,6 @@ import { sql } from 'drizzle-orm'
 
 import { UnitEnum } from '@core/cooking'
 
-import { pgNumeric } from './types'
 import { recipesTable } from './recipes'
 
 export const ingredientsTable = pgTable(
@@ -17,7 +16,7 @@ export const ingredientsTable = pgTable(
             .notNull()
             .references(() => recipesTable.id),
         name: varchar({ length: 120 }).notNull(),
-        measure: pgNumeric().notNull(),
+        measure: varchar({ length: 120 }).notNull(),
         unit: varchar({
             enum: [
                 UnitEnum.CUP,
