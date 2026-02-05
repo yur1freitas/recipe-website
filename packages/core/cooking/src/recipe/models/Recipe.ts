@@ -1,5 +1,3 @@
-import type { Time } from '@utils/time'
-
 import z from 'zod'
 import { List } from '@utils/collections/List'
 
@@ -26,7 +24,7 @@ export interface RecipeInput extends EntityInput {
     name: string
     description: string
     difficulty: DifficultyEnum
-    preparationTime: Time
+    preparationTime: number
     tools: ToolInput[]
     steps: StepInput[]
     ingredients: IngredientInput[]
