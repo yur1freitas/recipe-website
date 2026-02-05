@@ -2,7 +2,6 @@ import type { infer as ZodInfer } from 'zod'
 
 import { useRef } from 'react'
 import { CheckIcon, ChevronsUpDownIcon, PlusIcon } from 'lucide-react'
-import { Numeric } from '@utils/numeric'
 import { useStore } from '@tanstack/react-form'
 
 import { ingredientSchema, UNIT_NAMES, UnitEnum } from '@core/cooking'
@@ -24,7 +23,7 @@ import { IngredientList } from '../IngredientList'
 
 const DEFAULT_VALUES: ZodInfer<typeof schema> = {
     name: '',
-    measure: new Numeric('1'),
+    measure: '1',
     unit: UnitEnum.MILLIGRAM
 }
 
