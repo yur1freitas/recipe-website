@@ -3,9 +3,11 @@
 import { cookies } from 'next/headers'
 import { updateTag } from 'next/cache'
 
+import type { RecipeInput } from '@core/cooking'
+
 import { httpClient } from '~/client/http'
 
-export type RegisterRecipeActionInput = string
+export type RegisterRecipeActionInput = Omit<RecipeInput, 'id' | 'authorId'>
 
 export async function registerRecipeAction(
     _: ActionState,
@@ -19,7 +21,7 @@ export async function registerRecipeAction(
         steps,
         tools,
         ingredients
-    } = JSON.parse(data)
+    } = data
 
     const cookieStore = await cookies()
 

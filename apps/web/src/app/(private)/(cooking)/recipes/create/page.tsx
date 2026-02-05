@@ -43,17 +43,15 @@ export default function Page(): React.JSX.Element {
             } = value
 
             startTransition(() =>
-                formAction(
-                    JSON.stringify({
-                        name,
-                        description,
-                        difficulty,
-                        preparationTime,
-                        steps,
-                        tools,
-                        ingredients
-                    })
-                )
+                formAction({
+                    name,
+                    description,
+                    difficulty,
+                    preparationTime,
+                    steps,
+                    tools,
+                    ingredients
+                })
             )
         }
     })
