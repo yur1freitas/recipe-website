@@ -15,6 +15,9 @@ export const measureSchema = z
         (measure) => parseNumeric(measure).value > 0,
         'A medida deve ser maior que zero'
     )
+    .meta({
+        examples: ['1/2', '3.14', '3 1/2', '5']
+    })
 
 export const MeasureValidator = new ZodValidator(measureSchema)
 
