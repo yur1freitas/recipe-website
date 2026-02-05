@@ -1,19 +1,13 @@
 import type { StandardSchemaTypeProvider } from '@standard-schema/fastify-type-provider'
 
 import z from 'zod'
-import { Time } from '@utils/time'
 
 import fp from 'fastify-plugin'
 import type { RawServerDefault } from 'fastify'
 
 import { idSchema, ValidatorError } from '@core/shared'
-import {
-    preparationTimeSchema,
-    CookingError,
-    recipeSchema,
-    UpdateRecipeErrors
-} from '@core/cooking'
 import type { UpdateRecipe } from '@core/cooking'
+import { CookingError, recipeSchema, UpdateRecipeErrors } from '@core/cooking'
 
 import { validationErrorSchema } from '~/schemas/validationErrorSchema'
 import { serverErrorSchema } from '~/schemas/serverErrorSchema'
@@ -45,17 +39,7 @@ export const updateRecipeController = fp<
                 cookies: {
                     accessToken: z.string()
                 },
-                body: z
-                    .object({
-                        ...recipeSchema.shape,
-                        preparationTime: z
-                            .number()
-                            .int()
-                            .positive()
-                            .transform((t) => new Time({ ms: t }))
-                            .pipe(preparationTimeSchema)
-                    })
-                    .omit({ id: true }),
+                body: recipeSchema.omit({ id: true }),
                 response: {
                     204: z
                         .undefined()
