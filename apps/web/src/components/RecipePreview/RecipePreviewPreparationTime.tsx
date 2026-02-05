@@ -1,16 +1,20 @@
 import { ClockIcon } from 'lucide-react'
+import { Time } from '@utils/time'
 
 import { Typography } from '@ui/core/Typography'
 import { Icon } from '@ui/core/Icon'
 import { Field } from '@ui/core/Field'
 
 export interface RecipePreviewPreparationTimeProps {
-    value?: string
+    value: number
 }
 
 export function RecipePreviewPreparationTime({
     value
 }: RecipePreviewPreparationTimeProps): React.JSX.Element {
+    const time = Time.fromMilliseconds(value)
+    const _value = `${time.hours}h ${time.minutes}min`
+
     return (
         <>
             <Field.Root className='sr-only'>
@@ -18,7 +22,7 @@ export function RecipePreviewPreparationTime({
                 <Field.Control
                     variant='value-only'
                     name='difficulty'
-                    value={value}
+                    value={_value}
                     required
                     readOnly
                 />
@@ -30,7 +34,7 @@ export function RecipePreviewPreparationTime({
                 <Icon className='size-4'>
                     <ClockIcon />
                 </Icon>
-                <span>{value}</span>
+                <span>{_value}</span>
             </Typography.Paragraph>
         </>
     )

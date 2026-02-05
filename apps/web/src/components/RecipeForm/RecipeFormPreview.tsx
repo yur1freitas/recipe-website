@@ -53,7 +53,7 @@ export const RecipeFormPreview = withForm({
                                 ).format()}
                             />
                             <RecipePreview.PreparationTime
-                                value={`${values.preparationTime.hours}h ${values.preparationTime.minutes}min`}
+                                value={values.preparationTime}
                             />
                         </div>
                         <RecipePreview.Ingredients items={values.ingredients} />
