@@ -6,6 +6,9 @@ import { ValueObject, ZodValidator } from '@core/shared'
 export const preparationTimeSchema = z
     .number()
     .positive('O tempo de preparo não pode ser nulo')
+    .meta({
+        examples: [1_000, 3_600_000, 60_000]
+    })
 
 export const PreparationTimeValidator = new ZodValidator(preparationTimeSchema)
 
