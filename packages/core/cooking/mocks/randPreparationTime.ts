@@ -1,22 +1,19 @@
-import { Time } from '@utils/time'
 import { faker } from '@faker-js/faker/locale/pt_BR'
 
 export interface RandPreparationTime {
     testCase?: 'negative' | 'zero' | 'success'
 }
 
-export function randPreparationTime(options?: RandPreparationTime): Time {
+export function randPreparationTime(options?: RandPreparationTime): number {
     switch (options?.testCase) {
         case 'zero': {
-            return new Time({ ms: 0 })
+            return 0
         }
         case 'negative': {
-            const ms = faker.number.float({ min: -100, max: -1 })
-            return new Time({ ms })
+            return faker.number.float({ min: -100, max: -1 })
         }
         default: {
-            const ms = faker.number.float({ min: 1, max: 1e6 })
-            return new Time({ ms })
+            return faker.number.float({ min: 1, max: 1e6 })
         }
     }
 }
