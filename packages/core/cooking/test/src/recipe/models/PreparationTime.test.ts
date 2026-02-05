@@ -29,32 +29,40 @@ describe('PreparationTime', () => {
         }).toThrowError('O tempo de preparo não pode ser nulo')
     })
 
-    it('deve retornar os milisegundos do tempo de preparo', () => {
-        const input = randPreparationTime()
-        const preparationTime = new PreparationTime(input)
-
-        expect(preparationTime.ms).toBe(input.ms)
+    it.each([
+        [1, 1],
+        [300, 300],
+        [1_000, 0]
+    ])('deve retornar os milisegundos do tempo de preparo', (ms, _ms) => {
+        const preparationTime = new PreparationTime(ms)
+        expect(preparationTime.ms).toBe(_ms)
     })
 
-    it('deve retornar os segundos do tempo de preparo', () => {
-        const input = randPreparationTime()
-        const preparationTime = new PreparationTime(input)
-
-        expect(preparationTime.seconds).toBe(input.seconds)
+    it.each([
+        [1_000, 1],
+        [60_000, 0],
+        [30_000, 30]
+    ])('deve retornar os segundos do tempo de preparo', (ms, seconds) => {
+        const preparationTime = new PreparationTime(ms)
+        expect(preparationTime.seconds).toBe(seconds)
     })
 
-    it('deve retornar os minutos do tempo de preparo', () => {
-        const input = randPreparationTime()
-        const preparationTime = new PreparationTime(input)
-
-        expect(preparationTime.minutes).toBe(input.minutes)
+    it.each([
+        [3_600_000, 0],
+        [60_000, 1],
+        [300_000, 5]
+    ])('deve retornar os minutos do tempo de preparo', (ms, minutes) => {
+        const preparationTime = new PreparationTime(ms)
+        expect(preparationTime.minutes).toBe(minutes)
     })
 
-    it('deve retornar as horas do tempo de preparo', () => {
-        const input = randPreparationTime()
-        const preparationTime = new PreparationTime(input)
-
-        expect(preparationTime.hours).toBe(input.hours)
+    it.each([
+        [86_400_000, 0],
+        [18_000_000, 5],
+        [3_600_000, 1]
+    ])('deve retornar as horas do tempo de preparo', (ms, hours) => {
+        const preparationTime = new PreparationTime(ms)
+        expect(preparationTime.hours).toBe(hours)
     })
 
     it('deve comparar se dois tempos de preparo são iguais', () => {
