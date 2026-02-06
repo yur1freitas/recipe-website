@@ -1,6 +1,6 @@
 import z from 'zod'
 
-import { ValueObject, ZodValidator } from '@core/shared'
+import { ValueObject, StandardValidator } from '@core/shared'
 
 export const nameSchema = z
     .string('O nome deve ser um texto')
@@ -13,7 +13,7 @@ export const nameSchema = z
         examples: ['Tijela', 'Pão de Queijo', 'Farinha']
     })
 
-export const NameValidator = new ZodValidator(nameSchema)
+export const NameValidator = new StandardValidator(nameSchema)
 
 export class Name extends ValueObject<string> {
     constructor(value: string) {

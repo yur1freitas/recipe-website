@@ -1,7 +1,7 @@
 import z from 'zod'
 import { Time } from '@utils/time'
 
-import { ValueObject, ZodValidator } from '@core/shared'
+import { ValueObject, StandardValidator } from '@core/shared'
 
 export const preparationTimeSchema = z
     .number()
@@ -10,7 +10,9 @@ export const preparationTimeSchema = z
         examples: [1_000, 3_600_000, 60_000]
     })
 
-export const PreparationTimeValidator = new ZodValidator(preparationTimeSchema)
+export const PreparationTimeValidator = new StandardValidator(
+    preparationTimeSchema
+)
 
 export class PreparationTime extends ValueObject<number> {
     protected $time: Time

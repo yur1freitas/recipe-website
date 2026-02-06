@@ -1,6 +1,6 @@
 import z from 'zod'
 
-import { ValueObject, ZodValidator } from '@core/shared'
+import { ValueObject, StandardValidator } from '@core/shared'
 
 export const descriptionSchema = z
     .string('A descrição deve ser um texto')
@@ -18,7 +18,7 @@ export const descriptionSchema = z
         ]
     })
 
-export const DescriptionValidator = new ZodValidator(descriptionSchema)
+export const DescriptionValidator = new StandardValidator(descriptionSchema)
 
 export class Description extends ValueObject<string> {
     constructor(value: string) {
