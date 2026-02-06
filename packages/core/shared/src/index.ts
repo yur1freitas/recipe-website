@@ -18,6 +18,7 @@ export { usernameSchema, Username, UsernameValidator } from './models/Username'
 export { emailSchema, Email, EmailValidator } from './models/Email'
 export { ValidatorError } from './errors/ValidatorError'
 
+export { StandardValidator } from './validators/StandardValidator'
 export { ZodValidator } from './validators/ZodValidator'
 export { idSchema, Id, IdValidator } from './models/Id'
 

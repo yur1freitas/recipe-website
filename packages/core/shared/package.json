@@ -18,6 +18,8 @@
         "typecheck": "tsc --noEmit"
     },
     "dependencies": {
+        "@standard-schema/spec": "catalog:schema",
+        "@utils/core": "workspace:",
         "uuid": "catalog:",
         "zod": "catalog:schema"
     },
