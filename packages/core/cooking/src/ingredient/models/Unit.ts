@@ -1,6 +1,6 @@
 import z from 'zod'
 
-import { ValueObject, ZodValidator } from '@core/shared'
+import { ValueObject, StandardValidator } from '@core/shared'
 
 import { UNIT_NAMES } from '../constants/unitNames'
 import { UnitEnum } from '../constants/UnitEnum'
@@ -10,7 +10,7 @@ export const unitSchema = z.enum(
     'A unidade de medida precisa ser válida'
 )
 
-export const UnitValidator = new ZodValidator(unitSchema)
+export const UnitValidator = new StandardValidator(unitSchema)
 
 export class Unit extends ValueObject<UnitEnum> {
     constructor(value: UnitEnum) {

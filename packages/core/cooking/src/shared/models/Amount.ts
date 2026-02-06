@@ -1,6 +1,6 @@
 import z from 'zod'
 
-import { ValueObject, ZodValidator } from '@core/shared'
+import { ValueObject, StandardValidator } from '@core/shared'
 
 export const amountSchema = z
     .number('A quantidade deve ser um número')
@@ -10,7 +10,7 @@ export const amountSchema = z
         examples: [1, 30, 10]
     })
 
-export const AmountValidator = new ZodValidator(amountSchema)
+export const AmountValidator = new StandardValidator(amountSchema)
 
 export class Amount extends ValueObject<number> {
     constructor(value: number) {

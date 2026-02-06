@@ -1,6 +1,6 @@
 import z from 'zod'
 
-import { ValueObject, ZodValidator } from '@core/shared'
+import { ValueObject, StandardValidator } from '@core/shared'
 
 export const orderSchema = z
     .number('O índice da ordem deve ser um número')
@@ -10,7 +10,7 @@ export const orderSchema = z
         examples: [1, 2, 3]
     })
 
-export const OrderValidator = new ZodValidator(orderSchema)
+export const OrderValidator = new StandardValidator(orderSchema)
 
 export class Order extends ValueObject<number> {
     constructor(value: number) {

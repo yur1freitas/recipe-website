@@ -1,7 +1,7 @@
 import z from 'zod'
 import { isNumeric, Numeric, parseNumeric } from '@utils/numeric'
 
-import { ValueObject, ZodValidator } from '@core/shared'
+import { ValueObject, StandardValidator } from '@core/shared'
 
 export const measureSchema = z
     .string()
@@ -19,7 +19,7 @@ export const measureSchema = z
         examples: ['1/2', '3.14', '3 1/2', '5']
     })
 
-export const MeasureValidator = new ZodValidator(measureSchema)
+export const MeasureValidator = new StandardValidator(measureSchema)
 
 export class Measure extends ValueObject<string> {
     protected $numeric: Numeric
