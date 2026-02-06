@@ -1,7 +1,7 @@
 import z from 'zod'
 
 import { ValueObject } from './ValueObject'
-import { ZodValidator } from '../validators/ZodValidator'
+import { StandardValidator } from '../validators/StandardValidator'
 
 export const passwordSchema = z
     .string()
@@ -15,7 +15,7 @@ export const passwordSchema = z
         examples: ['abc123ABC']
     })
 
-export const PasswordValidator = new ZodValidator(passwordSchema)
+export const PasswordValidator = new StandardValidator(passwordSchema)
 
 export class Password extends ValueObject<string> {
     constructor(value: string) {
