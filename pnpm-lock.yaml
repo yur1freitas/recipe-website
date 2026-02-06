@@ -684,6 +684,12 @@ importers:
 
   packages/core/shared:
     dependencies:
+      '@standard-schema/spec':
+        specifier: catalog:schema
+        version: 1.1.0
+      '@utils/core':
+        specifier: 'workspace:'
+        version: link:../../utils/core
       uuid:
         specifier: 'catalog:'
         version: 13.0.0
