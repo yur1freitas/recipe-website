@@ -1,14 +1,14 @@
 import z from 'zod'
 
 import { ValueObject } from './ValueObject'
-import { ZodValidator } from '../validators/ZodValidator'
+import { StandardValidator } from '../validators/StandardValidator'
 
 export const encryptedPasswordSchema = z
     .string()
     .trim()
     .nonempty('A senha não pode ser vazia')
 
-export const EncryptedPasswordValidator = new ZodValidator(
+export const EncryptedPasswordValidator = new StandardValidator(
     encryptedPasswordSchema
 )
 

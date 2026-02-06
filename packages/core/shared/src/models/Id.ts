@@ -2,14 +2,15 @@ import z from 'zod'
 import { v7 } from 'uuid'
 
 import { ValueObject } from './ValueObject'
-import { ZodValidator } from '../validators/ZodValidator'
+import { StandardValidator } from '../validators/StandardValidator'
 
 export const idSchema = z
     .uuidv7('O id deve ser válido')
     .default(() => v7())
+    .nonoptional()
     .meta({ examples: [v7()] })
 
-export const IdValidator = new ZodValidator(idSchema)
+export const IdValidator = new StandardValidator(idSchema)
 
 export class Id extends ValueObject<string> {
     readonly isCreated: boolean
