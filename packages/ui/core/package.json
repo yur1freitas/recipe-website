@@ -36,6 +36,7 @@
         "./Search": "./dist/Search/index.js",
         "./Section": "./dist/Section.js",
         "./Select": "./dist/Select/index.js",
+        "./Sheet": "./dist/Sheet/index.js",
         "./Textarea": "./dist/Textarea.js",
         "./TimeFieldset": "./dist/TimeFieldset/index.js",
         "./Typography": "./dist/Typography/index.js",
@@ -60,7 +61,8 @@
         "@utils/numeric": "workspace:",
         "@utils/time": "workspace:",
         "lucide-react": "catalog:frontend",
-        "tailwind-variants": "catalog:frontend"
+        "tailwind-variants": "catalog:frontend",
+        "tw-animate-css": "catalog:frontend"
     },
     "devDependencies": {
         "@chromatic-com/storybook": "catalog:docs",
