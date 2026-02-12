@@ -469,7 +469,8 @@
         }
     }
 
-    .dialog {
+    .dialog,
+    .alert-dialog {
         &-popup {
             @apply fixed left-1/2 top-1/2 -translate-1/2;
             @apply transition-all duration-150;
