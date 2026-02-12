@@ -969,4 +969,91 @@
             @apply absolute top-3 right-3;
         }
     }
+
+    .sidebar {
+        &-panel {
+            @apply w-(--sidebar-width);
+
+            &[data-mobile='true'] {
+                @apply h-svh;
+                @apply bg-background text-foreground p-0;
+            }
+        }
+
+        &-gap {
+            @apply w-(--sidebar-width) h-(--sidebar-height) bg-transparent;
+            @apply transition-[width] duration-200 ease-linear;
+
+            &[data-inset='false'] {
+                @apply h-svh;
+            }
+
+            &[data-inset='true'] {
+                @apply hidden;
+            }
+        }
+
+        &-container {
+            @apply w-(--sidebar-width) h-(--sidebar-height) border-border;
+            @apply transition-[left,right,width] duration-200 ease-linear;
+            @apply hidden md:flex;
+
+            &[data-inset='false'] {
+                @apply h-svh fixed inset-y-0 z-10;
+            }
+        }
+
+        &-panel[data-side='right'] &-gap {
+            @apply rotate-180;
+        }
+
+        &-panel[data-side='left'] &-container {
+            @apply left-0 border-r;
+        }
+
+        &-panel[data-side='right'] &-container {
+            @apply right-0 border-l;
+        }
+
+        &-inner {
+            @apply bg-background text-foreground flex size-full flex-col
+                overflow-auto;
+        }
+
+        &-header {
+            @apply flex flex-col gap-2 px-2 py-4 sticky top-0;
+        }
+
+        &-footer {
+            @apply flex flex-col gap-2 px-2 py-4 sticky bottom-0 mt-auto;
+        }
+
+        &-group {
+            @apply w-full min-w-0 px-2 relative;
+            @apply flex flex-col gap-y-1;
+        }
+
+        &-group-label {
+            @apply flex items-center shrink-0 h-8 pl-2;
+            @apply text-muted-foreground text-xs font-semibold text-nowrap;
+
+            & > svg {
+                @apply size-4 shrink-0 pointer-events-none;
+            }
+        }
+
+        &-link {
+            @apply inline-flex items-center gap-1 px-2 py-1 rounded;
+            @apply text-sm text-muted-foreground hover:bg-muted select-none
+                text-nowrap;
+
+            &[data-active='true'] {
+                @apply bg-primary text-primary-foreground;
+            }
+
+            & > svg {
+                @apply size-4 shrink-0 pointer-events-none;
+            }
+        }
+    }
 }
