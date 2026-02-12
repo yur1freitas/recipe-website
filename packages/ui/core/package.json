@@ -5,6 +5,7 @@
     "license": "MIT",
     "type": "module",
     "exports": {
+        "./AlertDialog": "./dist/AlertDialog/index.js",
         "./Autocomplete": "./dist/Autocomplete/index.js",
         "./Box": "./dist/Box.js",
         "./Button": "./dist/Button.js",
