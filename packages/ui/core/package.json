@@ -22,6 +22,7 @@
         "./hooks/useStep": "./dist/hooks/useStep.js",
         "./hooks/useTime": "./dist/hooks/useTime.js",
         "./hooks/useTimeFieldsetContext": "./dist/hooks/useTimeFieldsetContext.js",
+        "./hooks/useMediaQuery": "./dist/hooks/useMediaQuery.js",
         "./Icon": "./dist/Icon.js",
         "./Input": "./dist/Input.js",
         "./Label": "./dist/Label.js",
