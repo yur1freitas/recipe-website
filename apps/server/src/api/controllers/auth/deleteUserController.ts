@@ -85,7 +85,7 @@ export const deleteUserController = fp<
                 httpOnly: true
             }
 
-            return reply.status(204).cookie('accessToken', '', options)
+            return reply.status(204).cookie('accessToken', '', options).send()
         }
     )
 })
