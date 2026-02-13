@@ -15,8 +15,8 @@ export class UserRepositoryProviderMock implements UserRepositoryProvider {
         return true
     }
 
-    delete(id: string): void {
-        this.$store.delete(id)
+    delete(id: string): boolean {
+        return this.$store.delete(id)
     }
 
     update(user: User): void {
