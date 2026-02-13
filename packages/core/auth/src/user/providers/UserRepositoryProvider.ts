@@ -4,7 +4,7 @@ import type { User } from '../models/User'
 
 export interface UserRepositoryProvider {
     create(user: User): Awaitable<boolean>
-    delete(id: string): Awaitable<void>
+    delete(id: string): Awaitable<boolean>
     update(user: User): Awaitable<void>
     findAll(): Awaitable<User[]>
     findById(id: string): Awaitable<User | null>
