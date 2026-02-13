@@ -26,33 +26,40 @@ export class PgUserRepository implements UserRepositoryProvider {
         }
     }
 
-    async delete(id: string): Promise<void> {
-        await pg.transaction(async (tx) => {
-            const rows = await tx
-                .select({ id: recipesTable.id })
-                .from(recipesTable)
-                .where(eq(recipesTable.authorId, id))
+    async delete(id: string): Promise<boolean> {
+        try {
+            await pg.transaction(async (tx) => {
+                const rows = await tx
+                    .select({ id: recipesTable.id })
+                    .from(recipesTable)
+                    .where(eq(recipesTable.authorId, id))
 
-            const recipeIds = rows.map((row) => row.id)
+                const recipeIds = rows.map((row) => row.id)
 
-            await tx
-                .delete(stepsTable)
-                .where(inArray(stepsTable.recipeId, recipeIds))
+                await tx
+                    .delete(stepsTable)
+                    .where(inArray(stepsTable.recipeId, recipeIds))
 
-            await tx
-                .delete(toolsTable)
-                .where(inArray(toolsTable.recipeId, recipeIds))
+                await tx
+                    .delete(toolsTable)
+                    .where(inArray(toolsTable.recipeId, recipeIds))
 
-            await tx
-                .delete(ingredientsTable)
-                .where(inArray(ingredientsTable.recipeId, recipeIds))
+                await tx
+                    .delete(ingredientsTable)
+                    .where(inArray(ingredientsTable.recipeId, recipeIds))
 
-            await tx
-                .delete(recipesTable)
-                .where(inArray(recipesTable.id, recipeIds))
+                await tx
+                    .delete(recipesTable)
+                    .where(inArray(recipesTable.id, recipeIds))
 
-            await tx.delete(usersTable).where(eq(usersTable.id, id))
-        })
+                await tx.delete(usersTable).where(eq(usersTable.id, id))
+            })
+
+            return true
+        } catch (err) {
+            app.log.error(err)
+            return false
+        }
     }
 
     async update(user: User): Promise<void> {
