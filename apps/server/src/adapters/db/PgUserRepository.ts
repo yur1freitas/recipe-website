@@ -37,15 +37,15 @@ export class PgUserRepository implements UserRepositoryProvider {
 
             await tx
                 .delete(stepsTable)
-                .where(inArray(recipesTable.id, recipeIds))
+                .where(inArray(stepsTable.recipeId, recipeIds))
 
             await tx
                 .delete(toolsTable)
-                .where(inArray(recipesTable.id, recipeIds))
+                .where(inArray(toolsTable.recipeId, recipeIds))
 
             await tx
                 .delete(ingredientsTable)
-                .where(inArray(recipesTable.id, recipeIds))
+                .where(inArray(ingredientsTable.recipeId, recipeIds))
 
             await tx
                 .delete(recipesTable)
