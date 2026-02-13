@@ -6,8 +6,8 @@ import fp from 'fastify-plugin'
 import type { RawServerDefault } from 'fastify'
 
 import { ValidatorError } from '@core/shared'
-import type { LogoutUser } from '@core/auth'
 import { AuthError, LoginUserErrors } from '@core/auth'
+import type { LogoutUser } from '@core/auth'
 
 import { validationErrorSchema } from '~/schemas/validationErrorSchema'
 import { serverErrorSchema } from '~/schemas/serverErrorSchema'
@@ -63,7 +63,10 @@ export const logoutUserController = fp<
                     httpOnly: true
                 }
 
-                return reply.status(204).cookie('accessToken', '', options)
+                return reply
+                    .status(204)
+                    .cookie('accessToken', '', options)
+                    .send()
             }
 
             if (AuthError.isError(err) || ValidatorError.isError(err)) {
