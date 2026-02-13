@@ -10,6 +10,7 @@ import {
     UpdateRecipe
 } from '@core/cooking'
 import {
+    DeleteUser,
     LoginUser,
     LogoutUser,
     RegisterUser,
@@ -31,6 +32,7 @@ import { verifyUserSessionController } from './api/controllers/auth/verifyUserSe
 import { registerUserController } from './api/controllers/auth/registerUserController'
 import { logoutUserController } from './api/controllers/auth/logoutUserController'
 import { loginUserController } from './api/controllers/auth/loginUserController'
+import { deleteUserController } from './api/controllers/auth/deleteUserController'
 import { BcryptAdapter } from './adapters/security/BcryptAdapter'
 import { ValkeyInvalidTokenRepository } from './adapters/db/ValkeyInvalidTokenRepository'
 import { PgUserRepository } from './adapters/db/PgUserRepository'
@@ -67,6 +69,8 @@ try {
         userRepositoryProvider,
         accessTokenProvider
     )
+
+    const deleteUser = new DeleteUser(userRepositoryProvider)
 
     const registerRecipe = new RegisterRecipe(recipeRepositoryProvider)
     const updateRecipe = new UpdateRecipe(recipeRepositoryProvider)
@@ -116,6 +120,7 @@ try {
     app.register(registerUserController, { registerUser })
         .register(loginUserController, { loginUser })
         .register(logoutUserController, { logoutUser })
+        .register(deleteUserController, { deleteUser, logoutUser })
         .register(verifyUserSessionController)
 
     app.register(registerRecipeController, { registerRecipe })
