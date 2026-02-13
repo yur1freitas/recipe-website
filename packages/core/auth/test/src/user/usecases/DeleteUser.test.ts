@@ -1,4 +1,4 @@
-import { describe, it, expect, afterEach, beforeEach } from 'vitest'
+import { describe, it, expect, afterEach, beforeEach, vi } from 'vitest'
 import { faker } from '@faker-js/faker/locale/pt_BR'
 
 import { UserRepositoryProviderMock } from '~mocks/UserRepositoryProviderMock'
@@ -41,5 +41,19 @@ describe('DeleteUser', () => {
         await expect(deleteUser.execute({ id })).rejects.toThrowError(
             'O usuário não existe por isso não pode ser deletado'
         )
+    })
+
+    it('deve lançar um erro se a exclusão falhar', async () => {
+        const mock = vi
+            .spyOn(userRepositoryProvider, 'delete')
+            .mockReturnValue(false)
+
+        const deleteUser = new DeleteUser(userRepositoryProvider)
+
+        await expect(deleteUser.execute({ id })).rejects.toThrowError(
+            'Não foi possível deletar o usuário'
+        )
+
+        mock.mockRestore()
     })
 })
