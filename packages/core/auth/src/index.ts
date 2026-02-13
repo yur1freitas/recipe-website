@@ -16,6 +16,11 @@ export type {
 } from './user/usecases/RegisterUser'
 
 export type {
+    DeleteUserInput,
+    DeleteUserOutput
+} from './user/usecases/DeleteUser'
+
+export type {
     LogoutUserInput,
     LogoutUserOutput
 } from './user/usecases/LogoutUser'
@@ -36,6 +41,7 @@ export { RegisterUser, RegisterUserErrors } from './user/usecases/RegisterUser'
 
 export { LogoutUser, LogoutUserErrors } from './user/usecases/LogoutUser'
 export { LoginUser, LoginUserErrors } from './user/usecases/LoginUser'
+export { DeleteUser, DeleteUserErrors } from './user/usecases/DeleteUser'
 
 export { AuthError } from './shared/errors/AuthError'
 
