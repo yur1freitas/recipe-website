@@ -11,7 +11,8 @@ export interface DeleteUserInput {
 export type DeleteUserOutput = void
 
 export enum DeleteUserErrors {
-    UserDoesNotExist = 'USER_DOES_NOT_EXIST'
+    UserDoesNotExist = 'USER_DOES_NOT_EXIST',
+    FailedDeleteUser = 'FAILED_DELETE_USER'
 }
 
 export class DeleteUser implements UseCase<DeleteUserInput, DeleteUserOutput> {
@@ -31,6 +32,13 @@ export class DeleteUser implements UseCase<DeleteUserInput, DeleteUserOutput> {
             })
         }
 
-        await this.userRepositoryProvider.delete(id)
+        const isSuccess = await this.userRepositoryProvider.delete(id)
+
+        if (!isSuccess) {
+            throw new AuthError({
+                code: DeleteUserErrors.FailedDeleteUser,
+                message: 'Não foi possível deletar o usuário'
+            })
+        }
     }
 }
