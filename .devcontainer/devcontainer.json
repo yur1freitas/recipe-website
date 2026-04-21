@@ -9,10 +9,12 @@
         "host"
     ],
     "features": {
-        "features": {
-            "ghcr.io/devcontainers/features/docker-in-docker:2.16.1": {
-                "moby": false
-            }
+        "ghcr.io/devcontainers/features/node:1.7.1": {
+            "version": "24.12.0",
+            "pnpmVersion": "10.28.0"
+        },
+        "ghcr.io/devcontainers/features/docker-in-docker:2.16.1": {
+            "moby": false
         }
     }
 }
