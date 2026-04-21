@@ -9,7 +9,7 @@
     "tabWidth": 4,
     "trailingComma": "none",
     "ignorePatterns": ["*-lock.{yaml,json}"],
-    "experimentalSortImports": {
+    "sortImports": {
         "order": "desc",
         "groups": [
             "style",
