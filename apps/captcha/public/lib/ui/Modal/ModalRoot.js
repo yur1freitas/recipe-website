@@ -31,9 +31,12 @@ export const ModalRoot = ({ isOpen, children, onOpen, onClose }) => {
         onClose?.()
     }
 
-    return html`<${ModalContext.Provider} value=${{
-        isOpened,
-        open,
-        close
-    }}>${children}<//>`
+    return html`<${ModalContext.Provider}
+        value=${{
+            isOpened,
+            open,
+            close
+        }}
+        >${children}<//
+    >`
 }

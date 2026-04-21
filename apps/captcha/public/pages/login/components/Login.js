@@ -5,17 +5,16 @@ import { ThemeProvider } from '../../../lib/ui/ThemeProvider.js'
 import { html } from '../../../lib/ui/html.js'
 
 export const Login = () => {
-    return html`
-        <${ThemeProvider}>
-            <section id="login">
-                <div class="card">
-                    <div class="card-header">
-                        <h1>Login</h1>
-                    </div>
-                    <div class="card-body">
-                        <${Form}/>
-                    </div>
+    return html` <${ThemeProvider}>
+        <section id="login">
+            <div class="card">
+                <div class="card-header">
+                    <h1>Login</h1>
                 </div>
-             </section>
-        <//>`
+                <div class="card-body">
+                    <${Form} />
+                </div>
+            </div>
+        </section>
+    <//>`
 }

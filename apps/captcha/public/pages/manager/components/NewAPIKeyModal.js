@@ -15,7 +15,7 @@ export const NewAPIKeyModal = ({ apiKey, ...props }) => {
                     <div className="created-keys">
                         <div className="field">
                             <label className="label">Secret Key</label>
-                            <input 
+                            <input
                                 id="apiKey"
                                 name="apiKey"
                                 className="input"
@@ -27,13 +27,13 @@ export const NewAPIKeyModal = ({ apiKey, ...props }) => {
                 <//>
                 <${Modal.Footer}>
                     <${Modal.Trigger} type="close">
-                        <button 
+                        <button
                             type="text"
                             className="btn btn-full"
                             onClick=${close}
                         >
                             Concluído
-                        </button>   
+                        </button>
                     <//>
                 <//>
             <//>

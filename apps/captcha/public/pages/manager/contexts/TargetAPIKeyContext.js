@@ -17,8 +17,6 @@ export function TargetAPIKeyProvider({ children }) {
     const value = { targetAPIKey, setTargetAPIKey }
 
     return html`
-        <${TargetAPIKeyContext.Provider} value=${value}>
-            ${children}
-        <//>
+        <${TargetAPIKeyContext.Provider} value=${value}> ${children} <//>
     `
 }

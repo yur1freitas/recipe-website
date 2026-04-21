@@ -2,13 +2,15 @@ import type { StandardSchemaTypeProvider } from '@standard-schema/fastify-type-p
 
 import z from 'zod'
 
-import fp from 'fastify-plugin'
 import type { RawServerDefault } from 'fastify'
 
-import { ValidatorError } from '@core/shared'
+import fp from 'fastify-plugin'
+
 import type { RegisterRecipe } from '@core/cooking'
-import { CookingError, recipeSchema, RegisterRecipeErrors } from '@core/cooking'
 import type { UserPayload } from '@core/auth'
+
+import { ValidatorError } from '@core/shared'
+import { CookingError, recipeSchema, RegisterRecipeErrors } from '@core/cooking'
 
 import { validationErrorSchema } from '~/schemas/validationErrorSchema'
 import { serverErrorSchema } from '~/schemas/serverErrorSchema'

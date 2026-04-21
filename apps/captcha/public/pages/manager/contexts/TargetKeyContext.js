@@ -17,8 +17,6 @@ export function TargetKeyProvider({ children }) {
     const value = { targetKey, setTargetKey }
 
     return html`
-        <${TargetKeyContext.Provider} value=${value}>
-            ${children}
-        <//>
+        <${TargetKeyContext.Provider} value=${value}> ${children} <//>
     `
 }

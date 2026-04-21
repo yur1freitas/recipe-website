@@ -25,28 +25,24 @@ const DeleteButton = () => {
     }
 
     return html`
-        <button 
-            type="button"
-            className="btn btn-full"
-            onClick=${clickHandler}
-        > 
+        <button type="button" className="btn btn-full" onClick=${clickHandler}>
             Deletar
         </button>
     `
 }
 
 export const DeleteKeyModal = ({ children, ...props }) => {
-    return html`
-    <${Modal.Root} ...${props}> 
+    return html` <${Modal.Root} ...${props}>
         ${children}
         <${Modal.Content}>
-               <${Modal.Header} 
-                    title="Apagar Chaves", 
-                    description="Formulário para deletar chaves" 
-               />
-               <${Modal.Body}>
-                    <${DeleteButton}/>
-               <//>  
+            <${Modal.Header}
+                title="Apagar Chaves"
+                ,
+                description="Formulário para deletar chaves"
+            />
+            <${Modal.Body}>
+                <${DeleteButton} />
+            <//>
         <//>
     <//>`
 }

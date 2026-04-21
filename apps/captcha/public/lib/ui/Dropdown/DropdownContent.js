@@ -69,11 +69,8 @@ export const DropdownContent = ({ children }) => {
 
     if (isOpened.value) {
         return createPortal(
-            html`
-            <div id="dropdown" ref=${dropdownRef}>
-                <div className="dropdown-content">
-                    ${children}
-                </div>
+            html` <div id="dropdown" ref=${dropdownRef}>
+                <div className="dropdown-content">${children}</div>
             </div>`,
             document.body
         )

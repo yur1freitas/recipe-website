@@ -13,31 +13,27 @@ const KeyInfo = ({ name, createdAt }) => {
 
     return html`
         <div className="key-info">
-            <p className="key-name">
-                ${name}
-            </p>
-            <time className="key-created-at">
-                ${createdAtISO}
-            </time>
+            <p className="key-name">${name}</p>
+            <time className="key-created-at"> ${createdAtISO} </time>
         </div>
     `
 }
 
 const KeyOptions = ({ children, onSelect }) => {
     return html`
-       <div className="key-options">
+        <div className="key-options">
             <${Dropdown.Root} onSelect=${onSelect}>
                 <${Dropdown.Trigger}>
                     <button type="button">
-                        <${Icons.EllipsisVerticalIcon}/>
+                        <${Icons.EllipsisVerticalIcon} />
                     </button>
                 <//>
                 <${Dropdown.Content}>
-                    <${Dropdown.Label} label="Opções"/>
+                    <${Dropdown.Label} label="Opções" />
                     ${children}
                 <//>
             <//>
-       </div>
+        </div>
     `
 }
 

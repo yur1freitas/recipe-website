@@ -11,31 +11,27 @@ const APIKeyRoot = ({ children }) => {
 const APIKeyInfo = ({ name, createdAt }) => {
     return html`
         <div className="api-key-info">
-            <p className="api-key-name">
-                ${name}
-            </p>
-            <time className="api-key-created-at">
-                ${createdAt}
-            </time>
+            <p className="api-key-name">${name}</p>
+            <time className="api-key-created-at"> ${createdAt} </time>
         </div>
     `
 }
 
 const APIKeyOptions = ({ children, onSelect }) => {
     return html`
-       <div className="api-key-options">
+        <div className="api-key-options">
             <${Dropdown.Root} onSelect=${onSelect}>
                 <${Dropdown.Trigger}>
                     <button type="button">
-                        <${Icons.EllipsisVerticalIcon}/>
+                        <${Icons.EllipsisVerticalIcon} />
                     </button>
                 <//>
                 <${Dropdown.Content}>
-                    <${Dropdown.Label} label="Opções"/>
+                    <${Dropdown.Label} label="Opções" />
                     ${children}
                 <//>
             <//>
-       </div>
+        </div>
     `
 }
 

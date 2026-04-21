@@ -20,22 +20,18 @@ const SearchBar = () => {
     }
 
     return html`
-         <form 
-            action="#" 
-            class="search-form"
-            onSubmit=${submitHandler}
-        >
-             <div class="field">
-                 <input
-                      id="search"
-                      name="search"
-                      type="search"
-                      class="input"
-                      placeholder="Procurar chaves..."
-                 />
-             </div>
+        <form action="#" class="search-form" onSubmit=${submitHandler}>
+            <div class="field">
+                <input
+                    id="search"
+                    name="search"
+                    type="search"
+                    class="input"
+                    placeholder="Procurar chaves..."
+                />
+            </div>
             <button type="submit" class="btn btn-icon">
-                <${Icons.SearchIcon}/>
+                <${Icons.SearchIcon} />
             </button>
         </form>
     `

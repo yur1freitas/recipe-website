@@ -15,43 +15,37 @@ const PasswordField = ({ disabled = false }) => {
 
     const toggleVisibility = () => (isVisible.value = !isVisible.value)
 
-    return html`
-        <div className="field">
-            <label for="password" class="label">
-                Senha:
-            </label>
-            <div class="password-input">
-                <input 
-                    id="password" 
-                    name="password" 
-                    type=${inputType}
-                    placeholder="*****" 
-                    required
-                    disabled=${disabled}
-                />
-                <button 
-                    type="button" 
-                    onClick=${toggleVisibility} 
-                    disabled=${disabled}
-                >
-                    ${
-                        isVisible.value
-                            ? html`<${Icons.EyeIcon}/>`
-                            : html`<${Icons.EyeClosedIcon}/>`
-                    }
-                </button>
-            </div>
-        </div>`
+    return html` <div className="field">
+        <label for="password" class="label"> Senha: </label>
+        <div class="password-input">
+            <input
+                id="password"
+                name="password"
+                type=${inputType}
+                placeholder="*****"
+                required
+                disabled=${disabled}
+            />
+            <button
+                type="button"
+                onClick=${toggleVisibility}
+                disabled=${disabled}
+            >
+                ${isVisible.value
+                    ? html`<${Icons.EyeIcon} />`
+                    : html`<${Icons.EyeClosedIcon} />`}
+            </button>
+        </div>
+    </div>`
 }
 
 const SubmitButton = ({ disabled = false }) => {
-    return html`
-        <div class="field">
-            <button type="submit" class="btn btn-full" disabled=${disabled}>
-                <${Icons.LogInIcon}/>
-                Acessar
-            </button>
-        </div>`
+    return html` <div class="field">
+        <button type="submit" class="btn btn-full" disabled=${disabled}>
+            <${Icons.LogInIcon} />
+            Acessar
+        </button>
+    </div>`
 }
 
 export const Form = () => {
@@ -82,9 +76,8 @@ export const Form = () => {
         isDisabled.value = false
     }
 
-    return html`
-    <form action="#" className="form" onSubmit=${submitHandler}>
-         <${PasswordField} disabled=${isDisabled.value}/>
-         <${SubmitButton} disabled=${isDisabled.value}/>
+    return html` <form action="#" className="form" onSubmit=${submitHandler}>
+        <${PasswordField} disabled=${isDisabled.value} />
+        <${SubmitButton} disabled=${isDisabled.value} />
     </form>`
 }

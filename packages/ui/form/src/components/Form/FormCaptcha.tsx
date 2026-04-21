@@ -1,5 +1,6 @@
-import { Field } from '@ui/core/Field'
 import type { CaptchaProps } from '@ui/captcha'
+
+import { Field } from '@ui/core/Field'
 import { Captcha } from '@ui/captcha'
 
 import { pickErrorMessage } from '~/utils/pickErrorMessage'

@@ -70,7 +70,7 @@ const UpdateKeyForm = () => {
         <form action="#" id="update-key-form" onSubmit=${submitHandler}>
             <div className="field">
                 <label htmlFor="count" className="label">Count</label>
-                <input 
+                <input
                     id="count"
                     name="count"
                     type="number"
@@ -79,26 +79,28 @@ const UpdateKeyForm = () => {
                     value=${key?.value?.config?.count}
                 />
             </div>
-             <div className="field">
+            <div className="field">
                 <label htmlFor="saltSize" className="label">Salt Size</label>
-                <input 
+                <input
                     id="saltSize"
                     name="saltSize"
                     type="number"
                     min="0"
                     className="input"
-                     value=${key?.value?.config?.saltSize}
+                    value=${key?.value?.config?.saltSize}
                 />
             </div>
-             <div className="field">
-                <label htmlFor="difficulty" className="label">Dificuldade</label>
-                <input 
+            <div className="field">
+                <label htmlFor="difficulty" className="label"
+                    >Dificuldade</label
+                >
+                <input
                     id="difficulty"
                     name="difficulty"
                     type="number"
                     min="0"
                     className="input"
-                     value=${key?.value?.config?.difficulty}
+                    value=${key?.value?.config?.difficulty}
                 />
             </div>
         </form>
@@ -106,37 +108,37 @@ const UpdateKeyForm = () => {
 }
 
 export const UpdateKeyModal = ({ children, ...props }) => {
-    return html`
-        <${Modal.Root} ...${props}>
-            ${children}
-            <${Modal.Content}>
-                <${Modal.Header}
-                    title="Atualizar Chave",
-                    description="Formulário para atualizar chave"
-                />
-                <${Modal.Body}>
-                    <${UpdateKeyForm}/>
-                <//>
-                <${Modal.Footer}>
-                    <div class="update-key-options">
-                        <${Modal.Trigger} type="close">
-                            <button 
-                                type="button"
-                                className="btn btn-full"
-                                onClick=${close}
-                            > 
-                                Cancelar
-                            </button>
-                        <//>
-                        <button 
-                            type="submit"
-                            form="update-key-form"
-                            className="btn btn-full"
-                        > 
-                            Atualizar
-                        </button> 
-                    </div>
-                <//> 
+    return html` <${Modal.Root} ...${props}>
+        ${children}
+        <${Modal.Content}>
+            <${Modal.Header}
+                title="Atualizar Chave"
+                ,
+                description="Formulário para atualizar chave"
+            />
+            <${Modal.Body}>
+                <${UpdateKeyForm} />
             <//>
-        <//>`
+            <${Modal.Footer}>
+                <div class="update-key-options">
+                    <${Modal.Trigger} type="close">
+                        <button
+                            type="button"
+                            className="btn btn-full"
+                            onClick=${close}
+                        >
+                            Cancelar
+                        </button>
+                    <//>
+                    <button
+                        type="submit"
+                        form="update-key-form"
+                        className="btn btn-full"
+                    >
+                        Atualizar
+                    </button>
+                </div>
+            <//>
+        <//>
+    <//>`
 }

@@ -40,8 +40,6 @@ export function APIKeyStoreProvider({ children }) {
     const value = { apiKeys, addAPIKey, deleteAPIKey }
 
     return html`
-        <${APIKeyStoreContext.Provider} value=${value}>
-            ${children}
-        <//>
+        <${APIKeyStoreContext.Provider} value=${value}> ${children} <//>
     `
 }

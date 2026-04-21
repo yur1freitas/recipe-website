@@ -1,7 +1,8 @@
+import type { PinoLoggerOptions } from 'fastify/types/logger'
 import type { StandardSchemaTypeProvider } from '@standard-schema/fastify-type-provider'
 
-import z from 'zod'
 import { ZodType } from 'zod'
+import z from 'zod'
 import {
     StandardSchemaSerializerCompiler,
     StandardSchemaValidatorCompiler,
@@ -9,7 +10,6 @@ import {
 } from '@standard-schema/fastify-type-provider'
 import fastifyScalar from '@scalar/fastify-api-reference'
 
-import type { PinoLoggerOptions } from 'fastify/types/logger'
 import fastify from 'fastify'
 import fastifySwagger from '@fastify/swagger'
 import fastifySensible, { HttpError } from '@fastify/sensible'

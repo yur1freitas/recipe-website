@@ -1,8 +1,9 @@
 import type { Numeric } from '@utils/numeric'
 
 import type { NumericInputProps } from '@ui/core/NumericInput'
-import { DEFAULT_ERROR_MESSAGE, NumericInput } from '@ui/core/NumericInput'
 import type { ChangeRawValueHandler } from '@ui/core/hooks/useNumeric'
+
+import { DEFAULT_ERROR_MESSAGE, NumericInput } from '@ui/core/NumericInput'
 
 import { pickErrorMessage } from '~/utils/pickErrorMessage'
 import { isInvalidField } from '~/utils/isInvalidField'

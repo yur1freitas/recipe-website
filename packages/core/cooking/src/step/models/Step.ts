@@ -1,6 +1,7 @@
 import z from 'zod'
 
 import type { EntityInput, EntityProps } from '@core/shared'
+
 import { Entity, entitySchema } from '@core/shared'
 
 import { orderSchema, Order } from '~/shared/models/Order'

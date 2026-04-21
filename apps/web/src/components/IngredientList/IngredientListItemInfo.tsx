@@ -1,5 +1,6 @@
-import { Ingredient } from '@core/cooking'
 import type { IngredientInput } from '@core/cooking'
+
+import { Ingredient } from '@core/cooking'
 
 import { Typography } from '@ui/core/Typography'
 

@@ -12,5 +12,7 @@ export const DropdownItem = ({ label, value, onClick }) => {
         onSelect?.(value)
     }
 
-    return html`<div className="dropdown-item" onClick=${clickHandler}>${label}</div>`
+    return html`<div className="dropdown-item" onClick=${clickHandler}>
+        ${label}
+    </div>`
 }

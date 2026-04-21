@@ -1,5 +1,6 @@
-import fp from 'fastify-plugin'
 import type { FastifyReply, preValidationHookHandler } from 'fastify'
+
+import fp from 'fastify-plugin'
 
 import type { CreateCaptchaAuthInput, CreateCaptchaAuthOutput } from './auth'
 

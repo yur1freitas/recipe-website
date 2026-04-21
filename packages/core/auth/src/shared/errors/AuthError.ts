@@ -1,4 +1,5 @@
 import type { CustomErrorInput } from '@core/shared'
+
 import { CustomError } from '@core/shared'
 
 export type AuthErrorInput = CustomErrorInput
