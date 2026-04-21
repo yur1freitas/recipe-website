@@ -12,7 +12,12 @@ export const verifySession = cache(async () => {
         return { user: null, isAuth: false }
     }
 
-    const { error } = await httpClient.GET('/auth/verify', {
+    const { data, error } = await httpClient.GET('/auth/verify', {
+        params: {
+            query: {
+                payload: true
+            }
+        },
         headers: {
             Cookie: cookieStore.toString()
         }
@@ -22,5 +27,5 @@ export const verifySession = cache(async () => {
         return { user: null, isAuth: false }
     }
 
-    return { user: null, isAuth: true }
+    return { user: data, isAuth: true }
 })
