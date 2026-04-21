@@ -63,11 +63,18 @@ export class PgUserRepository implements UserRepositoryProvider {
         }
     }
 
-    async update(user: User): Promise<void> {
-        await pg
-            .update(usersTable)
-            .set(user.props)
-            .where(eq(usersTable.id, user.id.value))
+    async update(user: User): Promise<boolean> {
+        try {
+            await pg
+                .update(usersTable)
+                .set(user.props)
+                .where(eq(usersTable.id, user.id.value))
+
+            return true
+        } catch (err) {
+            app.log.error(err)
+            return false
+        }
     }
 
     async findAll(): Promise<User[]> {
