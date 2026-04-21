@@ -25,6 +25,11 @@ export type {
     LogoutUserOutput
 } from './user/usecases/LogoutUser'
 
+export type {
+    UpdateUserInput,
+    UpdateUserOutput
+} from './user/usecases/UpdateUser'
+
 export type { UserRepositoryProvider } from './user/providers/UserRepositoryProvider'
 export type { LoginUserInput, LoginUserOutput } from './user/usecases/LoginUser'
 export type { AccessTokenProvider } from './user/providers/AccessTokenProvider'
@@ -42,6 +47,7 @@ export { RegisterUser, RegisterUserErrors } from './user/usecases/RegisterUser'
 export { LogoutUser, LogoutUserErrors } from './user/usecases/LogoutUser'
 export { LoginUser, LoginUserErrors } from './user/usecases/LoginUser'
 export { DeleteUser, DeleteUserErrors } from './user/usecases/DeleteUser'
+export { UpdateUser, UpdateUserErrors } from './user/usecases/UpdateUser'
 
 export { AuthError } from './shared/errors/AuthError'
 
