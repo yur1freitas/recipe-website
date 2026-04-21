@@ -1,4 +1,5 @@
 {
+    "remoteUser": "dev",
     "build": { "dockerfile": "Dockerfile", "context": "." },
     "workspaceFolder": "/workspaces/mr-app",
     "forwardPorts": [3000],
