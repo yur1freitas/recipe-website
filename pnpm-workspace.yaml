@@ -83,7 +83,7 @@ catalogs:
     lint:
         dprint: 0.51.1
         oxfmt: 0.46.0
-        oxlint: 1.42.0
+        oxlint: 1.61.0
         oxlint-tsgolint: 0.11.0
     schema:
         '@standard-schema/spec': 1.1.0
