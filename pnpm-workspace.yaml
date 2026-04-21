@@ -79,7 +79,7 @@ catalogs:
         virtua: 0.48.5
     git:
         husky: 9.1.7
-        lint-staged: 16.2.7
+        lint-staged: 16.4.0
     lint:
         dprint: 0.54.0
         oxfmt: 0.46.0
