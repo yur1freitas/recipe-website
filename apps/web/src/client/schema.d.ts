@@ -280,6 +280,76 @@ export interface paths {
         patch?: never
         trace?: never
     }
+    '/auth/delete': {
+        parameters: {
+            query?: never
+            header?: never
+            path?: never
+            cookie?: never
+        }
+        get?: never
+        put?: never
+        /** @description Rota de exclusão de conta */
+        post: {
+            parameters: {
+                query?: never
+                header?: never
+                path?: never
+                cookie?: {
+                    accessToken?: string
+                }
+            }
+            requestBody?: {
+                content: {
+                    'application/json': unknown
+                }
+            }
+            responses: {
+                /** @description Conta do usuário excluída com sucesso */
+                204: {
+                    headers: {
+                        [name: string]: unknown
+                    }
+                    content: {
+                        'application/json': unknown
+                    }
+                }
+                /** @description Um erro de validação */
+                400: {
+                    headers: {
+                        [name: string]: unknown
+                    }
+                    content: {
+                        'application/json': {
+                            error: string
+                            message: string
+                            /** @enum {number} */
+                            statusCode: 400
+                        }
+                    }
+                }
+                /** @description Um erro inesperado interno do servidor */
+                500: {
+                    headers: {
+                        [name: string]: unknown
+                    }
+                    content: {
+                        'application/json': {
+                            error: string
+                            message: string
+                            /** @enum {number} */
+                            statusCode: 500
+                        }
+                    }
+                }
+            }
+        }
+        delete?: never
+        options?: never
+        head?: never
+        patch?: never
+        trace?: never
+    }
     '/auth/verify': {
         parameters: {
             query?: never
@@ -290,7 +360,9 @@ export interface paths {
         /** @description Verificar a sessão do usuário */
         get: {
             parameters: {
-                query?: never
+                query: {
+                    payload: boolean
+                }
                 header?: never
                 path?: never
                 cookie?: {
@@ -303,6 +375,30 @@ export interface paths {
                 }
             }
             responses: {
+                /** @description A sessão do usuário é válida e o payload foi retornado */
+                200: {
+                    headers: {
+                        [name: string]: unknown
+                    }
+                    content: {
+                        'application/json': {
+                            /**
+                             * Format: uuid
+                             * @default 019db1f8-bbaf-7058-a893-a79b71d4a6c6
+                             * @example 019db1e5-ef09-713f-946e-3c569828cdd7
+                             */
+                            id: string
+                            /** @example Tijela */
+                            name: string
+                            /**
+                             * Endereço de Email
+                             * Format: email
+                             * @example user@example.com
+                             */
+                            email: string
+                        }
+                    }
+                }
                 /** @description A sessão do usuário é válida */
                 204: {
                     headers: {
@@ -385,48 +481,56 @@ export interface paths {
                         'application/json': {
                             /**
                              * Format: uuid
-                             * @default 019c1a1b-8388-742e-a9c1-0063ec517253
-                             * @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f
+                             * @default 019db1f8-bbb6-760c-97d7-62b13b90de58
+                             * @example 019db1e5-ef09-713f-946e-3c569828cdd7
                              */
                             id: string
                             /**
                              * Format: uuid
-                             * @default 019c1a1b-8388-742e-a9c1-0063ec517253
-                             * @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f
+                             * @default 019db1f8-bbb6-760c-97d7-62b13b90de58
+                             * @example 019db1e5-ef09-713f-946e-3c569828cdd7
                              */
                             authorId: string
+                            /** @example Tijela */
                             name: string
+                            /** @example Em uma tijela grande, coloque farinha */
                             description: string
                             /** @enum {string} */
                             difficulty: 'easy' | 'medium' | 'hard'
-                            preparationTime: unknown
+                            /** @example 1000 */
+                            preparationTime: number
                             steps: {
                                 /**
                                  * Format: uuid
-                                 * @default 019c1a1b-8388-742e-a9c1-0063ec517253
-                                 * @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f
+                                 * @default 019db1f8-bbb6-760c-97d7-62b13b90de58
+                                 * @example 019db1e5-ef09-713f-946e-3c569828cdd7
                                  */
                                 id: string
+                                /** @example 1 */
                                 order: number
+                                /** @example Em uma tijela grande, coloque farinha */
                                 description: string
                             }[]
                             tools: {
                                 /**
                                  * Format: uuid
-                                 * @default 019c1a1b-8388-742e-a9c1-0063ec517253
-                                 * @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f
+                                 * @default 019db1f8-bbb6-760c-97d7-62b13b90de58
+                                 * @example 019db1e5-ef09-713f-946e-3c569828cdd7
                                  */
                                 id: string
+                                /** @example Tijela */
                                 name: string
+                                /** @example 1 */
                                 amount: number
                             }[]
                             ingredients: {
                                 /**
                                  * Format: uuid
-                                 * @default 019c1a1b-8388-742e-a9c1-0063ec517253
-                                 * @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f
+                                 * @default 019db1f8-bbb6-760c-97d7-62b13b90de58
+                                 * @example 019db1e5-ef09-713f-946e-3c569828cdd7
                                  */
                                 id: string
+                                /** @example Tijela */
                                 name: string
                                 /** @enum {string} */
                                 unit:
@@ -442,7 +546,8 @@ export interface paths {
                                     | 'l'
                                     | 'ml'
                                     | 'cup'
-                                measure: unknown
+                                /** @example 1/2 */
+                                measure: string
                             }[]
                         }[]
                     }
@@ -491,38 +596,46 @@ export interface paths {
             requestBody: {
                 content: {
                     'application/json': {
+                        /** @example Tijela */
                         name: string
+                        /** @example Em uma tijela grande, coloque farinha */
                         description: string
                         /** @enum {string} */
                         difficulty: 'easy' | 'medium' | 'hard'
-                        preparationTime: unknown
+                        /** @example 1000 */
+                        preparationTime: number
                         steps: {
                             /**
                              * Format: uuid
-                             * @default 019c1a1b-8383-710e-8d0d-cdf010a6a722
-                             * @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f
+                             * @default 019db1f8-bbb1-76dd-affe-1a12daa24323
+                             * @example 019db1e5-ef09-713f-946e-3c569828cdd7
                              */
                             id?: string
+                            /** @example 1 */
                             order: number
+                            /** @example Em uma tijela grande, coloque farinha */
                             description: string
                         }[]
                         tools: {
                             /**
                              * Format: uuid
-                             * @default 019c1a1b-8383-710e-8d0d-cdf010a6a722
-                             * @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f
+                             * @default 019db1f8-bbb1-76dd-affe-1a12daa24323
+                             * @example 019db1e5-ef09-713f-946e-3c569828cdd7
                              */
                             id?: string
+                            /** @example Tijela */
                             name: string
+                            /** @example 1 */
                             amount: number
                         }[]
                         ingredients: {
                             /**
                              * Format: uuid
-                             * @default 019c1a1b-8383-710e-8d0d-cdf010a6a722
-                             * @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f
+                             * @default 019db1f8-bbb1-76dd-affe-1a12daa24323
+                             * @example 019db1e5-ef09-713f-946e-3c569828cdd7
                              */
                             id?: string
+                            /** @example Tijela */
                             name: string
                             /** @enum {string} */
                             unit:
@@ -538,7 +651,8 @@ export interface paths {
                                 | 'l'
                                 | 'ml'
                                 | 'cup'
-                            measure: unknown
+                            /** @example 1/2 */
+                            measure: string
                         }[]
                     }
                 }
@@ -602,7 +716,7 @@ export interface paths {
                 query?: never
                 header?: never
                 path: {
-                    /** @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f */
+                    /** @example 019db1e5-ef09-713f-946e-3c569828cdd7 */
                     id: string
                 }
                 cookie?: {
@@ -624,48 +738,56 @@ export interface paths {
                         'application/json': {
                             /**
                              * Format: uuid
-                             * @default 019c1a1b-8387-73c9-a1c9-ffc113be8f1c
-                             * @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f
+                             * @default 019db1f8-bbb5-707a-9ed0-063beb79b469
+                             * @example 019db1e5-ef09-713f-946e-3c569828cdd7
                              */
                             id: string
                             /**
                              * Format: uuid
-                             * @default 019c1a1b-8387-73c9-a1c9-ffc113be8f1c
-                             * @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f
+                             * @default 019db1f8-bbb5-707a-9ed0-063beb79b469
+                             * @example 019db1e5-ef09-713f-946e-3c569828cdd7
                              */
                             authorId: string
+                            /** @example Tijela */
                             name: string
+                            /** @example Em uma tijela grande, coloque farinha */
                             description: string
                             /** @enum {string} */
                             difficulty: 'easy' | 'medium' | 'hard'
-                            preparationTime: unknown
+                            /** @example 1000 */
+                            preparationTime: number
                             steps: {
                                 /**
                                  * Format: uuid
-                                 * @default 019c1a1b-8387-73c9-a1c9-ffc113be8f1c
-                                 * @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f
+                                 * @default 019db1f8-bbb5-707a-9ed0-063beb79b469
+                                 * @example 019db1e5-ef09-713f-946e-3c569828cdd7
                                  */
                                 id: string
+                                /** @example 1 */
                                 order: number
+                                /** @example Em uma tijela grande, coloque farinha */
                                 description: string
                             }[]
                             tools: {
                                 /**
                                  * Format: uuid
-                                 * @default 019c1a1b-8387-73c9-a1c9-ffc113be8f1c
-                                 * @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f
+                                 * @default 019db1f8-bbb5-707a-9ed0-063beb79b469
+                                 * @example 019db1e5-ef09-713f-946e-3c569828cdd7
                                  */
                                 id: string
+                                /** @example Tijela */
                                 name: string
+                                /** @example 1 */
                                 amount: number
                             }[]
                             ingredients: {
                                 /**
                                  * Format: uuid
-                                 * @default 019c1a1b-8387-73c9-a1c9-ffc113be8f1c
-                                 * @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f
+                                 * @default 019db1f8-bbb5-707a-9ed0-063beb79b469
+                                 * @example 019db1e5-ef09-713f-946e-3c569828cdd7
                                  */
                                 id: string
+                                /** @example Tijela */
                                 name: string
                                 /** @enum {string} */
                                 unit:
@@ -681,7 +803,8 @@ export interface paths {
                                     | 'l'
                                     | 'ml'
                                     | 'cup'
-                                measure: unknown
+                                /** @example 1/2 */
+                                measure: string
                             }[]
                         }
                     }
@@ -722,7 +845,7 @@ export interface paths {
                 query?: never
                 header?: never
                 path: {
-                    /** @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f */
+                    /** @example 019db1e5-ef09-713f-946e-3c569828cdd7 */
                     id: string
                 }
                 cookie?: {
@@ -734,42 +857,50 @@ export interface paths {
                     'application/json': {
                         /**
                          * Format: uuid
-                         * @default 019c1a1b-8385-72d5-b833-1a9f4289e618
-                         * @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f
+                         * @default 019db1f8-bbb2-70d1-8fc7-4aab4c9a8b58
+                         * @example 019db1e5-ef09-713f-946e-3c569828cdd7
                          */
                         authorId: string
+                        /** @example Tijela */
                         name: string
+                        /** @example Em uma tijela grande, coloque farinha */
                         description: string
                         /** @enum {string} */
                         difficulty: 'easy' | 'medium' | 'hard'
-                        preparationTime: unknown
+                        /** @example 1000 */
+                        preparationTime: number
                         steps: {
                             /**
                              * Format: uuid
-                             * @default 019c1a1b-8385-72d5-b833-1a9f4289e618
-                             * @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f
+                             * @default 019db1f8-bbb2-70d1-8fc7-4aab4c9a8b58
+                             * @example 019db1e5-ef09-713f-946e-3c569828cdd7
                              */
                             id?: string
+                            /** @example 1 */
                             order: number
+                            /** @example Em uma tijela grande, coloque farinha */
                             description: string
                         }[]
                         tools: {
                             /**
                              * Format: uuid
-                             * @default 019c1a1b-8385-72d5-b833-1a9f4289e618
-                             * @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f
+                             * @default 019db1f8-bbb2-70d1-8fc7-4aab4c9a8b58
+                             * @example 019db1e5-ef09-713f-946e-3c569828cdd7
                              */
                             id?: string
+                            /** @example Tijela */
                             name: string
+                            /** @example 1 */
                             amount: number
                         }[]
                         ingredients: {
                             /**
                              * Format: uuid
-                             * @default 019c1a1b-8385-72d5-b833-1a9f4289e618
-                             * @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f
+                             * @default 019db1f8-bbb2-70d1-8fc7-4aab4c9a8b58
+                             * @example 019db1e5-ef09-713f-946e-3c569828cdd7
                              */
                             id?: string
+                            /** @example Tijela */
                             name: string
                             /** @enum {string} */
                             unit:
@@ -785,7 +916,8 @@ export interface paths {
                                 | 'l'
                                 | 'ml'
                                 | 'cup'
-                            measure: unknown
+                            /** @example 1/2 */
+                            measure: string
                         }[]
                     }
                 }
@@ -837,7 +969,7 @@ export interface paths {
                 query?: never
                 header?: never
                 path: {
-                    /** @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f */
+                    /** @example 019db1e5-ef09-713f-946e-3c569828cdd7 */
                     id: string
                 }
                 cookie?: {
@@ -907,7 +1039,7 @@ export interface paths {
                 query?: never
                 header?: never
                 path: {
-                    /** @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f */
+                    /** @example 019db1e5-ef09-713f-946e-3c569828cdd7 */
                     id: string
                 }
                 cookie?: {
@@ -929,48 +1061,56 @@ export interface paths {
                         'application/json': {
                             /**
                              * Format: uuid
-                             * @default 019c1a1b-8389-714f-8c28-a78044dd4dd7
-                             * @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f
+                             * @default 019db1f8-bbb7-7438-ae3b-eeef2b5cec1e
+                             * @example 019db1e5-ef09-713f-946e-3c569828cdd7
                              */
                             id: string
                             /**
                              * Format: uuid
-                             * @default 019c1a1b-8389-714f-8c28-a78044dd4dd7
-                             * @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f
+                             * @default 019db1f8-bbb7-7438-ae3b-eeef2b5cec1e
+                             * @example 019db1e5-ef09-713f-946e-3c569828cdd7
                              */
                             authorId: string
+                            /** @example Tijela */
                             name: string
+                            /** @example Em uma tijela grande, coloque farinha */
                             description: string
                             /** @enum {string} */
                             difficulty: 'easy' | 'medium' | 'hard'
-                            preparationTime: unknown
+                            /** @example 1000 */
+                            preparationTime: number
                             steps: {
                                 /**
                                  * Format: uuid
-                                 * @default 019c1a1b-8389-714f-8c28-a78044dd4dd7
-                                 * @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f
+                                 * @default 019db1f8-bbb7-7438-ae3b-eeef2b5cec1e
+                                 * @example 019db1e5-ef09-713f-946e-3c569828cdd7
                                  */
                                 id: string
+                                /** @example 1 */
                                 order: number
+                                /** @example Em uma tijela grande, coloque farinha */
                                 description: string
                             }[]
                             tools: {
                                 /**
                                  * Format: uuid
-                                 * @default 019c1a1b-8389-714f-8c28-a78044dd4dd7
-                                 * @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f
+                                 * @default 019db1f8-bbb7-7438-ae3b-eeef2b5cec1e
+                                 * @example 019db1e5-ef09-713f-946e-3c569828cdd7
                                  */
                                 id: string
+                                /** @example Tijela */
                                 name: string
+                                /** @example 1 */
                                 amount: number
                             }[]
                             ingredients: {
                                 /**
                                  * Format: uuid
-                                 * @default 019c1a1b-8389-714f-8c28-a78044dd4dd7
-                                 * @example 019c1a1b-63f6-779f-b83a-7cfcd4d9bd7f
+                                 * @default 019db1f8-bbb7-7438-ae3b-eeef2b5cec1e
+                                 * @example 019db1e5-ef09-713f-946e-3c569828cdd7
                                  */
                                 id: string
+                                /** @example Tijela */
                                 name: string
                                 /** @enum {string} */
                                 unit:
@@ -986,7 +1126,8 @@ export interface paths {
                                     | 'l'
                                     | 'ml'
                                     | 'cup'
-                                measure: unknown
+                                /** @example 1/2 */
+                                measure: string
                             }[]
                         }[]
                     }
