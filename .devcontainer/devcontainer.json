@@ -2,7 +2,6 @@
     "remoteUser": "dev",
     "build": { "dockerfile": "Dockerfile", "context": "." },
     "workspaceFolder": "/workspaces/mr-app",
-    "forwardPorts": [3000],
     "runArgs": [
         "-v",
         "/var/run/docker.sock:/var/run/docker.sock",
