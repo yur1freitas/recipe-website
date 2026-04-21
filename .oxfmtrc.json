@@ -32,11 +32,11 @@
             {
                 "selector": "type",
                 "groupName": "type-fastify",
-                "elementNamePattern": ["fastify", "@fastify/**"]
+                "elementNamePattern": ["fastify**", "@fastify/**"]
             },
             {
                 "groupName": "fastify",
-                "elementNamePattern": ["fastify", "@fastify/**"]
+                "elementNamePattern": ["fastify**", "@fastify/**"]
             },
             {
                 "selector": "type",
