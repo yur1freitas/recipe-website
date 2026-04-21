@@ -7,5 +7,12 @@
         "/var/run/docker.sock:/var/run/docker.sock",
         "--network",
         "host"
-    ]
+    ],
+    "features": {
+        "features": {
+            "ghcr.io/devcontainers/features/docker-in-docker:2.16.1": {
+                "moby": false
+            }
+        }
+    }
 }
