@@ -3,9 +3,15 @@
 import { cache } from 'react'
 import { cookies } from 'next/headers'
 
+import type { UserPayload } from '@core/auth'
+
+import type { AuthContextValue } from '~/contexts/AuthContext'
+
 import { httpClient } from '~/client/http'
 
-export const verifySession = cache(async () => {
+export type VerifySessionOutput = AuthContextValue
+
+export const verifySession = cache(async (): Promise<VerifySessionOutput> => {
     const cookieStore = await cookies()
 
     if (!cookieStore.has('accessToken')) {
@@ -27,5 +33,5 @@ export const verifySession = cache(async () => {
         return { user: null, isAuth: false }
     }
 
-    return { user: data, isAuth: true }
+    return { user: data as UserPayload, isAuth: true }
 })
