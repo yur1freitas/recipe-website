@@ -28,28 +28,24 @@ const DeleteButton = () => {
     }
 
     return html`
-        <button 
-            type="button"
-            className="btn btn-full"
-            onClick=${clickHandler}
-        > 
+        <button type="button" className="btn btn-full" onClick=${clickHandler}>
             Deletar
         </button>
     `
 }
 
 export const DeleteAPIKeyModal = ({ children, ...props }) => {
-    return html`
-    <${Modal.Root} ...${props}> 
+    return html` <${Modal.Root} ...${props}>
         ${children}
         <${Modal.Content}>
-               <${Modal.Header} 
-                    title="Apagar Chave de API", 
-                    description="Formulário para deletar chave" 
-               />
-               <${Modal.Body}>
-                    <${DeleteButton}/>
-               <//>  
+            <${Modal.Header}
+                title="Apagar Chave de API"
+                ,
+                description="Formulário para deletar chave"
+            />
+            <${Modal.Body}>
+                <${DeleteButton} />
+            <//>
         <//>
     <//>`
 }

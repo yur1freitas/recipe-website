@@ -36,9 +36,5 @@ export function KeyStoreProvider({ children }) {
 
     const value = { keys, addKey, deleteKey }
 
-    return html`
-        <${KeyStoreContext.Provider} value=${value}>
-            ${children}
-        <//>
-    `
+    return html` <${KeyStoreContext.Provider} value=${value}> ${children} <//> `
 }

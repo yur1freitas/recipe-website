@@ -1,8 +1,9 @@
 import type { AnyFormState } from '@tanstack/react-form'
 
+import type { ButtonProps } from '@ui/core/Button'
+
 import { Loading } from '@ui/core/Loading'
 import { Button } from '@ui/core/Button'
-import type { ButtonProps } from '@ui/core/Button'
 
 import { isInvalidForm } from '~/utils/isInvalidForm'
 import { useFormContext } from '~/contexts/form'

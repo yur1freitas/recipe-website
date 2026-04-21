@@ -1,5 +1,6 @@
-import fp from 'fastify-plugin'
 import type { FastifyReply, preHandlerHookHandler } from 'fastify'
+
+import fp from 'fastify-plugin'
 import '@fastify/sensible'
 import type { CreatePasetoAuthInput, CreatePasetoAuthOutput } from './auth'
 

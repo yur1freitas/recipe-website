@@ -7,4 +7,4 @@ import { ManagerPage } from './components/ManagerPage.js'
 
 const html = htm.bind(h)
 
-render(html`<${ManagerPage}/>`, document.getElementById('root'))
+render(html`<${ManagerPage} />`, document.getElementById('root'))

@@ -1,5 +1,6 @@
-import { Sortable } from '@ui/dnd'
 import type { DragHandler } from '@ui/dnd'
+
+import { Sortable } from '@ui/dnd'
 import { Typography } from '@ui/core/Typography'
 import { ScrollArea } from '@ui/core/ScrollArea'
 

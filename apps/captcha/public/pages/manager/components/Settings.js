@@ -30,23 +30,23 @@ export const Settings = () => {
     }
 
     return html`
-    <${Dropdown.Root} onSelect=${selectHandler}>
-        <${Dropdown.Trigger}>
-            <button type="button" class="btn btn-icon settings-btn">
-                <${Icons.Settings}/>
-            </button>
+        <${Dropdown.Root} onSelect=${selectHandler}>
+            <${Dropdown.Trigger}>
+                <button type="button" class="btn btn-icon settings-btn">
+                    <${Icons.Settings} />
+                </button>
+            <//>
+            <${Dropdown.Content}>
+                <${Dropdown.Label} label="Opções" />
+                <${Dropdown.Item} label="API Key" value="api-key" />
+                <${Dropdown.Item} label="Sair" value="logout" />
+            <//>
         <//>
-        <${Dropdown.Content}>
-            <${Dropdown.Label} label="Opções" />
-            <${Dropdown.Item} label="API Key" value="api-key" />
-            <${Dropdown.Item} label="Sair" value="logout" />
-        <//>
-    <//>
-    <${APIKeyModal} 
-        isOpen=${isOpenedAPIKeyModal.value} 
-        onClose=${() => {
-            isOpenedAPIKeyModal.value = false
-        }}
-    />
+        <${APIKeyModal}
+            isOpen=${isOpenedAPIKeyModal.value}
+            onClose=${() => {
+                isOpenedAPIKeyModal.value = false
+            }}
+        />
     `
 }

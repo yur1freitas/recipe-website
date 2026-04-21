@@ -3,8 +3,9 @@ import type { EventEmitter } from 'node:events'
 import { setTimeout as sleep } from 'node:timers/promises'
 import process from 'node:process'
 
-import fp from 'fastify-plugin'
 import type { FastifyBaseLogger } from 'fastify'
+
+import fp from 'fastify-plugin'
 
 export type Signals = NodeJS.Signals
 

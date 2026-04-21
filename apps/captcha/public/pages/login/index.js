@@ -7,4 +7,4 @@ import { Login } from './components/Login.js'
 
 const html = htm.bind(h)
 
-render(html`<${Login}/>`, document.getElementById('root'))
+render(html`<${Login} />`, document.getElementById('root'))

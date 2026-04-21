@@ -3,6 +3,7 @@ import Link from 'next/link'
 import type { DifficultyEnum } from '@core/cooking'
 
 import type { CardProps } from '@ui/core/Card'
+
 import { Card } from '@ui/core/Card'
 
 import { DifficultyIcon } from './DifficultyIcon'

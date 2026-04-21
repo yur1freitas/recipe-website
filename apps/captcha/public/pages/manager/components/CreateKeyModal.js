@@ -37,7 +37,7 @@ const CreateKeyForm = ({ onSuccess }) => {
         <form action="#" id="create-keys-form" onSubmit=${submitHandler}>
             <div className="field">
                 <label htmlFor="name" className="label">Nome</label>
-                <input 
+                <input
                     id="name"
                     name="name"
                     type="text"
@@ -61,39 +61,36 @@ export const CreateKeyModal = () => {
         window.location.reload()
     }
 
-    return html`
-        <${Modal.Root}>
+    return html` <${Modal.Root}>
             <${Modal.Trigger}>
-                <button 
-                    type="button" 
-                    className="btn btn-full"
-                >
-                    <${Icons.PlusIcon}/>
+                <button type="button" className="btn btn-full">
+                    <${Icons.PlusIcon} />
                     Criar chaves
                 </button>
             <//>
             <${Modal.Content}>
                 <${Modal.Header}
-                    title="Criar Chaves",
+                    title="Criar Chaves"
+                    ,
                     description="Formulário para criação de chaves"
                 />
                 <${Modal.Body}>
-                    <${CreateKeyForm} onSuccess=${successHandler}/>
-                <//>  
+                    <${CreateKeyForm} onSuccess=${successHandler} />
+                <//>
                 <${Modal.Footer}>
-                    <button 
+                    <button
                         type="submit"
-                         form="create-keys-form"
+                        form="create-keys-form"
                         className="btn btn-full"
-                    > 
+                    >
                         Criar
                     </button>
                 <//>
             <//>
         <//>
-        <${NewKeyModal} 
+        <${NewKeyModal}
             onClose=${closeHandler}
-            isOpen=${Boolean(newKey.value)} 
+            isOpen=${Boolean(newKey.value)}
             secretKey=${newKey?.value?.secretKey}
             siteKey=${newKey?.value?.siteKey}
         />`

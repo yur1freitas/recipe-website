@@ -2,6 +2,7 @@ import { eq, inArray } from 'drizzle-orm'
 
 import type { Ensure } from '@core/shared'
 import type { UserProps, UserRepositoryProvider } from '@core/auth'
+
 import { User } from '@core/auth'
 
 import { usersTable } from '~/db/schemas/users'

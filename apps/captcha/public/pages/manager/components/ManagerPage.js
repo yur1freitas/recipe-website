@@ -16,8 +16,8 @@ export function ManagerPage() {
                 <${KeyStoreProvider}>
                     <section id="actions">
                         <h1>Gerenciador de Chaves</h1>
-                        <${Search.Bar}/>
-                        <${CreateKeyModal}/>
+                        <${Search.Bar} />
+                        <${CreateKeyModal} />
                     </section>
                     <section id="listing">
                         <h2>Todas as Chaves</h2>
@@ -28,6 +28,6 @@ export function ManagerPage() {
                 <//>
             <//>
         <//>
-        <${Settings}/>
+        <${Settings} />
     `
 }

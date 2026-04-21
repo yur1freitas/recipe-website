@@ -28,19 +28,23 @@ export const APIKeyList = () => {
             setTargetAPIKey(id)
         }
 
-        return html`
-            <li>
-                <${APIKey.Root}>
-                    <${APIKey.Info} name=${name} createdAt=${createdAt} />
-                    <${APIKey.Options} onSelect=${selectHandler}>
-                        <${APIKey.Option} label="Deletar" value="delete"/>
-                    <//>
+        return html` <li>
+            <${APIKey.Root}>
+                <${APIKey.Info} name=${name} createdAt=${createdAt} />
+                <${APIKey.Options} onSelect=${selectHandler}>
+                    <${APIKey.Option} label="Deletar" value="delete" />
                 <//>
-            </li>`
+            <//>
+        </li>`
     })
 
     return html`
-        <ul className="api-key-list">${items}</ul>
-        <${DeleteAPIKeyModal} isOpen=${isOpen.deleteModal} onClose=${dropdownCloseHandler}/> 
+        <ul className="api-key-list">
+            ${items}
+        </ul>
+        <${DeleteAPIKeyModal}
+            isOpen=${isOpen.deleteModal}
+            onClose=${dropdownCloseHandler}
+        />
     `
 }

@@ -37,7 +37,7 @@ const CreateAPIKeyForm = ({ onSuccess }) => {
         <form action="#" id="create-api-key-form" onSubmit=${submitHandler}>
             <div className="field">
                 <label htmlFor="name" className="label">Nome</label>
-                <input 
+                <input
                     id="name"
                     name="name"
                     type="text"
@@ -61,14 +61,10 @@ export const CreateAPIKeyModal = () => {
         window.location.reload()
     }
 
-    return html`
-        <${Modal.Root}>
+    return html` <${Modal.Root}>
             <${Modal.Trigger}>
-                <button 
-                    type="button" 
-                    className="btn btn-full"
-                >
-                    <${Icons.PlusIcon}/>
+                <button type="button" className="btn btn-full">
+                    <${Icons.PlusIcon} />
                     Criar chave de API
                 </button>
             <//>
@@ -78,22 +74,22 @@ export const CreateAPIKeyModal = () => {
                     description="Formulário para criação de chaves de API"
                 />
                 <${Modal.Body}>
-                    <${CreateAPIKeyForm} onSuccess=${successHandler}/>
-                <//>  
+                    <${CreateAPIKeyForm} onSuccess=${successHandler} />
+                <//>
                 <${Modal.Footer}>
-                    <button 
+                    <button
                         type="submit"
-                         form="create-api-key-form"
+                        form="create-api-key-form"
                         className="btn btn-full"
-                    > 
+                    >
                         Criar
                     </button>
                 <//>
             <//>
         <//>
-        <${NewAPIKeyModal} 
+        <${NewAPIKeyModal}
             onClose=${closeHandler}
-            isOpen=${Boolean(newAPIKey.value)} 
+            isOpen=${Boolean(newAPIKey.value)}
             apiKey=${newAPIKey?.value?.apiKey}
         />`
 }

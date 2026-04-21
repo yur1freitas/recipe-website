@@ -1,6 +1,7 @@
 import type { UseCase } from '@core/shared'
-import { Email, Id } from '@core/shared'
 import type { UserRepositoryProvider } from '@core/auth'
+
+import { Email, Id } from '@core/shared'
 
 import { CookingError } from '~/shared/errors/CookingError'
 

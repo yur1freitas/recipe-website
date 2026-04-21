@@ -2,12 +2,14 @@ import type { StandardSchemaTypeProvider } from '@standard-schema/fastify-type-p
 
 import z from 'zod'
 
-import fp from 'fastify-plugin'
 import type { RawServerDefault } from 'fastify'
+
+import fp from 'fastify-plugin'
+
+import type { LoginUser } from '@core/auth'
 
 import { emailSchema, passwordSchema, ValidatorError } from '@core/shared'
 import { AuthError, LoginUserErrors } from '@core/auth'
-import type { LoginUser } from '@core/auth'
 
 import { validationErrorSchema } from '~/schemas/validationErrorSchema'
 import { serverErrorSchema } from '~/schemas/serverErrorSchema'

@@ -15,7 +15,7 @@ export const NewKeyModal = ({ siteKey, secretKey, ...props }) => {
                     <div className="created-keys">
                         <div className="field">
                             <label className="label">Site Key</label>
-                            <input 
+                            <input
                                 id="siteKey"
                                 name="siteKey"
                                 className="input"
@@ -25,7 +25,7 @@ export const NewKeyModal = ({ siteKey, secretKey, ...props }) => {
                         </div>
                         <div className="field">
                             <label className="label">Secret Key</label>
-                            <input 
+                            <input
                                 id="secretKey"
                                 name="secretKey"
                                 className="input"
@@ -37,13 +37,13 @@ export const NewKeyModal = ({ siteKey, secretKey, ...props }) => {
                 <//>
                 <${Modal.Footer}>
                     <${Modal.Trigger} type="close">
-                        <button 
+                        <button
                             type="text"
                             className="btn btn-full"
                             onClick=${close}
                         >
                             Concluído
-                        </button>   
+                        </button>
                     <//>
                 <//>
             <//>

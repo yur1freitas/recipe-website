@@ -1,9 +1,11 @@
 import { ChefHatIcon, CoffeeIcon, CookingPotIcon } from 'lucide-react'
 
 import type { DifficultyEnum } from '@core/cooking'
+
 import { DIFFICULTY_NAMES } from '@core/cooking'
 
 import type { IconProps } from '@ui/core/Icon'
+
 import { Icon } from '@ui/core/Icon'
 
 export const ICONS = {

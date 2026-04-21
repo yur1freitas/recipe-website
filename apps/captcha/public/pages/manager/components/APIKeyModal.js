@@ -28,13 +28,13 @@ const APIKeyForm = () => {
 
     return html`
         <form action="#" onSubmit=${submitHandler}>
-                <button 
-                    type="submit"
-                    className="btn btn-full"
-                    disabled=${isDisabled.value}
-                >
-                    Criar chave de API
-                </button>
+            <button
+                type="submit"
+                className="btn btn-full"
+                disabled=${isDisabled.value}
+            >
+                Criar chave de API
+            </button>
         </form>
     `
 }
@@ -50,9 +50,9 @@ export const APIKeyModal = ({ isOpen, onClose }) => {
                     />
                     <${Modal.Body}>
                         <${APIKeyStoreProvider}>
-                            <${CreateAPIKeyModal}/>
+                            <${CreateAPIKeyModal} />
                             <${TargetAPIKeyProvider}>
-                                <${APIKeyList}/>
+                                <${APIKeyList} />
                             <//>
                         <//>
                     <//>

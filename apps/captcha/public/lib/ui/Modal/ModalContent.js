@@ -10,8 +10,7 @@ export const ModalContent = ({ children }) => {
 
     if (isOpened.value) {
         return createPortal(
-            html`
-            <div id="modal">
+            html` <div id="modal">
                 <div className="modal-content">${children}</div>
             </div>`,
             document.body

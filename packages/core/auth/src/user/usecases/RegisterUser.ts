@@ -1,4 +1,5 @@
 import type { UseCase } from '@core/shared'
+
 import { Email, Password, Username } from '@core/shared'
 
 import { AuthError } from '~/shared/errors/AuthError'

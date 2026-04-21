@@ -38,21 +38,28 @@ export const KeyList = () => {
             setTargetKey(siteKey)
         }
 
-        return html`
-            <li>
-                <${Key.Root}>
-                    <${Key.Info} name=${name} createdAt=${createdAt} />
-                    <${Key.Options} onSelect=${selectHandler}>
-                        <${Key.Option} label="Atualizar" value="update"/>
-                        <${Key.Option} label="Deletar" value="delete"/>
-                    <//>
+        return html` <li>
+            <${Key.Root}>
+                <${Key.Info} name=${name} createdAt=${createdAt} />
+                <${Key.Options} onSelect=${selectHandler}>
+                    <${Key.Option} label="Atualizar" value="update" />
+                    <${Key.Option} label="Deletar" value="delete" />
                 <//>
-            </li>`
+            <//>
+        </li>`
     })
 
     return html`
-        <ul className="key-list">${items}</ul> 
-        <${UpdateKeyModal} isOpen=${isOpen.updateModal} onClose=${dropdownCloseHandler}/> 
-        <${DeleteKeyModal} isOpen=${isOpen.deleteModal} onClose=${dropdownCloseHandler}/> 
+        <ul className="key-list">
+            ${items}
+        </ul>
+        <${UpdateKeyModal}
+            isOpen=${isOpen.updateModal}
+            onClose=${dropdownCloseHandler}
+        />
+        <${DeleteKeyModal}
+            isOpen=${isOpen.deleteModal}
+            onClose=${dropdownCloseHandler}
+        />
     `
 }

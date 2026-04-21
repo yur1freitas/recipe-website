@@ -2,6 +2,7 @@ import z from 'zod'
 import { List } from '@utils/collections/List'
 
 import type { EntityInput, EntityProps } from '@core/shared'
+
 import { idSchema, Entity, entitySchema, Id } from '@core/shared'
 
 import type { ToolInput } from '~/tool/models/Tool'
