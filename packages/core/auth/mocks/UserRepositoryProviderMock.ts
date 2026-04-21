@@ -19,8 +19,9 @@ export class UserRepositoryProviderMock implements UserRepositoryProvider {
         return this.$store.delete(id)
     }
 
-    update(user: User): void {
+    update(user: User): boolean {
         this.$store.set(user.id.value, user.props)
+        return true
     }
 
     findAll(): User[] {
