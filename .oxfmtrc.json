@@ -31,39 +31,39 @@
         "customGroups": [
             {
                 "selector": "type",
-                "groupName": "type-mocks",
-                "elementNamePattern": ["~mocks/"]
-            },
-            {
-                "selector": "type",
                 "groupName": "type-fastify",
-                "elementNamePattern": ["fastify", "@fastify/"]
+                "elementNamePattern": ["fastify", "@fastify/**"]
             },
             {
                 "groupName": "fastify",
-                "elementNamePattern": ["fastify", "@fastify/"]
+                "elementNamePattern": ["fastify", "@fastify/**"]
+            },
+            {
+                "selector": "type",
+                "groupName": "type-mocks",
+                "elementNamePattern": ["~mocks/**"]
             },
             {
                 "groupName": "mocks",
-                "elementNamePattern": ["~mocks/"]
+                "elementNamePattern": ["~mocks/**"]
             },
             {
                 "selector": "type",
                 "groupName": "type-ui",
-                "elementNamePattern": ["@ui/"]
+                "elementNamePattern": ["@ui/**"]
             },
             {
                 "groupName": "ui",
-                "elementNamePattern": ["@ui/"]
+                "elementNamePattern": ["@ui/**"]
             },
             {
                 "selector": "type",
                 "groupName": "type-core",
-                "elementNamePattern": ["@core/"]
+                "elementNamePattern": ["@core/**"]
             },
             {
                 "groupName": "core",
-                "elementNamePattern": ["@core/"]
+                "elementNamePattern": ["@core/**"]
             }
         ]
     }
