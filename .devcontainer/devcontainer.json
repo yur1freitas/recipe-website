@@ -17,5 +17,6 @@
         "ghcr.io/devcontainers/features/docker-in-docker:2.16.1": {
             "moby": false
         }
-    }
+    },
+    "postCreateCommand": ["/bin/sh", ".devcontainer/postCreateCommand.sh"]
 }
