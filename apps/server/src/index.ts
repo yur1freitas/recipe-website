@@ -30,6 +30,7 @@ import { findRecipeController } from './api/controllers/cooking/findRecipeContro
 import { findAllRecipesController } from './api/controllers/cooking/findAllRecipesController'
 import { deleteRecipeController } from './api/controllers/cooking/deleteRecipeController'
 import { verifyUserSessionController } from './api/controllers/auth/verifyUserSessionController'
+import { userInfoController } from './api/controllers/auth/userInfoController'
 import { updateUserController } from './api/controllers/auth/updateUserController'
 import { registerUserController } from './api/controllers/auth/registerUserController'
 import { logoutUserController } from './api/controllers/auth/logoutUserController'
@@ -130,6 +131,9 @@ try {
         .register(deleteUserController, { deleteUser, logoutUser })
         .register(updateUserController, { updateUser })
         .register(verifyUserSessionController)
+        .register(userInfoController, {
+            userRepository: userRepositoryProvider
+        })
 
     app.register(registerRecipeController, { registerRecipe })
         .register(updateRecipeController, { updateRecipe })
