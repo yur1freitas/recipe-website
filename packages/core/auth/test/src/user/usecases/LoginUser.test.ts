@@ -10,8 +10,8 @@ import { randEmail, randPassword } from '@core/shared/mocks'
 
 import type { LoginUserInput } from '~/user/usecases/LoginUser'
 import type { UserRepositoryProvider } from '~/user/providers/UserRepositoryProvider'
-import type { UserPayload } from '~/user/models/UserPayload'
 import type { UserProps } from '~/user/models/User'
+import type { AccessTokenPayload } from '~/index'
 
 import { LoginUser } from '~/user/usecases/LoginUser'
 
@@ -49,10 +49,8 @@ describe('LoginUser', () => {
             password: originalPassword
         }
 
-        const payload: UserPayload = {
-            id: user.id,
-            name: user.name,
-            email: user.email
+        const payload: AccessTokenPayload = {
+            userId: user.id
         }
 
         const token = accessTokenProvider.create(payload)
