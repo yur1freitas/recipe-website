@@ -350,6 +350,106 @@ export interface paths {
         patch?: never
         trace?: never
     }
+    '/auth/update': {
+        parameters: {
+            query?: never
+            header?: never
+            path?: never
+            cookie?: never
+        }
+        get?: never
+        put?: never
+        /** @description Rota para atualizar os dados de um usuário */
+        post: {
+            parameters: {
+                query?: never
+                header?: never
+                path?: never
+                cookie?: {
+                    accessToken?: string
+                }
+            }
+            requestBody?: {
+                content: {
+                    'application/json': {
+                        /**
+                         * Nome de Usuário
+                         * @example John Doe
+                         */
+                        name?: string
+                        /**
+                         * Endereço de Email
+                         * Format: email
+                         * @example user@example.com
+                         */
+                        email?: string
+                        /**
+                         * Senha
+                         * @example abc123ABC
+                         */
+                        password?: string & string
+                    }
+                }
+            }
+            responses: {
+                /** @description Usuário atualizado com sucesso */
+                201: {
+                    headers: {
+                        [name: string]: unknown
+                    }
+                    content: {
+                        'application/json': unknown
+                    }
+                }
+                /** @description Um erro de validação */
+                400: {
+                    headers: {
+                        [name: string]: unknown
+                    }
+                    content: {
+                        'application/json': {
+                            error: string
+                            message: string
+                            /** @enum {number} */
+                            statusCode: 400
+                        }
+                    }
+                }
+                /** @description O usuário não foi encontrado */
+                404: {
+                    headers: {
+                        [name: string]: unknown
+                    }
+                    content: {
+                        'application/json': {
+                            error: string
+                            message: string
+                            statusCode: number
+                        }
+                    }
+                }
+                /** @description Um erro inesperado interno do servidor */
+                500: {
+                    headers: {
+                        [name: string]: unknown
+                    }
+                    content: {
+                        'application/json': {
+                            error: string
+                            message: string
+                            /** @enum {number} */
+                            statusCode: 500
+                        }
+                    }
+                }
+            }
+        }
+        delete?: never
+        options?: never
+        head?: never
+        patch?: never
+        trace?: never
+    }
     '/auth/verify': {
         parameters: {
             query?: never
@@ -384,18 +484,10 @@ export interface paths {
                         'application/json': {
                             /**
                              * Format: uuid
-                             * @default 019db1f8-bbaf-7058-a893-a79b71d4a6c6
-                             * @example 019db1e5-ef09-713f-946e-3c569828cdd7
+                             * @default 019db68c-f25d-7698-829d-6ea8ed517c2e
+                             * @example 019db68c-e867-72bc-a112-6c7685b0eb0e
                              */
-                            id: string
-                            /** @example Tijela */
-                            name: string
-                            /**
-                             * Endereço de Email
-                             * Format: email
-                             * @example user@example.com
-                             */
-                            email: string
+                            userId: string
                         }
                     }
                 }
@@ -410,6 +502,107 @@ export interface paths {
                 }
                 /** @description A sessão do usuário é inválida */
                 401: {
+                    headers: {
+                        [name: string]: unknown
+                    }
+                    content: {
+                        'application/json': {
+                            error: string
+                            message: string
+                            statusCode: number
+                        }
+                    }
+                }
+                /** @description Um erro inesperado interno do servidor */
+                500: {
+                    headers: {
+                        [name: string]: unknown
+                    }
+                    content: {
+                        'application/json': {
+                            error: string
+                            message: string
+                            /** @enum {number} */
+                            statusCode: 500
+                        }
+                    }
+                }
+            }
+        }
+        put?: never
+        post?: never
+        delete?: never
+        options?: never
+        head?: never
+        patch?: never
+        trace?: never
+    }
+    '/auth/me': {
+        parameters: {
+            query?: never
+            header?: never
+            path?: never
+            cookie?: never
+        }
+        /** @description Rota para recuperar informações do usuário */
+        get: {
+            parameters: {
+                query?: never
+                header?: never
+                path?: never
+                cookie?: {
+                    accessToken?: string
+                }
+            }
+            requestBody?: {
+                content: {
+                    'application/json': unknown
+                }
+            }
+            responses: {
+                /** @description Informações do usuário */
+                200: {
+                    headers: {
+                        [name: string]: unknown
+                    }
+                    content: {
+                        'application/json': {
+                            /**
+                             * Format: uuid
+                             * @default 019db68c-f25e-715e-9061-e2808d400c22
+                             * @example 019db68c-e867-72bc-a112-6c7685b0eb0e
+                             */
+                            id: string
+                            /**
+                             * Nome de Usuário
+                             * @example John Doe
+                             */
+                            name: string
+                            /**
+                             * Endereço de Email
+                             * Format: email
+                             * @example user@example.com
+                             */
+                            email: string
+                        }
+                    }
+                }
+                /** @description Um erro de validação */
+                400: {
+                    headers: {
+                        [name: string]: unknown
+                    }
+                    content: {
+                        'application/json': {
+                            error: string
+                            message: string
+                            /** @enum {number} */
+                            statusCode: 400
+                        }
+                    }
+                }
+                /** @description O usuário não foi encontrado */
+                404: {
                     headers: {
                         [name: string]: unknown
                     }
@@ -481,14 +674,14 @@ export interface paths {
                         'application/json': {
                             /**
                              * Format: uuid
-                             * @default 019db1f8-bbb6-760c-97d7-62b13b90de58
-                             * @example 019db1e5-ef09-713f-946e-3c569828cdd7
+                             * @default 019db68c-f265-77da-bb40-77f070a8591f
+                             * @example 019db68c-e867-72bc-a112-6c7685b0eb0e
                              */
                             id: string
                             /**
                              * Format: uuid
-                             * @default 019db1f8-bbb6-760c-97d7-62b13b90de58
-                             * @example 019db1e5-ef09-713f-946e-3c569828cdd7
+                             * @default 019db68c-f265-77da-bb40-77f070a8591f
+                             * @example 019db68c-e867-72bc-a112-6c7685b0eb0e
                              */
                             authorId: string
                             /** @example Tijela */
@@ -502,8 +695,8 @@ export interface paths {
                             steps: {
                                 /**
                                  * Format: uuid
-                                 * @default 019db1f8-bbb6-760c-97d7-62b13b90de58
-                                 * @example 019db1e5-ef09-713f-946e-3c569828cdd7
+                                 * @default 019db68c-f265-77da-bb40-77f070a8591f
+                                 * @example 019db68c-e867-72bc-a112-6c7685b0eb0e
                                  */
                                 id: string
                                 /** @example 1 */
@@ -514,8 +707,8 @@ export interface paths {
                             tools: {
                                 /**
                                  * Format: uuid
-                                 * @default 019db1f8-bbb6-760c-97d7-62b13b90de58
-                                 * @example 019db1e5-ef09-713f-946e-3c569828cdd7
+                                 * @default 019db68c-f265-77da-bb40-77f070a8591f
+                                 * @example 019db68c-e867-72bc-a112-6c7685b0eb0e
                                  */
                                 id: string
                                 /** @example Tijela */
@@ -526,8 +719,8 @@ export interface paths {
                             ingredients: {
                                 /**
                                  * Format: uuid
-                                 * @default 019db1f8-bbb6-760c-97d7-62b13b90de58
-                                 * @example 019db1e5-ef09-713f-946e-3c569828cdd7
+                                 * @default 019db68c-f265-77da-bb40-77f070a8591f
+                                 * @example 019db68c-e867-72bc-a112-6c7685b0eb0e
                                  */
                                 id: string
                                 /** @example Tijela */
@@ -607,8 +800,8 @@ export interface paths {
                         steps: {
                             /**
                              * Format: uuid
-                             * @default 019db1f8-bbb1-76dd-affe-1a12daa24323
-                             * @example 019db1e5-ef09-713f-946e-3c569828cdd7
+                             * @default 019db68c-f25f-76bd-8964-e3caaf5fc458
+                             * @example 019db68c-e867-72bc-a112-6c7685b0eb0e
                              */
                             id?: string
                             /** @example 1 */
@@ -619,8 +812,8 @@ export interface paths {
                         tools: {
                             /**
                              * Format: uuid
-                             * @default 019db1f8-bbb1-76dd-affe-1a12daa24323
-                             * @example 019db1e5-ef09-713f-946e-3c569828cdd7
+                             * @default 019db68c-f25f-76bd-8964-e3caaf5fc458
+                             * @example 019db68c-e867-72bc-a112-6c7685b0eb0e
                              */
                             id?: string
                             /** @example Tijela */
@@ -631,8 +824,8 @@ export interface paths {
                         ingredients: {
                             /**
                              * Format: uuid
-                             * @default 019db1f8-bbb1-76dd-affe-1a12daa24323
-                             * @example 019db1e5-ef09-713f-946e-3c569828cdd7
+                             * @default 019db68c-f25f-76bd-8964-e3caaf5fc458
+                             * @example 019db68c-e867-72bc-a112-6c7685b0eb0e
                              */
                             id?: string
                             /** @example Tijela */
@@ -716,7 +909,7 @@ export interface paths {
                 query?: never
                 header?: never
                 path: {
-                    /** @example 019db1e5-ef09-713f-946e-3c569828cdd7 */
+                    /** @example 019db68c-e867-72bc-a112-6c7685b0eb0e */
                     id: string
                 }
                 cookie?: {
@@ -738,14 +931,14 @@ export interface paths {
                         'application/json': {
                             /**
                              * Format: uuid
-                             * @default 019db1f8-bbb5-707a-9ed0-063beb79b469
-                             * @example 019db1e5-ef09-713f-946e-3c569828cdd7
+                             * @default 019db68c-f263-7111-b165-44846b2ffc93
+                             * @example 019db68c-e867-72bc-a112-6c7685b0eb0e
                              */
                             id: string
                             /**
                              * Format: uuid
-                             * @default 019db1f8-bbb5-707a-9ed0-063beb79b469
-                             * @example 019db1e5-ef09-713f-946e-3c569828cdd7
+                             * @default 019db68c-f263-7111-b165-44846b2ffc93
+                             * @example 019db68c-e867-72bc-a112-6c7685b0eb0e
                              */
                             authorId: string
                             /** @example Tijela */
@@ -759,8 +952,8 @@ export interface paths {
                             steps: {
                                 /**
                                  * Format: uuid
-                                 * @default 019db1f8-bbb5-707a-9ed0-063beb79b469
-                                 * @example 019db1e5-ef09-713f-946e-3c569828cdd7
+                                 * @default 019db68c-f263-7111-b165-44846b2ffc93
+                                 * @example 019db68c-e867-72bc-a112-6c7685b0eb0e
                                  */
                                 id: string
                                 /** @example 1 */
@@ -771,8 +964,8 @@ export interface paths {
                             tools: {
                                 /**
                                  * Format: uuid
-                                 * @default 019db1f8-bbb5-707a-9ed0-063beb79b469
-                                 * @example 019db1e5-ef09-713f-946e-3c569828cdd7
+                                 * @default 019db68c-f263-7111-b165-44846b2ffc93
+                                 * @example 019db68c-e867-72bc-a112-6c7685b0eb0e
                                  */
                                 id: string
                                 /** @example Tijela */
@@ -783,8 +976,8 @@ export interface paths {
                             ingredients: {
                                 /**
                                  * Format: uuid
-                                 * @default 019db1f8-bbb5-707a-9ed0-063beb79b469
-                                 * @example 019db1e5-ef09-713f-946e-3c569828cdd7
+                                 * @default 019db68c-f263-7111-b165-44846b2ffc93
+                                 * @example 019db68c-e867-72bc-a112-6c7685b0eb0e
                                  */
                                 id: string
                                 /** @example Tijela */
@@ -845,7 +1038,7 @@ export interface paths {
                 query?: never
                 header?: never
                 path: {
-                    /** @example 019db1e5-ef09-713f-946e-3c569828cdd7 */
+                    /** @example 019db68c-e867-72bc-a112-6c7685b0eb0e */
                     id: string
                 }
                 cookie?: {
@@ -857,8 +1050,8 @@ export interface paths {
                     'application/json': {
                         /**
                          * Format: uuid
-                         * @default 019db1f8-bbb2-70d1-8fc7-4aab4c9a8b58
-                         * @example 019db1e5-ef09-713f-946e-3c569828cdd7
+                         * @default 019db68c-f261-75ca-a46c-c8bc607170d8
+                         * @example 019db68c-e867-72bc-a112-6c7685b0eb0e
                          */
                         authorId: string
                         /** @example Tijela */
@@ -872,8 +1065,8 @@ export interface paths {
                         steps: {
                             /**
                              * Format: uuid
-                             * @default 019db1f8-bbb2-70d1-8fc7-4aab4c9a8b58
-                             * @example 019db1e5-ef09-713f-946e-3c569828cdd7
+                             * @default 019db68c-f261-75ca-a46c-c8bc607170d8
+                             * @example 019db68c-e867-72bc-a112-6c7685b0eb0e
                              */
                             id?: string
                             /** @example 1 */
@@ -884,8 +1077,8 @@ export interface paths {
                         tools: {
                             /**
                              * Format: uuid
-                             * @default 019db1f8-bbb2-70d1-8fc7-4aab4c9a8b58
-                             * @example 019db1e5-ef09-713f-946e-3c569828cdd7
+                             * @default 019db68c-f261-75ca-a46c-c8bc607170d8
+                             * @example 019db68c-e867-72bc-a112-6c7685b0eb0e
                              */
                             id?: string
                             /** @example Tijela */
@@ -896,8 +1089,8 @@ export interface paths {
                         ingredients: {
                             /**
                              * Format: uuid
-                             * @default 019db1f8-bbb2-70d1-8fc7-4aab4c9a8b58
-                             * @example 019db1e5-ef09-713f-946e-3c569828cdd7
+                             * @default 019db68c-f261-75ca-a46c-c8bc607170d8
+                             * @example 019db68c-e867-72bc-a112-6c7685b0eb0e
                              */
                             id?: string
                             /** @example Tijela */
@@ -969,7 +1162,7 @@ export interface paths {
                 query?: never
                 header?: never
                 path: {
-                    /** @example 019db1e5-ef09-713f-946e-3c569828cdd7 */
+                    /** @example 019db68c-e867-72bc-a112-6c7685b0eb0e */
                     id: string
                 }
                 cookie?: {
@@ -1039,7 +1232,7 @@ export interface paths {
                 query?: never
                 header?: never
                 path: {
-                    /** @example 019db1e5-ef09-713f-946e-3c569828cdd7 */
+                    /** @example 019db68c-e867-72bc-a112-6c7685b0eb0e */
                     id: string
                 }
                 cookie?: {
@@ -1061,14 +1254,14 @@ export interface paths {
                         'application/json': {
                             /**
                              * Format: uuid
-                             * @default 019db1f8-bbb7-7438-ae3b-eeef2b5cec1e
-                             * @example 019db1e5-ef09-713f-946e-3c569828cdd7
+                             * @default 019db68c-f266-77ba-9bed-62db9a0f8950
+                             * @example 019db68c-e867-72bc-a112-6c7685b0eb0e
                              */
                             id: string
                             /**
                              * Format: uuid
-                             * @default 019db1f8-bbb7-7438-ae3b-eeef2b5cec1e
-                             * @example 019db1e5-ef09-713f-946e-3c569828cdd7
+                             * @default 019db68c-f266-77ba-9bed-62db9a0f8950
+                             * @example 019db68c-e867-72bc-a112-6c7685b0eb0e
                              */
                             authorId: string
                             /** @example Tijela */
@@ -1082,8 +1275,8 @@ export interface paths {
                             steps: {
                                 /**
                                  * Format: uuid
-                                 * @default 019db1f8-bbb7-7438-ae3b-eeef2b5cec1e
-                                 * @example 019db1e5-ef09-713f-946e-3c569828cdd7
+                                 * @default 019db68c-f266-77ba-9bed-62db9a0f8950
+                                 * @example 019db68c-e867-72bc-a112-6c7685b0eb0e
                                  */
                                 id: string
                                 /** @example 1 */
@@ -1094,8 +1287,8 @@ export interface paths {
                             tools: {
                                 /**
                                  * Format: uuid
-                                 * @default 019db1f8-bbb7-7438-ae3b-eeef2b5cec1e
-                                 * @example 019db1e5-ef09-713f-946e-3c569828cdd7
+                                 * @default 019db68c-f266-77ba-9bed-62db9a0f8950
+                                 * @example 019db68c-e867-72bc-a112-6c7685b0eb0e
                                  */
                                 id: string
                                 /** @example Tijela */
@@ -1106,8 +1299,8 @@ export interface paths {
                             ingredients: {
                                 /**
                                  * Format: uuid
-                                 * @default 019db1f8-bbb7-7438-ae3b-eeef2b5cec1e
-                                 * @example 019db1e5-ef09-713f-946e-3c569828cdd7
+                                 * @default 019db68c-f266-77ba-9bed-62db9a0f8950
+                                 * @example 019db68c-e867-72bc-a112-6c7685b0eb0e
                                  */
                                 id: string
                                 /** @example Tijela */
