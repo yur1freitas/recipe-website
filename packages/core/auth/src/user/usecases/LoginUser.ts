@@ -6,8 +6,10 @@ import { AuthError } from '~/shared/errors/AuthError'
 
 import type { UserRepositoryProvider } from '../providers/UserRepositoryProvider'
 import type { EncryptProvider } from '../providers/EncryptProvider'
-import type { AccessTokenProvider } from '../providers/AccessTokenProvider'
-import type { UserPayload } from '../models/UserPayload'
+import type {
+    AccessTokenPayload,
+    AccessTokenProvider
+} from '../providers/AccessTokenProvider'
 
 export interface LoginUserInput {
     email: string
@@ -16,7 +18,7 @@ export interface LoginUserInput {
 
 export interface LoginUserOutput {
     token: string
-    payload: UserPayload
+    payload: AccessTokenPayload
 }
 
 export enum LoginUserErrors {
@@ -57,10 +59,8 @@ export class LoginUser implements UseCase<LoginUserInput, LoginUserOutput> {
             })
         }
 
-        const payload: UserPayload = {
-            id: user.id.value,
-            name: user.name.value,
-            email: user.email.value
+        const payload: AccessTokenPayload = {
+            userId: user.id.value
         }
 
         const token = await this.accessTokenProvider.create(payload)

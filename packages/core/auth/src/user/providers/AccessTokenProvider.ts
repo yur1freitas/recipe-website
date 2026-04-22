@@ -1,13 +1,11 @@
 import type { Awaitable } from '@core/shared'
 
-import type { UserPayload } from '../models/UserPayload'
-
 export interface AccessTokenPayload {
     userId: string
 }
 
 export interface AccessTokenProvider {
-    create(payload: UserPayload): Awaitable<string>
+    create(payload: AccessTokenPayload): Awaitable<string>
     verify(token: string): Awaitable<boolean>
-    decode(token: string): Awaitable<UserPayload>
+    decode(token: string): Awaitable<AccessTokenPayload>
 }
