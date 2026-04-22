@@ -6,7 +6,7 @@ import type { RawServerDefault } from 'fastify'
 
 import fp from 'fastify-plugin'
 
-import type { UpdateUser, UserPayload } from '@core/auth'
+import type { AccessTokenPayload, UpdateUser } from '@core/auth'
 
 import { ValidatorError } from '@core/shared'
 import { AuthError, UpdateUserErrors, userSchema } from '@core/auth'
@@ -50,7 +50,7 @@ export const updateUserController = fp<
             preValidation: [app.pasetoHandler(), app.captchaHandler()]
         },
         async (request, reply) => {
-            const { id } = request.tokenPayload as UserPayload
+            const { userId: id } = request.tokenPayload as AccessTokenPayload
             const { name, email, password } = request.body
 
             const [err] = await app.to(
