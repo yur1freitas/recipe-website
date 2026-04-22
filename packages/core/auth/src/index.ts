@@ -32,7 +32,10 @@ export type {
 
 export type { UserRepositoryProvider } from './user/providers/UserRepositoryProvider'
 export type { LoginUserInput, LoginUserOutput } from './user/usecases/LoginUser'
-export type { AccessTokenProvider } from './user/providers/AccessTokenProvider'
+export type {
+    AccessTokenProvider,
+    AccessTokenPayload
+} from './user/providers/AccessTokenProvider'
 export type { EncryptProvider } from './user/providers/EncryptProvider'
 
 export type { AuthErrorInput } from './shared/errors/AuthError'
