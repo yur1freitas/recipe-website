@@ -1,8 +1,10 @@
-import type { AccessTokenProvider } from '~/user/providers/AccessTokenProvider'
-import type { UserPayload } from '~/user/models/UserPayload'
+import type {
+    AccessTokenProvider,
+    AccessTokenPayload
+} from '~/user/providers/AccessTokenProvider'
 
 export class AccessTokenProviderMock implements AccessTokenProvider {
-    create(payload: UserPayload): string {
+    create(payload: AccessTokenPayload): string {
         return Buffer.from(JSON.stringify(payload), 'utf-8').toString('base64')
     }
 
@@ -15,7 +17,7 @@ export class AccessTokenProviderMock implements AccessTokenProvider {
         }
     }
 
-    decode(token: string): UserPayload {
+    decode(token: string): AccessTokenPayload {
         return JSON.parse(Buffer.from(token, 'base64').toString('utf-8'))
     }
 }
