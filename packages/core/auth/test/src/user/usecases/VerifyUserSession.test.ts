@@ -5,7 +5,7 @@ import { UserRepositoryProviderMock } from '~mocks/UserRepositoryProviderMock'
 import { randUser } from '~mocks/randUser'
 import { AccessTokenProviderMock } from '~mocks/AccessTokenProviderMock'
 
-import { randEncryptedPassword } from '@core/shared/mocks'
+import { randEncryptedPassword, randId } from '@core/shared/mocks'
 
 import type { VerifyUserSessionInput } from '~/user/usecases/VerifyUserSession'
 import type { AccessTokenPayload } from '~/user/providers/AccessTokenProvider'
@@ -69,9 +69,9 @@ describe('VerifyUserSession', () => {
             accessTokenProvider
         )
 
-        const { id } = randUser()
+        const userId = randId()
 
-        const payload = { userId: id }
+        const payload = { userId }
         const token = accessTokenProvider.create(payload)
 
         const input: VerifyUserSessionInput = { token }
