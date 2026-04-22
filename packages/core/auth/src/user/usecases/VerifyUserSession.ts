@@ -45,9 +45,7 @@ export class VerifyUserSession implements UseCase<
         }
 
         const payload = await this.accessTokenProvider.decode(token)
-        const user = await this.userRepositoryProvider.findByEmail(
-            payload.email
-        )
+        const user = await this.userRepositoryProvider.findById(payload.id)
 
         if (!user) {
             throw new AuthError({
