@@ -6,10 +6,9 @@ import type { RawServerDefault } from 'fastify'
 
 import fp from 'fastify-plugin'
 
-import type { UserPayload } from '@core/auth'
+import type { AccessTokenPayload } from '@core/auth'
 
-import { emailSchema, idSchema } from '@core/shared'
-import { nameSchema } from '@core/cooking'
+import { idSchema } from '@core/shared'
 
 import { serverErrorSchema } from '~/schemas/serverErrorSchema'
 import { httpErrorSchema } from '~/schemas/httpErrorSchema'
@@ -33,11 +32,7 @@ export const verifyUserSessionController = fp<
                 },
                 response: {
                     200: z
-                        .object({
-                            id: idSchema,
-                            name: nameSchema,
-                            email: emailSchema
-                        })
+                        .object({ userId: idSchema })
                         .describe(
                             'A sessão do usuário é válida e o payload foi retornado'
                         ),
@@ -54,9 +49,9 @@ export const verifyUserSessionController = fp<
             const { payload } = request.query
 
             if (payload) {
-                const { id, name, email } = request.tokenPayload as UserPayload
+                const { userId } = request.tokenPayload as AccessTokenPayload
 
-                return reply.status(200).send({ id, name, email })
+                return reply.status(200).send({ userId })
             }
 
             return reply.status(204).send()
