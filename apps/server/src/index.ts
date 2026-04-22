@@ -14,6 +14,7 @@ import {
     LoginUser,
     LogoutUser,
     RegisterUser,
+    UpdateUser,
     VerifyUserSession
 } from '@core/auth'
 
@@ -29,6 +30,7 @@ import { findRecipeController } from './api/controllers/cooking/findRecipeContro
 import { findAllRecipesController } from './api/controllers/cooking/findAllRecipesController'
 import { deleteRecipeController } from './api/controllers/cooking/deleteRecipeController'
 import { verifyUserSessionController } from './api/controllers/auth/verifyUserSessionController'
+import { updateUserController } from './api/controllers/auth/updateUserController'
 import { registerUserController } from './api/controllers/auth/registerUserController'
 import { logoutUserController } from './api/controllers/auth/logoutUserController'
 import { loginUserController } from './api/controllers/auth/loginUserController'
@@ -71,6 +73,11 @@ try {
     )
 
     const deleteUser = new DeleteUser(userRepositoryProvider)
+
+    const updateUser = new UpdateUser(
+        userRepositoryProvider,
+        encryptionProvider
+    )
 
     const registerRecipe = new RegisterRecipe(recipeRepositoryProvider)
     const updateRecipe = new UpdateRecipe(recipeRepositoryProvider)
@@ -121,6 +128,7 @@ try {
         .register(loginUserController, { loginUser })
         .register(logoutUserController, { logoutUser })
         .register(deleteUserController, { deleteUser, logoutUser })
+        .register(updateUserController, { updateUser })
         .register(verifyUserSessionController)
 
     app.register(registerRecipeController, { registerRecipe })
