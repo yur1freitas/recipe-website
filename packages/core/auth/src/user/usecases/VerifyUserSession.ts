@@ -3,8 +3,10 @@ import type { UseCase } from '@core/shared'
 import { AuthError } from '~/shared/errors/AuthError'
 
 import type { UserRepositoryProvider } from '../providers/UserRepositoryProvider'
-import type { AccessTokenProvider } from '../providers/AccessTokenProvider'
-import type { UserPayload } from '../models/UserPayload'
+import type {
+    AccessTokenProvider,
+    AccessTokenPayload
+} from '../providers/AccessTokenProvider'
 
 export interface VerifyUserSessionInput {
     token: string
@@ -12,7 +14,7 @@ export interface VerifyUserSessionInput {
 
 export interface VerifyUserSessionOutput {
     token: string
-    payload: UserPayload
+    payload: AccessTokenPayload
 }
 
 export enum VerifyUserSessionErrors {
@@ -45,7 +47,7 @@ export class VerifyUserSession implements UseCase<
         }
 
         const payload = await this.accessTokenProvider.decode(token)
-        const user = await this.userRepositoryProvider.findById(payload.id)
+        const user = await this.userRepositoryProvider.findById(payload.userId)
 
         if (!user) {
             throw new AuthError({
