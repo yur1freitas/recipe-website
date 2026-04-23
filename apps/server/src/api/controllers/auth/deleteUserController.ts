@@ -6,7 +6,7 @@ import type { RawServerDefault } from 'fastify'
 
 import fp from 'fastify-plugin'
 
-import type { DeleteUser, LogoutUser, UserPayload } from '@core/auth'
+import type { AccessTokenPayload, DeleteUser, LogoutUser } from '@core/auth'
 
 import { AuthError, DeleteUserErrors, LoginUserErrors } from '@core/auth'
 
@@ -46,7 +46,7 @@ export const deleteUserController = fp<
         },
         async (request, reply) => {
             const token = request.token!
-            const { id } = request.tokenPayload as UserPayload
+            const { userId: id } = request.tokenPayload as AccessTokenPayload
 
             const [deleteErr] = await app.to(deleteUser.execute({ id }))
 
