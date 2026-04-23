@@ -104,7 +104,7 @@ export function Home({ children }: DefaultProps) {
                         <Authenticated>
                             <Navbar.Item>
                                 <Link
-                                    href='/account'
+                                    href='/account/profile'
                                     className='btn btn-outline btn-icon'
                                 >
                                     <Icon label='Configuração da Conta'>
