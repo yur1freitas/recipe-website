@@ -1,6 +1,7 @@
 'use server'
 
 import { cookies } from 'next/headers'
+import { updateTag } from 'next/cache'
 
 import type { UpdateUserInput } from '@core/auth'
 
@@ -33,6 +34,8 @@ export async function updateUserAction(
     if (error) {
         return { status: 'failed', error: error.message }
     }
+
+    updateTag('auth:me')
 
     return { status: 'success' }
 }
