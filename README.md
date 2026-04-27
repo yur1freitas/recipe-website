@@ -21,6 +21,10 @@
 
 Um site de receitas de comida que permite os usuários busquem receitas e cadastrarem suas próprias
 
+## Demonstração
+
+https://github.com/user-attachments/assets/673070fb-f72e-4c50-9b3a-c492404131e4
+
 ## Licença
 
 MIT © [yur1freitas](LICENSE)
